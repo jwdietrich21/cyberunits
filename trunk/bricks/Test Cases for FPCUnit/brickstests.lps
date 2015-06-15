@@ -8,7 +8,6 @@
       <Unit0>
         <Filename Value="brickstests.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="brickstests"/>
         <EditorIndex Value="2"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
@@ -18,7 +17,6 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="brickstestcases"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="18" Y="26"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit1>
@@ -27,12 +25,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="bricks"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="49" Y="5"/>
         <UsageCount Value="20"/>
         <Loaded Value="True"/>
       </Unit2>
     </Units>
-    <JumpHistory Count="19" HistoryIndex="18">
+    <JumpHistory Count="20" HistoryIndex="19">
       <Position1>
         <Filename Value="..\bricks.pas"/>
         <Caret Line="14" Column="5"/>
@@ -109,6 +106,10 @@
         <Filename Value="..\bricks.pas"/>
         <Caret Line="32" Column="22" TopLine="14"/>
       </Position19>
+      <Position20>
+        <Filename Value="brickstests.lpr"/>
+        <Caret Line="28"/>
+      </Position20>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>
