@@ -104,6 +104,34 @@ type
     property simOutput: extended read GetOutput;
   end;
 
+  { TPAdd }
+
+  TPAdd = class(TBlock)
+  protected
+    procedure simulate; override;
+    function GetOutput: extended;
+  public
+    input1, input2, G: extended;
+    constructor Create;
+    destructor Destroy; override;
+    property output: extended read Foutput;
+    property simOutput: extended read GetOutput;
+  end;
+
+  { TPSub }
+
+  TPSub = class(TBlock)
+  protected
+    procedure simulate; override;
+    function GetOutput: extended;
+  public
+    input1, input2, G: extended;
+    constructor Create;
+    destructor Destroy; override;
+    property output: extended read Foutput;
+    property simOutput: extended read GetOutput;
+  end;
+
   { TPMul }
 
   TPMul = class(TBlock)
@@ -134,6 +162,58 @@ type
 
 
 implementation
+
+{ TPSub }
+
+procedure TPSub.simulate;
+begin
+  assert(G >= 0, kError101);
+  fOutput := G * (input1 - input2);
+end;
+
+function TPSub.GetOutput: extended;
+begin
+  simulate;
+  result := fOutput;
+end;
+
+constructor TPSub.Create;
+begin
+  inherited Create;
+  G := 1;
+  fOutput := 0;
+end;
+
+destructor TPSub.Destroy;
+begin
+  inherited Destroy;
+end;
+
+{ TPAdd }
+
+procedure TPAdd.simulate;
+begin
+  assert(G >= 0, kError101);
+  fOutput := G * (input1 + input2);
+end;
+
+function TPAdd.GetOutput: extended;
+begin
+  simulate;
+  result := fOutput;
+end;
+
+constructor TPAdd.Create;
+begin
+  inherited Create;
+  G := 1;
+  fOutput := 0;
+end;
+
+destructor TPAdd.Destroy;
+begin
+  inherited Destroy;
+end;
 
 { TPMul }
 

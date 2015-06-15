@@ -63,6 +63,20 @@ type
     procedure Test1;
   end;
 
+{ TPAddTestCases }
+
+  TPAddTestCases = class(TTestCase)
+  published
+    procedure Test1;
+  end;
+
+{ TPSubTestCases }
+
+  TPSubTestCases = class(TTestCase)
+  published
+    procedure Test1;
+  end;
+
 { TPT0TestCases }
 
   TPT0TestCases = class(TTestCase)
@@ -86,6 +100,32 @@ procedure TControlTestCases.PositiveCheck;
 { Positive check, should always succeed }
 begin
   AssertNull('This test is bound to succeed', nil);
+end;
+
+{ TPSubTestCases }
+
+procedure TPSubTestCases.Test1;
+var
+  testBrick: TPSub;
+begin
+  testBrick := TPSub.Create;
+  testBrick.input1 := 107;
+  testBrick.input2 := 11;
+  AssertEquals(96, testBrick.simOutput);
+  testBrick.Destroy;
+end;
+
+{ TPAddTestCases }
+
+procedure TPAddTestCases.Test1;
+var
+  testBrick: TPAdd;
+begin
+  testBrick := TPAdd.Create;
+  testBrick.input1 := 2;
+  testBrick.input2 := 11;
+  AssertEquals(13, testBrick.simOutput);
+  testBrick.Destroy;
 end;
 
 { TPDivTestCases }
@@ -193,6 +233,8 @@ initialization
   RegisterTest(TPTestCases);
   RegisterTest(TPT0TestCases);
   RegisterTest(TPT1TestCases);
+  RegisterTest(TPAddTestCases);
+  RegisterTest(TPSubTestCases);
   RegisterTest(TPMulTestCases);
   RegisterTest(TPDivTestCases);
 end.
