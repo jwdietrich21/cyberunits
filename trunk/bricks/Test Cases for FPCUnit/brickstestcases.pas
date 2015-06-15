@@ -49,6 +49,13 @@ type
     procedure Test1;
   end;
 
+{ TPT0TestCases }
+
+  TPT0TestCases = class(TTestCase)
+  published
+    procedure Test1;
+  end;
+
 { TPT1TestCases }
 
   TPT1TestCases = class(TTestCase)
@@ -65,6 +72,25 @@ procedure TControlTestCases.PositiveCheck;
 { Positive check, should always succeed }
 begin
   AssertNull('This test is bound to succeed', nil);
+end;
+
+{ TPT0TestCases }
+
+procedure TPT0TestCases.Test1;
+const
+  TEST_QUEUE_LENGTH = 7;
+var
+  testBrick: TPT0;
+  i: integer;
+begin
+  testBrick := TPT0.Create;
+  testBrick.nt := TEST_QUEUE_LENGTH;
+  testBrick.input := 2;
+  AssertEquals(0, TestBrick.output);
+  for i := 0 to TEST_QUEUE_LENGTH do
+    TestBrick.simOutput;
+  AssertEquals(2, TestBrick.output);
+  testBrick.Destroy;
 end;
 
 { TPT1TestCases }
@@ -122,6 +148,7 @@ initialization
 
   RegisterTest(TControlTestCases);
   RegisterTest(TPTestCases);
+  RegisterTest(TPT0TestCases);
   RegisterTest(TPT1TestCases);
 end.
 
