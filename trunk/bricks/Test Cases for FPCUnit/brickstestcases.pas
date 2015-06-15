@@ -49,6 +49,20 @@ type
     procedure Test1;
   end;
 
+{ TMulpTestCases }
+
+  TMulpTestCases = class(TTestCase)
+  published
+    procedure Test1;
+  end;
+
+{ TDivpTestCases }
+
+  TDivpTestCases = class(TTestCase)
+  published
+    procedure Test1;
+  end;
+
 { TPT0TestCases }
 
   TPT0TestCases = class(TTestCase)
@@ -74,6 +88,34 @@ begin
   AssertNull('This test is bound to succeed', nil);
 end;
 
+{ TDivpTestCases }
+
+procedure TDivpTestCases.Test1;
+var
+  testBrick: TDivp;
+begin
+  testBrick := TDivp.Create;
+  testBrick.G := 5;
+  testBrick.input1 := 15;
+  testBrick.input2 := 3;
+  AssertEquals(25, testBrick.simOutput);
+  testBrick.Destroy;
+end;
+
+{ TMulpTestCases }
+
+procedure TMulpTestCases.Test1;
+var
+  testBrick: TMulp;
+begin
+  testBrick := TMulp.Create;
+  testBrick.G := 10;
+  testBrick.input1 := 2;
+  testBrick.input2 := 5;
+  AssertEquals(100, testBrick.simOutput);
+  testBrick.Destroy;
+end;
+
 { TPT0TestCases }
 
 procedure TPT0TestCases.Test1;
@@ -85,11 +127,12 @@ var
 begin
   testBrick := TPT0.Create;
   testBrick.nt := TEST_QUEUE_LENGTH;
+  testBrick.G := 10;
   testBrick.input := 2;
   AssertEquals(0, TestBrick.output);
   for i := 0 to TEST_QUEUE_LENGTH do
     TestBrick.simOutput;
-  AssertEquals(2, TestBrick.output);
+  AssertEquals(testBrick.G * 2, TestBrick.output);
   testBrick.Destroy;
 end;
 
@@ -150,5 +193,7 @@ initialization
   RegisterTest(TPTestCases);
   RegisterTest(TPT0TestCases);
   RegisterTest(TPT1TestCases);
+  RegisterTest(TMulpTestCases);
+  RegisterTest(TDivpTestCases);
 end.
 

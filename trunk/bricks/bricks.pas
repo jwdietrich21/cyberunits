@@ -40,6 +40,7 @@ const
   kError102 = 'Runtime error: Parameter(s) out of range';
   kError103 = 'Runtime error: min > max';
   kError104 = 'Runtime error: max = 0';
+  kError105 = 'Runtime error: Denominator is zero';
 
 type
 
@@ -47,12 +48,12 @@ type
 
   TBlock = class
   protected
-    Foutput: real;
+    Foutput: extended;
     procedure simulate; virtual; abstract;
   public
     name: string;
     destructor Destroy; override;
-    property output: real read Foutput;
+    property output: extended read Foutput;
   end;
 
   { TP }
@@ -60,13 +61,13 @@ type
   TP = class(TBlock)
   protected
     procedure simulate; override;
-    function GetOutput: real;
+    function GetOutput: extended;
   public
-    input, G: real;
+    input, G: extended;
     constructor Create;
     destructor Destroy; override;
-    property output: real read Foutput;
-    property simOutput: real read GetOutput;
+    property output: extended read Foutput;
+    property simOutput: extended read GetOutput;
   end;
 
   { TPT0 }
@@ -77,15 +78,15 @@ type
     procedure simulate; override;
     function GetQueueLength: integer;
     procedure SetQueueLength(AValue: integer);
-    function GetOutput: real;
+    function GetOutput: extended;
   public
-    input: real;
-    xt: array of real;
+    input, G: extended;
+    xt: array of extended;
     constructor Create;
     destructor Destroy; override;
-    property output: real read Foutput;
+    property output: extended read Foutput;
     property nt: integer read GetQueueLength write SetQueueLength;
-    property simOutput: real read GetOutput;
+    property simOutput: extended read GetOutput;
   end;
 
   { TPT1 }
@@ -94,16 +95,98 @@ type
   {First order delay element, changed from Neuber 1989}
   protected
     procedure simulate; override;
-    function GetOutput: real;
+    function GetOutput: extended;
   public
-    input, G, t1, x0, delta: real;
+    input, G, t1, x0, delta: extended;
     constructor Create;
     destructor Destroy; override;
-    property output: real read Foutput;
-    property simOutput: real read GetOutput;
+    property output: extended read Foutput;
+    property simOutput: extended read GetOutput;
   end;
 
+  { TMulp }
+
+  TMulp = class(TBlock)
+  protected
+    procedure simulate; override;
+    function GetOutput: extended;
+  public
+    input1, input2, G: extended;
+    constructor Create;
+    destructor Destroy; override;
+    property output: extended read Foutput;
+    property simOutput: extended read GetOutput;
+  end;
+
+  { TDivp }
+
+  TDivp = class(TBlock)
+  protected
+    procedure simulate; override;
+    function GetOutput: extended;
+  public
+    input1, input2, G: extended;
+    constructor Create;
+    destructor Destroy; override;
+    property output: extended read Foutput;
+    property simOutput: extended read GetOutput;
+  end;
+
+
 implementation
+
+{ TMulp }
+
+procedure TMulp.simulate;
+begin
+  assert(G >= 0, kError101);
+  fOutput := G * input1 * input2;
+end;
+
+function TMulp.GetOutput: extended;
+begin
+  simulate;
+  result := fOutput;
+end;
+
+constructor TMulp.Create;
+begin
+  inherited Create;
+  G := 1;
+  fOutput := 0;
+end;
+
+destructor TMulp.Destroy;
+begin
+  inherited Destroy;
+end;
+
+{ TDivp }
+
+procedure TDivp.simulate;
+begin
+  assert(G >= 0, kError101);
+  assert(input2 <> 0, kError105);
+  fOutput := G * input1 / input2;
+end;
+
+function TDivp.GetOutput: extended;
+begin
+  simulate;
+  result := fOutput;
+end;
+
+constructor TDivp.Create;
+begin
+  inherited Create;
+  G := 1;
+  fOutput := 0;
+end;
+
+destructor TDivp.Destroy;
+begin
+  inherited Destroy;
+end;
 
 { TPT0 }
 
@@ -128,12 +211,12 @@ begin
   begin
     for i := nt - 1 downto 1 do
       xt[i] := xt[i - 1];
-    fOutput := xt[nt - 1];
+    fOutput := G * xt[nt - 1];
     xt[0] := input;
   end;
 end;
 
-function TPT0.GetOutput: real;
+function TPT0.GetOutput: extended;
 begin
   simulate;
   result := fOutput;
@@ -142,6 +225,7 @@ end;
 constructor TPT0.Create;
 begin
   inherited Create;
+  G := 1;
   fOutput := 0;
 end;
 
@@ -152,7 +236,7 @@ end;
 
 { TPT1 }
 
-function TPT1.GetOutput: real;
+function TPT1.GetOutput: extended;
 begin
   simulate;
   result := fOutput;
@@ -160,7 +244,7 @@ end;
 
 procedure TPT1.simulate;
 var
-  f: real;
+  f: extended;
 begin
   assert((G >= 0) and (t1 >=0), kError101);
   f := exp(-delta / t1);
@@ -171,6 +255,7 @@ end;
 constructor TPT1.Create;
 begin
   inherited Create;
+  G := 1;
   x0 := 0;
   fOutput := 0;
 end;
@@ -182,7 +267,7 @@ end;
 
   { TP }
 
-function TP.GetOutput: real;
+function TP.GetOutput: extended;
 begin
   simulate;
   result := fOutput;
@@ -197,6 +282,7 @@ end;
 constructor TP.Create;
 begin
   inherited Create;
+  G := 1;
   fOutput := 0;
 end;
 
