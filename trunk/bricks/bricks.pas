@@ -60,14 +60,14 @@ type
 
   TP = class(TBlock)
   protected
-    procedure simulate; override;
-    function GetOutput: extended;
+    function SimAndGetOutput: extended;
   public
     input, G: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
-    property simOutput: extended read GetOutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
   end;
 
   { TPT0 }
@@ -75,10 +75,9 @@ type
   TPT0 = class(TBlock)
   {dead-time element, improved from Neuber 1989}
   protected
-    procedure simulate; override;
     function GetQueueLength: integer;
     procedure SetQueueLength(AValue: integer);
-    function GetOutput: extended;
+    function SimAndGetOutput: extended;
   public
     input, G: extended;
     xt: array of extended;
@@ -86,7 +85,8 @@ type
     destructor Destroy; override;
     property output: extended read Foutput;
     property nt: integer read GetQueueLength write SetQueueLength;
-    property simOutput: extended read GetOutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
   end;
 
   { TPT1 }
@@ -94,70 +94,70 @@ type
   TPT1 = class(TBlock)
   {First order delay element, changed from Neuber 1989}
   protected
-    procedure simulate; override;
-    function GetOutput: extended;
+    function SimAndGetOutput: extended;
   public
     input, G, t1, x0, delta: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
-    property simOutput: extended read GetOutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
   end;
 
   { TPAdd }
 
   TPAdd = class(TBlock)
   protected
-    procedure simulate; override;
-    function GetOutput: extended;
+    function SimAndGetOutput: extended;
   public
     input1, input2, G: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
-    property simOutput: extended read GetOutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
   end;
 
   { TPSub }
 
   TPSub = class(TBlock)
   protected
-    procedure simulate; override;
-    function GetOutput: extended;
+    function SimAndGetOutput: extended;
   public
     input1, input2, G: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
-    property simOutput: extended read GetOutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
   end;
 
   { TPMul }
 
   TPMul = class(TBlock)
   protected
-    procedure simulate; override;
-    function GetOutput: extended;
+    function SimAndGetOutput: extended;
   public
     input1, input2, G: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
-    property simOutput: extended read GetOutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
   end;
 
   { TPDiv }
 
   TPDiv = class(TBlock)
   protected
-    procedure simulate; override;
-    function GetOutput: extended;
+    function SimAndGetOutput: extended;
   public
     input1, input2, G: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
-    property simOutput: extended read GetOutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
   end;
 
 
@@ -171,7 +171,7 @@ begin
   fOutput := G * (input1 - input2);
 end;
 
-function TPSub.GetOutput: extended;
+function TPSub.SimAndGetOutput: extended;
 begin
   simulate;
   result := fOutput;
@@ -197,7 +197,7 @@ begin
   fOutput := G * (input1 + input2);
 end;
 
-function TPAdd.GetOutput: extended;
+function TPAdd.SimAndGetOutput: extended;
 begin
   simulate;
   result := fOutput;
@@ -223,7 +223,7 @@ begin
   fOutput := G * input1 * input2;
 end;
 
-function TPMul.GetOutput: extended;
+function TPMul.SimAndGetOutput: extended;
 begin
   simulate;
   result := fOutput;
@@ -250,7 +250,7 @@ begin
   fOutput := G * input1 / input2;
 end;
 
-function TPDiv.GetOutput: extended;
+function TPDiv.SimAndGetOutput: extended;
 begin
   simulate;
   result := fOutput;
@@ -296,7 +296,7 @@ begin
   end;
 end;
 
-function TPT0.GetOutput: extended;
+function TPT0.SimAndGetOutput: extended;
 begin
   simulate;
   result := fOutput;
@@ -316,7 +316,7 @@ end;
 
 { TPT1 }
 
-function TPT1.GetOutput: extended;
+function TPT1.SimAndGetOutput: extended;
 begin
   simulate;
   result := fOutput;
@@ -347,7 +347,7 @@ end;
 
   { TP }
 
-function TP.GetOutput: extended;
+function TP.SimAndGetOutput: extended;
 begin
   simulate;
   result := fOutput;
