@@ -49,16 +49,16 @@ type
     procedure Test1;
   end;
 
-{ TMulpTestCases }
+{ TPMulTestCases }
 
-  TMulpTestCases = class(TTestCase)
+  TPMulTestCases = class(TTestCase)
   published
     procedure Test1;
   end;
 
-{ TDivpTestCases }
+{ TPDivTestCases }
 
-  TDivpTestCases = class(TTestCase)
+  TPDivTestCases = class(TTestCase)
   published
     procedure Test1;
   end;
@@ -88,13 +88,13 @@ begin
   AssertNull('This test is bound to succeed', nil);
 end;
 
-{ TDivpTestCases }
+{ TPDivTestCases }
 
-procedure TDivpTestCases.Test1;
+procedure TPDivTestCases.Test1;
 var
-  testBrick: TDivp;
+  testBrick: TPDiv;
 begin
-  testBrick := TDivp.Create;
+  testBrick := TPDiv.Create;
   testBrick.G := 5;
   testBrick.input1 := 15;
   testBrick.input2 := 3;
@@ -102,13 +102,13 @@ begin
   testBrick.Destroy;
 end;
 
-{ TMulpTestCases }
+{ TPMulTestCases }
 
-procedure TMulpTestCases.Test1;
+procedure TPMulTestCases.Test1;
 var
-  testBrick: TMulp;
+  testBrick: TPMul;
 begin
-  testBrick := TMulp.Create;
+  testBrick := TPMul.Create;
   testBrick.G := 10;
   testBrick.input1 := 2;
   testBrick.input2 := 5;
@@ -193,7 +193,7 @@ initialization
   RegisterTest(TPTestCases);
   RegisterTest(TPT0TestCases);
   RegisterTest(TPT1TestCases);
-  RegisterTest(TMulpTestCases);
-  RegisterTest(TDivpTestCases);
+  RegisterTest(TPMulTestCases);
+  RegisterTest(TPDivTestCases);
 end.
 
