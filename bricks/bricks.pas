@@ -104,9 +104,9 @@ type
     property simOutput: extended read GetOutput;
   end;
 
-  { TMulp }
+  { TPMul }
 
-  TMulp = class(TBlock)
+  TPMul = class(TBlock)
   protected
     procedure simulate; override;
     function GetOutput: extended;
@@ -118,9 +118,9 @@ type
     property simOutput: extended read GetOutput;
   end;
 
-  { TDivp }
+  { TPDiv }
 
-  TDivp = class(TBlock)
+  TPDiv = class(TBlock)
   protected
     procedure simulate; override;
     function GetOutput: extended;
@@ -135,55 +135,55 @@ type
 
 implementation
 
-{ TMulp }
+{ TPMul }
 
-procedure TMulp.simulate;
+procedure TPMul.simulate;
 begin
   assert(G >= 0, kError101);
   fOutput := G * input1 * input2;
 end;
 
-function TMulp.GetOutput: extended;
+function TPMul.GetOutput: extended;
 begin
   simulate;
   result := fOutput;
 end;
 
-constructor TMulp.Create;
+constructor TPMul.Create;
 begin
   inherited Create;
   G := 1;
   fOutput := 0;
 end;
 
-destructor TMulp.Destroy;
+destructor TPMul.Destroy;
 begin
   inherited Destroy;
 end;
 
-{ TDivp }
+{ TPDiv }
 
-procedure TDivp.simulate;
+procedure TPDiv.simulate;
 begin
   assert(G >= 0, kError101);
   assert(input2 <> 0, kError105);
   fOutput := G * input1 / input2;
 end;
 
-function TDivp.GetOutput: extended;
+function TPDiv.GetOutput: extended;
 begin
   simulate;
   result := fOutput;
 end;
 
-constructor TDivp.Create;
+constructor TPDiv.Create;
 begin
   inherited Create;
   G := 1;
   fOutput := 0;
 end;
 
-destructor TDivp.Destroy;
+destructor TPDiv.Destroy;
 begin
   inherited Destroy;
 end;
