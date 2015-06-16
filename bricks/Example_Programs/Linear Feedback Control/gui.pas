@@ -33,7 +33,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  ComCtrls, StdCtrls, ExtCtrls, Spin, SimulationEngine, Prediction;
+  ComCtrls, StdCtrls, ExtCtrls, Spin, SimulationEngine, Prediction, Plot;
 
 type
 
@@ -82,6 +82,12 @@ begin
   for i := 0 to ValuesGrid.ColCount - 1 do
     for j := 1 to ValuesGrid.RowCount - 1 do
       ValuesGrid.Cells[i, j] := '';
+  PlotForm.xSeries.Clear;
+  PlotForm.zSeries.Clear;
+  PlotForm.ySeries.Clear;
+  PlotForm.eSeries.Clear;
+  PlotForm.ysSeries.Clear;
+  PlotForm.yrSeries.Clear;
   RunSimulation(x, z, G1Edit.Value, G2Edit.Value, iterations);
   PredictionForm.DisplayPrediction(gPrediction);
   if iterations > ValuesGrid.RowCount then
@@ -96,6 +102,7 @@ begin
     ValuesGrid.Cells[5, i + 1] := FloatToStrF(gValues.ys[i], ffFixed, 0, 4);
     ValuesGrid.Cells[6, i + 1] := FloatToStrF(gValues.yr[i], ffFixed, 0, 4);
   end;
+  PlotForm.ShowPlot;
   gValues.Destroy;
 end;
 

@@ -1,5 +1,32 @@
 unit SimulationEngine;
 
+{ CyberUnits }
+
+{ Object Pascal units for computational cybernetics }
+
+{ Demo of a simple simulator for linear feedback systems }
+{ Simulation Engine }
+
+{ Version 1.0 }
+
+{ (c) Johannes W. Dietrich, 1994 - 2015 }
+{ (c) Ludwig Maximilian University of Munich 1995 - 2002 }
+{ (c) University of Ulm Hospitals 2002-2004 }
+{ (c) Ruhr University of Bochum 2005 - 2015 }
+
+{ Standard blocks for systems modelling and simulation }
+
+{ Source code released under the BSD License }
+
+{ See the file "license.txt", included in this distribution, }
+{ for details about the copyright. }
+{ Current versions and additional information are available from }
+{ http://cyberunits.sf.net }
+
+{ This program is distributed in the hope that it will be useful, }
+{ but WITHOUT ANY WARRANTY; without even the implied warranty of }
+{ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. }
+
 {$mode objfpc}{$H+}
 
 interface
@@ -9,14 +36,17 @@ uses
 
 type
 
+  { TValues }
+
   TValues = class
   protected
+    function GetSize: integer;
     procedure SetSize(aValue: integer);
   public
     x, z, e, y, yr, ys: array of extended;
     constructor Create;
     destructor Destroy;
-    property size: integer write SetSize;
+    property size: integer read GetSize write SetSize;
   end;
 
   TBlocks = record
@@ -88,6 +118,11 @@ begin
 end;
 
 { TValues }
+
+function TValues.GetSize: integer;
+begin
+  result := Length(x);
+end;
 
 procedure TValues.SetSize(aValue: integer);
 begin

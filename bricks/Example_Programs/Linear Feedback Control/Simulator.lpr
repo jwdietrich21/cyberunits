@@ -34,7 +34,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, GUI, SimulationEngine, IPS, bricks, Plot, prediction
+  Forms, tachartlazaruspkg, GUI, SimulationEngine, IPS, bricks, Plot, prediction
   { you can add units after this };
 
 {$R *.res}

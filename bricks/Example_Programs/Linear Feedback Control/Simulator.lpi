@@ -18,7 +18,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="17"/>
+      <BuildNr Value="23"/>
       <Attributes pvaDebug="True" pvaPreRelease="True" pvaSpecialBuild="True"/>
       <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" InternalName="Linear feedback demo" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductVersion="1.0" SpecialBuild="Demonstration project"/>
     </VersionInfo>
@@ -33,10 +33,13 @@
         <FormatVersion Value="1"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="1">
+    <RequiredPackages Count="2">
       <Item1>
-        <PackageName Value="LCL"/>
+        <PackageName Value="TAChartLazarusPkg"/>
       </Item1>
+      <Item2>
+        <PackageName Value="LCL"/>
+      </Item2>
     </RequiredPackages>
     <Units Count="7">
       <Unit0>
