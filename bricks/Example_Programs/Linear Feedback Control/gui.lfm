@@ -163,6 +163,6 @@ object ValuesForm: TValuesForm
     MaxValue = 100
     MinValue = 0
     TabOrder = 7
-    Value = 0.1
+    Value = 0.5
   end
 end

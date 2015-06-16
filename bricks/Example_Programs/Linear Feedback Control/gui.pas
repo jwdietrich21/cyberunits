@@ -33,7 +33,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  ComCtrls, StdCtrls, ExtCtrls, Spin, SimulationEngine;
+  ComCtrls, StdCtrls, ExtCtrls, Spin, SimulationEngine, Prediction;
 
 type
 
@@ -83,17 +83,18 @@ begin
     for j := 1 to ValuesGrid.RowCount - 1 do
       ValuesGrid.Cells[i, j] := '';
   RunSimulation(x, z, G1Edit.Value, G2Edit.Value, iterations);
+  PredictionForm.DisplayPrediction(gPrediction);
   if iterations > ValuesGrid.RowCount then
     ValuesGrid.RowCount := iterations + 1;
   for i := 0 to iterations - 1 do
   begin
     ValuesGrid.Cells[0, i + 1] := IntToStr(i + 1);
-    ValuesGrid.Cells[1, i + 1] := FloatToStr(gValues.x[i]);
-    ValuesGrid.Cells[2, i + 1] := FloatToStr(gValues.z[i]);
-    ValuesGrid.Cells[3, i + 1] := FloatToStr(gValues.e[i]);
-    ValuesGrid.Cells[4, i + 1] := FloatToStr(gValues.y[i]);
-    ValuesGrid.Cells[5, i + 1] := FloatToStr(gValues.ys[i]);
-    ValuesGrid.Cells[6, i + 1] := FloatToStr(gValues.yr[i]);
+    ValuesGrid.Cells[1, i + 1] := FloatToStrF(gValues.x[i], ffFixed, 0, 4);
+    ValuesGrid.Cells[2, i + 1] := FloatToStrF(gValues.z[i], ffFixed, 0, 4);
+    ValuesGrid.Cells[3, i + 1] := FloatToStrF(gValues.e[i], ffFixed, 0, 4);
+    ValuesGrid.Cells[4, i + 1] := FloatToStrF(gValues.y[i], ffFixed, 0, 4);
+    ValuesGrid.Cells[5, i + 1] := FloatToStrF(gValues.ys[i], ffFixed, 0, 4);
+    ValuesGrid.Cells[6, i + 1] := FloatToStrF(gValues.yr[i], ffFixed, 0, 4);
   end;
   gValues.Destroy;
 end;

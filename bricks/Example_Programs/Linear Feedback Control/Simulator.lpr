@@ -34,7 +34,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, GUI, SimulationEngine, IPS, bricks
+  Forms, GUI, SimulationEngine, IPS, bricks, Plot, prediction
   { you can add units after this };
 
 {$R *.res}
@@ -44,6 +44,8 @@ begin
   Application.Initialize;
   Application.CreateForm(TValuesForm, ValuesForm);
   Application.CreateForm(TIPSForm, IPSForm);
+  Application.CreateForm(TPlotForm, PlotForm);
+  Application.CreateForm(TPredictionForm, PredictionForm);
   Application.Run;
 end.
 

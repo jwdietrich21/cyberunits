@@ -25,9 +25,14 @@ type
     LoadInjection: TPAdd;
   end;
 
+  TPrediction = record
+    x, z, e, y, yr, ys: extended;
+  end;
+
 var
   gValues: TValues;
   gBlocks: TBlocks;
+  gPrediction: TPrediction;
 
 procedure RunSimulation(x, z, G1, G2: extended; nmax: integer);
 
@@ -40,6 +45,12 @@ var
 begin
   if nmax > 0 then
   begin
+    gPrediction.x := x;
+    gPrediction.z := z;
+    gPrediction.y := (G1 * x + z) / (1 + G1 * G2);
+    gPrediction.yr := G2 * gPrediction.y;
+    gPrediction.e := gPrediction.x - gPrediction.yr;
+    gPrediction.ys := G1 * gPrediction.e;
     gValues.size := 0; // delete content
     gValues.size := nmax;
     gBlocks.G1 := TP.Create;
@@ -48,7 +59,7 @@ begin
     gBlocks.LoadInjection := TPAdd.Create;
     gBlocks.G1.G := G1;
     gBlocks.G2.G := G2;
-    yr := 2;
+    yr := 20;
     for i := 0 to nmax - 1 do
     begin
       gBlocks.Comparator.input1 := x;
