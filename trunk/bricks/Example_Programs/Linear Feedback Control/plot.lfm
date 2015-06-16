@@ -1,0 +1,8 @@
+object PlotForm: TPlotForm
+  Left = 393
+  Height = 342
+  Top = 479
+  Width = 554
+  Caption = 'Plot'
+  LCLVersion = '1.4.0.4'
+end
