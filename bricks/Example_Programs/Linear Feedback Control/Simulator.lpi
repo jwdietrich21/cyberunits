@@ -18,7 +18,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="9"/>
+      <BuildNr Value="13"/>
       <Attributes pvaDebug="True" pvaPreRelease="True" pvaSpecialBuild="True"/>
       <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" InternalName="Linear feedback demo" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductVersion="1.0" SpecialBuild="Demonstration project"/>
     </VersionInfo>
@@ -42,12 +42,12 @@
       <Unit0>
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="Simulator"/>
       </Unit0>
       <Unit1>
         <Filename Value="gui.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="ValuesForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
       </Unit1>
@@ -60,6 +60,7 @@
         <Filename Value="ips.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="IPSForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="IPS"/>
       </Unit3>

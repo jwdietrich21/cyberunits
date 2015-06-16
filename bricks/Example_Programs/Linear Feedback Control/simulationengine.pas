@@ -9,8 +9,6 @@ uses
 
 type
 
-  { TValues }
-
   TValues = class
   protected
     procedure SetSize(aValue: integer);
@@ -21,29 +19,61 @@ type
     property size: integer write SetSize;
   end;
 
+  TBlocks = record
+    G1, G2: TP;
+    Comparator: TPSub;
+    LoadInjection: TPAdd;
+  end;
+
 var
   gValues: TValues;
+  gBlocks: TBlocks;
 
-procedure RunSimulation(x, z: extended; nmax: integer);
+procedure RunSimulation(x, z, G1, G2: extended; nmax: integer);
 
 implementation
 
-procedure RunSimulation(x, z: extended; nmax: integer);
+procedure RunSimulation(x, z, G1, G2: extended; nmax: integer);
 var
   e, y, yr, ys: extended;
   i: integer;
 begin
   if nmax > 0 then
+  begin
+    gValues.size := 0; // delete content
+    gValues.size := nmax;
+    gBlocks.G1 := TP.Create;
+    gBlocks.G2 := TP.Create;
+    gBlocks.Comparator := TPSub.Create;
+    gBlocks.LoadInjection := TPAdd.Create;
+    gBlocks.G1.G := G1;
+    gBlocks.G2.G := G2;
+    yr := 2;
     for i := 0 to nmax - 1 do
     begin
+      gBlocks.Comparator.input1 := x;
+      gBlocks.Comparator.input2 := yr;
+      e := gBlocks.Comparator.simOutput;
+      gBlocks.G1.input := e;
+      ys := gBlocks.G1.simOutput;
+      gBlocks.LoadInjection.input1 := ys;
+      gBlocks.LoadInjection.input2 := z;
+      y := gBlocks.LoadInjection.simOutput;
+      gBlocks.G2.input := y;
+      yr := gBlocks.G2.simOutput;
       gValues.x[i] := x;
       gValues.z[i] := z;
-      gValues.y[i] := y;
       gValues.e[i] := e;
+      gValues.y[i] := y;
       gValues.yr[i] := yr;
       gValues.ys[i] := ys;
       application.ProcessMessages;
     end;
+    gBlocks.G1.Destroy;
+    gBlocks.G2.Destroy;
+    gBlocks.Comparator.Destroy;
+    gBlocks.LoadInjection.Destroy;
+  end;
 end;
 
 { TValues }
