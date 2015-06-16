@@ -49,10 +49,10 @@ type
   TBlock = class
   protected
     Foutput: extended;
-    procedure simulate; virtual; abstract;
   public
     name: string;
     destructor Destroy; override;
+    procedure simulate; virtual; abstract;
     property output: extended read Foutput;
   end;
 
@@ -97,6 +97,21 @@ type
     function SimAndGetOutput: extended;
   public
     input, G, t1, x0, delta: extended;
+    constructor Create;
+    destructor Destroy; override;
+    property output: extended read Foutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
+  end;
+
+  { TInt }
+
+  TInt = class(TBlock)
+  {Integrator element, changed from Neuber 1989}
+  protected
+    function SimAndGetOutput: extended;
+  public
+    input, G, delta: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -162,6 +177,32 @@ type
 
 
 implementation
+
+{ TInt }
+
+function TInt.SimAndGetOutput: extended;
+begin
+  simulate;
+  result := fOutput;
+end;
+
+constructor TInt.Create;
+begin
+  inherited Create;
+  G := 1;
+  fOutput := 0;
+end;
+
+destructor TInt.Destroy;
+begin
+  inherited Destroy;
+end;
+
+procedure TInt.simulate;
+begin
+  assert(G >= 0, kError101);
+  fOutput := fOutput + G * delta * input;
+end;
 
 { TPSub }
 

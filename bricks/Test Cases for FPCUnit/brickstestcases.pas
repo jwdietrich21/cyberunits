@@ -92,6 +92,14 @@ type
     procedure Test2;
   end;
 
+{ TIntTestCases }
+
+  TIntTestCases = class(TTestCase)
+  published
+    procedure Test1;
+    procedure Test2;
+  end;
+
 implementation
 
 { TControlTestCases }
@@ -100,6 +108,34 @@ procedure TControlTestCases.PositiveCheck;
 { Positive check, should always succeed }
 begin
   AssertNull('This test is bound to succeed', nil);
+end;
+
+{ TIntTestCases }
+
+procedure TIntTestCases.Test1;
+var
+  testBrick: TInt;
+begin
+  testBrick := TInt.Create;
+  testBrick.input := 10;
+  testBrick.delta := 10;
+  testBrick.simulate;
+  AssertEquals(100, testBrick.output);
+  testBrick.Destroy;
+end;
+
+procedure TIntTestCases.Test2;
+var
+  testBrick: TInt;
+begin
+  testBrick := TInt.Create;
+  testBrick.input := 10;
+  testBrick.delta := 50;
+  testBrick.simulate;
+  testBrick.simulate;
+  testBrick.simulate;
+  AssertEquals(1500, testBrick.output);
+  testBrick.Destroy;
 end;
 
 { TPSubTestCases }
@@ -237,5 +273,6 @@ initialization
   RegisterTest(TPSubTestCases);
   RegisterTest(TPMulTestCases);
   RegisterTest(TPDivTestCases);
+  RegisterTest(TIntTestCases);
 end.
 
