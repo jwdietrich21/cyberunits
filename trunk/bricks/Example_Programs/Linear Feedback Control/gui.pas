@@ -41,6 +41,8 @@ type
 
   TValuesForm = class(TForm)
     IterationsSpinEdit: TSpinEdit;
+    G1Label: TLabel;
+    G1Edit: TFloatSpinEdit;
     zLabel: TLabel;
     xLabel: TLabel;
     xSpinEdit: TFloatSpinEdit;
@@ -48,7 +50,9 @@ type
     ValuesGrid: TStringGrid;
     ToolBar1: TToolBar;
     IterationsLabel: TLabel;
+    G2Label: TLabel;
     zSpinEdit: TFloatSpinEdit;
+    G2Edit: TFloatSpinEdit;
     procedure StartButtonClick(Sender: TObject);
   private
     { private declarations }
@@ -78,16 +82,18 @@ begin
   for i := 0 to ValuesGrid.ColCount - 1 do
     for j := 1 to ValuesGrid.RowCount - 1 do
       ValuesGrid.Cells[i, j] := '';
-  gValues.size := 0 ; // delete content
-  gValues.size := iterations;
-  RunSimulation(x, z, iterations);
+  RunSimulation(x, z, G1Edit.Value, G2Edit.Value, iterations);
   if iterations > ValuesGrid.RowCount then
     ValuesGrid.RowCount := iterations + 1;
   for i := 0 to iterations - 1 do
   begin
     ValuesGrid.Cells[0, i + 1] := IntToStr(i + 1);
-    ValuesGrid.Cells[1, i + 1] := FloatToStr(x);
-    ValuesGrid.Cells[2, i + 1] := FloatToStr(z);
+    ValuesGrid.Cells[1, i + 1] := FloatToStr(gValues.x[i]);
+    ValuesGrid.Cells[2, i + 1] := FloatToStr(gValues.z[i]);
+    ValuesGrid.Cells[3, i + 1] := FloatToStr(gValues.e[i]);
+    ValuesGrid.Cells[4, i + 1] := FloatToStr(gValues.y[i]);
+    ValuesGrid.Cells[5, i + 1] := FloatToStr(gValues.ys[i]);
+    ValuesGrid.Cells[6, i + 1] := FloatToStr(gValues.yr[i]);
   end;
   gValues.Destroy;
 end;

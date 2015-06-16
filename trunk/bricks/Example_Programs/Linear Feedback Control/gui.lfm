@@ -9,7 +9,7 @@ object ValuesForm: TValuesForm
   LCLVersion = '1.4.0.4'
   object ValuesGrid: TStringGrid
     Left = 0
-    Height = 373
+    Height = 336
     Top = 40
     Width = 714
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -18,39 +18,39 @@ object ValuesForm: TValuesForm
     Columns = <    
       item
         Title.Caption = 'x(t)'
-        Width = 104
+        Width = 105
       end    
       item
         Title.Caption = 'z(t)'
-        Width = 104
+        Width = 105
       end    
       item
         Title.Caption = 'e(t)'
-        Width = 104
+        Width = 105
       end    
       item
         Title.Caption = 'y(t)'
-        Width = 104
+        Width = 105
       end    
       item
         Title.Caption = 'yS(t)'
-        Width = 104
+        Width = 105
       end    
       item
         Title.Caption = 'yR(t)'
-        Width = 109
+        Width = 110
       end>
     MouseWheelOption = mwGrid
     RowCount = 26
     TabOrder = 0
     ColWidths = (
       64
-      104
-      104
-      104
-      104
-      104
-      109
+      105
+      105
+      105
+      105
+      105
+      110
     )
   end
   object ToolBar1: TToolBar
@@ -62,9 +62,9 @@ object ValuesForm: TValuesForm
     TabOrder = 1
   end
   object StartButton: TButton
-    Left = 616
+    Left = 608
     Height = 25
-    Top = 432
+    Top = 424
     Width = 75
     Anchors = [akTop, akRight]
     Caption = 'Run'
@@ -73,8 +73,8 @@ object ValuesForm: TValuesForm
     TabOrder = 2
   end
   object xSpinEdit: TFloatSpinEdit
-    Left = 64
-    Height = 21
+    Left = 48
+    Height = 16
     Top = 432
     Width = 98
     Increment = 0.2
@@ -84,8 +84,8 @@ object ValuesForm: TValuesForm
     Value = 5
   end
   object zSpinEdit: TFloatSpinEdit
-    Left = 208
-    Height = 21
+    Left = 200
+    Height = 16
     Top = 432
     Width = 98
     Increment = 0.2
@@ -95,36 +95,74 @@ object ValuesForm: TValuesForm
     Value = 2
   end
   object xLabel: TLabel
-    Left = 48
-    Height = 13
-    Top = 440
-    Width = 5
+    Left = 24
+    Height = 16
+    Top = 432
+    Width = 8
     Caption = 'x'
     ParentColor = False
   end
   object zLabel: TLabel
-    Left = 192
-    Height = 13
-    Top = 438
-    Width = 5
+    Left = 176
+    Height = 16
+    Top = 432
+    Width = 7
     Caption = 'z'
     ParentColor = False
   end
   object IterationsLabel: TLabel
-    Left = 352
-    Height = 13
-    Top = 440
-    Width = 43
+    Left = 328
+    Height = 16
+    Top = 432
+    Width = 60
     Caption = 'Iterations'
     ParentColor = False
   end
   object IterationsSpinEdit: TSpinEdit
     Left = 408
-    Height = 21
+    Height = 16
     Top = 432
     Width = 98
     MaxValue = 1000
     TabOrder = 5
     Value = 10
+  end
+  object G1Label: TLabel
+    Left = 24
+    Height = 16
+    Top = 392
+    Width = 18
+    Caption = 'G1'
+    ParentColor = False
+  end
+  object G1Edit: TFloatSpinEdit
+    Left = 48
+    Height = 16
+    Top = 392
+    Width = 98
+    Increment = 0.1
+    MaxValue = 100
+    MinValue = 0
+    TabOrder = 6
+    Value = 0.1
+  end
+  object G2Label: TLabel
+    Left = 176
+    Height = 16
+    Top = 392
+    Width = 18
+    Caption = 'G2'
+    ParentColor = False
+  end
+  object G2Edit: TFloatSpinEdit
+    Left = 200
+    Height = 16
+    Top = 392
+    Width = 98
+    Increment = 0.1
+    MaxValue = 100
+    MinValue = 0
+    TabOrder = 7
+    Value = 0.1
   end
 end
