@@ -1,7 +1,7 @@
 object PlotForm: TPlotForm
-  Left = 567
+  Left = 609
   Height = 342
-  Top = 599
+  Top = 601
   Width = 554
   Caption = 'Plot'
   ClientHeight = 342
@@ -41,37 +41,31 @@ object PlotForm: TPlotForm
       Title = 'x'
       LinePen.Color = clNavy
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object zSeries: TLineSeries
       Title = 'z'
       LinePen.Color = clPurple
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object ySeries: TLineSeries
       Title = 'y'
       LinePen.Color = clGreen
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object eSeries: TLineSeries
       Title = 'e'
       LinePen.Color = clRed
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object ysSeries: TLineSeries
       Title = 'ys'
       LinePen.Color = clLime
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object yrSeries: TLineSeries
       Title = 'yr'
       LinePen.Color = clAqua
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
   end
   object ChartLegendPanel1: TChartLegendPanel

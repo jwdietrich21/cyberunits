@@ -62,6 +62,11 @@ type
     QuitMenuItem: TMenuItem;
     RedoMenuItem: TMenuItem;
     SaveMenuItem: TMenuItem;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
     UndoMenuItem: TMenuItem;
     WinAboutItem: TMenuItem;
     zLabel: TLabel;
@@ -74,7 +79,7 @@ type
     G2Label: TLabel;
     zSpinEdit: TFloatSpinEdit;
     G2Edit: TFloatSpinEdit;
-    procedure FileMenuClick(Sender: TObject);
+    procedure CloseMenuItemClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure MacAboutItemClick(Sender: TObject);
     procedure QuitMenuItemClick(Sender: TObject);
@@ -177,17 +182,17 @@ end;
 
 procedure TValuesForm.QuitMenuItemClick(Sender: TObject);
 begin
-
-end;
-
-procedure TValuesForm.FileMenuClick(Sender: TObject);
-begin
-
+  application.Terminate;
 end;
 
 procedure TValuesForm.FormCreate(Sender: TObject);
 begin
   AdaptMenus;
+end;
+
+procedure TValuesForm.CloseMenuItemClick(Sender: TObject);
+begin
+  application.Terminate;
 end;
 
 end.
