@@ -6,7 +6,7 @@ unit bricks;
 
 { bricks test cases }
 
-{ Version 0.1 }
+{ Version 1.0 }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
@@ -96,7 +96,22 @@ type
   protected
     function SimAndGetOutput: extended;
   public
-    input, G, t1, x0, delta: extended;
+    input, G, t1, x1, delta: extended;
+    constructor Create;
+    destructor Destroy; override;
+    property output: extended read Foutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
+  end;
+
+  { TPT2 }
+
+  TPT2 = class(TBlock)
+  {Second order delay element, changed from Neuber 1989}
+  protected
+    function SimAndGetOutput: extended;
+  public
+    input, G, t2, dmp, x1, x2, delta: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -369,21 +384,95 @@ var
 begin
   assert((G >= 0) and (t1 >=0), kError101);
   f := exp(-delta / t1);
-  fOutput := f * x0 + G * (1 - f) * input;
-  x0 := fOutput;
+  fOutput := f * x1 + G * (1 - f) * input;
+  x1 := fOutput;
 end;
 
 constructor TPT1.Create;
 begin
   inherited Create;
   G := 1;
-  x0 := 0;
+  x1 := 0;
   fOutput := 0;
 end;
 
 destructor TPT1.Destroy;
 begin
   inherited Destroy;
+end;
+
+{ TPT2 }
+
+function TPT2.SimAndGetOutput: extended;
+begin
+  simulate;
+  result := fOutput;
+end;
+
+constructor TPT2.Create;
+begin
+  inherited Create;
+  G := 1;
+  x1 := 0;
+  x2 := 0;
+  fOutput := 0;
+end;
+
+destructor TPT2.Destroy;
+begin
+  inherited Destroy;
+end;
+
+procedure TPT2.simulate;
+var
+  a, b, c, d, e, f, h, o, k, omg: extended;
+  xn1, xn2, x1n, x2n, tau1, tau2: extended;
+begin
+  if dmp < 1 then
+    begin
+      omg := 1 / t2;
+      a := exp(-delta * delta * omg);
+      b := sqrt(1 - dmp * dmp) * omg;
+      c := arctan(dmp * omg / b);
+      d := omg * omg;
+      e := d * omg / b * a * cos(b * delta + c);
+      f := d / b * a * sin(b * delta);
+      k := f * 2 * dmp / omg;
+      xn1 := x1 * e / d - x2 * f + f * g * input;
+      xn2 := x1 * f / d + x2 * e / d + x2 * k - (e / d - 1 + k) * G * input;
+      x1 := xn1;
+      x2 := xn2;
+      fOutput := x2;
+    end
+  else if dmp = 1 then
+    begin
+      a := exp(-delta / t2);
+      x1n := a * x1 + G * (1 - a) * input;
+      x2n := a * x2 + (1 - a) * x1n;
+      x1 := x1n;
+      x2 := x2n;
+      fOutput := x2;
+    end
+  else
+    begin
+      omg := 1 / t2;
+      a := sqrt(dmp * dmp - 1);
+      tau1 := (dmp + a) / omg;
+      tau2 := (dmp - a) / omg;
+      b := exp(-delta / tau1);
+      c := exp(-delta / tau2);
+      d := b - c;
+      e := tau1 - tau2;
+      f := x2 - G * input;
+      k := 2 * dmp * omg;
+      h := tau1 * c - tau2 * b;
+      o := omg * omg;
+      xn1 := (h * x1 - d * f) / e;
+      xn2 := (d * (x1 + g * f) + h * f * o) / (o * e) + G * input;
+      x1 := xn1;
+      x2 := xn2;
+      fOutput := x2;
+    end;
 end;
 
   { TP }

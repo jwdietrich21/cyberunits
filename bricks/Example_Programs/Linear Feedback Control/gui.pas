@@ -4,7 +4,7 @@ unit GUI;
 
 { Object Pascal units for computational cybernetics }
 
-{ Demo of a simple simulator for linear feedback systems }
+{ Demo of a simple simulator for a linear 0th order feedback system }
 { GUI }
 
 { Version 1.0 }
@@ -172,7 +172,7 @@ end;
 
 procedure TValuesForm.ShowAboutWindow(Sender: TObject);
 begin
-  ShowMessage('Linear Feedback Control, a demonstration program for CyberUnits Bricks');
+  ShowMessage('Linear 0th order Feedback Control, a demonstration program for CyberUnits Bricks');
 end;
 
 procedure TValuesForm.MacAboutItemClick(Sender: TObject);
@@ -196,4 +196,4 @@ begin
 end;
 
 end.
-
+

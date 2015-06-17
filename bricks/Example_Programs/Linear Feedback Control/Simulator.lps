@@ -8,9 +8,10 @@
       <Unit0>
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="26" Y="35"/>
+        <CursorPos X="13" Y="2"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -21,11 +22,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <TopLine Value="137"/>
-        <CursorPos X="71" Y="168"/>
+        <CursorPos X="8" Y="2"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -35,7 +34,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="SimulationEngine"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="3" Y="144"/>
+        <CursorPos X="4" Y="2"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -48,7 +47,7 @@
         <UnitName Value="IPS"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="2" Y="2"/>
+        <CursorPos X="11" Y="2"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -70,7 +69,7 @@
         <UnitName Value="Plot"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="10" Y="2"/>
+        <CursorPos X="4" Y="2"/>
         <UsageCount Value="24"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -84,7 +83,7 @@
         <UnitName Value="Prediction"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="4" Y="2"/>
+        <CursorPos X="10" Y="2"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>

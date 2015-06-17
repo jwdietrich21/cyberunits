@@ -4,7 +4,7 @@ unit IPS;
 
 { Object Pascal units for computational cybernetics }
 
-{ Demo of a simple simulator for linear feedback systems }
+{ Demo of a simple simulator for a linear 0th order feedback system }
 { Information Processing Structure }
 
 { Version 1.0 }
