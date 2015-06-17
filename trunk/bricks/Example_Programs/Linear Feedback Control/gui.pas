@@ -146,8 +146,8 @@ var
 begin
   {$IFDEF LCLcarbon}
   modifierKey := [ssMeta];
-  MainForm.WinAboutItem.Visible := False;
-  MainForm.AppleMenu.Visible := True;
+  ValuesForm.WinAboutItem.Visible := False;
+  ValuesForm.AppleMenu.Visible := True;
   {$ELSE}
   modifierKey := [ssCtrl];
   ValuesForm.WinAboutItem.Visible := True;
@@ -196,4 +196,4 @@ begin
 end;
 
 end.
-
+
