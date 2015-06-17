@@ -1,7 +1,7 @@
 object ValuesForm: TValuesForm
-  Left = 258
+  Left = 104
   Height = 503
-  Top = 121
+  Top = 116
   Width = 643
   Caption = 'Linear feedback control: Demo of a simple simulator'
   ClientHeight = 483
@@ -63,7 +63,44 @@ object ValuesForm: TValuesForm
     Top = 0
     Width = 643
     Caption = 'ToolBar1'
+    Images = ImageList1
     TabOrder = 1
+    object ToolButton1: TToolButton
+      Left = 1
+      Top = 2
+      Caption = 'ToolButton1'
+      Enabled = False
+      ImageIndex = 0
+    end
+    object ToolButton2: TToolButton
+      Left = 34
+      Top = 2
+      Caption = 'ToolButton2'
+      Enabled = False
+      ImageIndex = 1
+    end
+    object ToolButton3: TToolButton
+      Left = 57
+      Top = 2
+      Caption = 'ToolButton3'
+      Enabled = False
+      ImageIndex = 2
+    end
+    object ToolButton4: TToolButton
+      Left = 80
+      Top = 2
+      Caption = 'ToolButton4'
+      Enabled = False
+      ImageIndex = 3
+    end
+    object ToolButton5: TToolButton
+      Left = 24
+      Height = 22
+      Top = 2
+      Width = 10
+      Caption = 'ToolButton5'
+      Style = tbsSeparator
+    end
   end
   object StartButton: TButton
     Left = 540
@@ -326,7 +363,6 @@ object ValuesForm: TValuesForm
     end
     object FileMenu: TMenuItem
       Caption = 'File'
-      OnClick = FileMenuClick
       object NewMenuItem: TMenuItem
         Caption = 'New'
         Enabled = False
@@ -348,6 +384,7 @@ object ValuesForm: TValuesForm
       object CloseMenuItem: TMenuItem
         Caption = 'Close'
         ShortCut = 16471
+        OnClick = CloseMenuItemClick
       end
       object Divider12: TMenuItem
         Caption = '-'
