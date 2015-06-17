@@ -6,7 +6,7 @@ program brickstests;
 
 { bricks test cases }
 
-{ Version 0.1 }
+{ Version 1.0 }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }

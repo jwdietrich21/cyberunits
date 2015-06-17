@@ -18,8 +18,8 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="29"/>
-      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" InternalName="Linear feedback demo" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="1.0" SpecialBuild="Demonstration project"/>
+      <BuildNr Value="30"/>
+      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" InternalName="Linear 0th order feedback demo" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="1.0" SpecialBuild="Demonstration project"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>

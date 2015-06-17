@@ -29,7 +29,7 @@ object PredictionForm: TPredictionForm
     )
     ColWidths = (
       64
-      270
+      266
     )
   end
 end

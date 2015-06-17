@@ -6,7 +6,7 @@ unit brickstestcases;
 
 { bricks test cases }
 
-{ Version 0.1 }
+{ Version 1.0 }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
@@ -90,6 +90,15 @@ type
   published
     procedure Test1;
     procedure Test2;
+  end;
+
+{ TPT1TestCases }
+
+  { TPT2TestCases }
+
+  TPT2TestCases = class(TTestCase)
+  published
+    procedure Test1;
   end;
 
 { TIntTestCases }
@@ -250,6 +259,27 @@ begin
   testBrick.Destroy;
 end;
 
+{ TPT2TestCases }
+
+procedure TPT2TestCases.Test1;
+var
+  testBrick: TPT2;
+  temp: real;
+  i: integer;
+begin
+  testBrick := TPT2.Create;
+  testBrick.G := 5;
+  testBrick.delta := 0.1;
+  testBrick.t2 := 0.159;
+  testBrick.dmp := 0.25;
+  testBrick.input := 2;
+  AssertEquals(0, TestBrick.output);
+  for i := 1 to 500 do
+    temp := TestBrick.simOutput;
+  AssertEquals(testBrick.G * testBrick.input, TestBrick.output);
+  testBrick.Destroy;
+end;
+
 { TPTestCases }
 
 procedure TPTestCases.Test1;
@@ -269,6 +299,7 @@ initialization
   RegisterTest(TPTestCases);
   RegisterTest(TPT0TestCases);
   RegisterTest(TPT1TestCases);
+  RegisterTest(TPT2TestCases);
   RegisterTest(TPAddTestCases);
   RegisterTest(TPSubTestCases);
   RegisterTest(TPMulTestCases);
