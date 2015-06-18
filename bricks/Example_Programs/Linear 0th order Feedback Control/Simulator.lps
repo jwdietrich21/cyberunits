@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="9">
+      <Unit0>
+        <Filename Value="Simulator.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="5"/>
+        <WindowIndex Value="1"/>
+        <CursorPos X="69" Y="25"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="gui.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ValuesForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="GUI"/>
+        <EditorIndex Value="3"/>
+        <WindowIndex Value="1"/>
+        <CursorPos X="8" Y="2"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="simulationengine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="SimulationEngine"/>
+        <WindowIndex Value="1"/>
+        <CursorPos X="4" Y="2"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="ips.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="IPSForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="IPS"/>
+        <EditorIndex Value="4"/>
+        <WindowIndex Value="1"/>
+        <CursorPos X="11" Y="2"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\..\bricks.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="bricks"/>
+        <IsVisibleTab Value="True"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="plot.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PlotForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Plot"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="1"/>
+        <CursorPos X="4" Y="2"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="prediction.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="PredictionForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Prediction"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="1"/>
+        <CursorPos X="10" Y="2"/>
+        <UsageCount Value="23"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\lazarus\lcl\grids.pas"/>
+        <TopLine Value="9124"/>
+        <CursorPos Y="9142"/>
+        <UsageCount Value="10"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="..\..\..\..\..\..\..\..\..\Developer\lazarus 1.4\components\tachart\tacustomseries.pas"/>
+        <TopLine Value="792"/>
+        <CursorPos Y="809"/>
+        <UsageCount Value="10"/>
+      </Unit8>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="1"/>
+    </General>
+    <JumpHistory Count="23" HistoryIndex="22">
+      <Position1>
+        <Filename Value="gui.pas"/>
+        <Caret Line="89" Column="63" TopLine="66"/>
+      </Position1>
+      <Position2>
+        <Filename Value="simulationengine.pas"/>
+        <Caret Line="46" Column="12" TopLine="22"/>
+      </Position2>
+      <Position3>
+        <Filename Value="simulationengine.pas"/>
+        <Caret Line="25" Column="21" TopLine="8"/>
+      </Position3>
+      <Position4>
+        <Filename Value="simulationengine.pas"/>
+        <Caret Line="30" Column="20" TopLine="13"/>
+      </Position4>
+      <Position5>
+        <Filename Value="simulationengine.pas"/>
+        <Caret Line="23" Column="15" TopLine="12"/>
+      </Position5>
+      <Position6>
+        <Filename Value="prediction.pas"/>
+        <Caret Line="33" Column="46" TopLine="2"/>
+      </Position6>
+      <Position7>
+        <Filename Value="plot.pas"/>
+        <Caret Line="27" Column="23" TopLine="4"/>
+      </Position7>
+      <Position8>
+        <Filename Value="plot.pas"/>
+        <Caret Line="37" Column="34" TopLine="11"/>
+      </Position8>
+      <Position9>
+        <Filename Value="plot.pas"/>
+        <Caret Line="43" Column="10" TopLine="16"/>
+      </Position9>
+      <Position10>
+        <Filename Value="simulationengine.pas"/>
+        <Caret Line="14" Column="21" TopLine="8"/>
+      </Position10>
+      <Position11>
+        <Filename Value="plot.pas"/>
+        <Caret Line="49" Column="61" TopLine="17"/>
+      </Position11>
+      <Position12>
+        <Filename Value="plot.pas"/>
+        <Caret Line="50" Column="61" TopLine="17"/>
+      </Position12>
+      <Position13>
+        <Filename Value="plot.pas"/>
+        <Caret Line="49" Column="61" TopLine="17"/>
+      </Position13>
+      <Position14>
+        <Filename Value="gui.pas"/>
+        <Caret Line="85" Column="30" TopLine="69"/>
+      </Position14>
+      <Position15>
+        <Filename Value="simulationengine.pas"/>
+        <Caret Line="97" Column="23" TopLine="85"/>
+      </Position15>
+      <Position16>
+        <Filename Value="gui.pas"/>
+        <Caret Line="134" Column="3" TopLine="102"/>
+      </Position16>
+      <Position17>
+        <Filename Value="gui.pas"/>
+        <Caret Line="145" Column="3" TopLine="109"/>
+      </Position17>
+      <Position18>
+        <Filename Value="gui.pas"/>
+        <Caret Line="146" Column="3" TopLine="114"/>
+      </Position18>
+      <Position19>
+        <Filename Value="gui.pas"/>
+        <Caret Line="184" Column="14" TopLine="131"/>
+      </Position19>
+      <Position20>
+        <Filename Value="gui.pas"/>
+        <Caret Line="159" Column="3" TopLine="129"/>
+      </Position20>
+      <Position21>
+        <Filename Value="gui.pas"/>
+        <Caret Line="87" Column="30" TopLine="69"/>
+      </Position21>
+      <Position22>
+        <Filename Value="gui.pas"/>
+        <Caret Line="85" Column="40" TopLine="85"/>
+      </Position22>
+      <Position23>
+        <Filename Value="gui.pas"/>
+        <Caret Line="11" Column="73"/>
+      </Position23>
+    </JumpHistory>
+  </ProjectSession>
+  <Debugging>
+    <Watches Count="3">
+      <Item1>
+        <Expression Value="gValues"/>
+      </Item1>
+      <Item2>
+        <Expression Value="gBlocks"/>
+      </Item2>
+      <Item3>
+        <Expression Value="gPrediction"/>
+      </Item3>
+    </Watches>
+  </Debugging>
+</CONFIG>
