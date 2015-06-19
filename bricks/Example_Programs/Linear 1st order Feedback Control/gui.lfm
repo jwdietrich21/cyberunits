@@ -3,7 +3,7 @@ object ValuesForm: TValuesForm
   Height = 503
   Top = 116
   Width = 643
-  Caption = 'Linear zeroth order feedback control: Demo of a simple simulator'
+  Caption = 'Linear first order feedback control: Demo of a simple simulator'
   ClientHeight = 483
   ClientWidth = 643
   Constraints.MinHeight = 400
