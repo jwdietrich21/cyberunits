@@ -31,7 +31,7 @@ unit brickstestcases;
 interface
 
 uses
-  Classes, SysUtils, fpcunit, testutils, testregistry, bricks;
+  Classes, SysUtils, fpcunit, testutils, testregistry, bricks, lifeblocks;
 
 type
 
@@ -107,6 +107,13 @@ type
   published
     procedure Test1;
     procedure Test2;
+  end;
+
+{ TASIATestCases }
+
+  TASIATestCases = class(TTestCase)
+  published
+    procedure Test1;
   end;
 
 implementation
@@ -226,7 +233,6 @@ end;
 procedure TPT1TestCases.Test1;
 var
   testBrick: TPT1;
-  temp: real;
   i: integer;
 begin
   testBrick := TPT1.Create;
@@ -236,7 +242,7 @@ begin
   testBrick.input := 2;
   AssertEquals(0, TestBrick.output);
   for i := 1 to 10000 do
-    temp := TestBrick.simOutput;
+    TestBrick.simulate;
   AssertEquals(testBrick.G * testBrick.input, TestBrick.output);
   testBrick.Destroy;
 end;
@@ -244,7 +250,6 @@ end;
 procedure TPT1TestCases.Test2;
 var
   testBrick: TPT1;
-  temp: real;
   i: integer;
 begin
   testBrick := TPT1.Create;
@@ -254,7 +259,7 @@ begin
   testBrick.input := 2;
   AssertEquals(0, TestBrick.output);
   for i := 1 to 100000 do
-    temp := TestBrick.simOutput;
+    TestBrick.simulate;
   AssertTrue(TestBrick.output < 0.07);
   testBrick.Destroy;
 end;
@@ -264,7 +269,6 @@ end;
 procedure TPT2TestCases.Test1;
 var
   testBrick: TPT2;
-  temp: real;
   i: integer;
 begin
   testBrick := TPT2.Create;
@@ -275,8 +279,8 @@ begin
   testBrick.input := 2;
   AssertEquals(0, TestBrick.output);
   for i := 1 to 500 do
-    temp := TestBrick.simOutput;
-  AssertEquals(testBrick.G * testBrick.input, TestBrick.output);
+    TestBrick.simulate;
+  AssertEquals(testBrick.G * testBrick.input, testBrick.output);
   testBrick.Destroy;
 end;
 
@@ -293,6 +297,27 @@ begin
   testBrick.Destroy;
 end;
 
+{ TASIATestCases }
+
+procedure TASIATestCases.Test1;
+const
+  alpha = 10;
+  beta = 0.5;
+var
+  testBrick: TASIA;
+  i: integer;
+begin
+  testBrick := TASIA.Create;
+  testBrick.alpha := alpha;
+  testBrick.beta := beta;
+  testBrick.delta := 1;
+  testBrick.input := 1;
+  for i := 1 to 100 do
+    TestBrick.simulate;
+  AssertEquals(alpha / beta, testBrick.output);
+  testBrick.Destroy;
+end;
+
 initialization
 
   RegisterTest(TControlTestCases);
@@ -305,5 +330,6 @@ initialization
   RegisterTest(TPMulTestCases);
   RegisterTest(TPDivTestCases);
   RegisterTest(TIntTestCases);
+  RegisterTest(TASIATestCases);
 end.
 

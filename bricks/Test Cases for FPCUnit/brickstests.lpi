@@ -18,7 +18,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="36"/>
+      <BuildNr Value="47"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable Comments="CyberUnits System Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Unit Tests for Bricks" InternalName="Bricks 1.0" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="1.0"/>
     </VersionInfo>
@@ -44,7 +44,7 @@
         <PackageName Value="FCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="4">
       <Unit0>
         <Filename Value="brickstests.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -59,6 +59,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="bricks"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="..\lifeblocks.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="lifeblocks"/>
+      </Unit3>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

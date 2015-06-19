@@ -4,7 +4,7 @@ unit bricks;
 
 { Object Pascal units for computational cybernetics }
 
-{ bricks test cases }
+{ Bricks: Basic blocks for information processing structures }
 
 { Version 1.0 }
 

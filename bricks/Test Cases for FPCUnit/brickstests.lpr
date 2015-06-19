@@ -29,7 +29,7 @@ program brickstests;
 {$mode objfpc}{$H+}
 
 uses
-  Interfaces, Forms, GuiTestRunner, brickstestcases, bricks;
+  Interfaces, Forms, GuiTestRunner, brickstestcases, bricks, lifeblocks;
 
 {$R *.res}
 
