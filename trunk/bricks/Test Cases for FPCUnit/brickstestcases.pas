@@ -116,6 +116,21 @@ type
     procedure Test1;
   end;
 
+ { TMiMeTestCases }
+
+  TMiMeTestCases = class(TTestCase)
+  published
+    procedure Test1;
+  end;
+
+  { TNoCoDITestCases }
+
+  TNoCoDITestCases = class(TTestCase)
+  published
+    procedure Test1;
+  end;
+
+
 implementation
 
 { TControlTestCases }
@@ -318,6 +333,43 @@ begin
   testBrick.Destroy;
 end;
 
+{ TMiMeTestCases }
+
+procedure TMiMeTestCases.Test1;
+const
+  G = 5;
+  D = 2;
+  testSignal = 10;
+var
+  testBrick: TMiMe;
+begin
+  testBrick := TMiMe.Create;
+  testBrick.G := G;
+  testBrick.D := D;
+  testBrick.input := testSignal;
+  TestBrick.simulate;
+  AssertEquals(G * testSignal / (D + testSignal), testBrick.output);
+  testBrick.Destroy;
+end;
+
+{ TNoCoDITestCases }
+
+procedure TNoCoDITestCases.Test1;
+const
+  xe1 = 5;
+  xe2 = 4;
+var
+  testBrick: TNoCoDI;
+begin
+  testBrick := TNoCoDI.Create;
+  testBrick.input1 := xe1;
+  testBrick.input2 := xe2;
+  TestBrick.simulate;
+  AssertEquals(xe1 / (1 + xe2), testBrick.output);
+  testBrick.Destroy;
+end;
+
+
 initialization
 
   RegisterTest(TControlTestCases);
@@ -331,5 +383,7 @@ initialization
   RegisterTest(TPDivTestCases);
   RegisterTest(TIntTestCases);
   RegisterTest(TASIATestCases);
+  RegisterTest(TMiMeTestCases);
+  RegisterTest(TNoCoDITestCases);
 end.
 
