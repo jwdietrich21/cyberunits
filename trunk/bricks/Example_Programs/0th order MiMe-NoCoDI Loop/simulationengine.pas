@@ -62,7 +62,7 @@ type
 var
   gValues: TValues;
   gBlocks: TBlocks;
-  gPrediction: TPrediction;
+  gPrediction1, gPrediction2: TPrediction;
 
 procedure RunSimulation(x, G1, G2, G3, D2: extended; nmax: integer);
 
@@ -76,25 +76,34 @@ var
 begin
   if nmax > 0 then
   begin
-    gPrediction.x := x;
+    gPrediction1.x := x;
+    gPrediction2.x := x;
 
     { Solving for c: }
     // a := 1 + G2 * G3;
-    // b := D2 - G1 * gPrediction.x;
-    // d := -G1 * D2 * gPrediction.x;
-    // gPrediction.c := -(b - sqrt(sqr(b) - 4 * a * d)) / (2 * a);
-    // gPrediction.y := G2 * gPrediction.c / (D2 + gPrediction.c);
-    // gPrediction.yr := G3 * gPrediction.y;
-    // gPrediction.e := gPrediction.x / (1 + gPrediction.yr); }
+    // b := D2 - G1 * gPrediction1.x;
+    // d := -G1 * D2 * gPrediction1.x;
+    // gPrediction1.c := -(b + sqrt(sqr(b) - 4 * a * d)) / (2 * a);
+    // gPrediction1.y := G2 * gPrediction1.c / (D2 + gPrediction1.c);
+    // gPrediction1.yr := G3 * gPrediction1.y;
+    // gPrediction1.e := gPrediction1.x / (1 + gPrediction1.yr); }
+    // gPrediction2.c := -(b - sqrt(sqr(b) - 4 * a * d)) / (2 * a);
+    // gPrediction2.y := G2 * gPrediction2.c / (D2 + gPrediction2.c);
+    // gPrediction2.yr := G3 * gPrediction2.y;
+    // gPrediction2.e := gPrediction2.x / (1 + gPrediction2.yr); }
 
     { Solving for y: }
     a := D2 * G3;
-    b := D2 + G1 * gPrediction.x;
-    d := -G1 * G2 * gPrediction.x;
-    gPrediction.y := -(b - sqrt(sqr(b) - 4 * a * d)) / (2 * a);
-    gPrediction.yr := G3 * gPrediction.y;
-    gPrediction.e := gPrediction.x / (1 + gPrediction.yr);
-    gPrediction.c := G1 * gPrediction.e;
+    b := D2 + G1 * gPrediction1.x;
+    d := -G1 * G2 * gPrediction1.x;
+    gPrediction1.y := -(b + sqrt(sqr(b) - 4 * a * d)) / (2 * a);
+    gPrediction1.yr := G3 * gPrediction1.y;
+    gPrediction1.e := gPrediction1.x / (1 + gPrediction1.yr);
+    gPrediction1.c := G1 * gPrediction1.e;
+    gPrediction2.y := -(b - sqrt(sqr(b) - 4 * a * d)) / (2 * a);
+    gPrediction2.yr := G3 * gPrediction2.y;
+    gPrediction2.e := gPrediction2.x / (1 + gPrediction2.yr);
+    gPrediction2.c := G1 * gPrediction2.e;
 
     gValues.size := 0; // delete content
     gValues.size := nmax;
