@@ -32,19 +32,21 @@ unit Prediction;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ValEdit, SimulationEngine;
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ValEdit,
+  Grids, SimulationEngine;
 
 type
 
   { TPredictionForm }
 
   TPredictionForm = class(TForm)
-    PredictionList: TValueListEditor;
+    PredictionList: TStringGrid;
+    procedure FormPaint(Sender: TObject);
   private
     { private declarations }
   public
     { public declarations }
-    procedure DisplayPrediction(theParameters: TPrediction);
+    procedure DisplayPrediction(Parameters1, Parameters2: TPrediction);
   end;
 
 var
@@ -54,13 +56,27 @@ implementation
 
 {$R *.lfm}
 
-procedure TPredictionForm.DisplayPrediction(theParameters: TPrediction);
+procedure TPredictionForm.FormPaint(Sender: TObject);
 begin
-  PredictionList.Cells[1, 1] := FloatToStrF(theParameters.x, ffFixed, 0, 4);
-  PredictionList.Cells[1, 2] := FloatToStrF(theParameters.e, ffFixed, 0, 4);
-  PredictionList.Cells[1, 3] := FloatToStrF(theParameters.c, ffFixed, 0, 4);
-  PredictionList.Cells[1, 4] := FloatToStrF(theParameters.y, ffFixed, 0, 4);
-  PredictionList.Cells[1, 5] := FloatToStrF(theParameters.yr, ffFixed, 0, 4);
+  PredictionList.Cells[0, 1] := 'x';
+  PredictionList.Cells[0, 2] := 'e';
+  PredictionList.Cells[0, 3] := 'c';
+  PredictionList.Cells[0, 4] := 'y';
+  PredictionList.Cells[0, 5] := 'yr';
+end;
+
+procedure TPredictionForm.DisplayPrediction(Parameters1, Parameters2: TPrediction);
+begin
+  PredictionList.Cells[1, 1] := FloatToStrF(Parameters1.x, ffFixed, 0, 4);
+  PredictionList.Cells[1, 2] := FloatToStrF(Parameters1.e, ffFixed, 0, 4);
+  PredictionList.Cells[1, 3] := FloatToStrF(Parameters1.c, ffFixed, 0, 4);
+  PredictionList.Cells[1, 4] := FloatToStrF(Parameters1.y, ffFixed, 0, 4);
+  PredictionList.Cells[1, 5] := FloatToStrF(Parameters1.yr, ffFixed, 0, 4);
+  PredictionList.Cells[2, 1] := FloatToStrF(Parameters2.x, ffFixed, 0, 4);
+  PredictionList.Cells[2, 2] := FloatToStrF(Parameters2.e, ffFixed, 0, 4);
+  PredictionList.Cells[2, 3] := FloatToStrF(Parameters2.c, ffFixed, 0, 4);
+  PredictionList.Cells[2, 4] := FloatToStrF(Parameters2.y, ffFixed, 0, 4);
+  PredictionList.Cells[2, 5] := FloatToStrF(Parameters2.yr, ffFixed, 0, 4);
 end;
 
 end.

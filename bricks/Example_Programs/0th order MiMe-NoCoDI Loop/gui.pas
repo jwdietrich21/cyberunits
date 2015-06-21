@@ -121,7 +121,7 @@ begin
   PlotForm.cSeries.Clear;
   PlotForm.yrSeries.Clear;
   RunSimulation(x, G1Edit.Value, G2Edit.Value, G3Edit.Value, D2Edit.Value, iterations);
-  PredictionForm.DisplayPrediction(gPrediction);
+  PredictionForm.DisplayPrediction(gPrediction1, gPrediction2);
   if iterations > ValuesGrid.RowCount then
     ValuesGrid.RowCount := iterations + 1;
   for i := 0 to iterations - 1 do

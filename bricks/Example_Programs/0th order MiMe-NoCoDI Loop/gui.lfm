@@ -1,7 +1,7 @@
 object ValuesForm: TValuesForm
-  Left = 197
+  Left = 148
   Height = 503
-  Top = 118
+  Top = 100
   Width = 643
   Caption = 'MiMe-NoCoDI loop'
   ClientHeight = 503
