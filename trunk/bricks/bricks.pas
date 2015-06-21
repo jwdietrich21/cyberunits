@@ -6,7 +6,7 @@ unit bricks;
 
 { Bricks: Basic blocks for information processing structures }
 
-{ Version 1.0 }
+{ Version 1.0.0 (Corvus) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
@@ -45,6 +45,7 @@ const
 type
 
   { TBlock }
+  { Abstract base class for IPS blocks }
 
   TBlock = class
   protected
@@ -57,6 +58,7 @@ type
   end;
 
   { TP }
+  { Proportional block }
 
   TP = class(TBlock)
   protected
@@ -71,9 +73,9 @@ type
   end;
 
   { TPT0 }
+  { Dead-time element, improved from Neuber 1989 }
 
   TPT0 = class(TBlock)
-  {dead-time element, improved from Neuber 1989}
   protected
     function GetQueueLength: integer;
     procedure SetQueueLength(AValue: integer);
@@ -90,9 +92,9 @@ type
   end;
 
   { TPT1 }
+  { First order delay element, changed from Neuber 1989 }
 
   TPT1 = class(TBlock)
-  {First order delay element, changed from Neuber 1989}
   protected
     function SimAndGetOutput: extended;
   public
@@ -105,9 +107,9 @@ type
   end;
 
   { TPT2 }
+  { Second order delay element, changed from Neuber 1989 }
 
   TPT2 = class(TBlock)
-  {Second order delay element, changed from Neuber 1989}
   protected
     function SimAndGetOutput: extended;
   public
@@ -120,9 +122,9 @@ type
   end;
 
   { TInt }
+  { Integrator block, changed from Neuber 1989 }
 
   TInt = class(TBlock)
-  {Integrator element, changed from Neuber 1989}
   protected
     function SimAndGetOutput: extended;
   public
@@ -135,6 +137,7 @@ type
   end;
 
   { TPAdd }
+  { Summation block }
 
   TPAdd = class(TBlock)
   protected
@@ -149,6 +152,7 @@ type
   end;
 
   { TPSub }
+  { Substraction block, comparator }
 
   TPSub = class(TBlock)
   protected
@@ -163,6 +167,7 @@ type
   end;
 
   { TPMul }
+  { Multiplicator }
 
   TPMul = class(TBlock)
   protected
@@ -177,6 +182,7 @@ type
   end;
 
   { TPDiv }
+  { Divider}
 
   TPDiv = class(TBlock)
   protected

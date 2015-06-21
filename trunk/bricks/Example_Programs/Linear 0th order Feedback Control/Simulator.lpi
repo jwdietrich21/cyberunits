@@ -18,9 +18,9 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="33"/>
+      <BuildNr Value="34"/>
       <Attributes pvaDebug="True" pvaPreRelease="True" pvaSpecialBuild="True"/>
-      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Linear 0th order feedback demo" InternalName="FC0L" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="1.0"/>
+      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Linear 0th order feedback demo" InternalName="FC0L 1.0.0 Corvus" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="1.0"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
