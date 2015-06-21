@@ -7,7 +7,7 @@ program Simulator;
 { Demo of a simple simulator for a linear 1st order feedback system }
 { Main project file }
 
-{ Version 1.0 }
+{ Version 1.0.0 (Coruvs) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }

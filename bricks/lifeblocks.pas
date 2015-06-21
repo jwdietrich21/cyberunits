@@ -4,9 +4,9 @@ unit lifeblocks;
 
 { Object Pascal units for computational cybernetics }
 
-{ LifeBlocks: Metabricks for processing structures in organisms }
+{ LifeBlocks: Metabricks for information processing structures in organisms }
 
-{ Version 1.0 }
+{ Version 1.0.0 (Corvus) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
@@ -38,6 +38,7 @@ uses
 type
 
   { TASIA }
+  { ASIA element (analog signal memory with intrincis adjustment) }
 
   TASIA = class(TBlock)
   protected
@@ -60,6 +61,7 @@ type
   end;
 
   { TMiMe }
+  { Michaelis-Menten element }
 
   TMiMe = class(TBlock)
   protected
@@ -75,6 +77,7 @@ type
   end;
 
   { TNoCoDI }
+  { Non-competitive divisive inhibition }
 
   TNoCoDI = class(TBlock)
   protected
@@ -188,3 +191,16 @@ end;
 
 end.
 
+{References:  }
+
+{1. Dietrich JW 2000 Signal Storage in Metabolic Pathways: The ASIA Element. }
+{    kybernetiknet 1:1-9  }
+
+{2. Dietrich JW, Tesche A, Pickardt CR, Mitzdorf U 2004 Thyrotropic Feedback }
+{   Control: Evidence for an Additional Ultrashort Feedback Loop from Fractal }
+{   Analysis. Cybernetics and Systems 35:315-331.}
+
+{3. Dietrich, J. W. und B. O. Boehm (2006). Equilibrium behaviour of }
+{   feedback-coupled physiological saturation kinetics. In: Cybernetics and }
+{   Systems 2006. R. Trappl (Hrsg). Vienna, Austrian Society for Cybernetic }
+{   Studies. 1: 269-74. }
