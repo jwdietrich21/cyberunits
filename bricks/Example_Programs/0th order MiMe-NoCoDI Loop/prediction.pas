@@ -7,7 +7,7 @@ unit Prediction;
 { Simulator for MiMe-NoCoDI loop }
 { Predictor }
 
-{ Version 1.0.0 (Coruvs) }
+{ Version 1.0.0 (Corvus) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }

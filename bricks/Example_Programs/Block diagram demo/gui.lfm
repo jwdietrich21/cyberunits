@@ -1,0 +1,32 @@
+object DemoForm: TDemoForm
+  Left = 241
+  Height = 368
+  Top = 164
+  Width = 640
+  BiDiMode = bdRightToLeft
+  Caption = 'Simple demo program for SystemsDiagram'
+  ClientHeight = 368
+  ClientWidth = 640
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  ParentBiDiMode = False
+  LCLVersion = '1.4.0.4'
+  object DemoImage: TImage
+    Left = 24
+    Height = 278
+    Top = 24
+    Width = 587
+    Anchors = [akTop, akLeft, akRight, akBottom]
+  end
+  object DemoButton: TButton
+    Left = 488
+    Height = 25
+    Top = 316
+    Width = 123
+    Anchors = [akRight, akBottom]
+    Caption = 'Draw Demo'
+    Default = True
+    OnClick = DemoButtonClick
+    TabOrder = 0
+  end
+end

@@ -7,7 +7,7 @@ unit GUI;
 { Simulator for MiMe-NoCoDI loop }
 { GUI }
 
-{ Version 1.0.0 (Coruvs) }
+{ Version 1.0.0 (Corvus) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
@@ -171,7 +171,7 @@ end;
 
 procedure TValuesForm.ShowAboutWindow(Sender: TObject);
 begin
-  ShowMessage('Linear 0th order Feedback Control, a demonstration program for CyberUnits Bricks');
+  ShowMessage('MiMe-NoCoDI loop, a demonstration program for CyberUnits Bricks');
 end;
 
 procedure TValuesForm.MacAboutItemClick(Sender: TObject);
