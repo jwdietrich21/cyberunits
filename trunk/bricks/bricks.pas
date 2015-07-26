@@ -1,4 +1,4 @@
-unit bricks;
+unit Bricks;
 
 { CyberUnits }
 
