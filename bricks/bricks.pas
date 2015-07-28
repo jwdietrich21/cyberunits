@@ -136,6 +136,23 @@ type
     property simOutput: extended read SimAndGetOutput;
   end;
 
+  { TInt }
+  { IT1 block, changed from Neuber 1989 }
+
+  { TIT1 }
+
+  TIT1 = class(TBlock)
+  protected
+    function SimAndGetOutput: extended;
+  public
+    input, G, t1, x1, delta: extended;
+    constructor Create;
+    destructor Destroy; override;
+    property output: extended read Foutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
+  end;
+
   { TPAdd }
   { Summation block }
 
@@ -198,6 +215,38 @@ type
 
 
 implementation
+
+{ TIT1 }
+
+function TIT1.SimAndGetOutput: extended;
+begin
+  simulate;
+  result := fOutput;
+end;
+
+constructor TIT1.Create;
+begin
+  inherited Create;
+  G := 1;
+  x1 := 0;
+  fOutput := 0;
+end;
+
+destructor TIT1.Destroy;
+begin
+  inherited Destroy;
+end;
+
+procedure TIT1.simulate;
+var
+  a, x1n: extended;
+begin
+  assert((G >= 0) and (t1 >=0), kError101);
+  a := 1 - exp(-delta / t1);
+  x1n := exp(-delta / t1) * x1 + G * a * input;
+  fOutput := fOutput + delta * a * x1 + G * (delta - a * t1) * input;
+  x1 := x1n;
+end;
 
 { TInt }
 
@@ -519,4 +568,4 @@ end.
 {References:  }
 {1. Neuber, H., "Simulation von Regelkreisen auf Personal Computern  }
 {   in Pascal und Fortran 77", IWT, Vaterstetten 1989  }
-
+
