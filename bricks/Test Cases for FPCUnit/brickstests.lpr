@@ -38,4 +38,4 @@ begin
   Application.CreateForm(TGuiTestRunner, TestRunner);
   Application.Run;
 end.
-
+
