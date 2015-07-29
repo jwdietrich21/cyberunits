@@ -136,10 +136,8 @@ type
     property simOutput: extended read SimAndGetOutput;
   end;
 
-  { TInt }
-  { IT1 block, changed from Neuber 1989 }
-
   { TIT1 }
+  { IT1 block, changed from Neuber 1989 }
 
   TIT1 = class(TBlock)
   protected
