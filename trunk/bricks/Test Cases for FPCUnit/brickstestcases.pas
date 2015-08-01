@@ -100,6 +100,15 @@ type
     procedure Test2;
   end;
 
+{ TIT1TestCases }
+
+  { TDT1TestCases }
+
+  TDT1TestCases = class(TTestCase)
+  published
+    procedure Test1;
+  end;
+
 { TPT2TestCases }
 
   TPT2TestCases = class(TTestCase)
@@ -341,6 +350,27 @@ begin
   testBrick.Destroy;
 end;
 
+{ TDT1TestCases }
+
+procedure TDT1TestCases.Test1;
+var
+  testBrick: TDT1;
+  i: integer;
+begin
+  testBrick := TDT1.Create;
+  testBrick.G := 2;
+  testBrick.t1 := 2;
+  testBrick.delta := 1;
+  testBrick.input := 2;
+  AssertEquals(0, TestBrick.output);
+  TestBrick.simulate;
+  AssertEquals(4, TestBrick.output);
+  for i := 1 to 100000 do
+    TestBrick.simulate;
+  AssertTrue(TestBrick.output < 0.01);
+  testBrick.Destroy;
+end;
+
 { TPTestCases }
 
 procedure TPTestCases.Test1;
@@ -420,6 +450,7 @@ initialization
   RegisterTest(TPT1TestCases);
   RegisterTest(TPT2TestCases);
   RegisterTest(TIT1TestCases);
+  RegisterTest(TDT1TestCases);
   RegisterTest(TPAddTestCases);
   RegisterTest(TPSubTestCases);
   RegisterTest(TPMulTestCases);
