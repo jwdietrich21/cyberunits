@@ -151,6 +151,21 @@ type
     property simOutput: extended read SimAndGetOutput;
   end;
 
+  { TDT1 }
+  { DT1 block, changed from Neuber 1989 }
+
+  TDT1 = class(TBlock)
+  protected
+    function SimAndGetOutput: extended;
+  public
+    input, G, t1, x1, delta: extended;
+    constructor Create;
+    destructor Destroy; override;
+    property output: extended read Foutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
+  end;
+
   { TPAdd }
   { Summation block }
 
@@ -213,6 +228,37 @@ type
 
 
 implementation
+
+{ TDT1 }
+
+function TDT1.SimAndGetOutput: extended;
+begin
+  simulate;
+  result := fOutput;
+end;
+
+constructor TDT1.Create;
+begin
+  inherited Create;
+  G := 1;
+  x1 := 0;
+  fOutput := 0;
+end;
+
+destructor TDT1.Destroy;
+begin
+  inherited Destroy;
+end;
+
+procedure TDT1.simulate;
+var
+  a: extended;
+begin
+  assert((G >= 0) and (t1 >=0), kError101);
+  a := exp(-delta / t1);
+  fOutput := x1 + G * input;
+  x1 := a * x1 + G * input * (a - 1);
+end;
 
 { TIT1 }
 
