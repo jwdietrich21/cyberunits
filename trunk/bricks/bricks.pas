@@ -166,6 +166,22 @@ type
     property simOutput: extended read SimAndGetOutput;
   end;
 
+  { TIT2 }
+  { IT2 block, changed from Neuber 1989 }
+
+  TIT2 = class(TBlock)
+  protected
+    function SimAndGetOutput: extended;
+  public
+    input, G, t2, dmp, x1, x2, x3, delta: extended;
+    constructor Create;
+    destructor Destroy; override;
+    property output: extended read Foutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
+  end;
+
+
   { TPAdd }
   { Summation block }
 
@@ -228,6 +244,90 @@ type
 
 
 implementation
+
+{ TIT2 }
+
+function TIT2.SimAndGetOutput: extended;
+begin
+  simulate;
+  result := fOutput;
+end;
+
+constructor TIT2.Create;
+begin
+  inherited Create;
+  G := 1;
+  x1 := 0;
+  x2 := 0;
+  x3 := 0;
+  fOutput := 0;
+end;
+
+destructor TIT2.Destroy;
+begin
+  inherited Destroy;
+end;
+
+procedure TIT2.simulate;
+var
+  a, b, c, d, e, f, k, omg: extended;
+  xn1, xn2, xn3, a1, a2, w, tau1, tau2, b1, b2, x1n, x2n: extended;
+begin
+  if dmp < 1 then
+    begin
+      omg := 1 / t2;
+      a := exp(-dmp * omg * delta);
+      b := sqrt(1 - dmp * dmp) * omg;
+      c := arctan(dmp * omg / b);
+      d := omg * omg;
+      e := d * omg / b * a * cos(b * delta + c);
+      f := d / b * a * sin(b * delta);
+      k := f * 2 * dmp / omg;
+      xn1 := x1 * e / d - x2 * f + f * g * input;
+      xn2 := x1 * f / d + x2 * e / d + x2 * k - (e / d - 1 + k) * G * input;
+      xn3 := x3 + g * delta * xn2;
+      x1 := xn1;
+      x2 := xn2;
+      x3 := xn3;
+      fOutput := x3;
+    end
+  else if dmp = 1 then
+    begin
+      a := exp(-delta / t2);
+      a1 := a - 1;
+      a2 := a1 * t2;
+      c := g * input;
+      e := g * t2;
+      x1n := a * x1 - a1 * c;
+      x2n := e * x1 + a * x2 + c * g;
+      fOutput := e * x1 + a2 * x2 + x3 + delta * c * g;
+      x1 := x1n;
+      x2 := x2n;
+      x3 := fOutput;
+    end
+  else
+  begin
+    w := sqrt(dmp * dmp - 1) * t2;
+    tau1 := dmp * t2 + w;
+    tau2 := dmp * t2 - w;
+    a := exp(-delta / tau1);
+    a1 := a - 1;
+    a2 := tau1 * a1;
+    b := exp(-delta / tau2);
+    b1 := b - 1;
+    b2 := tau2 * b1;
+    c := g * input;
+    d := tau1 - tau2;
+    e := g * tau1;
+    x1n := a * x1 - a1 * c;
+    x2n := (b - a) * e * x1 / d + b * x2 + (a2 - b2) * c * g / d;
+    fOutput := (1 + (tau2 * b - tau1 * a) / d) * e * x1 + b2 * x2 + x3 +
+      (delta + (tau1 * a2 - tau2 * b2) / d) * c * g;
+    x1 := x1n;
+    x2 := x2n;
+    x3 := fOutput;
+  end;
+end;
 
 { TDT1 }
 
