@@ -212,7 +212,8 @@ var
   arcRect: TRect;
   oldStyle: TFPBrushStyle;
   oldColor: TColor;
-  alpha: real;
+  alpha: real;               { angle between horizontal and finishing strait }
+  diffX, diffY: integer;     { difference between current position and x / y }
 begin
   oldColor := theCanvas.Brush.Color;
   oldStyle := theCanvas.Brush.Style;
@@ -317,7 +318,15 @@ begin
   end;
     SourcePoint := TheCanvas.PenPos;
     TheCanvas.LineTo(x, y);  { finishing strait }
-    alpha := arctan((SourcePoint.y - y) / (x - SourcePoint.x)); { angle of finishing strait }
+    diffX := x - SourcePoint.x;
+    diffY := SourcePoint.y - y;
+    if diffX = 0 then
+      if diffY > 0 then
+        alpha := pi / 2
+      else
+        alpha := 3 * pi / 2
+    else
+      alpha := arctan(diffY / diffX); { angle of finishing strait }
     if (alpha = 0) and (SourcePoint.x > x) then
       alpha := pi;           { arctan is ambiguous }
     DrawArrowHead(theCanvas, x, y, ARROW_LENGTH, alpha, BETA);
