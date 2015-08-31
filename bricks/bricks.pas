@@ -44,17 +44,27 @@ const
 
 type
 
+  { TFR }
+  { Frequency response }
+
+  TFR = record
+    M, phi: extended; { magnitude and phase }
+    F: complex;       { complex FR (F = M(omega) * exp(i * phi(omega)) }
+  end;
+
   { TBlock }
   { Abstract base class for IPS blocks }
 
   TBlock = class
   protected
     Foutput: extended;
+    FFr: TFR;
   public
     name: string;
     destructor Destroy; override;
     procedure simulate; virtual; abstract;
     property output: extended read Foutput;
+    property fr: TFR read FFR;
   end;
 
   { TP }
@@ -63,11 +73,13 @@ type
   TP = class(TBlock)
   protected
     function SimAndGetOutput: extended;
+    function GetFR: TFR;
   public
-    input, G: extended;
+    input, G, amplitude, frequency: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
+    property fr: TFR read GetFR;
     procedure simulate; override;
     property simOutput: extended read SimAndGetOutput;
   end;
@@ -682,6 +694,15 @@ begin
   result := fOutput;
 end;
 
+function TP.GetFR: TFR;
+begin
+  assert(G >= 0, kError101);
+  FFr.M := amplitude * G;
+  FFr.phi := 0;
+  FFr.F := FFr.M * cexp(i * FFr.phi);
+  result := FFR;
+end;
+
 procedure TP.simulate;
 begin
   assert(G >= 0, kError101);
@@ -712,4 +733,4 @@ end.
 {References:  }
 {1. Neuber, H., "Simulation von Regelkreisen auf Personal Computern  }
 {   in Pascal und Fortran 77", IWT, Vaterstetten 1989  }
-
+
