@@ -44,6 +44,8 @@ const
 
 type
 
+  TVector = array of extended;
+
   { TFR }
   { Frequency response }
 
@@ -92,12 +94,14 @@ type
     function GetQueueLength: integer;
     procedure SetQueueLength(AValue: integer);
     function SimAndGetOutput: extended;
+    function GetFR: TFR;
   public
-    input, G: extended;
+    input, G, amplitude, frequency, delta: extended;
     xt: array of extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
+    property fr: TFR read GetFR;
     property nt: integer read GetQueueLength write SetQueueLength;
     procedure simulate; override;
     property simOutput: extended read SimAndGetOutput;
@@ -569,6 +573,15 @@ begin
   result := fOutput;
 end;
 
+function TPT0.GetFR: TFR;
+begin
+  assert(G >= 0, kError101);
+  FFr.M := amplitude * G;
+  FFr.phi := -frequency * nt * delta;
+  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
+  result := FFR;
+end;
+
 constructor TPT0.Create;
 begin
   inherited Create;
@@ -699,7 +712,7 @@ begin
   assert(G >= 0, kError101);
   FFr.M := amplitude * G;
   FFr.phi := 0;
-  FFr.F := FFr.M * cexp(i * FFr.phi);
+  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
   result := FFR;
 end;
 

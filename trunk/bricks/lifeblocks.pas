@@ -203,4 +203,4 @@ end.
 {3. Dietrich, J. W. und B. O. Boehm (2006). Equilibrium behaviour of }
 {   feedback-coupled physiological saturation kinetics. In: Cybernetics and }
 {   Systems 2006. R. Trappl (Hrsg). Vienna, Austrian Society for Cybernetic }
-{   Studies. 1: 269-74. }
+{   Studies. 1: 269-74. }
