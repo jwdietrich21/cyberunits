@@ -82,7 +82,8 @@ type
 
   TPT0TestCases = class(TTestCase)
   published
-    procedure Test1;
+    procedure Test1;  { tests response in time domain }
+    procedure Test2;  { tests response in frequency domain }
   end;
 
 { TPT1TestCases }
@@ -103,10 +104,10 @@ type
 
 { TIT2TestCases }
 
-    TIT2TestCases = class(TTestCase)
-    published
-      procedure Test1;
-    end;
+  TIT2TestCases = class(TTestCase)
+  published
+    procedure Test1;
+  end;
 
 { TDT1TestCases }
 
@@ -261,6 +262,26 @@ begin
   for i := 0 to TEST_QUEUE_LENGTH do
     TestBrick.simOutput;
   AssertEquals(testBrick.G * 2, TestBrick.output);
+  testBrick.Destroy;
+end;
+
+procedure TPT0TestCases.Test2;
+const
+  TEST_QUEUE_LENGTH = 2;
+var
+  testBrick: TPT0;
+  i: integer;
+begin
+  testBrick := TPT0.Create;
+  testBrick.nt := TEST_QUEUE_LENGTH;
+  testBrick.G := 10;
+  testBrick.amplitude := 2;
+  testBrick.frequency := 10;
+  testBrick.delta := 1;
+  AssertEquals(20, TestBrick.fr.M);
+  AssertEquals(-20, TestBrick.fr.phi);
+  AssertEquals(abs(20) * cos(testBrick.fr.phi), testBrick.fr.F.re);
+  AssertEquals(abs(-20) * sin(testBrick.fr.phi), testBrick.fr.F.im);
   testBrick.Destroy;
 end;
 
@@ -421,8 +442,8 @@ begin
   testBrick.amplitude := 2;
   AssertEquals(10, testBrick.fr.M);
   AssertEquals(0, testBrick.fr.phi);
-  AssertEquals(10, testBrick.fr.F.re);
-  AssertEquals(0, testBrick.fr.F.im);
+  AssertEquals(abs(10) * cos(testBrick.fr.phi), testBrick.fr.F.re);
+  AssertEquals(abs(0) * sin(testBrick.fr.phi), testBrick.fr.F.im);
   testBrick.Destroy;
 end;
 
