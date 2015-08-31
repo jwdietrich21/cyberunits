@@ -46,7 +46,8 @@ type
 
   TPTestCases = class(TTestCase)
   published
-    procedure Test1;
+    procedure Test1;  { tests response in time domain }
+    procedure Test2;  { tests response in frequency domain }
   end;
 
 { TPMulTestCases }
@@ -399,6 +400,7 @@ end;
 { TPTestCases }
 
 procedure TPTestCases.Test1;
+{ tests response in time domain }
 var
   testBrick: TP;
 begin
@@ -406,6 +408,21 @@ begin
   testBrick.G := 5;
   testBrick.input := 2;
   AssertEquals(10, testBrick.simOutput);
+  testBrick.Destroy;
+end;
+
+procedure TPTestCases.Test2;
+{ tests response in frequency domain }
+var
+  testBrick: TP;
+begin
+  testBrick := TP.Create;
+  testBrick.G := 5;
+  testBrick.amplitude := 2;
+  AssertEquals(10, testBrick.fr.M);
+  AssertEquals(0, testBrick.fr.phi);
+  AssertEquals(10, testBrick.fr.F.re);
+  AssertEquals(0, testBrick.fr.F.im);
   testBrick.Destroy;
 end;
 
@@ -486,4 +503,4 @@ initialization
   RegisterTest(TMiMeTestCases);
   RegisterTest(TNoCoDITestCases);
 end.
-
+
