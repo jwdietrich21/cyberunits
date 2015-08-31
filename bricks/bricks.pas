@@ -130,11 +130,13 @@ type
   TPT2 = class(TBlock)
   protected
     function SimAndGetOutput: extended;
+    function GetFR: TFR;
   public
-    input, G, t2, dmp, x1, x2, delta: extended;
+    input, G, t2, dmp, x1, x2, amplitude, omega, delta: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
+    property fr: TFR read GetFR;
     procedure simulate; override;
     property simOutput: extended read SimAndGetOutput;
   end;
@@ -578,6 +580,7 @@ end;
 function TPT0.GetFR: TFR;
 begin
   assert(G >= 0, kError101);
+  assert(omega >= 0, kError101);
   FFr.M := amplitude * G;
   FFr.phi := -omega * nt * delta;
   FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
@@ -608,6 +611,7 @@ function TPT1.GetFR: TFR;
 begin
   assert(G >= 0, kError101);
   assert(t1 >= 0, kError101);
+  assert(omega >= 0, kError101);
   FFr.M := amplitude * G / sqrt(1 + sqr(omega) * sqr(t1));
   FFr.phi := -arctan(omega * t1);
   FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
@@ -645,6 +649,21 @@ begin
   result := fOutput;
 end;
 
+function TPT2.GetFR: TFR;
+begin
+  assert(G >= 0, kError101);
+  assert(t2 >= 0, kError101);
+  assert(dmp >= 0, kError101);
+  assert(omega >= 0, kError101);
+  FFr.M := amplitude * G / sqrt(sqr(1 - sqr(omega * t2)) + sqr(2 * dmp * omega * t2));
+  if omega < 1 / t2 then
+    FFr.phi := -arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)))
+  else
+    FFr.phi := -pi - arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)));
+  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
+  result := FFR;
+end;
+
 constructor TPT2.Create;
 begin
   inherited Create;
@@ -664,6 +683,9 @@ var
   a, b, c, d, e, f, h, o, k, omg: extended;
   xn1, xn2, x1n, x2n, tau1, tau2: extended;
 begin
+  assert(G >= 0, kError101);
+  assert(t2 >= 0, kError101);
+  assert(dmp >= 0, kError101);
   if dmp < 1 then
     begin
       omg := 1 / t2;

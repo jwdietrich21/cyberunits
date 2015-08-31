@@ -46,8 +46,8 @@ type
 
   TPTestCases = class(TTestCase)
   published
-    procedure Test1;  { tests response in time domain }
-    procedure Test2;  { tests response in frequency domain }
+    procedure Test1;  { test response in time domain }
+    procedure Test2;  { test response in frequency domain }
   end;
 
 { TPMulTestCases }
@@ -82,17 +82,17 @@ type
 
   TPT0TestCases = class(TTestCase)
   published
-    procedure Test1;  { tests response in time domain }
-    procedure Test2;  { tests response in frequency domain }
+    procedure Test1;  { test response in time domain }
+    procedure Test2;  { test response in frequency domain }
   end;
 
 { TPT1TestCases }
 
   TPT1TestCases = class(TTestCase)
   published
-    procedure Test1;  { tests response in time domain }
-    procedure Test2;  { tests response in time domain }
-    procedure Test3;  { tests response in frequency domain }
+    procedure Test1;  { test response in time domain }
+    procedure Test2;  { test response in time domain }
+    procedure Test3;  { test response in frequency domain }
   end;
 
 { TIT1TestCases }
@@ -121,7 +121,8 @@ type
 
   TPT2TestCases = class(TTestCase)
   published
-    procedure Test1;
+    procedure Test1;  { test response in time domain }
+    procedure Test2;  { test response in frequency domain }
   end;
 
 { TIntTestCases }
@@ -356,6 +357,29 @@ begin
   for i := 1 to 500 do
     TestBrick.simulate;
   AssertEquals(testBrick.G * testBrick.input, testBrick.output);
+  testBrick.Destroy;
+end;
+
+procedure TPT2TestCases.Test2;
+var
+  testBrick: TPT2;
+begin
+  testBrick := TPT2.Create;
+  testBrick.G := 5;
+  testBrick.delta := 1;
+  testBrick.t2 := 1;
+  testBrick.dmp := 0.5;
+  testBrick.amplitude := 2;
+  testBrick.omega := 10;
+  AssertEquals(testBrick.amplitude * testBrick.G /
+    sqrt(sqr(1 - sqr(testBrick.omega * testBrick.t2)) +
+    sqr(2 * testBrick.dmp * testBrick.omega * testBrick.t2)),
+    TestBrick.fr.M);
+  AssertEquals(-pi - arctan(2 * testBrick.dmp * testBrick.omega * testBrick.t2 /
+    (1 - sqr(testBrick.omega * testBrick.t2))),
+    TestBrick.fr.phi);
+  AssertEquals(abs(TestBrick.fr.M) * cos(testBrick.fr.phi), testBrick.fr.F.re);
+  AssertEquals(abs(-TestBrick.fr.M) * sin(testBrick.fr.phi), testBrick.fr.F.im);
   testBrick.Destroy;
 end;
 
