@@ -198,11 +198,13 @@ type
   TIT2 = class(TBlock)
   protected
     function SimAndGetOutput: extended;
+    function GetFR: TFR;
   public
-    input, G, t2, dmp, x1, x2, x3, delta: extended;
+    input, G, t2, dmp, x1, x2, x3, amplitude, omega, delta: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
+    property fr: TFR read GetFR;
     procedure simulate; override;
     property simOutput: extended read SimAndGetOutput;
   end;
@@ -277,6 +279,35 @@ function TIT2.SimAndGetOutput: extended;
 begin
   simulate;
   result := fOutput;
+end;
+
+function TIT2.GetFR: TFR;
+var
+  frT2, frInt: TFR;
+begin
+  assert(G >= 0, kError101);
+  assert(t2 >= 0, kError101);
+  assert(dmp >= 0, kError101);
+  assert(omega >= 0, kError101);
+  frT2.M := amplitude * G /
+    sqrt(sqr(1 - sqr(omega * t2)) + sqr(2 * dmp * omega * t2)); ;
+  if omega = 0 then
+    frInt.M := infinity
+  else
+    frInt.M := amplitude * G / omega;
+  if omega < 1 / t2 then
+    frT2.phi := -arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)))
+  else
+    frT2.phi := -pi - arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)));
+  frInt.phi := -90 * pi / 180;
+  FFr.M := frT2.M * frInt.M;
+  FFr.phi := frT2.phi + frInt.phi;
+  if omega < 1 / t2 then
+    FFr.phi := -90 * pi / 180 - arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)))
+  else
+    FFr.phi := -90 * pi / 180 - pi - arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)));
+  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
+  result := FFR;
 end;
 
 constructor TIT2.Create;
@@ -450,7 +481,10 @@ function TInt.GetFR: TFR;
 begin
   assert(G >= 0, kError101);
   assert(omega >= 0, kError101);
-  FFr.M := amplitude * G / omega;
+  if omega = 0 then
+    FFr.M := infinity
+  else
+    FFr.M := amplitude * G / omega;
   FFr.phi := -90 * pi / 180;
   FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
   result := FFR;
