@@ -18,7 +18,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="83"/>
+      <BuildNr Value="85"/>
       <StringTable Comments="CyberUnits System Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Unit Tests for Bricks" InternalName="Bricks 1.0.0 Corvus" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="1.0"/>
     </VersionInfo>
     <BuildModes Count="1">
