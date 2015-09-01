@@ -108,7 +108,8 @@ type
 
   TIT2TestCases = class(TTestCase)
   published
-    procedure Test1;
+    procedure Test1;  { test response in time domain }
+    procedure Test2;  { test response in time domain }
   end;
 
 { TDT1TestCases }
@@ -473,6 +474,24 @@ begin
   for i := 1 to 50 do
     testBrick.simulate;
   AssertTrue((testBrick.output > 14) and (testBrick.output < 15));
+  testBrick.Destroy;
+end;
+
+procedure TIT2TestCases.Test2;
+var
+  testBrick: TIT2;
+begin
+  testBrick := TIT2.Create;
+  testBrick.G := 2;
+  testBrick.delta := 1;
+  testBrick.t2 := 1;
+  testBrick.dmp := 0.5;
+  testBrick.amplitude := 2;
+  testBrick.omega := 0.0001;
+  AssertTrue(TestBrick.fr.M >= testBrick.G * testBrick.amplitude / testBrick.omega);
+  AssertTrue((-pi / 2) - TestBrick.fr.phi < 0.1);
+  AssertEquals(abs(TestBrick.fr.M) * cos(testBrick.fr.phi), testBrick.fr.F.re);
+  AssertEquals(abs(-TestBrick.fr.M) * sin(testBrick.fr.phi), testBrick.fr.F.im);
   testBrick.Destroy;
 end;
 
