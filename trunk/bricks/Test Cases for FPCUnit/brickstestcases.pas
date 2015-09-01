@@ -115,7 +115,8 @@ type
 
   TDT1TestCases = class(TTestCase)
   published
-    procedure Test1;
+    procedure Test1;  { test response in time domain }
+    procedure Test2;  { test response in frequency domain }
   end;
 
 { TPT2TestCases }
@@ -493,6 +494,24 @@ begin
   for i := 1 to 100000 do
     TestBrick.simulate;
   AssertTrue(TestBrick.output < 0.01);
+  testBrick.Destroy;
+end;
+
+procedure TDT1TestCases.Test2;
+var
+  testBrick: TDT1;
+begin
+  testBrick := TDT1.Create;
+  testBrick.G := 2;
+  testBrick.delta := 1;
+  testBrick.t1 := 1;
+  testBrick.amplitude := 1;
+  testBrick.omega := 1;
+  AssertEquals(testBrick.amplitude * testBrick.G * testBrick.omega /
+    sqrt(1 + sqr(testBrick.omega) * sqr(testBrick.t1)), TestBrick.fr.M);
+  AssertEquals(arctan(1 / (testBrick.omega * testBrick.t1)), TestBrick.fr.phi);
+  AssertEquals(abs(TestBrick.fr.M) * cos(testBrick.fr.phi), testBrick.fr.F.re);
+  AssertEquals(abs(-TestBrick.fr.M) * sin(testBrick.fr.phi), testBrick.fr.F.im);
   testBrick.Destroy;
 end;
 
