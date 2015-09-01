@@ -129,8 +129,9 @@ type
 
   TIntTestCases = class(TTestCase)
   published
-    procedure Test1;
-    procedure Test2;
+    procedure Test1;  { test response in time domain }
+    procedure Test2;  { test response in time domain }
+    procedure Test3;  { test response in frequency domain }
   end;
 
 { TASIATestCases }
@@ -190,6 +191,22 @@ begin
   testBrick.simulate;
   testBrick.simulate;
   AssertEquals(1500, testBrick.output);
+  testBrick.Destroy;
+end;
+
+procedure TIntTestCases.Test3;
+var
+  testBrick: TInt;
+begin
+  testBrick := TInt.Create;
+  testBrick.G := 10;
+  testBrick.amplitude := 2;
+  testBrick.omega := 10;
+  AssertEquals(testBrick.G * testBrick.amplitude /
+    testBrick.omega, TestBrick.fr.M);
+  AssertEquals(-90 * pi / 180, TestBrick.fr.phi);
+  AssertEquals(abs(TestBrick.fr.M) * cos(testBrick.fr.phi), testBrick.fr.F.re);
+  AssertEquals(abs(-TestBrick.fr.M) * sin(testBrick.fr.phi), testBrick.fr.F.im);
   testBrick.Destroy;
 end;
 
