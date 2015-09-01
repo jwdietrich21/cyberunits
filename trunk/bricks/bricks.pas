@@ -164,11 +164,13 @@ type
   TIT1 = class(TBlock)
   protected
     function SimAndGetOutput: extended;
+    function GetFR: TFR;
   public
-    input, G, t1, x1, delta: extended;
+    input, G, t1, x1, amplitude, omega, delta: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
+    property fr: TFR read GetFR;
     procedure simulate; override;
     property simOutput: extended read SimAndGetOutput;
   end;
@@ -388,6 +390,16 @@ function TIT1.SimAndGetOutput: extended;
 begin
   simulate;
   result := fOutput;
+end;
+
+function TIT1.GetFR: TFR;
+begin
+  assert(G >= 0, kError101);
+  assert(omega >= 0, kError101);
+  FFr.M := amplitude * G / (omega * sqrt(1 + sqr(omega) * sqr(t1)));
+  FFr.phi := -90 * pi / 180 - arctan(omega * t1);
+  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
+  result := FFR;
 end;
 
 constructor TIT1.Create;
