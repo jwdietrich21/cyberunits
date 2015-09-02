@@ -31,22 +31,46 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, lclintf, ColorBox, SystemsDiagram;
+  StdCtrls, lclintf, ColorBox, Menus, LCLType, SystemsDiagram;
 
 type
 
   { TDemoForm }
 
   TDemoForm = class(TForm)
+    AppleMenu: TMenuItem;
     BackgroundColorBox: TColorBox;
+    CloseMenuItem: TMenuItem;
+    CopyMenuItem: TMenuItem;
+    CutMenuItem: TMenuItem;
+    Divider11: TMenuItem;
+    Divider12: TMenuItem;
+    Divider21: TMenuItem;
     DrawingColorBox: TColorBox;
     DemoButton: TButton;
     DemoImage: TImage;
     BackgroundColorLabel: TLabel;
     DrawingColorLabel: TLabel;
+    EditMenu: TMenuItem;
+    FileMenu: TMenuItem;
+    HelpMenu: TMenuItem;
+    MacAboutItem: TMenuItem;
+    MainMenu1: TMainMenu;
+    NewMenuItem: TMenuItem;
+    OpenMenuItem: TMenuItem;
+    PasteMenuItem: TMenuItem;
+    QuitMenuItem: TMenuItem;
+    RedoMenuItem: TMenuItem;
+    SaveMenuItem: TMenuItem;
+    UndoMenuItem: TMenuItem;
+    WinAboutItem: TMenuItem;
     procedure DemoButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure ShowAboutWindow(Sender: TObject);
+    procedure MacAboutItemClick(Sender: TObject);
+    procedure QuitMenuItemClick(Sender: TObject);
+    procedure WinAboutItemClick(Sender: TObject);
   private
     { private declarations }
   public
@@ -389,14 +413,72 @@ begin
   end;
 end;
 
-procedure TDemoForm.FormCreate(Sender: TObject);
+procedure AdaptMenus;
+{ Adapts Menus and Shortcuts to the interface style guidelines
+  of the respective operating system }
+var
+  modifierKey: TShiftState;
 begin
+  {$IFDEF LCLcarbon}
+  modifierKey := [ssMeta];
+  DemoForm.WinAboutItem.Visible := False;
+  DemoForm.AppleMenu.Visible := True;
+  {$ELSE}
+  modifierKey := [ssCtrl];
+  DemoForm.WinAboutItem.Visible := True;
+  DemoForm.AppleMenu.Visible := False;
+  {$ENDIF}
+  DemoForm.NewMenuItem.ShortCut := ShortCut(VK_N, modifierKey);
+  DemoForm.OpenMenuItem.ShortCut := ShortCut(VK_O, modifierKey);
+  DemoForm.CloseMenuItem.ShortCut := ShortCut(VK_W, modifierKey);
+  DemoForm.SaveMenuItem.ShortCut := ShortCut(VK_S, modifierKey);
+  DemoForm.QuitMenuItem.ShortCut := ShortCut(VK_Q, modifierKey);
+  DemoForm.UndoMenuItem.ShortCut := ShortCut(VK_Z, modifierKey);
+  DemoForm.RedoMenuItem.ShortCut := ShortCut(VK_Z, modifierKey + [ssShift]);
+  DemoForm.CutMenuItem.ShortCut := ShortCut(VK_X, modifierKey);
+  DemoForm.CopyMenuItem.ShortCut := ShortCut(VK_C, modifierKey);
+  DemoForm.PasteMenuItem.ShortCut := ShortCut(VK_V, modifierKey);
+end;
+
+procedure TDemoForm.FormCreate(Sender: TObject);
+var
+  EmptyBitmap: TBitmap;
+begin
+  EmptyBitmap := tBitmap.Create;
   BlockDiagram := nil;
+  EmptyBitmap.Height := DemoImage.Height;
+  EmptyBitmap.Width := DemoImage.Width;
+  EmptyBitmap.Canvas.Brush.Color := BackgroundColorBox.Selected;
+  EmptyBitmap.Canvas.Pen.Color := DrawingColorBox.Selected;
+  EmptyBitmap.Canvas.Rectangle(0, 0, EmptyBitmap.Width, EmptyBitmap.Height);
+  AdaptMenus;
+  DemoImage.Canvas.Draw(0, 0, EmptyBitmap);
+  EmptyBitmap.Free;
 end;
 
 procedure TDemoForm.FormDestroy(Sender: TObject);
 begin
   //if assigned(BlockDiagram) then BlockDiagram.Destroy;
+end;
+
+procedure TDemoForm.ShowAboutWindow(Sender: TObject);
+begin
+  ShowMessage('Simple demo for drawing with SystemsDiagram unit');
+end;
+
+procedure TDemoForm.MacAboutItemClick(Sender: TObject);
+begin
+  ShowAboutWindow(Sender);
+end;
+
+procedure TDemoForm.QuitMenuItemClick(Sender: TObject);
+begin
+  application.Terminate;
+end;
+
+procedure TDemoForm.WinAboutItemClick(Sender: TObject);
+begin
+  ShowAboutWindow(Sender);
 end;
 
 end.

@@ -18,6 +18,7 @@
         <Filename Value="brickstestcases.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="brickstestcases"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
         <CursorPos Y="2"/>
@@ -40,7 +41,6 @@
         <Filename Value="..\bricks.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Bricks"/>
-        <IsVisibleTab Value="True"/>
         <WindowIndex Value="1"/>
         <CursorPos Y="2"/>
         <ExtraEditorCount Value="2"/>
