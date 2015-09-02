@@ -31,15 +31,19 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, lclintf, SystemsDiagram;
+  StdCtrls, lclintf, ColorBox, SystemsDiagram;
 
 type
 
   { TDemoForm }
 
   TDemoForm = class(TForm)
+    BackgroundColorBox: TColorBox;
+    DrawingColorBox: TColorBox;
     DemoButton: TButton;
     DemoImage: TImage;
+    BackgroundColorLabel: TLabel;
+    DrawingColorLabel: TLabel;
     procedure DemoButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -65,13 +69,15 @@ var
   newObject, lastObject, sigmaElement, piElement: TIPSClass;
   ConnectorA, ConnectorD, ConnectorE, connectorH: TIPSClass;
   newConnection: TConnectionClass;
-  StartingPoint, GoalPoint: TPoint;
 begin
+  BlockDiagram := TBlockDiagram.Create;
   DemoBitmap := TBitmap.Create;
   try
     DemoBitmap.Height := DemoImage.Height;
     DemoBitmap.Width := DemoImage.Width;
+    DemoBitmap.Canvas.Brush.Color := BackgroundColorBox.Selected;
     DemoBitmap.Canvas.Rectangle(0, 0, DemoBitmap.Width, DemoBitmap.Height);
+    DemoBitmap.Canvas.Pen.Color := DrawingColorBox.Selected;
     BlockDiagram.canvas := DemoBitmap.Canvas;
     try
       newObject := TTerminalClass.Create;
@@ -214,7 +220,6 @@ begin
 
       newObject := TTerminalClass.Create;
       newConnection.Next := newObject;
-      lastObject.Next := newObject;
       newObject.blockDiagram := BlockDiagram;
       SetRect(newObject.boundsRect, 450, 150, 500, 190);
       newObject.title := 'C';
@@ -236,7 +241,6 @@ begin
 
       newObject := TTerminalClass.Create;
       newConnection.Next := newObject;
-      lastObject.Next := newObject;
       newObject.blockDiagram := BlockDiagram;
       SetRect(newObject.boundsRect, 400, 90, 450, 130);
       newObject.title := 'D';
@@ -304,7 +308,6 @@ begin
 
       newObject := TTerminalClass.Create;
       newConnection.Next := newObject;
-      lastObject.Next := newObject;
       newObject.blockDiagram := BlockDiagram;
       SetRect(newObject.boundsRect, 230, 190, 252, 190);
       newObject.title := 'G';
@@ -326,7 +329,6 @@ begin
 
       newObject := TTerminalClass.Create;
       newConnection.Next := newObject;
-      lastObject.Next := newObject;
       newObject.blockDiagram := BlockDiagram;
       SetRect(newObject.boundsRect, 150, 160, 170, 180);
       newObject.title := 'H';
@@ -383,17 +385,18 @@ begin
     DemoImage.Canvas.Draw(0, 0, DemoBitmap);
   finally
     DemoBitmap.Free;
+    BlockDiagram.Destroy;
   end;
 end;
 
 procedure TDemoForm.FormCreate(Sender: TObject);
 begin
-  BlockDiagram := TBlockDiagram.Create;
+  BlockDiagram := nil;
 end;
 
 procedure TDemoForm.FormDestroy(Sender: TObject);
 begin
-  BlockDiagram.Destroy;
+  //if assigned(BlockDiagram) then BlockDiagram.Destroy;
 end;
 
 end.

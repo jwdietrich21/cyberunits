@@ -4,12 +4,14 @@ object DemoForm: TDemoForm
   Top = 164
   Width = 640
   BiDiMode = bdRightToLeft
+  BorderStyle = bsSingle
   Caption = 'Simple demo program for SystemsDiagram'
   ClientHeight = 368
   ClientWidth = 640
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   ParentBiDiMode = False
+  Position = poDefault
   LCLVersion = '1.4.0.4'
   object DemoImage: TImage
     Left = 24
@@ -28,5 +30,38 @@ object DemoForm: TDemoForm
     Default = True
     OnClick = DemoButtonClick
     TabOrder = 0
+  end
+  object BackgroundColorBox: TColorBox
+    Left = 128
+    Height = 24
+    Top = 317
+    Width = 100
+    Selected = clWhite
+    ItemHeight = 16
+    TabOrder = 1
+  end
+  object BackgroundColorLabel: TLabel
+    Left = 24
+    Height = 13
+    Top = 322
+    Width = 88
+    Caption = 'Background Color:'
+    ParentColor = False
+  end
+  object DrawingColorLabel: TLabel
+    Left = 256
+    Height = 13
+    Top = 322
+    Width = 84
+    Caption = 'Color for Drawing:'
+    ParentColor = False
+  end
+  object DrawingColorBox: TColorBox
+    Left = 360
+    Height = 24
+    Top = 317
+    Width = 100
+    ItemHeight = 16
+    TabOrder = 2
   end
 end
