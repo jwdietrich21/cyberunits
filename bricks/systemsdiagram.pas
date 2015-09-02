@@ -4,8 +4,7 @@ unit SystemsDiagram;
 
 { Object Pascal units for computational cybernetics }
 
-{ Demo of canvas using SystemsDiagram }
-{ SystemsDiagram }
+{ SystemsDiagram: Classes for drawing block diagrams }
 
 { Version 1.0.0 (Corvus) }
 
@@ -30,8 +29,7 @@ unit SystemsDiagram;
 interface
 
 uses
-  Classes, SysUtils, Graphics, lclintf, LCLProc, FPCanvas, Math, Bricks,
-
+  Classes, SysUtils, Graphics, lclintf, LCLProc, FPCanvas, Bricks,
   Dialogs;
 
 type
@@ -178,7 +176,7 @@ var
 begin
   oldColor := theCanvas.Brush.Color;
   oldStyle := theCanvas.Brush.Style;
-  theCanvas.Brush.Color := clBlack;
+  theCanvas.Brush.Color := theCanvas.Pen.Color;
   theCanvas.Brush.Style := bsSolid;
   SetLength(thePoints, 3);         { array for corners of arrow head }
   thePoints[0] := Point(x, y);     { position of arrow head }
@@ -390,8 +388,6 @@ end;
 procedure TPiClass.Draw;
 var
   theRect: TRect;
-  theString: char;
-  theStart: TPoint;
   rw, rh, tw, th: integer;
   oldStyle: TFPBrushStyle;
   oldColor: TColor;
@@ -400,11 +396,10 @@ begin
   oldColor := blockDiagram.canvas.Brush.Color;
   oldStyle := blockDiagram.canvas.Brush.Style;
   theRect := objectRect;
-  theString := '*';
   rw := theRect.Right - theRect.Left;
   rh := theRect.Bottom - theRect.Top;
   InsetRect(theRect, rw div 2 - 2, rh div 2 - 2);
-  blockDiagram.canvas.Brush.Color := clBlack;
+  blockDiagram.canvas.Brush.Color := blockDiagram.canvas.Pen.Color;
   blockDiagram.canvas.Brush.Style := bsSolid;
   blockDiagram.canvas.Ellipse(theRect);
   blockDiagram.canvas.Brush.Style := oldStyle;
@@ -422,7 +417,6 @@ procedure TSigmaClass.Draw;
 var
   theRect: TRect;
   theString: char;
-  theStart: TPoint;
   rw, rh, tw, th: integer;
   oldColor: TColor;
   oldStyle: TFPBrushStyle;
@@ -471,6 +465,7 @@ begin
     theRect.right := theRect.left + theHeight;
     theWidth := theRect.right - theRect.left;
   end;
+  Font.Color := blockDiagram.canvas.Pen.Color;
   oldColor := blockDiagram.canvas.Brush.Color;
   oldStyle := blockDiagram.canvas.Brush.Style;
   oldFont := blockDiagram.canvas.Font;
@@ -493,7 +488,7 @@ begin
   blockDiagram.canvas.LineTo(intersection3);
   GetAnchorPoints(self, theRect);
   blockDiagram.canvas.Brush.Style := bsSolid;
-  blockDiagram.canvas.Brush.Color := clBlack;
+  blockDiagram.canvas.Brush.Color := blockDiagram.canvas.Pen.Color;
   if topSegment in invertedSegments then
     blockDiagram.canvas.Pie(theRect.Left, theRect.Top, theRect.Right, theRect.Bottom,
     intersection1.x, intersection1.y, intersection4.x, intersection4.y);
@@ -532,9 +527,9 @@ procedure TTerminalClass.Draw;
 var
   outerRect, innerRect, stringRect: TRect;
   theString: string;
-  theStart: TPoint;
   oldFont: TFont;
 begin
+  Font.Color := blockDiagram.canvas.Pen.Color;
   oldFont := blockDiagram.canvas.Font;
   blockDiagram.canvas.Font := Font;
   outerRect := boundsRect;
@@ -578,6 +573,7 @@ begin
   begin
     theRect := boundsRect;
     theString := title;
+    Font.Color := blockDiagram.canvas.Pen.Color;
     oldFont := blockDiagram.canvas.Font;
     blockDiagram.canvas.Font := Font;
     blockDiagram.canvas.Rectangle(theRect);
@@ -623,3 +619,14 @@ begin
 end;
 
 end.
+
+{References:  }
+
+{1. Röhler, R., "Biologische Kybernetik", B. G. Teubner, Stuttgart 1973 }
+
+{2. Neuber, H., "Simulation von Regelkreisen auf Personal Computern  }
+{   in Pascal und Fortran 77", IWT, Vaterstetten 1989 }
+
+{3. Lutz H. and Wendt, W., "Taschenbuch der Regelungstechnik" }
+{   Verlag Harri Deutsch, Frankfurt am Main 2005 }
+

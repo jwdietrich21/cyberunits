@@ -8,7 +8,6 @@
       <Unit0>
         <Filename Value="brickstests.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
         <CursorPos Y="2"/>
@@ -41,6 +40,7 @@
         <Filename Value="..\bricks.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Bricks"/>
+        <IsVisibleTab Value="True"/>
         <WindowIndex Value="1"/>
         <CursorPos Y="2"/>
         <ExtraEditorCount Value="2"/>
@@ -76,7 +76,6 @@
       </Unit4>
       <Unit5>
         <Filename Value="C:\lazarus\components\fpcunit\guitestrunner.pas"/>
-        <UnitName Value="GuiTestRunner"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="1"/>
         <CursorPos X="3"/>

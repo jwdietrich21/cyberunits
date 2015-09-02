@@ -33,7 +33,7 @@ unit Bricks;
 interface
 
 uses
-  Classes, SysUtils, StrUtils, Math, ucomplex;
+  Classes, SysUtils, Math, ucomplex;
 
 const
   kError101 = 'Runtime error: Negative parameter(s)';
