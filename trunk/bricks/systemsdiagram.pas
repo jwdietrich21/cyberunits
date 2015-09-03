@@ -72,10 +72,37 @@ type
     procedure Draw; override;
   end;
 
+  { TPT0Class }
+  { Dead-time element }
+
+  TPT0Class = class(TIPSClass)
+  public
+    constructor Create;
+    procedure Draw; override;
+  end;
+
   { TPT1Class }
-  { Proportional block }
+  { First order delay element }
 
   TPT1Class = class(TIPSClass)
+  public
+    constructor Create;
+    procedure Draw; override;
+  end;
+
+  { TPT2Class }
+  { First order delay element }
+
+  TPT2Class = class(TIPSClass)
+  public
+    constructor Create;
+    procedure Draw; override;
+  end;
+
+  { TIntClass }
+  { First order delay element }
+
+  TIntClass = class(TIPSClass)
   public
     constructor Create;
     procedure Draw; override;
@@ -638,6 +665,58 @@ begin
   end;
 end;
 
+{ TPT0Class }
+
+constructor TPT0Class.Create;
+begin
+  inherited Create;
+  Font := TFont.Create;
+end;
+
+procedure TPT0Class.Draw;
+var
+  theRect: TRect;
+  theString: string;
+  rw, rh, tw, th: integer;
+  oldFont: TFont;
+begin
+  if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
+  begin
+    theRect := boundsRect;
+    rw := theRect.Right - theRect.Left;
+    rh := theRect.Bottom - theRect.Top;
+    blockDiagram.canvas.Rectangle(theRect);
+    Font.Color := blockDiagram.canvas.Pen.Color;
+    oldFont := blockDiagram.canvas.Font;
+    blockDiagram.canvas.Font := Font;
+    theString := title;
+    if theString = '' then
+    begin
+      blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.15 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.85 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.3 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.3 * rw),
+        theRect.Top + trunc(0.3 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.85 * rw),
+        theRect.Top + trunc(0.3 * rh));
+    end
+    else
+    begin
+      blockDiagram.canvas.GetTextSize(theString, tw, th);
+      blockDiagram.canvas.Brush.Style := bsClear;
+      blockDiagram.canvas.TextRect(theRect, theRect.Left + (rw - tw) div
+        2, theRect.Top + (rh - th) div 2, theString);
+    end;
+    GetAnchorPoints(self, theRect);
+    blockDiagram.canvas.Font := oldFont;
+  end;
+end;
+
 { TPT1Class }
 
 constructor TPT1Class.Create;
@@ -678,6 +757,117 @@ begin
       bezierPoints[2] := Point(theRect.Left + trunc(0.6 * rw), theRect.Top + trunc(0.2 * rh));
       bezierPoints[3] := Point(theRect.Left + trunc(0.85 * rw), theRect.Top + trunc(0.2 * rh));
       blockDiagram.canvas.PolyBezier(bezierPoints, false, true);
+    end
+    else
+    begin
+      blockDiagram.canvas.GetTextSize(theString, tw, th);
+      blockDiagram.canvas.Brush.Style := bsClear;
+      blockDiagram.canvas.TextRect(theRect, theRect.Left + (rw - tw) div
+        2, theRect.Top + (rh - th) div 2, theString);
+    end;
+    GetAnchorPoints(self, theRect);
+    blockDiagram.canvas.Font := oldFont;
+  end;
+end;
+
+{ TPT2Class }
+
+constructor TPT2Class.Create;
+begin
+  inherited Create;
+  Font := TFont.Create;
+end;
+
+procedure TPT2Class.Draw;
+var
+  theRect: TRect;
+  theString: string;
+  rw, rh, tw, th: integer;
+  oldFont: TFont;
+  bezierPoints: array of TPoint;
+begin
+  if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
+  begin
+    theRect := boundsRect;
+    rw := theRect.Right - theRect.Left;
+    rh := theRect.Bottom - theRect.Top;
+    blockDiagram.canvas.Rectangle(theRect);
+    Font.Color := blockDiagram.canvas.Pen.Color;
+    oldFont := blockDiagram.canvas.Font;
+    blockDiagram.canvas.Font := Font;
+    theString := title;
+    if theString = '' then
+    begin
+      blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.15 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.85 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      SetLength(bezierPoints, 12);
+      bezierPoints[0] := Point(theRect.Left + trunc(0.15 * rw), theRect.Top + trunc(0.85 * rh));
+      bezierPoints[1] := Point(theRect.Left + trunc(0.20 * rw), theRect.Top + trunc(0.7 * rh));
+      bezierPoints[2] := Point(theRect.Left + trunc(0.25 * rw), theRect.Top + trunc(0.3 * rh));
+      bezierPoints[3] := Point(theRect.Left + trunc(0.3 * rw), theRect.Top + trunc(0.2 * rh));
+      bezierPoints[4] := Point(theRect.Left + trunc(0.35 * rw), theRect.Top + trunc(0.2 * rh));
+      bezierPoints[5] := Point(theRect.Left + trunc(0.4 * rw), theRect.Top + trunc(0.2 * rh));
+      bezierPoints[6] := Point(theRect.Left + trunc(0.45 * rw), theRect.Top + trunc(0.3 * rh));
+      bezierPoints[7] := Point(theRect.Left + trunc(0.5 * rw), theRect.Top + trunc(0.4 * rh));
+      bezierPoints[8] := Point(theRect.Left + trunc(0.55 * rw), theRect.Top + trunc(0.5 * rh));
+      bezierPoints[9] := Point(theRect.Left + trunc(0.65 * rw), theRect.Top + trunc(0.5 * rh));
+      bezierPoints[10] := Point(theRect.Left + trunc(0.75 * rw), theRect.Top + trunc(0.4 * rh));
+      bezierPoints[11] := Point(theRect.Left + trunc(0.80 * rw), theRect.Top + trunc(0.4 * rh));
+      blockDiagram.canvas.Polyline(bezierPoints);
+    end
+    else
+    begin
+      blockDiagram.canvas.GetTextSize(theString, tw, th);
+      blockDiagram.canvas.Brush.Style := bsClear;
+      blockDiagram.canvas.TextRect(theRect, theRect.Left + (rw - tw) div
+        2, theRect.Top + (rh - th) div 2, theString);
+    end;
+    GetAnchorPoints(self, theRect);
+    blockDiagram.canvas.Font := oldFont;
+  end;
+end;
+
+{ TIntClass }
+
+constructor TIntClass.Create;
+begin
+  inherited Create;
+  Font := TFont.Create;
+end;
+
+procedure TIntClass.Draw;
+var
+  theRect: TRect;
+  theString: string;
+  rw, rh, tw, th: integer;
+  oldFont: TFont;
+begin
+  if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
+  begin
+    theRect := boundsRect;
+    rw := theRect.Right - theRect.Left;
+    rh := theRect.Bottom - theRect.Top;
+    blockDiagram.canvas.Rectangle(theRect);
+    Font.Color := blockDiagram.canvas.Pen.Color;
+    oldFont := blockDiagram.canvas.Font;
+    blockDiagram.canvas.Font := Font;
+    theString := title;
+    if theString = '' then
+    begin
+      blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.15 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.85 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.8 * rw),
+        theRect.Top + trunc(0.15 * rh));
     end
     else
     begin

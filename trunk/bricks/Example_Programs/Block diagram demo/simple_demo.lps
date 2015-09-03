@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
         <CursorPos X="55" Y="32"/>
-        <UsageCount Value="52"/>
+        <UsageCount Value="54"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -19,9 +19,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="gui"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos Y="2"/>
+        <TopLine Value="404"/>
+        <CursorPos X="54" Y="432"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -29,7 +29,7 @@
           <TopLine Value="-1"/>
           <CursorPos X="-1" Y="-1"/>
         </ExtraEditor1>
-        <UsageCount Value="52"/>
+        <UsageCount Value="54"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -38,13 +38,14 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Bricks"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="49"/>
+        <UsageCount Value="51"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="../../systemsdiagram.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SystemsDiagram"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <CursorPos Y="2"/>
         <ExtraEditorCount Value="1"/>
@@ -54,7 +55,7 @@
           <TopLine Value="-1"/>
           <CursorPos X="-1" Y="-1"/>
         </ExtraEditor1>
-        <UsageCount Value="41"/>
+        <UsageCount Value="43"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -206,123 +207,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="383" Column="28" TopLine="353"/>
+        <Caret Line="559" Column="27" TopLine="529"/>
       </Position1>
       <Position2>
         <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="411" Column="31" TopLine="381"/>
+        <Caret Line="562" Column="23" TopLine="532"/>
       </Position2>
       <Position3>
         <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="441" Column="36" TopLine="411"/>
+        <Caret Line="602" Column="33" TopLine="572"/>
       </Position3>
       <Position4>
         <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="445" Column="23" TopLine="415"/>
+        <Caret Line="595" TopLine="584"/>
       </Position4>
       <Position5>
         <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="516" Column="34" TopLine="486"/>
+        <Caret Line="596" TopLine="584"/>
       </Position5>
       <Position6>
-        <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="523" Column="23" TopLine="493"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="95" Column="21" TopLine="78"/>
       </Position6>
       <Position7>
         <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="559" Column="27" TopLine="529"/>
+        <Caret Line="597" TopLine="584"/>
       </Position7>
       <Position8>
         <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="562" Column="23" TopLine="532"/>
+        <Caret Line="598" TopLine="584"/>
       </Position8>
       <Position9>
         <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="602" Column="33" TopLine="572"/>
+        <Caret Line="616" TopLine="586"/>
       </Position9>
       <Position10>
-        <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="595" TopLine="584"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="79" Column="80" TopLine="61"/>
       </Position10>
       <Position11>
-        <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="596" TopLine="584"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="80" Column="80" TopLine="62"/>
       </Position11>
       <Position12>
         <Filename Value="gui.pas"/>
-        <Caret Line="95" Column="21" TopLine="78"/>
+        <Caret Line="79" Column="80" TopLine="61"/>
       </Position12>
       <Position13>
-        <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="597" TopLine="584"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="81" Column="80" TopLine="63"/>
       </Position13>
       <Position14>
-        <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="598" TopLine="584"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="75" Column="65" TopLine="52"/>
       </Position14>
       <Position15>
-        <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="616" TopLine="586"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="76" Column="65" TopLine="53"/>
       </Position15>
       <Position16>
         <Filename Value="gui.pas"/>
-        <Caret Line="79" Column="80" TopLine="61"/>
+        <Caret Line="77" Column="65" TopLine="54"/>
       </Position16>
       <Position17>
         <Filename Value="gui.pas"/>
-        <Caret Line="80" Column="80" TopLine="62"/>
+        <Caret Line="442" Column="14" TopLine="416"/>
       </Position17>
       <Position18>
         <Filename Value="gui.pas"/>
-        <Caret Line="79" Column="80" TopLine="61"/>
+        <Caret Line="420" Column="3" TopLine="402"/>
       </Position18>
       <Position19>
         <Filename Value="gui.pas"/>
-        <Caret Line="81" Column="80" TopLine="63"/>
+        <Caret Line="29" Column="88" TopLine="29"/>
       </Position19>
       <Position20>
         <Filename Value="gui.pas"/>
-        <Caret Line="75" Column="65" TopLine="52"/>
+        <Caret Line="454" Column="25" TopLine="424"/>
       </Position20>
       <Position21>
         <Filename Value="gui.pas"/>
-        <Caret Line="76" Column="65" TopLine="53"/>
+        <Caret Line="465" Column="3" TopLine="431"/>
       </Position21>
       <Position22>
         <Filename Value="gui.pas"/>
-        <Caret Line="77" Column="65" TopLine="54"/>
+        <Caret Line="470" Column="27" TopLine="440"/>
       </Position22>
       <Position23>
         <Filename Value="gui.pas"/>
-        <Caret Line="442" Column="14" TopLine="416"/>
+        <Caret Line="451" Column="45" TopLine="430"/>
       </Position23>
       <Position24>
         <Filename Value="gui.pas"/>
-        <Caret Line="420" Column="3" TopLine="402"/>
+        <Caret Line="453" Column="14" TopLine="434"/>
       </Position24>
       <Position25>
-        <Filename Value="gui.pas"/>
-        <Caret Line="29" Column="88" TopLine="29"/>
+        <Filename Value="../../systemsdiagram.pas"/>
+        <Caret Line="80" Column="23" TopLine="64"/>
       </Position25>
       <Position26>
-        <Filename Value="gui.pas"/>
-        <Caret Line="454" Column="25" TopLine="424"/>
+        <Filename Value="../../systemsdiagram.pas"/>
+        <Caret Line="98" Column="23" TopLine="73"/>
       </Position26>
       <Position27>
-        <Filename Value="gui.pas"/>
-        <Caret Line="465" Column="3" TopLine="431"/>
+        <Filename Value="../../systemsdiagram.pas"/>
+        <Caret Line="806" Column="35" TopLine="774"/>
       </Position27>
       <Position28>
-        <Filename Value="gui.pas"/>
-        <Caret Line="470" Column="27" TopLine="440"/>
+        <Filename Value="../../systemsdiagram.pas"/>
+        <Caret Line="807" Column="7" TopLine="788"/>
       </Position28>
       <Position29>
-        <Filename Value="gui.pas"/>
-        <Caret Line="451" Column="45" TopLine="430"/>
+        <Filename Value="../../systemsdiagram.pas"/>
+        <Caret Line="806" Column="59" TopLine="783"/>
       </Position29>
       <Position30>
-        <Filename Value="gui.pas"/>
-        <Caret Line="453" Column="14" TopLine="434"/>
+        <Filename Value="../../systemsdiagram.pas"/>
+        <Caret Line="107" Column="23" TopLine="85"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
