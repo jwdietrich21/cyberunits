@@ -400,6 +400,38 @@ begin
       SetRect(newObject.boundsRect, 480, 220, 530, 250);
       newObject.Draw;
 
+      lastObject := newObject;
+      newObject := TPT0Class.Create;
+      lastObject.Next := newObject;
+      newObject.blockDiagram := BlockDiagram;
+      newObject.title := '';
+      SetRect(newObject.boundsRect, 570, 20, 630, 50);
+      newObject.Draw;
+
+      lastObject := newObject;
+      newObject := TPT1Class.Create;
+      lastObject.Next := newObject;
+      newObject.blockDiagram := BlockDiagram;
+      newObject.title := '';
+      SetRect(newObject.boundsRect, 570, 60, 630, 90);
+      newObject.Draw;
+
+      lastObject := newObject;
+      newObject := TPT2Class.Create;
+      lastObject.Next := newObject;
+      newObject.blockDiagram := BlockDiagram;
+      newObject.title := '';
+      SetRect(newObject.boundsRect, 570, 100, 630, 130);
+      newObject.Draw;
+
+      lastObject := newObject;
+      newObject := TIntClass.Create;
+      lastObject.Next := newObject;
+      newObject.blockDiagram := BlockDiagram;
+      newObject.title := '';
+      SetRect(newObject.boundsRect, 570, 140, 630, 170);
+      newObject.Draw;
+
       BlockDiagram.canvas.Font.Height := 18;
       BlockDiagram.canvas.Font.Style := [fsBold, fsItalic];
       BlockDiagram.canvas.TextOut(28, 100, 'Block diagram samples');

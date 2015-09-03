@@ -2,11 +2,11 @@ object DemoForm: TDemoForm
   Left = 241
   Height = 368
   Top = 164
-  Width = 640
+  Width = 700
   BorderStyle = bsSingle
   Caption = 'Simple demo program for SystemsDiagram'
   ClientHeight = 348
-  ClientWidth = 640
+  ClientWidth = 700
   Menu = MainMenu1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -17,11 +17,11 @@ object DemoForm: TDemoForm
     Left = 24
     Height = 258
     Top = 24
-    Width = 587
+    Width = 647
     Anchors = [akTop, akLeft, akRight, akBottom]
   end
   object DemoButton: TButton
-    Left = 504
+    Left = 564
     Height = 25
     Top = 296
     Width = 107
