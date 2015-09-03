@@ -1,12 +1,12 @@
 object IPSForm: TIPSForm
-  Left = 799
-  Height = 291
+  Left = 831
+  Height = 262
   Top = 273
-  Width = 450
+  Width = 415
   BorderStyle = bsSingle
   Caption = 'Information Processing Structure'
-  ClientHeight = 291
-  ClientWidth = 450
+  ClientHeight = 262
+  ClientWidth = 415
   Color = clWhite
   Icon.Data = {
     BE1000000000010001002020000001002000A810000016000000280000002000
@@ -150,9 +150,9 @@ object IPSForm: TIPSForm
   Visible = True
   object IPSImage: TImage
     Left = 24
-    Height = 260
+    Height = 231
     Top = 16
-    Width = 397
+    Width = 362
     Anchors = [akTop, akLeft, akRight, akBottom]
     Center = True
     Proportional = True
