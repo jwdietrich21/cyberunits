@@ -5,7 +5,7 @@ object DemoForm: TDemoForm
   Width = 700
   BorderStyle = bsSingle
   Caption = 'Simple demo program for SystemsDiagram'
-  ClientHeight = 348
+  ClientHeight = 368
   ClientWidth = 700
   Menu = MainMenu1
   OnCreate = FormCreate
@@ -15,7 +15,7 @@ object DemoForm: TDemoForm
   LCLVersion = '1.4.0.4'
   object DemoImage: TImage
     Left = 24
-    Height = 258
+    Height = 278
     Top = 24
     Width = 647
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -23,7 +23,7 @@ object DemoForm: TDemoForm
   object DemoButton: TButton
     Left = 564
     Height = 25
-    Top = 296
+    Top = 316
     Width = 107
     Anchors = [akRight, akBottom]
     Caption = 'Draw Demo'
@@ -32,8 +32,8 @@ object DemoForm: TDemoForm
     TabOrder = 0
   end
   object BackgroundColorBox: TColorBox
-    Left = 144
-    Height = 22
+    Left = 154
+    Height = 20
     Top = 317
     Width = 100
     Selected = clWhite
@@ -42,23 +42,23 @@ object DemoForm: TDemoForm
   end
   object BackgroundColorLabel: TLabel
     Left = 24
-    Height = 13
+    Height = 16
     Top = 322
-    Width = 88
-    Caption = 'Background Color:'
+    Width = 125
+    Caption = 'Background Colour:'
     ParentColor = False
   end
   object DrawingColorLabel: TLabel
-    Left = 263
-    Height = 13
+    Left = 273
+    Height = 16
     Top = 322
-    Width = 84
-    Caption = 'Color for Drawing:'
+    Width = 125
+    Caption = 'Colour for Drawing:'
     ParentColor = False
   end
   object DrawingColorBox: TColorBox
-    Left = 383
-    Height = 22
+    Left = 403
+    Height = 20
     Top = 317
     Width = 100
     ItemHeight = 16

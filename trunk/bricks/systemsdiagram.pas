@@ -91,7 +91,7 @@ type
   end;
 
   { TPT2Class }
-  { First order delay element }
+  { Second order delay element }
 
   TPT2Class = class(TIPSClass)
   public
@@ -100,9 +100,63 @@ type
   end;
 
   { TIntClass }
-  { First order delay element }
+  { Integrator element }
 
   TIntClass = class(TIPSClass)
+  public
+    constructor Create;
+    procedure Draw; override;
+  end;
+
+  { TIT1Class }
+  { Integrator with first order delay element }
+
+  TIT1Class = class(TIPSClass)
+  public
+    constructor Create;
+    procedure Draw; override;
+  end;
+
+  { TDT1Class }
+  { Differentiator with first order delay element }
+
+  TDT1Class = class(TIPSClass)
+  public
+    constructor Create;
+    procedure Draw; override;
+  end;
+
+  { TIT2Class }
+  { Integrator with second order delay element }
+
+  TIT2Class = class(TIPSClass)
+  public
+    constructor Create;
+    procedure Draw; override;
+  end;
+
+  { TASIAClass }
+  { Proportional block }
+
+  TASIAClass = class(TIPSClass)
+  public
+    constructor Create;
+    procedure Draw; override;
+  end;
+
+  { TMiMeClass }
+  { Proportional block }
+
+  TMiMeClass = class(TIPSClass)
+  public
+    constructor Create;
+    procedure Draw; override;
+  end;
+
+  { TNoCoDIClass }
+  { Proportional block }
+
+  TNoCoDIClass = class(TIPSClass)
   public
     constructor Create;
     procedure Draw; override;
@@ -876,6 +930,288 @@ begin
       blockDiagram.canvas.TextRect(theRect, theRect.Left + (rw - tw) div
         2, theRect.Top + (rh - th) div 2, theString);
     end;
+    GetAnchorPoints(self, theRect);
+    blockDiagram.canvas.Font := oldFont;
+  end;
+end;
+
+{ TIT1Class }
+
+constructor TIT1Class.Create;
+begin
+  inherited Create;
+  Font := TFont.Create;
+end;
+
+procedure TIT1Class.Draw;
+var
+  theRect: TRect;
+  theString: string;
+  rw, rh, tw, th: integer;
+  oldFont: TFont;
+  bezierPoints: array of TPoint;
+begin
+  if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
+  begin
+    theRect := boundsRect;
+    rw := theRect.Right - theRect.Left;
+    rh := theRect.Bottom - theRect.Top;
+    blockDiagram.canvas.Rectangle(theRect);
+    Font.Color := blockDiagram.canvas.Pen.Color;
+    oldFont := blockDiagram.canvas.Font;
+    blockDiagram.canvas.Font := Font;
+    theString := title;
+    if theString = '' then
+    begin
+      blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.15 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.85 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      SetLength(bezierPoints, 4);
+      bezierPoints[0] := Point(theRect.Left + trunc(0.15 * rw), theRect.Top + trunc(0.85 * rh));
+      bezierPoints[1] := Point(theRect.Left + trunc(0.6 * rw), theRect.Top + trunc(0.7 * rh));
+      bezierPoints[2] := Point(theRect.Left + trunc(0.7 * rw), theRect.Top + trunc(0.5 * rh));
+      bezierPoints[3] := Point(theRect.Left + trunc(0.85 * rw), theRect.Top + trunc(0.2 * rh));
+      blockDiagram.canvas.PolyBezier(bezierPoints, false, true);
+    end
+    else
+    begin
+      blockDiagram.canvas.GetTextSize(theString, tw, th);
+      blockDiagram.canvas.Brush.Style := bsClear;
+      blockDiagram.canvas.TextRect(theRect, theRect.Left + (rw - tw) div
+        2, theRect.Top + (rh - th) div 2, theString);
+    end;
+    GetAnchorPoints(self, theRect);
+    blockDiagram.canvas.Font := oldFont;
+  end;
+end;
+
+{ TDT1Class }
+
+constructor TDT1Class.Create;
+begin
+  inherited Create;
+  Font := TFont.Create;
+end;
+
+procedure TDT1Class.Draw;
+var
+  theRect: TRect;
+  theString: string;
+  rw, rh, tw, th: integer;
+  oldFont: TFont;
+  bezierPoints: array of TPoint;
+begin
+  if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
+  begin
+    theRect := boundsRect;
+    rw := theRect.Right - theRect.Left;
+    rh := theRect.Bottom - theRect.Top;
+    blockDiagram.canvas.Rectangle(theRect);
+    Font.Color := blockDiagram.canvas.Pen.Color;
+    oldFont := blockDiagram.canvas.Font;
+    blockDiagram.canvas.Font := Font;
+    theString := title;
+    if theString = '' then
+    begin
+      blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.15 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.85 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      SetLength(bezierPoints, 4);
+      bezierPoints[0] := Point(theRect.Left + trunc(0.15 * rw), theRect.Top + trunc(0.2 * rh));
+      bezierPoints[1] := Point(theRect.Left + trunc(0.2 * rw), theRect.Top + trunc(0.7 * rh));
+      bezierPoints[2] := Point(theRect.Left + trunc(0.4 * rw), theRect.Top + trunc(0.8 * rh));
+      bezierPoints[3] := Point(theRect.Left + trunc(0.85 * rw), theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.PolyBezier(bezierPoints, false, true);
+    end
+    else
+    begin
+      blockDiagram.canvas.GetTextSize(theString, tw, th);
+      blockDiagram.canvas.Brush.Style := bsClear;
+      blockDiagram.canvas.TextRect(theRect, theRect.Left + (rw - tw) div
+        2, theRect.Top + (rh - th) div 2, theString);
+    end;
+    GetAnchorPoints(self, theRect);
+    blockDiagram.canvas.Font := oldFont;
+  end;
+end;
+
+{ TIT2Class }
+
+constructor TIT2Class.Create;
+begin
+  inherited Create;
+  Font := TFont.Create;
+end;
+
+procedure TIT2Class.Draw;
+var
+  theRect: TRect;
+  theString: string;
+  rw, rh, tw, th: integer;
+  oldFont: TFont;
+  bezierPoints: array of TPoint;
+begin
+  if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
+  begin
+    theRect := boundsRect;
+    rw := theRect.Right - theRect.Left;
+    rh := theRect.Bottom - theRect.Top;
+    blockDiagram.canvas.Rectangle(theRect);
+    Font.Color := blockDiagram.canvas.Pen.Color;
+    oldFont := blockDiagram.canvas.Font;
+    blockDiagram.canvas.Font := Font;
+    theString := title;
+    if theString = '' then
+    begin
+      blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.15 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.85 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      SetLength(bezierPoints, 12);
+      bezierPoints[0] := Point(theRect.Left + trunc(0.15 * rw), theRect.Top + trunc(0.85 * rh));
+      bezierPoints[1] := Point(theRect.Left + trunc(0.21 * rw), theRect.Top + trunc(0.7 * rh));
+      bezierPoints[2] := Point(theRect.Left + trunc(0.27 * rw), theRect.Top + trunc(0.5 * rh));
+      bezierPoints[3] := Point(theRect.Left + trunc(0.33 * rw), theRect.Top + trunc(0.5 * rh));
+      bezierPoints[4] := Point(theRect.Left + trunc(0.39 * rw), theRect.Top + trunc(0.6 * rh));
+      bezierPoints[5] := Point(theRect.Left + trunc(0.45 * rw), theRect.Top + trunc(0.7 * rh));
+      bezierPoints[6] := Point(theRect.Left + trunc(0.52 * rw), theRect.Top + trunc(0.7 * rh));
+      bezierPoints[7] := Point(theRect.Left + trunc(0.59 * rw), theRect.Top + trunc(0.6 * rh));
+      bezierPoints[8] := Point(theRect.Left + trunc(0.66 * rw), theRect.Top + trunc(0.5 * rh));
+      bezierPoints[9] := Point(theRect.Left + trunc(0.72 * rw), theRect.Top + trunc(0.4 * rh));
+      bezierPoints[10] := Point(theRect.Left + trunc(0.80 * rw), theRect.Top + trunc(0.3 * rh));
+      bezierPoints[11] := Point(theRect.Left + trunc(0.85 * rw), theRect.Top + trunc(0.25 * rh));
+      blockDiagram.canvas.Polyline(bezierPoints);
+    end
+    else
+    begin
+      blockDiagram.canvas.GetTextSize(theString, tw, th);
+      blockDiagram.canvas.Brush.Style := bsClear;
+      blockDiagram.canvas.TextRect(theRect, theRect.Left + (rw - tw) div
+        2, theRect.Top + (rh - th) div 2, theString);
+    end;
+    GetAnchorPoints(self, theRect);
+    blockDiagram.canvas.Font := oldFont;
+  end;
+end;
+
+
+{ TASIAClass }
+
+constructor TASIAClass.Create;
+begin
+  inherited Create;
+  Font := TFont.Create;
+end;
+
+procedure TASIAClass.Draw;
+var
+  theRect: TRect;
+  theString: string;
+  rw, rh, tw, th: integer;
+  oldFont: TFont;
+begin
+  if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
+  begin
+    theRect := boundsRect;
+    theString := 'ASIA';
+    Font.Color := blockDiagram.canvas.Pen.Color;
+    oldFont := blockDiagram.canvas.Font;
+    blockDiagram.canvas.Font := Font;
+    blockDiagram.canvas.Rectangle(theRect);
+    rw := theRect.Right - theRect.Left;
+    rh := theRect.Bottom - theRect.Top;
+    blockDiagram.canvas.GetTextSize(theString, tw, th);
+    blockDiagram.canvas.Brush.Style := bsClear;
+    blockDiagram.canvas.TextRect(theRect, theRect.Left + (rw - tw) div
+      2, theRect.Top + (rh - th) div 2, theString);
+    GetAnchorPoints(self, theRect);
+    blockDiagram.canvas.Font := oldFont;
+  end;
+end;
+
+{ TMiMeClass }
+
+constructor TMiMeClass.Create;
+begin
+  inherited Create;
+  Font := TFont.Create;
+end;
+
+procedure TMiMeClass.Draw;
+var
+  theRect: TRect;
+  theString: string;
+  rw, rh, tw, th: integer;
+  oldFont: TFont;
+  bezierPoints: array of TPoint;
+begin
+  if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
+  begin
+    theRect := boundsRect;
+    theString := 'MiMe';
+    Font.Color := blockDiagram.canvas.Pen.Color;
+    oldFont := blockDiagram.canvas.Font;
+    blockDiagram.canvas.Font := Font;
+    blockDiagram.canvas.Rectangle(theRect);
+    blockDiagram.canvas.Ellipse(theRect);
+    rw := theRect.Right - theRect.Left;
+    rh := theRect.Bottom - theRect.Top;
+    blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.4 * rw),
+      theRect.Top + trunc(0.15 * rh));
+    blockDiagram.canvas.LineTo(theRect.Left + trunc(0.4 * rw),
+      theRect.Top + trunc(0.85 * rh));
+    blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.15 * rw),
+      theRect.Top + trunc(0.6 * rh));
+    blockDiagram.canvas.LineTo(theRect.Left + trunc(0.85 * rw),
+      theRect.Top + trunc(0.6 * rh));
+    SetLength(bezierPoints, 4);
+    bezierPoints[0] := Point(theRect.Left + trunc(0.4 * rw), theRect.Top + trunc(0.6 * rh));
+    bezierPoints[1] := Point(theRect.Left + trunc(0.5 * rw), theRect.Top + trunc(0.3 * rh));
+    bezierPoints[2] := Point(theRect.Left + trunc(0.7 * rw), theRect.Top + trunc(0.2 * rh));
+    bezierPoints[3] := Point(theRect.Left + trunc(0.8 * rw), theRect.Top + trunc(0.2 * rh));
+    blockDiagram.canvas.PolyBezier(bezierPoints, false, true);
+    GetAnchorPoints(self, theRect);
+    blockDiagram.canvas.Font := oldFont;
+  end;
+end;
+
+{ TNoCoDIClass }
+
+constructor TNoCoDIClass.Create;
+begin
+  inherited Create;
+  Font := TFont.Create;
+end;
+
+procedure TNoCoDIClass.Draw;
+var
+  theRect: TRect;
+  theString: string;
+  rw, rh, tw, th: integer;
+  oldFont: TFont;
+begin
+  if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
+  begin
+    theRect := boundsRect;
+    theString := 'NoCoDI';
+    Font.Color := blockDiagram.canvas.Pen.Color;
+    oldFont := blockDiagram.canvas.Font;
+    blockDiagram.canvas.Font := Font;
+    blockDiagram.canvas.Rectangle(theRect);
+    rw := theRect.Right - theRect.Left;
+    rh := theRect.Bottom - theRect.Top;
+    blockDiagram.canvas.GetTextSize(theString, tw, th);
+    blockDiagram.canvas.Brush.Style := bsClear;
+    blockDiagram.canvas.TextRect(theRect, theRect.Left + (rw - tw) div
+      2, theRect.Top + (rh - th) div 2, theString);
     GetAnchorPoints(self, theRect);
     blockDiagram.canvas.Font := oldFont;
   end;
