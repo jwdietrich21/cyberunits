@@ -79,7 +79,7 @@ begin
     xt := TTerminalClass.Create;
     xt.blockDiagram := BlockDiagram;
     BlockDiagram.firstIPSObject := xt;
-    SetRect(xt.boundsRect, 31, 20, 51, 40);
+    SetRect(xt.boundsRect, 21, 10, 41, 30);
     xt.title := 'x(t)';
     TTerminalClass(xt).TextMargin := 5;
     TTerminalClass(xt).TextPosition := rightmiddle;
@@ -87,7 +87,7 @@ begin
 
     Controller := TSigmaClass.Create;
     Controller.blockDiagram := BlockDiagram;
-    SetRect(Controller.boundsRect, 20, 60, 60, 100);
+    SetRect(Controller.boundsRect, 10, 50, 50, 90);
     TInvertableClass(Controller).invertedSegments := [bottomSegment];
     Controller.Draw;
     xt.Next := Controller;
@@ -103,7 +103,7 @@ begin
 
     G1 := TPClass.Create;
     G1.blockDiagram := BlockDiagram;
-    SetRect(G1.boundsRect, 150, 62, 210, 98);
+    SetRect(G1.boundsRect, 140, 52, 200, 88);
     G1.title := 'G1';
     G1.font.Style := [fsItalic];
     G1.Draw;
@@ -115,12 +115,16 @@ begin
     ce.sourceAnchor := rightmiddle;
     ce.drainObject := G1;
     ce.drainAnchor := leftmiddle;
+    ce.title := 'e(t)';
+    ce.font.Style := [fsItalic];
+    TConnectionClass(ce).TextMargin := 7;
+    TConnectionClass(ce).TextPosition := topmiddle;
     ce.Draw;
     G1.Next := ce;
 
     LoadInjection := TSigmaClass.Create;
     LoadInjection.blockDiagram := BlockDiagram;
-    SetRect(LoadInjection.boundsRect, 290, 120, 310, 160);
+    SetRect(LoadInjection.boundsRect, 280, 110, 300, 150);
     LoadInjection.Draw;
     ce.Next := LoadInjection;
 
@@ -131,12 +135,16 @@ begin
     cys.drainObject := LoadInjection;
     cys.drainAnchor := topmiddle;
     cys.chirality := cright;
+    cys.title := 'ys(t)';
+    cys.font.Style := [fsItalic];
+    TConnectionClass(cys).TextMargin := 7;
+    TConnectionClass(cys).TextPosition := topmiddle;
     cys.Draw;
     LoadInjection.Next := cys;
 
     G2 := TPClass.Create;
     G2.blockDiagram := BlockDiagram;
-    SetRect(G2.boundsRect, 150, 190, 210, 226);
+    SetRect(G2.boundsRect, 140, 180, 200, 216);
     G2.title := 'G2';
     G2.font.Style := [fsItalic];
     G2.Draw;
@@ -149,6 +157,10 @@ begin
     cy.drainObject := G2;
     cy.drainAnchor := rightmiddle;
     cy.chirality := cright;
+    cy.title := 'y(t)';
+    cy.font.Style := [fsItalic];
+    TConnectionClass(cy).TextMargin := 7;
+    TConnectionClass(cy).TextPosition := bottommiddle;
     cy.Draw;
     G2.Next := cy;
 
@@ -159,12 +171,16 @@ begin
     cyr.drainObject := Controller;
     cyr.drainAnchor := bottommiddle;
     cyr.chirality := cright;
+    cyr.title := 'yr(t)';
+    cyr.font.Style := [fsItalic];
+    TConnectionClass(cyr).TextMargin := 7;
+    TConnectionClass(cyr).TextPosition := bottommiddle;
     cyr.Draw;
     cy.Next := cyr;
 
     zt := TTerminalClass.Create;
     zt.blockDiagram := BlockDiagram;
-    SetRect(zt.boundsRect, 340, 121, 380, 161);
+    SetRect(zt.boundsRect, 330, 111, 370, 151);
     zt.title := 'z(t)';
     TTerminalClass(zt).TextMargin := 5;
     TTerminalClass(zt).TextPosition := rightmiddle;

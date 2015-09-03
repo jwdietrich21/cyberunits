@@ -115,6 +115,8 @@ type
     sourceObject, drainObject: TIPSClass;
     sourceAnchor, drainAnchor: tAnchorposition;
     chirality: tChirality;
+    TextMargin: integer;
+    TextPosition: tAnchorposition;
     constructor Create;
     procedure Draw; override;
   end;
@@ -128,6 +130,9 @@ type
     constructor Create;
     destructor Destroy; override;
   end;
+
+const
+  DEFAULT_MARGIN = 3;
 
 implementation
 
@@ -366,16 +371,54 @@ end;
 constructor TConnectionClass.Create;
 begin
   inherited Create;
+  TextMargin := DEFAULT_MARGIN;
+  TextPosition := topmiddle;
+  Font := TFont.Create;
 end;
 
 procedure TConnectionClass.Draw;
 var
   StartingPoint, GoalPoint: TPoint;
+  outerRect, innerRect, stringRect: TRect;
+  theString: string;
+  oldFont: TFont;
+  tempPos: longint;
 begin
   StartingPoint := sourceObject.anchorPoint[sourceAnchor].position;
   GoalPoint := drainObject.anchorPoint[drainAnchor].position;
   BlockDiagram.canvas.MoveTo(StartingPoint);
   PathTo(BlockDiagram.canvas, GoalPoint.X, GoalPoint.y, chirality);
+  Font.Color := blockDiagram.canvas.Pen.Color;
+  oldFont := blockDiagram.canvas.Font;
+  blockDiagram.canvas.Font := Font;
+  theString := title;
+  SetRect(boundsRect, StartingPoint.x, StartingPoint.y, GoalPoint.x, GoalPoint.y);
+  objectRect := boundsRect;
+  if objectRect.Right < objectRect.Left then
+  begin
+    tempPos := objectRect.Left;
+    objectRect.Left := objectRect.Right;
+    objectRect.Right := tempPos;
+  end;
+  if objectRect.Bottom < objectRect.Top then
+  begin
+    tempPos := objectRect.Top;
+    objectRect.Top := objectRect.Bottom;
+    objectRect.Bottom := tempPos;
+  end;
+  StringRect := objectRect;
+  case TextPosition of
+  leftmiddle:
+    MoveRect(StringRect, objectRect.Left - blockDiagram.canvas.TextWidth(theString) - TextMargin, objectRect.Top - blockDiagram.canvas.TextHeight(theString) div 2 + 1);
+  rightmiddle:
+    MoveRect(StringRect, objectRect.right + TextMargin, objectRect.Top - blockDiagram.canvas.TextHeight(theString) div 2 + 1);
+  topmiddle:
+    MoveRect(StringRect, objectRect.left + (objectRect.right - objectRect.Left) div 2 - blockDiagram.canvas.TextWidth(theString) div 2, objectRect.Top - blockDiagram.canvas.TextHeight(theString) - TextMargin);
+  bottommiddle:
+    MoveRect(StringRect, objectRect.left + (objectRect.right - objectRect.Left) div 2 - blockDiagram.canvas.TextWidth(theString) div 2, objectRect.Bottom + TextMargin);
+  end;
+  blockDiagram.canvas.TextOut(StringRect.Left, StringRect.top, theString);
+  blockDiagram.canvas.Font := oldFont;
 end;
 
 { TPiClass }
@@ -514,8 +557,6 @@ end;
 { TTerminalClass }
 
 constructor TTerminalClass.Create;
-const
-  DEFAULT_MARGIN = 3;
 begin
   inherited Create;
   TextMargin := DEFAULT_MARGIN;
@@ -545,9 +586,9 @@ begin
   rightmiddle:
     MoveRect(StringRect, objectRect.right + TextMargin, objectRect.Top - blockDiagram.canvas.TextHeight(theString) div 2 + 1);
   topmiddle:
-    MoveRect(StringRect, objectRect.Left - blockDiagram.canvas.TextWidth(theString) div 2, objectRect.Top - blockDiagram.canvas.TextHeight(theString) - TextMargin);
+    MoveRect(StringRect, objectRect.left + (objectRect.right - objectRect.Left) div 2 - blockDiagram.canvas.TextWidth(theString) div 2, objectRect.Top - blockDiagram.canvas.TextHeight(theString) - TextMargin);
   bottommiddle:
-    MoveRect(StringRect, objectRect.Left - blockDiagram.canvas.TextWidth(theString) div 2, objectRect.Bottom + TextMargin);
+    MoveRect(StringRect, objectRect.left + (objectRect.right - objectRect.Left) div 2 - blockDiagram.canvas.TextWidth(theString) div 2, objectRect.Bottom + TextMargin);
   end;
   blockDiagram.canvas.TextOut(StringRect.Left, StringRect.top, theString);
   GetAnchorPoints(self, innerRect);
