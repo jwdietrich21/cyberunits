@@ -72,6 +72,15 @@ type
     procedure Draw; override;
   end;
 
+  { TPT1Class }
+  { Proportional block }
+
+  TPT1Class = class(TIPSClass)
+  public
+    constructor Create;
+    procedure Draw; override;
+  end;
+
   { TTerminalClass }
   { Terminal connector-like element for constants }
 
@@ -624,6 +633,59 @@ begin
     blockDiagram.canvas.Brush.Style := bsClear;
     blockDiagram.canvas.TextRect(theRect, theRect.Left + (rw - tw) div
       2, theRect.Top + (rh - th) div 2, theString);
+    GetAnchorPoints(self, theRect);
+    blockDiagram.canvas.Font := oldFont;
+  end;
+end;
+
+{ TPT1Class }
+
+constructor TPT1Class.Create;
+begin
+  inherited Create;
+  Font := TFont.Create;
+end;
+
+procedure TPT1Class.Draw;
+var
+  theRect: TRect;
+  theString: string;
+  rw, rh, tw, th: integer;
+  oldFont: TFont;
+  bezierPoints: array of TPoint;
+begin
+  if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
+  begin
+    theRect := boundsRect;
+    rw := theRect.Right - theRect.Left;
+    rh := theRect.Bottom - theRect.Top;
+    blockDiagram.canvas.Rectangle(theRect);
+    Font.Color := blockDiagram.canvas.Pen.Color;
+    oldFont := blockDiagram.canvas.Font;
+    blockDiagram.canvas.Font := Font;
+    theString := title;
+    if theString = '' then
+    begin
+      blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.15 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.85 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      SetLength(bezierPoints, 4);
+      bezierPoints[0] := Point(theRect.Left + trunc(0.15 * rw), theRect.Top + trunc(0.85 * rh));
+      bezierPoints[1] := Point(theRect.Left + trunc(0.2 * rw), theRect.Top + trunc(0.3 * rh));
+      bezierPoints[2] := Point(theRect.Left + trunc(0.6 * rw), theRect.Top + trunc(0.2 * rh));
+      bezierPoints[3] := Point(theRect.Left + trunc(0.85 * rw), theRect.Top + trunc(0.2 * rh));
+      blockDiagram.canvas.PolyBezier(bezierPoints, false, true);
+    end
+    else
+    begin
+      blockDiagram.canvas.GetTextSize(theString, tw, th);
+      blockDiagram.canvas.Brush.Style := bsClear;
+      blockDiagram.canvas.TextRect(theRect, theRect.Left + (rw - tw) div
+        2, theRect.Top + (rh - th) div 2, theString);
+    end;
     GetAnchorPoints(self, theRect);
     blockDiagram.canvas.Font := oldFont;
   end;
