@@ -32,7 +32,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, gui, bricks, systemsdiagram
+  Forms, gui, bricks, systemsdiagram, lifeblocks
   { you can add units after this };
 
 {$R *.res}

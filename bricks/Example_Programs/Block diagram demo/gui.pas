@@ -93,6 +93,7 @@ var
   newObject, lastObject, sigmaElement, piElement: TIPSClass;
   ConnectorA, ConnectorD, ConnectorE, connectorH: TIPSClass;
   newConnection: TConnectionClass;
+  theWidth: integer;
 begin
   BlockDiagram := TBlockDiagram.Create;
   DemoBitmap := TBitmap.Create;
@@ -388,7 +389,7 @@ begin
       newObject := TSigmaClass.Create;
       lastObject.Next := newObject;
       newObject.blockDiagram := BlockDiagram;
-      SetRect(newObject.boundsRect, 420, 220, 470, 250);
+      SetRect(newObject.boundsRect, 455, 220, 475, 250);
       TInvertableClass(newObject).invertedSegments := [leftSegment, rightSegment];
       newObject.Draw;
       lastObject := newObject;
@@ -413,7 +414,7 @@ begin
       lastObject.Next := newObject;
       newObject.blockDiagram := BlockDiagram;
       newObject.title := '';
-      SetRect(newObject.boundsRect, 570, 60, 630, 90);
+      SetRect(newObject.boundsRect, 570, 55, 630, 85);
       newObject.Draw;
 
       lastObject := newObject;
@@ -421,7 +422,7 @@ begin
       lastObject.Next := newObject;
       newObject.blockDiagram := BlockDiagram;
       newObject.title := '';
-      SetRect(newObject.boundsRect, 570, 100, 630, 130);
+      SetRect(newObject.boundsRect, 570, 90, 630, 120);
       newObject.Draw;
 
       lastObject := newObject;
@@ -429,12 +430,69 @@ begin
       lastObject.Next := newObject;
       newObject.blockDiagram := BlockDiagram;
       newObject.title := '';
-      SetRect(newObject.boundsRect, 570, 140, 630, 170);
+      SetRect(newObject.boundsRect, 570, 125, 630, 155);
+      newObject.Draw;
+
+      lastObject := newObject;
+      newObject := TIT1Class.Create;
+      lastObject.Next := newObject;
+      newObject.blockDiagram := BlockDiagram;
+      newObject.title := '';
+      SetRect(newObject.boundsRect, 570, 160, 630, 190);
+      newObject.Draw;
+
+      lastObject := newObject;
+      newObject := TDT1Class.Create;
+      lastObject.Next := newObject;
+      newObject.blockDiagram := BlockDiagram;
+      newObject.title := '';
+      SetRect(newObject.boundsRect, 570, 195, 630, 225);
+      newObject.Draw;
+
+      lastObject := newObject;
+      newObject := TIT2Class.Create;
+      lastObject.Next := newObject;
+      newObject.blockDiagram := BlockDiagram;
+      newObject.title := '';
+      SetRect(newObject.boundsRect, 570, 230, 630, 260);
+      newObject.Draw;
+
+      lastObject := newObject;
+      newObject := TASIAClass.Create;
+      lastObject.Next := newObject;
+      newObject.blockDiagram := BlockDiagram;
+      newObject.title := '';
+      SetRect(newObject.boundsRect, 270, 220, 320, 250);
+      newObject.Draw;
+
+      lastObject := newObject;
+      newObject := TMiMeClass.Create;
+      lastObject.Next := newObject;
+      newObject.blockDiagram := BlockDiagram;
+      newObject.title := '';
+      SetRect(newObject.boundsRect, 330, 220, 380, 250);
+      newObject.Draw;
+
+      lastObject := newObject;
+      newObject := TNoCoDIClass.Create;
+      lastObject.Next := newObject;
+      newObject.blockDiagram := BlockDiagram;
+      newObject.title := '';
+      SetRect(newObject.boundsRect, 390, 220, 440, 250);
       newObject.Draw;
 
       BlockDiagram.canvas.Font.Height := 18;
       BlockDiagram.canvas.Font.Style := [fsBold, fsItalic];
-      BlockDiagram.canvas.TextOut(28, 100, 'Block diagram samples');
+      BlockDiagram.canvas.TextOut(28, 90, 'Block diagram samples');
+
+      BlockDiagram.canvas.Font.Height := 14;
+      BlockDiagram.canvas.Font.Style := [fsBold];
+      BlockDiagram.canvas.TextOut(28, 115, 'CyberUnits');
+      theWidth := BlockDiagram.canvas.TextWidth('CyberUnits ');
+
+      BlockDiagram.canvas.Font.Height := 14;
+      BlockDiagram.canvas.Font.Style := [];
+      BlockDiagram.canvas.TextOut(28 + theWidth, 115, 'SystemsDiagram');
 
     finally
     end;
