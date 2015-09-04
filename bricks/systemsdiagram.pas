@@ -211,6 +211,14 @@ type
     procedure Draw; override;
   end;
 
+  { TJunctionClass }
+
+  TJunctionClass = class(TIPSClass)
+  public
+    constructor Create;
+    procedure Draw; override;
+  end;
+
   { TBlockDiagram }
 
   TBlockDiagram = class
@@ -515,6 +523,35 @@ begin
   end;
   blockDiagram.canvas.TextOut(StringRect.Left, StringRect.top, theString);
   blockDiagram.canvas.Font := oldFont;
+end;
+
+{ TJunctionClass }
+
+constructor TJunctionClass.Create;
+begin
+  inherited Create;
+end;
+
+procedure TJunctionClass.Draw;
+var
+  outerRect, innerRect: TRect;
+  oldStyle: TFPBrushStyle;
+  oldColor: TColor;
+begin
+  if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
+  begin
+    oldColor := blockDiagram.canvas.Brush.Color;
+    oldStyle := blockDiagram.canvas.Brush.Style;
+    blockDiagram.canvas.Brush.Color := blockDiagram.canvas.Pen.Color;
+    blockDiagram.canvas.Brush.Style := bsSolid;
+    outerRect := boundsRect;
+    SetRect(innerRect, 0, 0, 5, 5);
+    CenterRect(outerRect, innerRect);
+    blockDiagram.canvas.Ellipse(innerRect);
+    GetAnchorPoints(self, innerRect);
+    blockDiagram.canvas.Brush.Style := oldStyle;
+    blockDiagram.canvas.Brush.Color := oldColor;
+  end;
 end;
 
 { TPiClass }
