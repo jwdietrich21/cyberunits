@@ -7,9 +7,8 @@
       <Unit0>
         <Filename Value="simple_demo.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <CursorPos X="9" Y="2"/>
+        <CursorPos X="63" Y="31"/>
         <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -20,6 +19,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="gui"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <CursorPos Y="2"/>
         <ExtraEditorCount Value="1"/>
@@ -58,6 +58,15 @@
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
+        <Filename Value="../../lifeblocks.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="lifeblocks"/>
+        <EditorIndex Value="1"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit4>
+      <Unit5>
         <Filename Value="../systemsdiagram.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="346"/>
@@ -70,149 +79,140 @@
           <CursorPos X="-1" Y="-1"/>
         </ExtraEditor1>
         <UsageCount Value="31"/>
-      </Unit4>
-      <Unit5>
+      </Unit5>
+      <Unit6>
         <Filename Value="/Developer/lazarus 1.4/lcl/graphics.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="483"/>
         <CursorPos X="3" Y="501"/>
         <UsageCount Value="10"/>
-      </Unit5>
-      <Unit6>
+      </Unit6>
+      <Unit7>
         <Filename Value="/usr/local/share/fpcsrc/rtl/objpas/classes/classesh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="15"/>
         <CursorPos X="23" Y="32"/>
         <UsageCount Value="10"/>
-      </Unit6>
-      <Unit7>
+      </Unit7>
+      <Unit8>
         <Filename Value="/usr/local/share/fpcsrc/rtl/objpas/types.pp"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23" Y="90"/>
         <UsageCount Value="10"/>
-      </Unit7>
-      <Unit8>
+      </Unit8>
+      <Unit9>
         <Filename Value="/Developer/lazarus 1.4/lcl/include/canvas.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1345"/>
         <CursorPos X="13" Y="1360"/>
         <UsageCount Value="10"/>
-      </Unit8>
-      <Unit9>
+      </Unit9>
+      <Unit10>
         <Filename Value="/Developer/lazarus 1.4/lcl/include/customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="168"/>
         <CursorPos Y="196"/>
         <UsageCount Value="10"/>
-      </Unit9>
-      <Unit10>
+      </Unit10>
+      <Unit11>
         <Filename Value="/Developer/lazarus 1.4/lcl/include/application.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1069"/>
         <CursorPos Y="1086"/>
         <UsageCount Value="10"/>
-      </Unit10>
-      <Unit11>
+      </Unit11>
+      <Unit12>
         <Filename Value="/Developer/lazarus 1.4/lcl/include/winapih.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="326"/>
         <CursorPos X="10" Y="344"/>
         <UsageCount Value="10"/>
-      </Unit11>
-      <Unit12>
+      </Unit12>
+      <Unit13>
         <Filename Value="/Developer/lazarus 1.4/lcl/lclproc.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="799"/>
         <CursorPos Y="810"/>
         <UsageCount Value="10"/>
-      </Unit12>
-      <Unit13>
+      </Unit13>
+      <Unit14>
         <Filename Value="/Developer/lazarus 1.4/lcl/include/winapi.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1571"/>
         <CursorPos Y="1588"/>
         <UsageCount Value="10"/>
-      </Unit13>
-      <Unit14>
+      </Unit14>
+      <Unit15>
         <Filename Value="/Developer/lazarus 1.4/lcl/include/lclintfh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="46"/>
         <CursorPos X="20" Y="63"/>
         <UsageCount Value="10"/>
-      </Unit14>
-      <Unit15>
+      </Unit15>
+      <Unit16>
         <Filename Value="/Developer/lazarus 1.4/lcl/include/intfbaselcl.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="211"/>
         <CursorPos X="3" Y="214"/>
         <UsageCount Value="10"/>
-      </Unit15>
-      <Unit16>
+      </Unit16>
+      <Unit17>
         <Filename Value="/usr/local/share/fpcsrc/rtl/inc/objpash.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="175"/>
         <CursorPos X="23" Y="192"/>
         <UsageCount Value="10"/>
-      </Unit16>
-      <Unit17>
+      </Unit17>
+      <Unit18>
         <Filename Value="/usr/local/share/fpcsrc/packages/fcl-image/src/fpcanvas.pp"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="34" Y="18"/>
         <UsageCount Value="10"/>
-      </Unit17>
-      <Unit18>
+      </Unit18>
+      <Unit19>
         <Filename Value="/Developer/lazarus 1.4/lcl/graphtype.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="17"/>
         <CursorPos X="3" Y="34"/>
         <UsageCount Value="10"/>
-      </Unit18>
-      <Unit19>
+      </Unit19>
+      <Unit20>
         <Filename Value="/Developer/lazarus 1.4/lcl/controls.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1596"/>
         <CursorPos X="14" Y="1627"/>
         <UsageCount Value="10"/>
-      </Unit19>
-      <Unit20>
+      </Unit20>
+      <Unit21>
         <Filename Value="/Developer/lazarus 1.4/lcl/include/font.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="659"/>
         <CursorPos Y="675"/>
         <UsageCount Value="10"/>
-      </Unit20>
-      <Unit21>
+      </Unit21>
+      <Unit22>
         <Filename Value="/lazarus/fpc/2.6.4/source/rtl/inc/mathh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="55"/>
         <CursorPos X="20" Y="73"/>
         <UsageCount Value="10"/>
-      </Unit21>
-      <Unit22>
+      </Unit22>
+      <Unit23>
         <Filename Value="/lazarus/fpc/2.6.4/source/packages/fcl-image/src/fpcanvas.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="298"/>
         <CursorPos X="15" Y="315"/>
         <UsageCount Value="10"/>
-      </Unit22>
-      <Unit23>
+      </Unit23>
+      <Unit24>
         <Filename Value="/lazarus/lcl/include/font.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1054"/>
         <CursorPos Y="1072"/>
         <UsageCount Value="10"/>
-      </Unit23>
-      <Unit24>
-        <Filename Value="../../lifeblocks.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="lifeblocks"/>
-        <EditorIndex Value="1"/>
-        <CursorPos Y="2"/>
-        <UsageCount Value="21"/>
-        <Loaded Value="True"/>
       </Unit24>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="28" HistoryIndex="27">
       <Position1>
         <Filename Value="gui.pas"/>
         <Caret Line="81" Column="80" TopLine="63"/>
@@ -322,17 +322,9 @@
         <Caret Line="161" Column="23" TopLine="135"/>
       </Position27>
       <Position28>
-        <Filename Value="../../bricks.pas"/>
-        <Caret Line="2" TopLine="175"/>
-      </Position28>
-      <Position29>
-        <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="601" TopLine="1227"/>
-      </Position29>
-      <Position30>
         <Filename Value="gui.pas"/>
         <Caret Line="392" Column="50" TopLine="384"/>
-      </Position30>
+      </Position28>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
