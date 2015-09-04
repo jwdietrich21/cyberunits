@@ -227,6 +227,7 @@ const
 implementation
 
 procedure CenterRect(outerRect: TRect; var innerRect: TRect);
+{ centers a rect in another one }
 var
   innerWidth, outerWidth, innerHeight, motherHeight: integer;
 begin
@@ -242,6 +243,7 @@ end;
 
 procedure CenterString(const theCanvas: TCanvas; const theString: string;
   myRect: TRect; var Start: TPoint);
+{ delivers a starting point for a string that is bo be centered in a rect }
 begin
   Start.x := myRect.left + (myRect.right - myRect.left) div 2 -
     theCanvas.TextWidth(theString) div 2;
@@ -250,6 +252,7 @@ begin
 end;
 
 function InsetRect(var ARect: TRect; dx, dy: integer): boolean;
+{ reduces the dimension of ARect by the distances dx and dy }
 begin
   with ARect do
   begin
@@ -262,6 +265,7 @@ begin
 end;
 
 procedure DrawArrowHead(var theCanvas: TCanvas; const x, y: integer; const theLength, alpha, beta: real);
+{ draws an arrowhead with a given position, length and angle }
 var
   A, B, C, D, r: real;
   gamma, epsilon, zeta, eta: real;
@@ -295,7 +299,7 @@ begin
 end;
 
 procedure pathTo(theCanvas: TCanvas; x, y: integer; chirality: tChirality);
-{draws rounded connection lines}
+{ draws rounded connection lines }
 const
   STDDiam = 20;
   BETA = 26 * pi / 180;
@@ -428,11 +432,13 @@ begin
 end;
 
 procedure pathTo(theCanvas: TCanvas; thePoint: TPoint; chirality: tChirality);
+{ polymorphic variant of pathTo }
 begin
   pathTo(theCanvas, thePoint.x, thePoint.y, chirality);
 end;
 
 procedure GetAnchorPoints(theIPSObject: TIPSClass; const theRect: TRect);
+{ delivers anchor points for TIPSClass }
 begin
   with theIPSObject.anchorPoint[leftmiddle] do
   begin
@@ -1147,7 +1153,6 @@ end;
 
 procedure TMiMeClass.Draw;
 var
-  theRect: TRect;
   theString: string;
   rw, rh, tw, th: integer;
   oldFont: TFont;
@@ -1155,30 +1160,45 @@ var
 begin
   if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
   begin
-    theRect := boundsRect;
+    objectRect := boundsRect;
+    rw := boundsRect.Right - boundsRect.Left;
+    rh := boundsRect.Bottom - boundsRect.Top;
+    th := rh;
+    tw := rw;
+    if th < tw then
+    begin
+      objectRect.Left := boundsRect.Left + (tw - th) div 2;
+      objectRect.Right := objectRect.Left + th;
+    end
+    else if tw < th then
+    begin
+      objectRect.Top := boundsRect.Top + (th - tw) div 2;
+      objectRect.Bottom := objectRect.Top + tw;
+    end;
+    InsetRect(objectRect, th div 10, th div 10);
+    tw := objectRect.Right - objectRect.Left;
+    th := objectRect.Bottom - objectRect.Top;
     theString := 'MiMe';
     Font.Color := blockDiagram.canvas.Pen.Color;
     oldFont := blockDiagram.canvas.Font;
     blockDiagram.canvas.Font := Font;
-    blockDiagram.canvas.Rectangle(theRect);
-    blockDiagram.canvas.Ellipse(theRect);
-    rw := theRect.Right - theRect.Left;
-    rh := theRect.Bottom - theRect.Top;
-    blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.4 * rw),
-      theRect.Top + trunc(0.15 * rh));
-    blockDiagram.canvas.LineTo(theRect.Left + trunc(0.4 * rw),
-      theRect.Top + trunc(0.85 * rh));
-    blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.15 * rw),
-      theRect.Top + trunc(0.6 * rh));
-    blockDiagram.canvas.LineTo(theRect.Left + trunc(0.85 * rw),
-      theRect.Top + trunc(0.6 * rh));
+    blockDiagram.canvas.Rectangle(boundsRect);
+    blockDiagram.canvas.Ellipse(objectRect);
+    blockDiagram.canvas.MoveTo(objectRect.Left + trunc(0.2 * tw),
+      objectRect.Top + trunc(0.15 * th));
+    blockDiagram.canvas.LineTo(objectRect.Left + trunc(0.2 * tw),
+      objectRect.Top + trunc(0.85 * th));
+    blockDiagram.canvas.MoveTo(objectRect.Left + trunc(0.15 * tw),
+      objectRect.Top + trunc(0.7 * th));
+    blockDiagram.canvas.LineTo(objectRect.Left + trunc(0.95 * tw),
+      objectRect.Top + trunc(0.7 * th));
     SetLength(bezierPoints, 4);
-    bezierPoints[0] := Point(theRect.Left + trunc(0.4 * rw), theRect.Top + trunc(0.6 * rh));
-    bezierPoints[1] := Point(theRect.Left + trunc(0.5 * rw), theRect.Top + trunc(0.3 * rh));
-    bezierPoints[2] := Point(theRect.Left + trunc(0.7 * rw), theRect.Top + trunc(0.2 * rh));
-    bezierPoints[3] := Point(theRect.Left + trunc(0.8 * rw), theRect.Top + trunc(0.2 * rh));
+    bezierPoints[0] := Point(objectRect.Left + trunc(0.2 * tw), objectRect.Top + trunc(0.7 * th));
+    bezierPoints[1] := Point(objectRect.Left + trunc(0.3 * tw), objectRect.Top + trunc(0.31 * th));
+    bezierPoints[2] := Point(objectRect.Left + trunc(0.7 * tw), objectRect.Top + trunc(0.3 * th));
+    bezierPoints[3] := Point(objectRect.Left + trunc(0.8 * tw), objectRect.Top + trunc(0.3 * th));
     blockDiagram.canvas.PolyBezier(bezierPoints, false, true);
-    GetAnchorPoints(self, theRect);
+    GetAnchorPoints(self, boundsRect);
     blockDiagram.canvas.Font := oldFont;
   end;
 end;
