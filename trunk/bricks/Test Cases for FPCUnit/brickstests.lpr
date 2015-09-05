@@ -6,7 +6,7 @@ program brickstests;
 
 { bricks test cases }
 
-{ Version 1.0.0 (Corvus) }
+{ Version 1.0.1 (Corvus) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
@@ -38,4 +38,4 @@ begin
   Application.CreateForm(TGuiTestRunner, TestRunner);
   Application.Run;
 end.
-
+

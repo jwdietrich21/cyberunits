@@ -8,17 +8,17 @@
       <Unit0>
         <Filename Value="brickstests.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="brickstestcases.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="brickstestcases"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
         <CursorPos Y="2"/>
@@ -34,7 +34,7 @@
           <TopLine Value="328"/>
           <CursorPos X="22" Y="328"/>
         </ExtraEditor2>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
@@ -55,7 +55,7 @@
           <TopLine Value="133"/>
           <CursorPos Y="434"/>
         </ExtraEditor2>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -65,7 +65,7 @@
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="45"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -103,7 +103,7 @@
         <UsageCount Value="10"/>
       </Unit8>
     </Units>
-    <JumpHistory Count="28" HistoryIndex="27">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="brickstestcases.pas"/>
         <Caret Line="494" Column="5" TopLine="474"/>
@@ -216,6 +216,10 @@
         <Filename Value="..\bricks.pas"/>
         <Caret Line="304" Column="34" TopLine="281"/>
       </Position28>
+      <Position29>
+        <Filename Value="..\lifeblocks.pas"/>
+        <Caret Line="93" TopLine="73"/>
+      </Position29>
     </JumpHistory>
   </ProjectSession>
   <Debugging>

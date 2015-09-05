@@ -9,9 +9,9 @@
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="5"/>
         <WindowIndex Value="1"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="9" Y="2"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -24,7 +24,7 @@
         <UnitName Value="GUI"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="7" Y="2"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -34,7 +34,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="SimulationEngine"/>
         <WindowIndex Value="1"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="16" Y="10"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -47,7 +47,7 @@
         <UnitName Value="IPS"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="1"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="8" Y="2"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -69,7 +69,7 @@
         <UnitName Value="Plot"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="2" Y="2"/>
+        <CursorPos X="9" Y="2"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -83,7 +83,7 @@
         <UnitName Value="Prediction"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="3" Y="2"/>
+        <CursorPos X="12" Y="2"/>
         <UsageCount Value="26"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -103,18 +103,17 @@
       <Unit9>
         <Filename Value="..\..\systemsdiagram.pas"/>
         <UnitName Value="SystemsDiagram"/>
-        <EditorIndex Value="5"/>
-        <WindowIndex Value="1"/>
-        <CursorPos Y="2"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="558"/>
+        <CursorPos X="35" Y="563"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
-          <WindowIndex Value="-1"/>
-          <TopLine Value="558"/>
-          <CursorPos X="35" Y="563"/>
+          <WindowIndex Value="1"/>
+          <CursorPos Y="2"/>
         </ExtraEditor1>
         <UsageCount Value="11"/>
-        <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="C:\lazarus\lcl\include\font.inc"/>
@@ -152,7 +151,7 @@
     <General>
       <ActiveWindowIndexAtStart Value="1"/>
     </General>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="14" HistoryIndex="13">
       <Position1>
         <Filename Value="gui.pas"/>
         <Caret Line="85" Column="40" TopLine="85"/>
@@ -206,69 +205,9 @@
         <Caret Line="112" Column="27" TopLine="92"/>
       </Position13>
       <Position14>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="120" Column="23" TopLine="102"/>
-      </Position14>
-      <Position15>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="374" TopLine="368"/>
-      </Position15>
-      <Position16>
         <Filename Value="ips.pas"/>
         <Caret Line="120" Column="7" TopLine="92"/>
-      </Position16>
-      <Position17>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="389" Column="9" TopLine="379"/>
-      </Position17>
-      <Position18>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="559" Column="36" TopLine="547"/>
-      </Position18>
-      <Position19>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="58" Column="27" TopLine="46"/>
-      </Position19>
-      <Position20>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="415" Column="24" TopLine="395"/>
-      </Position20>
-      <Position21>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="444" Column="24" TopLine="424"/>
-      </Position21>
-      <Position22>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="490" Column="13" TopLine="461"/>
-      </Position22>
-      <Position23>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="525" Column="13" TopLine="506"/>
-      </Position23>
-      <Position24>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="382" Column="72" TopLine="372"/>
-      </Position24>
-      <Position25>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="397" TopLine="372"/>
-      </Position25>
-      <Position26>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="403" Column="86" TopLine="377"/>
-      </Position26>
-      <Position27>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="397" Column="68" TopLine="374"/>
-      </Position27>
-      <Position28>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="395" TopLine="374"/>
-      </Position28>
-      <Position29>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="406" Column="45" TopLine="381"/>
-      </Position29>
+      </Position14>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
