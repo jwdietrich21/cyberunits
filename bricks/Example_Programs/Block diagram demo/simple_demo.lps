@@ -7,9 +7,10 @@
       <Unit0>
         <Filename Value="simple_demo.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <CursorPos X="63" Y="31"/>
-        <UsageCount Value="58"/>
+        <CursorPos X="4" Y="2"/>
+        <UsageCount Value="59"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -20,7 +21,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="gui"/>
         <EditorIndex Value="3"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="5" Y="2"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -28,7 +29,7 @@
           <TopLine Value="-1"/>
           <CursorPos X="-1" Y="-1"/>
         </ExtraEditor1>
-        <UsageCount Value="58"/>
+        <UsageCount Value="59"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -37,14 +38,13 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Bricks"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="../../systemsdiagram.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SystemsDiagram"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="2"/>
         <ExtraEditorCount Value="1"/>
@@ -54,7 +54,7 @@
           <TopLine Value="37"/>
           <CursorPos X="69" Y="1161"/>
         </ExtraEditor1>
-        <UsageCount Value="47"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -63,7 +63,7 @@
         <UnitName Value="lifeblocks"/>
         <EditorIndex Value="1"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>

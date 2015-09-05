@@ -6,7 +6,7 @@ unit SystemsDiagram;
 
 { SystemsDiagram: Classes for drawing block diagrams }
 
-{ Version 1.0.0 (Corvus) }
+{ Version 1.0.1 (Corvus) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1996 - 2002 }

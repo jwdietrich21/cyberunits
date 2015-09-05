@@ -7,7 +7,7 @@ program simple_demo;
 { Demo of canvas using SystemsDiagram }
 { Main project file }
 
-{ Version 1.0.0 (Corvus) }
+{ Version 1.0.1 (Corvus) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1996 - 2002 }
