@@ -24,11 +24,11 @@
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-kError101 = "Runtime error: Negative parameter(s)";
-kError102 = "Runtime error: Parameter(s) out of range";
-kError103 = "Runtime error: min > max";
-kError104 = "Runtime error: max = 0";
-kError105 = "Runtime error: Denominator is zero";
+kError101 <- "Runtime error: Negative parameter(s)";
+kError102 <- "Runtime error: Parameter(s) out of range";
+kError103 <- "Runtime error: min > max";
+kError104 <- "Runtime error: max = 0";
+kError105 <- "Runtime error: Denominator is zero";
 
 setClass("TBlock", representation = representation(name = "character", fOutput = "numeric"), contains = "VIRTUAL");
 
