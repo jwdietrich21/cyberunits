@@ -41,14 +41,10 @@ implementation
 procedure DrawBodePlot(aBrick: TControlledBlock; AmpSeries, PhaseSeries: TLineSeries;
   minFreq, maxFreq: extended);
 const
-  N = 100;
-  MIN = -10;
-  MAX = 10;
-  RESOLUTION = 10;
+  RESOLUTION = 13;
 var
   diff: extended;
   i: Integer;
-  x: Double;
   omega, M, phi: TVector;
   minI, maxI: integer;
 begin
