@@ -68,6 +68,12 @@ begin
       aBrick.omega := omega[i];
       M[i] := TPT1(aBrick).fr.M;
       phi[i] := TPT1(aBrick).fr.phi;
+    end
+    else if aBrick.ClassType = TDT1 then
+    begin
+      aBrick.omega := omega[i];
+      M[i] := TDT1(aBrick).fr.M;
+      phi[i] := TDT1(aBrick).fr.phi;
     end;
     AmpSeries.AddXY(omega[i], m[i]);
     PhaseSeries.AddXY(omega[i], phi[i]);

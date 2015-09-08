@@ -125,6 +125,19 @@ begin
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
+  end
+  else if BlockTypeComboBox.Caption = 'DT1' then begin
+    theBlock := TDT1.Create;
+    theBlock.G := 1;
+    TDT1(theBlock).t1 := 1;
+    TDT1(theBlock).delta := 1;
+    theBlock.amplitude := 1;
+    DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries, MIN_X, MAX_X);
+    AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    theBlock.Destroy;
   end;
 end;
 
