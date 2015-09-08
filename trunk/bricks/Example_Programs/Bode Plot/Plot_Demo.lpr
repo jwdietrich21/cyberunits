@@ -1,11 +1,10 @@
-program Simulator;
+program Plot_Demo;
 
 { CyberUnits }
 
 { Object Pascal units for computational cybernetics }
 
-{ Simulator for MiMe-NoCoDI loop }
-{ Main project file }
+{ Bricks: Basic blocks for information processing structures }
 
 { Version 1.1.0 (Corvus) }
 
@@ -14,7 +13,7 @@ program Simulator;
 { (c) University of Ulm Hospitals 2002-2004 }
 { (c) Ruhr University of Bochum 2005 - 2015 }
 
-{ Standard blocks for systems modelling and simulation }
+{ Demo for Bode plot }
 
 { Source code released under the BSD License }
 
@@ -34,8 +33,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, tachartlazaruspkg, GUI, SimulationEngine, IPS, bricks, lifeblocks,
-  Plot, prediction
+  Forms, tachartlazaruspkg, plot, bricks, plots
   { you can add units after this };
 
 {$R *.res}
@@ -43,10 +41,7 @@ uses
 begin
   RequireDerivedFormResource := True;
   Application.Initialize;
-  Application.CreateForm(TValuesForm, ValuesForm);
-  Application.CreateForm(TIPSForm, IPSForm);
-  Application.CreateForm(TPlotForm, PlotForm);
-  Application.CreateForm(TPredictionForm, PredictionForm);
+  Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.
 

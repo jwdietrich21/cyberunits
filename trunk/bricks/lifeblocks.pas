@@ -6,7 +6,7 @@ unit lifeblocks;
 
 { LifeBlocks: Metabricks for information processing structures in organisms }
 
-{ Version 1.0.1 (Corvus) }
+{ Version 1.1.0 (Corvus) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
@@ -40,7 +40,7 @@ type
   { TASIA }
   { ASIA element (analog signal memory with intrincis adjustment) }
 
-  TASIA = class(TBlock)
+  TASIA = class(TControlledBlock)
   protected
     PT1Analog: TPT1;
     FAlpha, FBeta: extended;
@@ -49,7 +49,6 @@ type
     procedure SetBeta(AValue: extended);
     procedure SetDelta(AValue: extended);
   public
-    input: extended;
     constructor Create;
     destructor Destroy; override;
     property alpha: extended read FAlpha write SetAlpha;
@@ -63,12 +62,11 @@ type
   { TMiMe }
   { Michaelis-Menten element }
 
-  TMiMe = class(TBlock)
+  TMiMe = class(TControlledBlock)
   protected
     function SimAndGetOutput: extended;
   public
-    input: extended;
-    G, D: extended;
+    D: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -79,11 +77,10 @@ type
   { TNoCoDI }
   { Non-competitive divisive inhibition }
 
-  TNoCoDI = class(TBlock)
+  TNoCoDI = class(TInvertableBlock)
   protected
     function SimAndGetOutput: extended;
   public
-    input1, input2: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
