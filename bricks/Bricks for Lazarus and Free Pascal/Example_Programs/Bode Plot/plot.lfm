@@ -13,15 +13,18 @@ object Form1: TForm1
     Left = 8
     Height = 180
     Top = 24
-    Width = 384
+    Width = 416
     AxisList = <    
       item
         Minors = <>
         Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'M'
       end    
       item
         Alignment = calBottom
         Marks.Format = '%0:.3g'
+        Marks.OverlapPolicy = opHideNeighbour
         Marks.Style = smsCustom
         Minors = <>
         Range.Max = 10
@@ -38,7 +41,8 @@ object Form1: TForm1
     Title.Brush.Style = bsClear
     Title.Font.Color = clBlack
     Title.Text.Strings = (
-      'Amplitude'
+      'Amplitude Plot'
+      ''
     )
     Title.Visible = True
     Color = clWhite
@@ -107,23 +111,28 @@ object Form1: TForm1
   end
   object PhaseChart: TChart
     Left = 8
-    Height = 180
+    Height = 200
     Top = 208
-    Width = 384
+    Width = 416
     AxisList = <    
       item
         Minors = <>
         Title.LabelFont.Orientation = 900
+        Title.Visible = True
+        Title.Caption = 'phi'
       end    
       item
         Alignment = calBottom
         Marks.Format = '%0:.3g'
+        Marks.OverlapPolicy = opHideNeighbour
         Marks.Style = smsCustom
         Minors = <>
         Range.Max = 0.01
         Range.Min = 10
         Range.UseMax = True
         Range.UseMin = True
+        Title.Visible = True
+        Title.Caption = 'omega'
         Transformations = ChartAxisTransformations1
       end>
     BackColor = clWhite
@@ -134,7 +143,8 @@ object Form1: TForm1
     Title.Brush.Style = bsClear
     Title.Font.Color = clBlack
     Title.Text.Strings = (
-      'Phase'
+      'Phase Plot'
+      ''
     )
     Title.Visible = True
     Color = clWhite
@@ -147,15 +157,16 @@ object Form1: TForm1
     end
   end
   object BlockTypeComboBox: TComboBox
-    Left = 408
+    Left = 448
     Height = 21
     Top = 24
-    Width = 208
+    Width = 168
     Anchors = [akTop, akLeft, akRight]
     ItemHeight = 0
     Items.Strings = (
       'PT0'
       'PT1'
+      'DT1'
     )
     OnChange = BlockTypeComboBoxChange
     TabOrder = 4
