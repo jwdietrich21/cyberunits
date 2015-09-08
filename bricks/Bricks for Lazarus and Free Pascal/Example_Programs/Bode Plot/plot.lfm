@@ -5,7 +5,7 @@ object Form1: TForm1
   Width = 640
   BorderStyle = bsDialog
   Caption = 'Form1'
-  ClientHeight = 402
+  ClientHeight = 422
   ClientWidth = 640
   Menu = MainMenu1
   LCLVersion = '1.4.0.4'
@@ -46,6 +46,8 @@ object Form1: TForm1
     object AmplitudeChartLineSeries: TLineSeries
       AxisIndexX = 1
       AxisIndexY = 0
+      LinePen.Color = clRed
+      Pointer.OverrideColor = [ocBrush]
     end
   end
   object ToolBar1: TToolBar
@@ -96,7 +98,7 @@ object Form1: TForm1
   object DrawButton: TButton
     Left = 520
     Height = 25
-    Top = 352
+    Top = 372
     Width = 99
     Anchors = [akRight, akBottom]
     Caption = 'Draw'
@@ -140,6 +142,8 @@ object Form1: TForm1
     object PhaseChartLineSeries: TLineSeries
       AxisIndexX = 1
       AxisIndexY = 0
+      LinePen.Color = clBlue
+      Pointer.OverrideColor = [ocBrush]
     end
   end
   object BlockTypeComboBox: TComboBox
@@ -148,7 +152,7 @@ object Form1: TForm1
     Top = 24
     Width = 208
     Anchors = [akTop, akLeft, akRight]
-    ItemHeight = 13
+    ItemHeight = 0
     Items.Strings = (
       'PT0'
       'PT1'
