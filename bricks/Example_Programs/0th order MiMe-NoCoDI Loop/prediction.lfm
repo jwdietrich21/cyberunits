@@ -20,11 +20,11 @@ object PredictionForm: TPredictionForm
     Columns = <    
       item
         Title.Caption = 'Equilibrium 1'
-        Width = 135
+        Width = 133
       end    
       item
         Title.Caption = 'Equilibrium 2'
-        Width = 135
+        Width = 133
       end>
     MouseWheelOption = mwGrid
     RowCount = 6
@@ -32,8 +32,8 @@ object PredictionForm: TPredictionForm
     TabOrder = 0
     ColWidths = (
       64
-      135
-      135
+      133
+      133
     )
   end
 end

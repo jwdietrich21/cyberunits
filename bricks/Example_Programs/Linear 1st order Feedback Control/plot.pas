@@ -7,7 +7,7 @@ unit Plot;
 { Demo of a simple simulator for a linear 1st order feedback system }
 { Plot unit }
 
-{ Version 1.0.1 (Corvus) }
+{ Version 1.1.0 (Corvus) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }

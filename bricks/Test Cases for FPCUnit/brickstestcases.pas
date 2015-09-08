@@ -6,7 +6,7 @@ unit brickstestcases;
 
 { bricks test cases }
 
-{ Version 1.0.1 (Corvus) }
+{ Version 1.1.0 (Corvus) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }

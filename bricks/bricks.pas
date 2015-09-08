@@ -6,7 +6,7 @@ unit Bricks;
 
 { Bricks: Basic blocks for information processing structures }
 
-{ Version 1.0.1 (Corvus) }
+{ Version 1.1.0 (Corvus) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
@@ -69,15 +69,36 @@ type
     property fr: TFR read FFR;
   end;
 
+  { TBlock }
+  { Abstract base class for IPS blocks }
+
+  TControlledBlock = class(TBlock)
+  protected
+    function SimAndGetOutput: extended; virtual; abstract;
+    function GetFR: TFR; virtual; abstract;
+  public
+    input, G, amplitude, omega: extended;
+  end;
+
+  { TInvertableBlock }
+  { Abstract base class for IPS blocks }
+
+  TInvertableBlock = class(TBlock)
+  protected
+    function SimAndGetOutput: extended; virtual; abstract;
+    function GetFR: TFR; virtual; abstract;
+  public
+    input1, input2, G: extended;
+  end;
+
   { TP }
   { Proportional block }
 
-  TP = class(TBlock)
+  TP = class(TControlledBlock)
   protected
     function SimAndGetOutput: extended;
     function GetFR: TFR;
   public
-    input, G, amplitude, omega: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -89,14 +110,14 @@ type
   { TPT0 }
   { Dead-time element, improved from Neuber 1989 }
 
-  TPT0 = class(TBlock)
+  TPT0 = class(TControlledBlock)
   protected
     function GetQueueLength: integer;
     procedure SetQueueLength(AValue: integer);
     function SimAndGetOutput: extended;
     function GetFR: TFR;
   public
-    input, G, amplitude, omega, delta: extended;
+    delta: extended;
     xt: array of extended;
     constructor Create;
     destructor Destroy; override;
@@ -110,12 +131,12 @@ type
   { TPT1 }
   { First order delay element, changed from Neuber 1989 }
 
-  TPT1 = class(TBlock)
+  TPT1 = class(TControlledBlock)
   protected
     function SimAndGetOutput: extended;
     function GetFR: TFR;
   public
-    input, G, t1, x1, amplitude, omega, delta: extended;
+    t1, x1, delta: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -127,12 +148,12 @@ type
   { TPT2 }
   { Second order delay element, changed from Neuber 1989 }
 
-  TPT2 = class(TBlock)
+  TPT2 = class(TControlledBlock)
   protected
     function SimAndGetOutput: extended;
     function GetFR: TFR;
   public
-    input, G, t2, dmp, x1, x2, amplitude, omega, delta: extended;
+    t2, dmp, x1, x2, delta: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -144,12 +165,12 @@ type
   { TInt }
   { Integrator block, changed from Neuber 1989 }
 
-  TInt = class(TBlock)
+  TInt = class(TControlledBlock)
   protected
     function SimAndGetOutput: extended;
     function GetFR: TFR;
   public
-    input, G, amplitude, omega, delta: extended;
+    delta: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -161,12 +182,12 @@ type
   { TIT1 }
   { IT1 block, changed from Neuber 1989 }
 
-  TIT1 = class(TBlock)
+  TIT1 = class(TControlledBlock)
   protected
     function SimAndGetOutput: extended;
     function GetFR: TFR;
   public
-    input, G, t1, x1, amplitude, omega, delta: extended;
+    t1, x1, delta: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -178,12 +199,12 @@ type
   { TDT1 }
   { DT1 block, changed from Neuber 1989 }
 
-  TDT1 = class(TBlock)
+  TDT1 = class(TControlledBlock)
   protected
     function SimAndGetOutput: extended;
     function GetFR: TFR;
   public
-    input, G, t1, x1, amplitude, omega, delta: extended;
+    t1, x1, delta: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -195,12 +216,12 @@ type
   { TIT2 }
   { IT2 block, changed from Neuber 1989 }
 
-  TIT2 = class(TBlock)
+  TIT2 = class(TControlledBlock)
   protected
     function SimAndGetOutput: extended;
     function GetFR: TFR;
   public
-    input, G, t2, dmp, x1, x2, x3, amplitude, omega, delta: extended;
+    t2, dmp, x1, x2, x3, delta: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -213,11 +234,10 @@ type
   { TPAdd }
   { Summation block }
 
-  TPAdd = class(TBlock)
+  TPAdd = class(TInvertableBlock)
   protected
     function SimAndGetOutput: extended;
   public
-    input1, input2, G: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -228,11 +248,10 @@ type
   { TPSub }
   { Substraction block, comparator }
 
-  TPSub = class(TBlock)
+  TPSub = class(TInvertableBlock)
   protected
     function SimAndGetOutput: extended;
   public
-    input1, input2, G: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -243,11 +262,10 @@ type
   { TPMul }
   { Multiplicator }
 
-  TPMul = class(TBlock)
+  TPMul = class(TInvertableBlock)
   protected
     function SimAndGetOutput: extended;
   public
-    input1, input2, G: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -258,11 +276,10 @@ type
   { TPDiv }
   { Divider}
 
-  TPDiv = class(TBlock)
+  TPDiv = class(TInvertableBlock)
   protected
     function SimAndGetOutput: extended;
   public
-    input1, input2, G: extended;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;

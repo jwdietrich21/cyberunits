@@ -41,31 +41,26 @@ object PlotForm: TPlotForm
       Title = 'x'
       LinePen.Color = clNavy
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object eSeries: TLineSeries
       Title = 'e'
       LinePen.Color = clRed
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object cSeries: TLineSeries
       Title = 'c'
       LinePen.Color = clLime
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object ySeries: TLineSeries
       Title = 'y'
       LinePen.Color = clGreen
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object yrSeries: TLineSeries
       Title = 'yr'
       LinePen.Color = clAqua
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
   end
   object ChartLegendPanel1: TChartLegendPanel
