@@ -192,6 +192,7 @@ object PlotForm: TPlotForm
         Width = 50
       end>
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goColSpanning, goDblClickAutoSize, goSmoothScroll]
+    RowCount = 13
     TabOrder = 5
   end
   object ImageList1: TImageList

@@ -325,7 +325,7 @@ end;
 
 procedure TTHarmonic.simulate;
 begin
-  fOutput := G * sin(omega * time + phi);
+  fOutput := G + G * sin(omega * time + phi);
   time := time + delta;
 end;
 
