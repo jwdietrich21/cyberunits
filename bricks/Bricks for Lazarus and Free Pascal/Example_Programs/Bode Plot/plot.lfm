@@ -1,7 +1,7 @@
 object PlotForm: TPlotForm
-  Left = 269
+  Left = 270
   Height = 422
-  Top = 127
+  Top = 186
   Width = 640
   BorderStyle = bsDialog
   Caption = 'PlotForm'
@@ -101,10 +101,10 @@ object PlotForm: TPlotForm
     end
   end
   object DrawButton: TButton
-    Left = 520
+    Left = 541
     Height = 25
     Top = 372
-    Width = 99
+    Width = 75
     Anchors = [akRight, akBottom]
     Caption = 'Draw'
     OnClick = DrawButtonClick
@@ -194,6 +194,16 @@ object PlotForm: TPlotForm
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goColSpanning, goDblClickAutoSize, goSmoothScroll]
     RowCount = 13
     TabOrder = 5
+  end
+  object TSButton: TButton
+    Left = 448
+    Height = 25
+    Top = 372
+    Width = 88
+    Caption = 'Time Series'
+    Enabled = False
+    OnClick = TSButtonClick
+    TabOrder = 6
   end
   object ImageList1: TImageList
     left = 584

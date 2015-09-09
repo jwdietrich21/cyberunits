@@ -33,13 +33,14 @@ interface
 uses
   Classes, SysUtils, FileUtil, TASources, TAGraph, TASeries, TATransformations,
   Forms, Controls, Graphics, Dialogs, ComCtrls, Menus, StdCtrls, LCLType, Grids,
-  Bricks, plots;
+  Math, Bricks, plots, ts;
 
 type
 
   { TPlotForm }
 
   TPlotForm = class(TForm)
+    TSButton: TButton;
     ChartAxisTransformations1: TChartAxisTransformations;
     ChartAxisTransformations1LogarithmAxisTransform1: TLogarithmAxisTransform;
     BlockTypeComboBox: TComboBox;
@@ -83,11 +84,13 @@ type
     procedure DrawButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure QuitMenuItemClick(Sender: TObject);
+    procedure TSButtonClick(Sender: TObject);
     procedure WinAboutItemClick(Sender: TObject);
   private
     { private declarations }
   public
     omega, M, phi: TVector;
+    inputSignal, outputSignal: TVector;
     { public declarations }
   end;
 
@@ -181,7 +184,7 @@ begin
     TPT1(theBlock).x1 := 1; // pre-fill memory
     theBlock.amplitude := 1;
     SimBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
-      MIN_X, MAX_X, omega, M, phi);
+      MIN_X, MAX_X, omega, M, phi, inputSignal, outputSignal);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
@@ -222,6 +225,20 @@ begin
   application.Terminate;
 end;
 
+procedure TPlotForm.TSButtonClick(Sender: TObject);
+var
+  i, l: longint;
+begin
+  TimeSeriesForm.Show;
+  l := length(inputSignal);
+  if l > 0 then
+    for i := 0 to l do
+    begin
+      TimeSeriesForm.InputLineSeries.AddXY(i, inputSignal[i]);
+      TimeSeriesForm.OutputLineSeries.AddXY(i, outputSignal[i]);
+    end;
+end;
+
 procedure TPlotForm.WinAboutItemClick(Sender: TObject);
 begin
   ShowAboutWindow(Sender);
@@ -231,6 +248,10 @@ procedure TPlotForm.BlockTypeComboBoxChange(Sender: TObject);
 begin
   AmplitudeChartLineSeries.Clear;
   PhaseChartLineSeries.Clear;
+  if pos('(simulated)', BlockTypeComboBox.Caption) <> 0 then
+    TSButton.Enabled := true
+  else
+    TSButton.Enabled := false;
 end;
 
 procedure TPlotForm.CloseMenuItemClick(Sender: TObject);

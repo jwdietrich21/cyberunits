@@ -33,7 +33,7 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, tachartlazaruspkg, plot, bricks, plots
+  Forms, tachartlazaruspkg, plot, bricks, plots, ts
   { you can add units after this };
 
 {$R *.res}
@@ -42,6 +42,7 @@ begin
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TPlotForm, PlotForm);
+  Application.CreateForm(TTimeSeriesForm, TimeSeriesForm);
   Application.Run;
 end.
 

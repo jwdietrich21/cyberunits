@@ -1,0 +1,46 @@
+object TimeSeriesForm: TTimeSeriesForm
+  Left = 351
+  Height = 208
+  Top = 311
+  Width = 640
+  Caption = 'Time Series'
+  ClientHeight = 208
+  ClientWidth = 640
+  LCLVersion = '1.4.0.4'
+  object TSChart: TChart
+    Left = 8
+    Height = 184
+    Top = 8
+    Width = 624
+    AxisList = <    
+      item
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+      end    
+      item
+        Alignment = calBottom
+        Marks.Format = '%0:.3g'
+        Marks.Style = smsCustom
+        Minors = <>
+      end>
+    BackColor = clWhite
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Color = clWhite
+    ParentColor = False
+    object InputLineSeries: TLineSeries
+      LinePen.Color = clBlue
+      Pointer.OverrideColor = [ocBrush]
+    end
+    object OutputLineSeries: TLineSeries
+      LinePen.Color = clRed
+      Pointer.OverrideColor = [ocBrush]
+    end
+  end
+end
