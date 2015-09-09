@@ -6,7 +6,7 @@ object PlotForm: TPlotForm
   ActiveControl = BlockTypeComboBox
   BorderStyle = bsDialog
   Caption = 'Bode Plot'
-  ClientHeight = 380
+  ClientHeight = 400
   ClientWidth = 640
   Menu = MainMenu1
   OnCreate = FormCreate
@@ -58,6 +58,7 @@ object PlotForm: TPlotForm
       AxisIndexX = 1
       AxisIndexY = 0
       LinePen.Color = clRed
+      Pointer.OverrideColor = [ocBrush]
     end
   end
   object ToolBar1: TToolBar
@@ -108,7 +109,7 @@ object PlotForm: TPlotForm
   object DrawButton: TButton
     Left = 541
     Height = 25
-    Top = 339
+    Top = 359
     Width = 75
     Anchors = [akRight, akBottom]
     Caption = 'Draw'
@@ -118,7 +119,7 @@ object PlotForm: TPlotForm
   end
   object PhaseChart: TChart
     Left = 8
-    Height = 164
+    Height = 184
     Top = 200
     Width = 416
     AxisList = <    
@@ -165,6 +166,7 @@ object PlotForm: TPlotForm
       AxisIndexX = 1
       AxisIndexY = 0
       LinePen.Color = clBlue
+      Pointer.OverrideColor = [ocBrush]
     end
   end
   object BlockTypeComboBox: TComboBox
@@ -173,7 +175,7 @@ object PlotForm: TPlotForm
     Top = 24
     Width = 168
     Anchors = [akTop, akLeft, akRight]
-    ItemHeight = 13
+    ItemHeight = 0
     Items.Strings = (
       'PT0 (exact)'
       'PT1 (exact)'
@@ -188,7 +190,7 @@ object PlotForm: TPlotForm
   end
   object frGrid: TStringGrid
     Left = 448
-    Height = 246
+    Height = 266
     Top = 72
     Width = 168
     Anchors = [akTop, akRight, akBottom]
@@ -209,7 +211,7 @@ object PlotForm: TPlotForm
   object TSButton: TButton
     Left = 448
     Height = 25
-    Top = 339
+    Top = 359
     Width = 88
     Anchors = [akLeft, akBottom]
     Caption = 'Time Series'
