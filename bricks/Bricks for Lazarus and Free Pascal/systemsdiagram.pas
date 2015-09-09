@@ -223,6 +223,7 @@ type
 
   TBlockDiagram = class
   public
+    model: TModel;
     firstIPSObject: TIPSClass;
     canvas: TCanvas;
     constructor Create;

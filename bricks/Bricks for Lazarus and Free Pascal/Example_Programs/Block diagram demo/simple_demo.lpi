@@ -18,7 +18,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="88"/>
+      <BuildNr Value="89"/>
       <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Simple Demo for block diagrams with SystemsDiagram" InternalName="SystemsDiagram Demo 1.1.0 Corvus" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="1.1.0"/>
     </VersionInfo>
     <BuildModes Count="1">

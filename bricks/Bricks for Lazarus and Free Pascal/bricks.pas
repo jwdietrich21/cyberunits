@@ -41,10 +41,12 @@ const
   kError103 = 'Runtime error: min > max';
   kError104 = 'Runtime error: max = 0';
   kError105 = 'Runtime error: Denominator is zero';
+  kError210 = 'Runtime error: Nil pointer';
 
 type
 
   TVector = array of extended;
+  TBlock = class;
 
   { TFR }
   { frequency response }
@@ -52,6 +54,16 @@ type
   TFR = record
     M, phi: extended; { magnitude and phase }
     F: complex;       { complex FR (F = M(omega) * exp(i * phi(omega)) }
+  end;
+
+  { TModel }
+  { Base class for simulation models }
+
+  TModel = class
+    delta, time: extended;
+    firstBlock: TBlock;
+    constructor Create;
+    destructor Destroy;
   end;
 
   { TBlock }
@@ -63,6 +75,7 @@ type
     FFr: TFR;
   public
     name: string;
+    model: TModel;
     destructor Destroy; override;
     procedure simulate; virtual; abstract;
     property output: extended read Foutput;
@@ -98,7 +111,8 @@ type
   protected
     function SimAndGetOutput: extended;
   public
-    G, omega, phi, delta, time: extended;
+    G, omega, phi, delta: extended;
+    updateTime: boolean;
     constructor Create;
     destructor Destroy; override;
     property output: extended read Foutput;
@@ -305,6 +319,21 @@ type
 
 implementation
 
+{ TModel }
+
+constructor TModel.Create;
+begin
+  inherited create;
+  time := 0;
+  delta := 1;
+end;
+
+destructor TModel.Destroy;
+begin
+  // { TODO 3 -oJ. W. D. : Insert Chain of child objects to be deleted here }
+  inherited destroy;
+end;
+
 { TTHarmonic }
 
 function TTHarmonic.SimAndGetOutput: extended;
@@ -316,6 +345,10 @@ end;
 constructor TTHarmonic.Create;
 begin
   inherited Create;
+  if assigned(model) then
+    delta := model.delta
+  else
+    delta := 1;
 end;
 
 destructor TTHarmonic.Destroy;
@@ -325,8 +358,10 @@ end;
 
 procedure TTHarmonic.simulate;
 begin
-  fOutput := G + G * sin(omega * time + phi);
-  time := time + delta;
+  assert(assigned(model), kError210);
+  fOutput := G + G * sin(omega * model.time + phi);
+  if updateTime then
+    model.time := model.time + delta;
 end;
 
 { TIT2 }

@@ -77,15 +77,20 @@ var
   lasty: extended;
   i, j, t, initRun: Integer;
   minI, maxI: integer;
+  model: TModel;
   testSignal: TTHarmonic;
   InitBuffer: TVector;
 begin
   fillchar(inputSignal, sizeOf(inputSignal), 0);
   fillchar(outputSignal, sizeOf(outputSignal), 0);
+  model := TModel.Create;
   testSignal := TTHarmonic.Create;
+  model.firstBlock := testSignal;
+  testSignal.model := model;
   testSignal.delta := 0.1; // should not be higher to avoid aliasing
   testSignal.phi := pi / 2;
   testSignal.G := 1;
+  testSignal.updateTime := true;
   SetLength(omega, RESOLUTION + 1);
   SetLength(M, RESOLUTION + 1);
   SetLength(phi, RESOLUTION + 1);
@@ -99,7 +104,7 @@ begin
   begin
     omega[i] := i / RESOLUTION;
     testSignal.omega := omega[i];
-    testSignal.time := 0;
+    model.time := 0;
     for initRun := 0 to INITLENGTH do
     { initial runs for settling the system to a new equilibrium }
     begin
@@ -145,6 +150,7 @@ begin
     PhaseSeries.AddXY(omega[i], phi[i]);
   end;
   testSignal.Destroy;
+  model.Destroy;
   inputSignal := x;
   outputSignal := y;
 end;
