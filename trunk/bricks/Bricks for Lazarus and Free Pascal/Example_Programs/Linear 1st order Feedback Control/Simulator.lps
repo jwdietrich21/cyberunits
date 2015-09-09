@@ -8,8 +8,10 @@
       <Unit0>
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="1"/>
+        <TopLine Value="3"/>
         <CursorPos X="10" Y="2"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
@@ -32,8 +34,8 @@
         <Filename Value="simulationengine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SimulationEngine"/>
-        <IsVisibleTab Value="True"/>
         <WindowIndex Value="1"/>
+        <TopLine Value="2"/>
         <CursorPos X="4" Y="2"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
