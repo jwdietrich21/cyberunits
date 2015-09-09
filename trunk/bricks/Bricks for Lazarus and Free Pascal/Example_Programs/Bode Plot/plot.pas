@@ -248,10 +248,12 @@ begin
   TimeSeriesForm.Show;
   l := length(inputSignal);
   if l > 0 then
-    for i := 0 to l do
+    for i := 0 to l - 1 do
     begin
-      TimeSeriesForm.InputLineSeries.AddXY(i, inputSignal[i]);
-      TimeSeriesForm.OutputLineSeries.AddXY(i, outputSignal[i]);
+      if not isNaN(inputSignal[i]) then
+        TimeSeriesForm.InputLineSeries.AddXY(i, inputSignal[i]);
+      if not isNaN(outputSignal[i]) then
+        TimeSeriesForm.OutputLineSeries.AddXY(i, outputSignal[i]);
     end;
 end;
 
