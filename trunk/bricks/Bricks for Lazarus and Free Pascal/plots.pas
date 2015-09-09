@@ -186,6 +186,12 @@ begin
       M[i] := TPT1(aBrick).fr.M;
       phi[i] := TPT1(aBrick).fr.phi;
     end
+    else if aBrick.ClassType = TPT2 then
+    begin
+      aBrick.omega := omega[i];
+      M[i] := TPT2(aBrick).fr.M;
+      phi[i] := TPT2(aBrick).fr.phi;
+    end
     else if aBrick.ClassType = TDT1 then
     begin
       aBrick.omega := omega[i];

@@ -4,7 +4,7 @@ unit plot;
 
 { Object Pascal units for computational cybernetics }
 
-{ Bricks: Basic blocks for information processing structures }
+{ plot: draws signals in frequency domain  }
 
 { Version 1.1.0 (Corvus) }
 
@@ -191,6 +191,21 @@ begin
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
   end
+  else if BlockTypeComboBox.Caption = 'PT2 (exact)' then begin
+    theBlock := TPT2.Create;
+    theBlock.G := 1;
+    TPT2(theBlock).t2 := 1;
+    TPT2(theBlock).dmp := 0.5;
+    TPT2(theBlock).delta := 1;
+    theBlock.amplitude := 1;
+    DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
+      MIN_X, MAX_X, omega, M, phi);
+    AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    theBlock.Destroy;
+  end
   else if BlockTypeComboBox.Caption = 'DT1 (exact)' then begin
     theBlock := TDT1.Create;
     theBlock.G := 1;
@@ -229,6 +244,7 @@ procedure TPlotForm.TSButtonClick(Sender: TObject);
 var
   i, l: longint;
 begin
+  TimeSeriesForm.Redraw(Sender);
   TimeSeriesForm.Show;
   l := length(inputSignal);
   if l > 0 then
