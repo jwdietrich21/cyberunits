@@ -69,7 +69,7 @@ type
     property fr: TFR read FFR;
   end;
 
-  { TBlock }
+  { TControlledBlock }
   { Abstract base class for IPS blocks }
 
   TControlledBlock = class(TBlock)
@@ -89,6 +89,21 @@ type
     function GetFR: TFR; virtual; abstract;
   public
     input1, input2, G: extended;
+  end;
+
+  { TTHarmonic }
+  { Harmonic test signal }
+
+  TTHarmonic = class(TBlock)
+  protected
+    function SimAndGetOutput: extended;
+  public
+    G, omega, phi, delta, time: extended;
+    constructor Create;
+    destructor Destroy; override;
+    property output: extended read Foutput;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
   end;
 
   { TP }
@@ -289,6 +304,30 @@ type
 
 
 implementation
+
+{ TTHarmonic }
+
+function TTHarmonic.SimAndGetOutput: extended;
+begin
+  simulate;
+  result := fOutput;
+end;
+
+constructor TTHarmonic.Create;
+begin
+  inherited Create;
+end;
+
+destructor TTHarmonic.Destroy;
+begin
+  inherited Destroy;
+end;
+
+procedure TTHarmonic.simulate;
+begin
+  fOutput := G * sin(omega * time + phi);
+  time := time + delta;
+end;
 
 { TIT2 }
 

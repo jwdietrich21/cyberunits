@@ -1,13 +1,14 @@
-object Form1: TForm1
+object PlotForm: TPlotForm
   Left = 269
   Height = 422
   Top = 127
   Width = 640
   BorderStyle = bsDialog
-  Caption = 'Form1'
+  Caption = 'PlotForm'
   ClientHeight = 422
   ClientWidth = 640
   Menu = MainMenu1
+  OnCreate = FormCreate
   LCLVersion = '1.4.0.4'
   object AmplitudeChart: TChart
     Left = 8
@@ -164,13 +165,34 @@ object Form1: TForm1
     Anchors = [akTop, akLeft, akRight]
     ItemHeight = 0
     Items.Strings = (
-      'PT0'
-      'PT1'
-      'DT1'
+      'PT0 (exact)'
+      'PT1 (exact)'
+      'PT1 (simulated)'
+      'DT1 (exact)'
+      ''
     )
     OnChange = BlockTypeComboBoxChange
     TabOrder = 4
     Text = 'Select Block type...'
+  end
+  object frGrid: TStringGrid
+    Left = 448
+    Height = 288
+    Top = 72
+    Width = 168
+    Anchors = [akTop, akRight, akBottom]
+    ColCount = 3
+    Columns = <    
+      item
+        Title.Caption = 'm'
+        Width = 50
+      end    
+      item
+        Title.Caption = 'phi'
+        Width = 50
+      end>
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goColSpanning, goDblClickAutoSize, goSmoothScroll]
+    TabOrder = 5
   end
   object ImageList1: TImageList
     left = 584
@@ -314,6 +336,7 @@ object Form1: TForm1
       Caption = ''
       object MacAboutItem: TMenuItem
         Caption = 'About Demo Simulator'
+        OnClick = MacAboutItemClick
       end
     end
     object FileMenu: TMenuItem
@@ -385,6 +408,7 @@ object Form1: TForm1
       Caption = 'Help'
       object WinAboutItem: TMenuItem
         Caption = 'About Demo Simulator'
+        OnClick = WinAboutItemClick
       end
     end
   end
