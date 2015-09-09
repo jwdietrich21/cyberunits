@@ -31,12 +31,11 @@ unit plots;
 interface
 
 uses
-  Classes, SysUtils, TASources, TAGraph, TASeries, Bricks,
-  Dialogs;
+  Classes, SysUtils, TASources, TAGraph, TASeries, Math, Bricks;
 
 procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
   PhaseSeries: TLineSeries; minFreq, maxFreq: extended;
-  var omega, M, phi: TVector);
+  var omega, M, phi: TVector; var inputSignal, outputSignal: TVector);
 
 procedure DrawBodePlot(aBrick: TControlledBlock; AmpSeries, PhaseSeries: TLineSeries;
   minFreq, maxFreq: extended; var omega, M, phi: TVector);
@@ -46,12 +45,10 @@ implementation
 function FirstMaximum(timeSeries: tVector): Integer;
 var
   t: Integer;
-  yMax, tMax: extended;
-  lasty: extended;
+  tMax, lasty: extended;
 begin
   t := 0;
   tMax := 0;
-  yMax := timeSeries[t];
   repeat
   { search for rising values first }
    lasty := timeSeries[t];
@@ -68,29 +65,33 @@ end;
 
 procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
   PhaseSeries: TLineSeries; minFreq, maxFreq: extended;
-  var omega, M, phi: TVector);
+  var omega, M, phi: TVector; var inputSignal, outputSignal: TVector);
 { Draws extimated bode plot via simulation }
 const
   RESOLUTION = 13;
-  TESTLENGTH = 100;
-  INITLENGTH = 1000;
+  TESTLENGTH = 1000;
+  INITLENGTH = 10000;
 var
-  x, y_init, diff: extended;
-  y: array[0..TESTLENGTH] of extended;
+  y_init, diff: extended;
+  x, y: TVector;
   lasty: extended;
   i, j, t, initRun: Integer;
   minI, maxI: integer;
   testSignal: TTHarmonic;
   InitBuffer: TVector;
 begin
+  fillchar(inputSignal, sizeOf(inputSignal), 0);
+  fillchar(outputSignal, sizeOf(outputSignal), 0);
   testSignal := TTHarmonic.Create;
-  testSignal.delta := 0.001; // should not be higher to avoid aliasing
+  testSignal.delta := 0.1; // should not be higher to avoid aliasing
   testSignal.phi := pi / 2;
   testSignal.G := 1;
   SetLength(omega, RESOLUTION + 1);
   SetLength(M, RESOLUTION + 1);
   SetLength(phi, RESOLUTION + 1);
-  SetLength(initBuffer, INITLENGTH);
+  SetLength(initBuffer, INITLENGTH + 1);
+  SetLength(x, INITLENGTH + 1);
+  SetLength(y, INITLENGTH + 1);
   diff := maxFreq - minFreq;
   minI := trunc(minFreq * RESOLUTION);
   maxI := trunc(maxFreq * RESOLUTION / diff);
@@ -99,57 +100,53 @@ begin
     omega[i] := i / RESOLUTION;
     testSignal.omega := omega[i];
     testSignal.time := 0;
-    for initRun := 1 to INITLENGTH do
+    for initRun := 0 to INITLENGTH do
     { initial runs for settling the system to a new equilibrium }
     begin
-      x := testSignal.simOutput;
+      x[initRun] := testSignal.simOutput;
       if aBrick.ClassType = TPT1 then
       begin
-        TPT1(aBrick).input := x;
+        TPT1(aBrick).input := x[initRun];
         TPT1(aBrick).simulate;
       end;
     end;
     for initRun := 0 to INITLENGTH do
     { second initial run for finding the first maximum }
     begin
-      x := testSignal.simOutput;
+      x[initRun] := testSignal.simOutput;
       if aBrick.ClassType = TPT1 then
       begin
-        TPT1(aBrick).input := x;
+        TPT1(aBrick).input := x[initRun];
         InitBuffer[initRun] := TPT1(aBrick).simOutput;
       end;
     end;
+    SetLength(x, TESTLENGTH);
+    SetLength(y, TESTLENGTH);
+    //fillchar(x, sizeOf(x), 0);
+    //fillchar(y, sizeOf(y), 0);
     t := FirstMaximum(InitBuffer);
     if aBrick.ClassType = TPT1 then
       TPT1(aBrick).x1 := InitBuffer[t];
-    {lasty := y_init;
-    j := 0;
-    while (y_init >= lasty) and (j < 10000) do
-    begin
-      x := testSignal.simOutput;
-      if aBrick.ClassType = TPT1 then
-        y_init := TPT1(aBrick).simOutput;
-      lasty := y_init;
-      inc(j);
-    end;    }
     //testSignal.time := 0;
     for t := 0 to TESTLENGTH do
     begin
-      x := testSignal.simOutput;
+      x[t] := testSignal.simOutput;
       if aBrick.ClassType = TPT1 then
       begin
-        TPT1(aBrick).input := x;
+        TPT1(aBrick).input := x[t];
         y[t] := TPT1(aBrick).simOutput;
       end;
     end;
     t := FirstMaximum(y);
-    if t = TESTLENGTH then t := 0;
+    //if t = TESTLENGTH then t := 0;
     M[i] := y[i];
-    phi[i] := t - 1;
+    phi[i] := t;
     AmpSeries.AddXY(omega[i], m[i]);
     PhaseSeries.AddXY(omega[i], phi[i]);
   end;
   testSignal.Destroy;
+  inputSignal := x;
+  outputSignal := y;
 end;
 
 procedure DrawBodePlot(aBrick: TControlledBlock; AmpSeries, PhaseSeries: TLineSeries;
