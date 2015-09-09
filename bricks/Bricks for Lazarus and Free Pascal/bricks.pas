@@ -819,8 +819,10 @@ begin
   FFr.M := amplitude * G / sqrt(sqr(1 - sqr(omega * t2)) + sqr(2 * dmp * omega * t2));
   if omega < 1 / t2 then
     FFr.phi := -arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)))
+  else if omega > 1 / t2 then
+    FFr.phi := -pi - arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)))
   else
-    FFr.phi := -pi - arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)));
+    FFr.phi := NaN;
   FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
   result := FFR;
 end;
