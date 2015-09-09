@@ -19,7 +19,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="39"/>
+      <BuildNr Value="42"/>
       <StringTable Comments="CyberUnits System Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Demo for Bode Plot" InternalName="Bricks 1.0.0 Corvus" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="1.1"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -68,6 +68,7 @@
         <Filename Value="ts.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="TimeSeriesForm"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="ts"/>
       </Unit4>
