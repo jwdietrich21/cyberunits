@@ -219,6 +219,19 @@ begin
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
+  end
+  else if BlockTypeComboBox.Caption = 'Integrator (exact)' then begin
+    theBlock := TInt.Create;
+    theBlock.G := 1;
+    TInt(theBlock).delta := 1;
+    theBlock.amplitude := 1;
+    DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
+      MIN_X, MAX_X, omega, M, phi);
+    AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    theBlock.Destroy;
   end;
   frGrid.RowCount := Length(omega) + 2;
   for i := 1 to Length(omega) - 1 do

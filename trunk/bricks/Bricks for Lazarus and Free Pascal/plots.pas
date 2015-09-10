@@ -106,7 +106,7 @@ begin
     testSignal.omega := omega[i];
     model.time := 0;
     for initRun := 0 to INITLENGTH do
-    { initial runs for settling the system to a new equilibrium }
+    { initial runs for allowing the system to settle to a new equilibrium }
     begin
       x[initRun] := testSignal.simOutput;
       if aBrick.ClassType = TPT1 then
@@ -116,7 +116,7 @@ begin
       end;
     end;
     for initRun := 0 to INITLENGTH do
-    { second initial run for finding the first maximum }
+    { second initial run for finding the first maximum as a starting point }
     begin
       x[initRun] := testSignal.simOutput;
       if aBrick.ClassType = TPT1 then
@@ -125,26 +125,25 @@ begin
         InitBuffer[initRun] := TPT1(aBrick).simOutput;
       end;
     end;
-    SetLength(x, TESTLENGTH);
-    SetLength(y, TESTLENGTH);
+    t := FirstMaximum(InitBuffer);
+    SetLength(x, TESTLENGTH + 1);
+    SetLength(y, TESTLENGTH + 1);
     //fillchar(x, sizeOf(x), 0);
     //fillchar(y, sizeOf(y), 0);
-    t := FirstMaximum(InitBuffer);
     if aBrick.ClassType = TPT1 then
       TPT1(aBrick).x1 := InitBuffer[t];
-    //testSignal.time := 0;
-    for t := 0 to TESTLENGTH do
+    for j := 0 to TESTLENGTH do
     begin
-      x[t] := testSignal.simOutput;
+      x[j] := testSignal.simOutput;
       if aBrick.ClassType = TPT1 then
       begin
-        TPT1(aBrick).input := x[t];
-        y[t] := TPT1(aBrick).simOutput;
+        TPT1(aBrick).input := x[j];
+        y[j] := TPT1(aBrick).simOutput;
       end;
     end;
     t := FirstMaximum(y);
     //if t = TESTLENGTH then t := 0;
-    M[i] := y[i];
+    M[i] := y[t];
     phi[i] := t;
     AmpSeries.AddXY(omega[i], m[i]);
     PhaseSeries.AddXY(omega[i], phi[i]);
@@ -197,6 +196,12 @@ begin
       aBrick.omega := omega[i];
       M[i] := TDT1(aBrick).fr.M;
       phi[i] := TDT1(aBrick).fr.phi;
+    end
+    else if aBrick.ClassType = TInt then
+    begin
+      aBrick.omega := omega[i];
+      M[i] := TInt(aBrick).fr.M;
+      phi[i] := TInt(aBrick).fr.phi;
     end;
     AmpSeries.AddXY(omega[i], m[i]);
     PhaseSeries.AddXY(omega[i], phi[i]);
