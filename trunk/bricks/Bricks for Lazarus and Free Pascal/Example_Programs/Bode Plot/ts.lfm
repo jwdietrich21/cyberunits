@@ -1,11 +1,12 @@
 object TimeSeriesForm: TTimeSeriesForm
-  Left = 351
+  Left = 343
   Height = 400
-  Top = 311
+  Top = 355
   Width = 640
   Caption = 'Time Series'
   ClientHeight = 400
   ClientWidth = 640
+  OnCreate = FormCreate
   LCLVersion = '1.4.0.4'
   object InputTSChart: TChart
     Left = 8
@@ -37,6 +38,7 @@ object TimeSeriesForm: TTimeSeriesForm
     ParentColor = False
     object InputLineSeries: TLineSeries
       LinePen.Color = clBlue
+      Pointer.OverrideColor = [ocBrush]
     end
   end
   object OutputTSChart: TChart
@@ -69,24 +71,47 @@ object TimeSeriesForm: TTimeSeriesForm
     ParentColor = False
     object OutputLineSeries: TLineSeries
       LinePen.Color = clRed
+      Pointer.OverrideColor = [ocBrush]
     end
   end
   object OmegaTrackBar: TTrackBar
-    Left = 448
+    Left = 452
     Height = 40
     Top = 32
-    Width = 164
+    Width = 160
     OnChange = OmegaTrackBarChange
     Position = 1
     TickMarks = tmTopLeft
+    Anchors = [akTop, akRight]
     TabOrder = 2
   end
   object OmegaLabel: TLabel
     Left = 448
-    Height = 13
+    Height = 16
     Top = 14
-    Width = 37
+    Width = 49
     Caption = 'Omega:'
     ParentColor = False
+  end
+  object tsGrid: TStringGrid
+    Left = 452
+    Height = 280
+    Top = 80
+    Width = 160
+    Anchors = [akTop, akRight, akBottom]
+    AutoFillColumns = True
+    ColCount = 2
+    Columns = <    
+      item
+        Title.Caption = 'Output'
+        Width = 81
+      end>
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goColSpanning, goDblClickAutoSize, goSmoothScroll]
+    RowCount = 13
+    TabOrder = 3
+    ColWidths = (
+      64
+      81
+    )
   end
 end

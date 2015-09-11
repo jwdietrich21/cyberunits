@@ -104,6 +104,7 @@ begin
   for i := minI to maxI do
   begin
     SetLength(x, INITLENGTH + 1);
+    model.Reset;
     omega[i] := i / RESOLUTION;
     testSignal.omega := omega[i];
     model.time := 0;
@@ -129,8 +130,7 @@ begin
     end;
     t := FirstMaximum(InitBuffer);
     SetLength(x, TESTLENGTH + 1);
-    //fillchar(x, sizeOf(x), 0);
-    //fillchar(y, sizeOf(y), 0);
+    model.Reset;
     if aBrick.ClassType = TPT1 then
       TPT1(aBrick).x1 := InitBuffer[t];
     for j := 0 to TESTLENGTH do
