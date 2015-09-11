@@ -33,7 +33,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, Forms, Controls, Graphics,
-  Dialogs, ComCtrls, StdCtrls, Math, Bricks;
+  Dialogs, ComCtrls, StdCtrls, Grids, Math, Bricks;
 
 type
 
@@ -46,6 +46,8 @@ type
     InputTSChart: TChart;
     OutputTSChart: TChart;
     OmegaTrackBar: TTrackBar;
+    tsGrid: TStringGrid;
+    procedure FormCreate(Sender: TObject);
     procedure OmegaTrackBarChange(Sender: TObject);
     procedure Redraw(Sender: TObject);
   private
@@ -82,11 +84,22 @@ begin
       if not isNaN(outputSignal[i, j]) then
         TimeSeriesForm.OutputLineSeries.AddXY(j, outputSignal[i, j]);
     end;
+  tsGrid.RowCount := k + 2;
+  for j := 1 to k - 1 do
+    begin
+      tsGrid.Cells[0, j] := FloatToStrF(inputSignal[i, j], ffFixed, 2, 2);
+      tsGrid.Cells[1, j] := FloatToStrF(outputSignal[i, j], ffFixed, 2, 2);
+    end;
 end;
 
 procedure TTimeSeriesForm.OmegaTrackBarChange(Sender: TObject);
 begin
   Redraw(Sender);
+end;
+
+procedure TTimeSeriesForm.FormCreate(Sender: TObject);
+begin
+  tsGrid.Cells[0, 0] := 'Input';
 end;
 
 end.

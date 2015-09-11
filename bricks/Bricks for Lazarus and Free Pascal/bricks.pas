@@ -65,6 +65,7 @@ type
     firstBlock: TBlock;
     constructor Create;
     destructor Destroy;
+    procedure Reset;
   end;
 
   { TBlock }
@@ -335,6 +336,11 @@ begin
   inherited destroy;
 end;
 
+procedure TModel.Reset;
+begin
+  time := 0;
+end;
+
 { TTHarmonic }
 
 function TTHarmonic.SimAndGetOutput: extended;
@@ -346,10 +352,7 @@ end;
 constructor TTHarmonic.Create;
 begin
   inherited Create;
-  if assigned(model) then
-    delta := model.delta
-  else
-    delta := 1;
+  delta := 1;
 end;
 
 destructor TTHarmonic.Destroy;
