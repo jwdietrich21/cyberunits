@@ -165,7 +165,7 @@ begin
   else if BlockTypeComboBox.Caption = 'PT1 (exact)' then begin
     theBlock := TPT1.Create;
     theBlock.G := 1;
-    TPT1(theBlock).t1 := 1;
+    TPT1(theBlock).t1 := 5;
     TPT1(theBlock).delta := 1;
     theBlock.amplitude := 1;
     DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
@@ -179,7 +179,7 @@ begin
   else if BlockTypeComboBox.Caption = 'PT1 (simulated)' then begin
     theBlock := TPT1.Create;
     theBlock.G := 1;
-    TPT1(theBlock).t1 := 1;
+    TPT1(theBlock).t1 := 5;
     TPT1(theBlock).delta := 1;
     TPT1(theBlock).x1 := 1; // pre-fill memory
     theBlock.amplitude := 1;
