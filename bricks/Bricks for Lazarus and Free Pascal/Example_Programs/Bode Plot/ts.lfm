@@ -11,7 +11,7 @@ object TimeSeriesForm: TTimeSeriesForm
     Left = 8
     Height = 184
     Top = 8
-    Width = 624
+    Width = 424
     AxisList = <    
       item
         Minors = <>
@@ -43,7 +43,7 @@ object TimeSeriesForm: TTimeSeriesForm
     Left = 8
     Height = 184
     Top = 200
-    Width = 624
+    Width = 424
     AxisList = <    
       item
         Minors = <>
@@ -70,5 +70,23 @@ object TimeSeriesForm: TTimeSeriesForm
     object OutputLineSeries: TLineSeries
       LinePen.Color = clRed
     end
+  end
+  object OmegaTrackBar: TTrackBar
+    Left = 448
+    Height = 40
+    Top = 32
+    Width = 164
+    OnChange = OmegaTrackBarChange
+    Position = 1
+    TickMarks = tmTopLeft
+    TabOrder = 2
+  end
+  object OmegaLabel: TLabel
+    Left = 448
+    Height = 13
+    Top = 14
+    Width = 37
+    Caption = 'Omega:'
+    ParentColor = False
   end
 end

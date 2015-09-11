@@ -35,7 +35,7 @@ uses
 
 procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
   PhaseSeries: TLineSeries; minFreq, maxFreq: extended;
-  var omega, M, phi: TVector; var inputSignal, outputSignal: TVector);
+  var omega, M, phi: TVector; var inputSignal, outputSignal: TMatrix);
 
 procedure DrawBodePlot(aBrick: TControlledBlock; AmpSeries, PhaseSeries: TLineSeries;
   minFreq, maxFreq: extended; var omega, M, phi: TVector);
@@ -65,7 +65,7 @@ end;
 
 procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
   PhaseSeries: TLineSeries; minFreq, maxFreq: extended;
-  var omega, M, phi: TVector; var inputSignal, outputSignal: TVector);
+  var omega, M, phi: TVector; var inputSignal, outputSignal: TMatrix);
 { Draws extimated bode plot via simulation }
 const
   RESOLUTION = 13;
@@ -81,8 +81,8 @@ var
   testSignal: TTHarmonic;
   InitBuffer: TVector;
 begin
-  fillchar(inputSignal, sizeOf(inputSignal), 0);
-  fillchar(outputSignal, sizeOf(outputSignal), 0);
+  //fillchar(inputSignal, sizeOf(inputSignal), 0);
+  //fillchar(outputSignal, sizeOf(outputSignal), 0);
   model := TModel.Create;
   testSignal := TTHarmonic.Create;
   model.firstBlock := testSignal;
@@ -99,6 +99,8 @@ begin
   diff := maxFreq - minFreq;
   minI := trunc(minFreq * RESOLUTION);
   maxI := trunc(maxFreq * RESOLUTION / diff);
+  SetLength(inputSignal, maxI - minI + 2, TESTLENGTH + 1);
+  SetLength(outputSignal, maxI - minI + 2, TESTLENGTH + 1);
   for i := minI to maxI do
   begin
     SetLength(x, INITLENGTH + 1);
@@ -146,11 +148,11 @@ begin
     phi[i] := t;
     AmpSeries.AddXY(omega[i], m[i]);
     PhaseSeries.AddXY(omega[i], phi[i]);
+    inputSignal[i] := copy(x, 0, length(x));
+    outputSignal[i] := copy(y, 0, length(y));
   end;
   testSignal.Destroy;
   model.Destroy;
-  inputSignal := x;
-  outputSignal := y;
 end;
 
 procedure DrawBodePlot(aBrick: TControlledBlock; AmpSeries, PhaseSeries: TLineSeries;
