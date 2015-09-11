@@ -88,20 +88,20 @@ begin
   model.firstBlock := testSignal;
   testSignal.model := model;
   testSignal.delta := 0.1; // should not be higher to avoid aliasing
-  testSignal.phi := pi / 2;
+  testSignal.phi := pi / 2; // begin with maximum as in cosine function
   testSignal.G := 1;
   testSignal.updateTime := true;
   SetLength(omega, RESOLUTION + 1);
   SetLength(M, RESOLUTION + 1);
   SetLength(phi, RESOLUTION + 1);
   SetLength(initBuffer, INITLENGTH + 1);
-  SetLength(x, INITLENGTH + 1);
-  SetLength(y, INITLENGTH + 1);
+  SetLength(y, TESTLENGTH + 1);
   diff := maxFreq - minFreq;
   minI := trunc(minFreq * RESOLUTION);
   maxI := trunc(maxFreq * RESOLUTION / diff);
   for i := minI to maxI do
   begin
+    SetLength(x, INITLENGTH + 1);
     omega[i] := i / RESOLUTION;
     testSignal.omega := omega[i];
     model.time := 0;
@@ -127,7 +127,6 @@ begin
     end;
     t := FirstMaximum(InitBuffer);
     SetLength(x, TESTLENGTH + 1);
-    SetLength(y, TESTLENGTH + 1);
     //fillchar(x, sizeOf(x), 0);
     //fillchar(y, sizeOf(y), 0);
     if aBrick.ClassType = TPT1 then

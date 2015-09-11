@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="4"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="42"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -20,10 +20,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="plot"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="42"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -31,14 +30,16 @@
         <Filename Value="..\..\bricks.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Bricks"/>
+        <TopLine Value="91"/>
         <CursorPos Y="2"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="42"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="..\..\plots.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="plots"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <CursorPos Y="2"/>
         <ExtraEditorCount Value="1"/>
@@ -48,7 +49,7 @@
           <TopLine Value="40"/>
           <CursorPos Y="52"/>
         </ExtraEditor1>
-        <UsageCount Value="41"/>
+        <UsageCount Value="42"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -60,7 +61,7 @@
         <UnitName Value="ts"/>
         <EditorIndex Value="3"/>
         <CursorPos X="5" Y="2"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -110,123 +111,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="..\..\plots.pas"/>
-        <Caret Line="146" TopLine="121"/>
+        <Caret Line="149" TopLine="126"/>
       </Position1>
       <Position2>
         <Filename Value="..\..\plots.pas"/>
-        <Caret Line="147" TopLine="121"/>
+        <Caret Line="105" TopLine="87"/>
       </Position2>
       <Position3>
         <Filename Value="..\..\plots.pas"/>
-        <Caret Line="148" TopLine="121"/>
+        <Caret Line="144" TopLine="126"/>
       </Position3>
       <Position4>
         <Filename Value="..\..\plots.pas"/>
-        <Caret Line="149" TopLine="121"/>
+        <Caret Line="146" TopLine="126"/>
       </Position4>
       <Position5>
         <Filename Value="..\..\plots.pas"/>
-        <Caret Line="105" TopLine="87"/>
+        <Caret Line="147" TopLine="126"/>
       </Position5>
       <Position6>
         <Filename Value="..\..\plots.pas"/>
-        <Caret Line="106" TopLine="87"/>
+        <Caret Line="148" TopLine="126"/>
       </Position6>
       <Position7>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="107" TopLine="87"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="10" Column="58"/>
       </Position7>
       <Position8>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="108" TopLine="87"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="92" Column="10" TopLine="63"/>
       </Position8>
       <Position9>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="144" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="158" Column="26" TopLine="128"/>
       </Position9>
       <Position10>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="146" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="172" Column="26" TopLine="142"/>
       </Position10>
       <Position11>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="147" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="158" Column="21" TopLine="142"/>
       </Position11>
       <Position12>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="148" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="172" Column="26" TopLine="142"/>
       </Position12>
       <Position13>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="149" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="187" Column="26" TopLine="158"/>
       </Position13>
       <Position14>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="105" TopLine="87"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="202" Column="26" TopLine="173"/>
       </Position14>
       <Position15>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="144" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="216" Column="26" TopLine="187"/>
       </Position15>
       <Position16>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="146" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="229" Column="26" TopLine="200"/>
       </Position16>
       <Position17>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="147" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="236" Column="34" TopLine="207"/>
       </Position17>
       <Position18>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="148" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="237" Column="29" TopLine="208"/>
       </Position18>
       <Position19>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="149" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="239" Column="46" TopLine="210"/>
       </Position19>
       <Position20>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="105" TopLine="87"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="248" Column="31" TopLine="218"/>
       </Position20>
       <Position21>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="144" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="92" Column="10" TopLine="75"/>
       </Position21>
       <Position22>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="146" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="158" Column="26" TopLine="128"/>
       </Position22>
       <Position23>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="147" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="172" Column="26" TopLine="142"/>
       </Position23>
       <Position24>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="148" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="187" Column="26" TopLine="158"/>
       </Position24>
       <Position25>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="149" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="202" Column="26" TopLine="173"/>
       </Position25>
       <Position26>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="105" TopLine="87"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="216" Column="26" TopLine="187"/>
       </Position26>
       <Position27>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="144" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="229" Column="26" TopLine="200"/>
       </Position27>
       <Position28>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="146" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="236" Column="34" TopLine="207"/>
       </Position28>
       <Position29>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="147" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="237" Column="29" TopLine="208"/>
       </Position29>
       <Position30>
-        <Filename Value="..\..\plots.pas"/>
-        <Caret Line="148" TopLine="126"/>
+        <Filename Value="plot.pas"/>
+        <Caret Line="239" Column="46" TopLine="210"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
