@@ -33,7 +33,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, Forms, Controls, Graphics,
-  Dialogs;
+  Dialogs, ComCtrls, StdCtrls, Math, Bricks;
 
 type
 
@@ -41,14 +41,18 @@ type
 
   TTimeSeriesForm = class(TForm)
     InputLineSeries: TLineSeries;
+    OmegaLabel: TLabel;
     OutputLineSeries: TLineSeries;
     InputTSChart: TChart;
     OutputTSChart: TChart;
+    OmegaTrackBar: TTrackBar;
+    procedure OmegaTrackBarChange(Sender: TObject);
     procedure Redraw(Sender: TObject);
   private
     { private declarations }
   public
     { public declarations }
+    inputSignal, outputSignal: TMatrix;
   end;
 
 var
@@ -61,9 +65,28 @@ implementation
 { TTimeSeriesForm }
 
 procedure TTimeSeriesForm.Redraw(Sender: TObject);
+var
+  i, j, l, k: longint;
 begin
   InputLineSeries.Clear;
   OutputLineSeries.Clear;
+  l := length(inputSignal);
+  k := length(inputSignal[1]);
+  OmegaTrackbar.Max := l - 1;
+  i := OmegaTrackbar.Position;
+  if (l > 0) and (k > 0) and (i <= l) then
+    for j := 0 to k - 1 do
+    begin
+      if not isNaN(inputSignal[i, j]) then
+        TimeSeriesForm.InputLineSeries.AddXY(j, inputSignal[i, j]);
+      if not isNaN(outputSignal[i, j]) then
+        TimeSeriesForm.OutputLineSeries.AddXY(j, outputSignal[i, j]);
+    end;
+end;
+
+procedure TTimeSeriesForm.OmegaTrackBarChange(Sender: TObject);
+begin
+  Redraw(Sender);
 end;
 
 end.

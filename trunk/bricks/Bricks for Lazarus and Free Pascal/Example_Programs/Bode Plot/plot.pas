@@ -59,9 +59,9 @@ type
     EditMenu: TMenuItem;
     FileMenu: TMenuItem;
     HelpMenu: TMenuItem;
-    ImageList1: TImageList;
+    ImageList: TImageList;
     MacAboutItem: TMenuItem;
-    MainMenu1: TMainMenu;
+    MainMenu: TMainMenu;
     NewMenuItem: TMenuItem;
     OpenMenuItem: TMenuItem;
     PasteMenuItem: TMenuItem;
@@ -90,7 +90,7 @@ type
     { private declarations }
   public
     omega, M, phi: TVector;
-    inputSignal, outputSignal: TVector;
+    inputSignal, outputSignal: TMatrix;
     { public declarations }
   end;
 
@@ -143,7 +143,7 @@ end;
 procedure TPlotForm.DrawButtonClick(Sender: TObject);
 const
   MIN_X = 0.1;
-  MAX_X = 1.5;
+  MAX_X = 3;
 var
   theBlock: TControlledBlock;
   i: integer;
@@ -254,20 +254,11 @@ begin
 end;
 
 procedure TPlotForm.TSButtonClick(Sender: TObject);
-var
-  i, l: longint;
 begin
+  TimeSeriesForm.inputSignal := inputSignal;
+  TimeSeriesForm.outputSignal := outputSignal;
   TimeSeriesForm.Redraw(Sender);
   TimeSeriesForm.Show;
-  l := length(inputSignal);
-  if l > 0 then
-    for i := 0 to l - 1 do
-    begin
-      if not isNaN(inputSignal[i]) then
-        TimeSeriesForm.InputLineSeries.AddXY(i, inputSignal[i]);
-      if not isNaN(outputSignal[i]) then
-        TimeSeriesForm.OutputLineSeries.AddXY(i, outputSignal[i]);
-    end;
 end;
 
 procedure TPlotForm.WinAboutItemClick(Sender: TObject);

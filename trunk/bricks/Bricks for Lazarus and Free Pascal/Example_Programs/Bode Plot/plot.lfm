@@ -5,10 +5,10 @@ object PlotForm: TPlotForm
   Width = 640
   ActiveControl = BlockTypeComboBox
   BorderStyle = bsDialog
-  Caption = 'Bode Plot'
+  Caption = 'Bode Plot Demo'
   ClientHeight = 380
   ClientWidth = 640
-  Menu = MainMenu1
+  Menu = MainMenu
   OnCreate = FormCreate
   LCLVersion = '1.4.0.4'
   object AmplitudeChart: TChart
@@ -66,7 +66,7 @@ object PlotForm: TPlotForm
     Top = 0
     Width = 640
     Caption = 'ToolBar1'
-    Images = ImageList1
+    Images = ImageList
     TabOrder = 1
     object ToolButton1: TToolButton
       Left = 1
@@ -192,19 +192,25 @@ object PlotForm: TPlotForm
     Top = 72
     Width = 168
     Anchors = [akTop, akRight, akBottom]
+    AutoFillColumns = True
     ColCount = 3
     Columns = <    
       item
         Title.Caption = 'm'
-        Width = 50
+        Width = 41
       end    
       item
         Title.Caption = 'phi'
-        Width = 50
+        Width = 42
       end>
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goColSpanning, goDblClickAutoSize, goSmoothScroll]
     RowCount = 13
     TabOrder = 5
+    ColWidths = (
+      64
+      41
+      42
+    )
   end
   object TSButton: TButton
     Left = 448
@@ -217,7 +223,7 @@ object PlotForm: TPlotForm
     OnClick = TSButtonClick
     TabOrder = 6
   end
-  object ImageList1: TImageList
+  object ImageList: TImageList
     left = 584
     top = 160
     Bitmap = {
@@ -352,7 +358,8 @@ object PlotForm: TPlotForm
       6EFF6B706EFF6B706EFF6B706E00
     }
   end
-  object MainMenu1: TMainMenu
+  object MainMenu: TMainMenu
+    Images = ImageList
     left = 584
     top = 200
     object AppleMenu: TMenuItem

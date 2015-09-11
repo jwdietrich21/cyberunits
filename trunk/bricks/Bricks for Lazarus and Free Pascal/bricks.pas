@@ -46,6 +46,7 @@ const
 type
 
   TVector = array of extended;
+  TMatrix = array of array of extended;
   TBlock = class;
 
   { TFR }
