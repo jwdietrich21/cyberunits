@@ -151,8 +151,8 @@ begin
   if BlockTypeComboBox.Caption = 'PT0 (exact)' then begin
     theBlock := TPT0.Create;
     theBlock.G := 1;
-    TPT0(theBlock).nt := 100;
-    TPT0(theBlock).delta := 1;
+    TPT0(theBlock).nt := 1;
+    TPT0(theBlock).delta := 0.1;
     theBlock.amplitude := 1;
     DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
       MIN_X, MAX_X, omega, M, phi);
@@ -220,10 +220,24 @@ begin
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
   end
-  else if BlockTypeComboBox.Caption = 'Integrator (exact)' then begin
+  else if BlockTypeComboBox.Caption = 'Integrator (I, exact)' then begin
     theBlock := TInt.Create;
     theBlock.G := 1;
     TInt(theBlock).delta := 1;
+    theBlock.amplitude := 1;
+    DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
+      MIN_X, MAX_X, omega, M, phi);
+    AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    theBlock.Destroy;
+  end
+  else if BlockTypeComboBox.Caption = 'IT1 (exact)' then begin
+    theBlock := TIT1.Create;
+    theBlock.G := 1;
+    TIT1(theBlock).delta := 1;
+    TIT1(theBlock).t1 := 5;
     theBlock.amplitude := 1;
     DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
       MIN_X, MAX_X, omega, M, phi);
@@ -274,6 +288,7 @@ begin
     TSButton.Enabled := true
   else
     TSButton.Enabled := false;
+  DrawButtonClick(Sender);
 end;
 
 procedure TPlotForm.CloseMenuItemClick(Sender: TObject);
