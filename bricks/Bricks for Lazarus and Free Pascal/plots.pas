@@ -1,5 +1,6 @@
 unit plots;
 
+
 { CyberUnits }
 
 { Object Pascal units for computational cybernetics }
@@ -70,70 +71,53 @@ procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
 const
   RESOLUTION = 13;
   TESTLENGTH = 1000;
-  INITLENGTH = 10000;
+  INITLENGTH = 20000;
 var
-  y_init, diff: extended;
+  diff: extended;
   x, y: TVector;
-  lasty: extended;
-  i, j, t, initRun: Integer;
+  i, j, t: Integer;
   minI, maxI: integer;
   model: TModel;
   testSignal: TTHarmonic;
-  InitBuffer: TVector;
 begin
-  //fillchar(inputSignal, sizeOf(inputSignal), 0);
-  //fillchar(outputSignal, sizeOf(outputSignal), 0);
   model := TModel.Create;
   testSignal := TTHarmonic.Create;
   model.firstBlock := testSignal;
   testSignal.model := model;
   testSignal.delta := 0.1; // should not be higher to avoid aliasing
   testSignal.phi := pi / 2; // begin with maximum as in cosine function
-  testSignal.G := 1;
+  testSignal.G := aBrick.amplitude;
   testSignal.updateTime := true;
   SetLength(omega, RESOLUTION + 1);
   SetLength(M, RESOLUTION + 1);
   SetLength(phi, RESOLUTION + 1);
-  SetLength(initBuffer, INITLENGTH + 1);
   SetLength(y, TESTLENGTH + 1);
   diff := maxFreq - minFreq;
-  minI := trunc(minFreq * RESOLUTION);
-  maxI := trunc(maxFreq * RESOLUTION / diff);
+  minI := 1;
+  maxI := RESOLUTION;
   SetLength(inputSignal, maxI - minI + 2, TESTLENGTH + 1);
   SetLength(outputSignal, maxI - minI + 2, TESTLENGTH + 1);
-  for i := minI to maxI do
+  for i := 0 to maxI do
   begin
     SetLength(x, INITLENGTH + 1);
     model.Reset;
-    omega[i] := i / RESOLUTION;
+    omega[i] := MINFREQ + (i) * diff / RESOLUTION;
     testSignal.omega := omega[i];
     model.time := 0;
-    for initRun := 0 to INITLENGTH do
+    for j := 0 to INITLENGTH do
     { initial runs for allowing the system to settle to a new equilibrium }
     begin
-      x[initRun] := testSignal.simOutput;
+      x[j] := testSignal.simOutput;
       if aBrick.ClassType = TPT1 then
       begin
-        TPT1(aBrick).input := x[initRun];
+        TPT1(aBrick).input := x[j];
         TPT1(aBrick).simulate;
       end;
     end;
-    for initRun := 0 to INITLENGTH do
-    { second initial run for finding the first maximum as a starting point }
-    begin
-      x[initRun] := testSignal.simOutput;
-      if aBrick.ClassType = TPT1 then
-      begin
-        TPT1(aBrick).input := x[initRun];
-        InitBuffer[initRun] := TPT1(aBrick).simOutput;
-      end;
-    end;
-    t := FirstMaximum(InitBuffer);
     SetLength(x, TESTLENGTH + 1);
     model.Reset;
-    if aBrick.ClassType = TPT1 then
-      TPT1(aBrick).x1 := InitBuffer[t];
     for j := 0 to TESTLENGTH do
+    { simulation to deliver time series }
     begin
       x[j] := testSignal.simOutput;
       if aBrick.ClassType = TPT1 then
@@ -143,7 +127,6 @@ begin
       end;
     end;
     t := FirstMaximum(y);
-    //if t = TESTLENGTH then t := 0;
     M[i] := y[t];
     phi[i] := t;
     AmpSeries.AddXY(omega[i], m[i]);
@@ -169,11 +152,11 @@ begin
   SetLength(M, RESOLUTION + 1);
   SetLength(phi, RESOLUTION + 1);
   diff := maxFreq - minFreq;
-  minI := trunc(minFreq * RESOLUTION);
-  maxI := trunc(maxFreq * RESOLUTION / diff);
-  for i := minI to maxI do
+  minI := 1;
+  maxI := RESOLUTION;
+  for i := 0 to maxI do
   begin
-    omega[i] := i / RESOLUTION;
+    omega[i] := MINFREQ + (i) * diff / RESOLUTION;
     if aBrick.ClassType = TPT0 then
     begin
       aBrick.omega := omega[i];
@@ -203,8 +186,14 @@ begin
       aBrick.omega := omega[i];
       M[i] := TInt(aBrick).fr.M;
       phi[i] := TInt(aBrick).fr.phi;
+    end
+    else if aBrick.ClassType = TIT1 then
+    begin
+      aBrick.omega := omega[i];
+      M[i] := TIT1(aBrick).fr.M;
+      phi[i] := TIT1(aBrick).fr.phi;
     end;
-    AmpSeries.AddXY(omega[i], m[i]);
+   AmpSeries.AddXY(omega[i], m[i]);
     PhaseSeries.AddXY(omega[i], phi[i]);
   end;
 end;

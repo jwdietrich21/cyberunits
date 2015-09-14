@@ -6,7 +6,7 @@ object PlotForm: TPlotForm
   ActiveControl = BlockTypeComboBox
   BorderStyle = bsDialog
   Caption = 'Bode Plot Demo'
-  ClientHeight = 400
+  ClientHeight = 380
   ClientWidth = 640
   Menu = MainMenu
   OnCreate = FormCreate
@@ -58,7 +58,6 @@ object PlotForm: TPlotForm
       AxisIndexX = 1
       AxisIndexY = 0
       LinePen.Color = clRed
-      Pointer.OverrideColor = [ocBrush]
     end
   end
   object ToolBar1: TToolBar
@@ -109,7 +108,7 @@ object PlotForm: TPlotForm
   object DrawButton: TButton
     Left = 541
     Height = 25
-    Top = 359
+    Top = 339
     Width = 75
     Anchors = [akRight, akBottom]
     Caption = 'Draw'
@@ -119,7 +118,7 @@ object PlotForm: TPlotForm
   end
   object PhaseChart: TChart
     Left = 8
-    Height = 184
+    Height = 164
     Top = 200
     Width = 416
     AxisList = <    
@@ -166,7 +165,6 @@ object PlotForm: TPlotForm
       AxisIndexX = 1
       AxisIndexY = 0
       LinePen.Color = clBlue
-      Pointer.OverrideColor = [ocBrush]
     end
   end
   object BlockTypeComboBox: TComboBox
@@ -175,14 +173,15 @@ object PlotForm: TPlotForm
     Top = 24
     Width = 168
     Anchors = [akTop, akLeft, akRight]
-    ItemHeight = 0
+    ItemHeight = 13
     Items.Strings = (
       'PT0 (exact)'
       'PT1 (exact)'
       'PT1 (simulated)'
       'PT2 (exact)'
+      'Integrator (I, exact)'
+      'IT1 (exact)'
       'DT1 (exact)'
-      'Integrator (exact)'
     )
     OnChange = BlockTypeComboBoxChange
     TabOrder = 4
@@ -190,7 +189,7 @@ object PlotForm: TPlotForm
   end
   object frGrid: TStringGrid
     Left = 448
-    Height = 266
+    Height = 246
     Top = 72
     Width = 168
     Anchors = [akTop, akRight, akBottom]
@@ -199,25 +198,25 @@ object PlotForm: TPlotForm
     Columns = <    
       item
         Title.Caption = 'm'
-        Width = 44
+        Width = 41
       end    
       item
         Title.Caption = 'phi'
-        Width = 45
+        Width = 42
       end>
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goColSpanning, goDblClickAutoSize, goSmoothScroll]
     RowCount = 13
     TabOrder = 5
     ColWidths = (
       64
-      44
-      45
+      41
+      42
     )
   end
   object TSButton: TButton
     Left = 448
     Height = 25
-    Top = 359
+    Top = 339
     Width = 88
     Anchors = [akLeft, akBottom]
     Caption = 'Time Series'
