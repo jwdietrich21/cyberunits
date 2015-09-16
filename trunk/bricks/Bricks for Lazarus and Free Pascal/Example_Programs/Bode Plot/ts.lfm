@@ -93,8 +93,8 @@ object TimeSeriesForm: TTimeSeriesForm
   end
   object tsGrid: TStringGrid
     Left = 452
-    Height = 280
-    Top = 80
+    Height = 272
+    Top = 112
     Width = 160
     Anchors = [akTop, akRight, akBottom]
     AutoFillColumns = True
@@ -111,5 +111,31 @@ object TimeSeriesForm: TTimeSeriesForm
       64
       92
     )
+  end
+  object OmegaValue: TEdit
+    Left = 452
+    Height = 21
+    Top = 80
+    Width = 80
+    Anchors = [akTop, akRight]
+    ReadOnly = True
+    TabOrder = 4
+    Text = '0'
+  end
+  object OmegaUnitBox: TComboBox
+    Left = 544
+    Height = 21
+    Top = 80
+    Width = 68
+    Anchors = [akTop, akRight]
+    ItemHeight = 13
+    ItemIndex = 0
+    Items.Strings = (
+      'Hz'
+      'rad / s'
+    )
+    OnChange = OmegaUnitBoxChange
+    TabOrder = 5
+    Text = 'Hz'
   end
 end

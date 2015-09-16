@@ -10,6 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="1"/>
+        <TopLine Value="16"/>
         <CursorPos X="11" Y="2"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
@@ -21,9 +22,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="7" Y="2"/>
+        <TopLine Value="138"/>
+        <CursorPos X="49" Y="57"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -32,9 +35,8 @@
         <Filename Value="simulationengine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SimulationEngine"/>
-        <IsVisibleTab Value="True"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="70" Y="18"/>
+        <CursorPos X="78" Y="27"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -55,6 +57,7 @@
       <Unit4>
         <Filename Value="..\..\bricks.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="29"/>
       </Unit4>
@@ -96,12 +99,14 @@
       </Unit7>
       <Unit8>
         <Filename Value="C:\lazarus\lcl\grids.pas"/>
+        <IsVisibleTab Value="True"/>
         <TopLine Value="9124"/>
         <CursorPos Y="9142"/>
         <UsageCount Value="10"/>
       </Unit8>
       <Unit9>
         <Filename Value="..\..\..\..\..\..\..\..\..\Developer\lazarus 1.4\components\tachart\tacustomseries.pas"/>
+        <IsVisibleTab Value="True"/>
         <TopLine Value="792"/>
         <CursorPos Y="809"/>
         <UsageCount Value="10"/>
@@ -129,6 +134,9 @@
         <UsageCount Value="11"/>
       </Unit11>
     </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="1"/>
+    </General>
     <JumpHistory Count="28" HistoryIndex="27">
       <Position1>
         <Filename Value="gui.pas"/>

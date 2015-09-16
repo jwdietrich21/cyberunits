@@ -35,6 +35,11 @@ uses
   Forms, Controls, Graphics, Dialogs, ComCtrls, Menus, StdCtrls, LCLType, Grids,
   Math, Bricks, plots, ts;
 
+const
+  MIN_X = 0.1;
+  MAX_X = 3;
+  RESOLUTION = 50;
+
 type
 
   { TPlotForm }
@@ -61,7 +66,7 @@ type
     HelpMenu: TMenuItem;
     ImageList: TImageList;
     MacAboutItem: TMenuItem;
-    MainMenu: TMainMenu;
+    MainMenu1: TMainMenu;
     NewMenuItem: TMenuItem;
     OpenMenuItem: TMenuItem;
     PasteMenuItem: TMenuItem;
@@ -78,6 +83,7 @@ type
     UndoMenuItem: TMenuItem;
     WinAboutItem: TMenuItem;
     procedure MacAboutItemClick(Sender: TObject);
+    procedure MenuItem1Click(Sender: TObject);
     procedure ShowAboutWindow(Sender: TObject);
     procedure BlockTypeComboBoxChange(Sender: TObject);
     procedure CloseMenuItemClick(Sender: TObject);
@@ -140,11 +146,12 @@ begin
   ShowAboutWindow(Sender)
 end;
 
+procedure TPlotForm.MenuItem1Click(Sender: TObject);
+begin
+
+end;
+
 procedure TPlotForm.DrawButtonClick(Sender: TObject);
-const
-  MIN_X = 0.1;
-  MAX_X = 3;
-  RESOLUTION = 50;
 var
   theBlock: TControlledBlock;
   i: integer;
@@ -182,7 +189,7 @@ begin
     theBlock.G := 1;
     TPT1(theBlock).t1 := 5;
     TPT1(theBlock).delta := 1;
-    TPT1(theBlock).x1 := 1; // pre-fill memory
+    //TPT1(theBlock).x1 := 0; // pre-fill memory
     theBlock.amplitude := 1;
     SimBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
       MIN_X, MAX_X, RESOLUTION, omega, M, phi, inputSignal, outputSignal);
@@ -287,6 +294,9 @@ procedure TPlotForm.TSButtonClick(Sender: TObject);
 begin
   TimeSeriesForm.inputSignal := inputSignal;
   TimeSeriesForm.outputSignal := outputSignal;
+  TimeSeriesForm.minFreq := MIN_X;
+  TimeSeriesForm.maxFreq := MAX_X;
+  TimeSeriesForm.resolution := RESOLUTION;
   TimeSeriesForm.Redraw(Sender);
   TimeSeriesForm.Show;
 end;
