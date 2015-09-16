@@ -181,6 +181,7 @@ object PlotForm: TPlotForm
       'PT2 (exact)'
       'Integrator (I, exact)'
       'IT1 (exact)'
+      'IT2 (exact)'
       'DT1 (exact)'
     )
     OnChange = BlockTypeComboBoxChange
