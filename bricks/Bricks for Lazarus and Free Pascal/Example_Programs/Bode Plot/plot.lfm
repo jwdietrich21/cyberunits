@@ -8,7 +8,7 @@ object PlotForm: TPlotForm
   Caption = 'Bode Plot Demo'
   ClientHeight = 380
   ClientWidth = 640
-  Menu = MainMenu
+  Menu = MainMenu1
   OnCreate = FormCreate
   LCLVersion = '1.4.0.4'
   object AmplitudeChart: TChart
@@ -360,10 +360,10 @@ object PlotForm: TPlotForm
       6EFF6B706EFF6B706EFF6B706E00
     }
   end
-  object MainMenu: TMainMenu
+  object MainMenu1: TMainMenu
     Images = ImageList
     left = 584
-    top = 200
+    top = 216
     object AppleMenu: TMenuItem
       Caption = ''
       object MacAboutItem: TMenuItem

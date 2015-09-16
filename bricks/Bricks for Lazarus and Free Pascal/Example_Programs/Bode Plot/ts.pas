@@ -40,6 +40,8 @@ type
   { TTimeSeriesForm }
 
   TTimeSeriesForm = class(TForm)
+    OmegaUnitBox: TComboBox;
+    OmegaValue: TEdit;
     InputLineSeries: TLineSeries;
     OmegaLabel: TLabel;
     OutputLineSeries: TLineSeries;
@@ -49,12 +51,15 @@ type
     tsGrid: TStringGrid;
     procedure FormCreate(Sender: TObject);
     procedure OmegaTrackBarChange(Sender: TObject);
+    procedure OmegaUnitBoxChange(Sender: TObject);
     procedure Redraw(Sender: TObject);
   private
     { private declarations }
   public
     { public declarations }
     inputSignal, outputSignal: TMatrix;
+    minFreq, maxFreq: extended;
+    resolution: integer;
   end;
 
 var
@@ -69,11 +74,13 @@ implementation
 procedure TTimeSeriesForm.Redraw(Sender: TObject);
 var
   i, j, l, k: longint;
+  omega, diff: extended;
 begin
   InputLineSeries.Clear;
   OutputLineSeries.Clear;
   l := length(inputSignal);
   k := length(inputSignal[1]);
+  diff := maxFreq - minFreq;
   OmegaTrackbar.Max := l - 1;
   i := OmegaTrackbar.Position;
   if (l > 0) and (k > 0) and (i <= l) then
@@ -90,9 +97,19 @@ begin
       tsGrid.Cells[0, j] := FloatToStrF(inputSignal[i, j], ffFixed, 2, 2);
       tsGrid.Cells[1, j] := FloatToStrF(outputSignal[i, j], ffFixed, 2, 2);
     end;
+  if OmegaUnitBox.ItemIndex = 0 then
+    omega := MINFREQ + (i) * diff / resolution
+  else
+    omega := (MINFREQ + (i) * diff / resolution) * 2 * pi;
+  OmegaValue.Text := FloatToStrF(omega, ffGeneral, 3, 2);
 end;
 
 procedure TTimeSeriesForm.OmegaTrackBarChange(Sender: TObject);
+begin
+  Redraw(Sender);
+end;
+
+procedure TTimeSeriesForm.OmegaUnitBoxChange(Sender: TObject);
 begin
   Redraw(Sender);
 end;
