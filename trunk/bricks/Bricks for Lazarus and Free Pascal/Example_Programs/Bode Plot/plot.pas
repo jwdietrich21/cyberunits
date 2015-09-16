@@ -6,7 +6,7 @@ unit plot;
 
 { plot: draws signals in frequency domain  }
 
-{ Version 1.1.0 (Corvus) }
+{ Version 1.1.0 (Director) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
@@ -144,6 +144,7 @@ procedure TPlotForm.DrawButtonClick(Sender: TObject);
 const
   MIN_X = 0.1;
   MAX_X = 3;
+  RESOLUTION = 50;
 var
   theBlock: TControlledBlock;
   i: integer;
@@ -155,7 +156,7 @@ begin
     TPT0(theBlock).delta := 0.1;
     theBlock.amplitude := 1;
     DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
-      MIN_X, MAX_X, omega, M, phi);
+      MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
@@ -169,7 +170,7 @@ begin
     TPT1(theBlock).delta := 1;
     theBlock.amplitude := 1;
     DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
-      MIN_X, MAX_X, omega, M, phi);
+      MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
@@ -184,7 +185,7 @@ begin
     TPT1(theBlock).x1 := 1; // pre-fill memory
     theBlock.amplitude := 1;
     SimBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
-      MIN_X, MAX_X, omega, M, phi, inputSignal, outputSignal);
+      MIN_X, MAX_X, RESOLUTION, omega, M, phi, inputSignal, outputSignal);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
@@ -199,7 +200,7 @@ begin
     TPT2(theBlock).delta := 1;
     theBlock.amplitude := 1;
     DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
-      MIN_X, MAX_X, omega, M, phi);
+      MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
@@ -213,7 +214,7 @@ begin
     TDT1(theBlock).delta := 1;
     theBlock.amplitude := 1;
     DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
-      MIN_X, MAX_X, omega, M, phi);
+      MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
@@ -226,7 +227,7 @@ begin
     TInt(theBlock).delta := 1;
     theBlock.amplitude := 1;
     DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
-      MIN_X, MAX_X, omega, M, phi);
+      MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
@@ -237,10 +238,25 @@ begin
     theBlock := TIT1.Create;
     theBlock.G := 1;
     TIT1(theBlock).delta := 1;
-    TIT1(theBlock).t1 := 5;
+    TIT1(theBlock).t1 := 2;
     theBlock.amplitude := 1;
     DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
-      MIN_X, MAX_X, omega, M, phi);
+      MIN_X, MAX_X, RESOLUTION, omega, M, phi);
+    AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    theBlock.Destroy;
+  end
+  else if BlockTypeComboBox.Caption = 'IT2 (exact)' then begin
+    theBlock := TIT2.Create;
+    theBlock.G := 1;
+    TIT2(theBlock).delta := 1;
+    TIT2(theBlock).t2 := 2;
+    TIT2(theBlock).dmp := 0.1;
+    theBlock.amplitude := 1;
+    DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
+      MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;

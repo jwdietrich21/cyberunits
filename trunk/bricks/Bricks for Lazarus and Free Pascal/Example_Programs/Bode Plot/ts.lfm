@@ -38,7 +38,6 @@ object TimeSeriesForm: TTimeSeriesForm
     ParentColor = False
     object InputLineSeries: TLineSeries
       LinePen.Color = clBlue
-      Pointer.OverrideColor = [ocBrush]
     end
   end
   object OutputTSChart: TChart
@@ -71,7 +70,6 @@ object TimeSeriesForm: TTimeSeriesForm
     ParentColor = False
     object OutputLineSeries: TLineSeries
       LinePen.Color = clRed
-      Pointer.OverrideColor = [ocBrush]
     end
   end
   object OmegaTrackBar: TTrackBar
@@ -87,9 +85,9 @@ object TimeSeriesForm: TTimeSeriesForm
   end
   object OmegaLabel: TLabel
     Left = 448
-    Height = 16
+    Height = 13
     Top = 14
-    Width = 49
+    Width = 37
     Caption = 'Omega:'
     ParentColor = False
   end
@@ -104,14 +102,14 @@ object TimeSeriesForm: TTimeSeriesForm
     Columns = <    
       item
         Title.Caption = 'Output'
-        Width = 81
+        Width = 92
       end>
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goColSpanning, goDblClickAutoSize, goSmoothScroll]
     RowCount = 13
     TabOrder = 3
     ColWidths = (
       64
-      81
+      92
     )
   end
 end

@@ -1,13 +1,12 @@
 unit plots;
 
-
 { CyberUnits }
 
 { Object Pascal units for computational cybernetics }
 
 { Bricks: Basic blocks for information processing structures }
 
-{ Version 1.1.0 (Corvus) }
+{ Version 1.1.0 (Director) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
@@ -35,11 +34,11 @@ uses
   Classes, SysUtils, TASources, TAGraph, TASeries, Math, Bricks;
 
 procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
-  PhaseSeries: TLineSeries; minFreq, maxFreq: extended;
+  PhaseSeries: TLineSeries; minFreq, maxFreq: extended; resolution: integer;
   var omega, M, phi: TVector; var inputSignal, outputSignal: TMatrix);
 
 procedure DrawBodePlot(aBrick: TControlledBlock; AmpSeries, PhaseSeries: TLineSeries;
-  minFreq, maxFreq: extended; var omega, M, phi: TVector);
+  minFreq, maxFreq: extended; resolution: integer; var omega, M, phi: TVector);
 
 implementation
 
@@ -65,11 +64,10 @@ begin
 end;
 
 procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
-  PhaseSeries: TLineSeries; minFreq, maxFreq: extended;
+  PhaseSeries: TLineSeries; minFreq, maxFreq: extended; resolution: integer;
   var omega, M, phi: TVector; var inputSignal, outputSignal: TMatrix);
 { Draws extimated bode plot via simulation }
 const
-  RESOLUTION = 13;
   TESTLENGTH = 1000;
   INITLENGTH = 20000;
 var
@@ -88,20 +86,20 @@ begin
   testSignal.phi := pi / 2; // begin with maximum as in cosine function
   testSignal.G := aBrick.amplitude;
   testSignal.updateTime := true;
-  SetLength(omega, RESOLUTION + 1);
-  SetLength(M, RESOLUTION + 1);
-  SetLength(phi, RESOLUTION + 1);
+  SetLength(omega, resolution + 1);
+  SetLength(M, resolution + 1);
+  SetLength(phi, resolution + 1);
   SetLength(y, TESTLENGTH + 1);
   diff := maxFreq - minFreq;
   minI := 1;
-  maxI := RESOLUTION;
+  maxI := resolution;
   SetLength(inputSignal, maxI - minI + 2, TESTLENGTH + 1);
   SetLength(outputSignal, maxI - minI + 2, TESTLENGTH + 1);
   for i := 0 to maxI do
   begin
     SetLength(x, INITLENGTH + 1);
     model.Reset;
-    omega[i] := MINFREQ + (i) * diff / RESOLUTION;
+    omega[i] := MINFREQ + (i) * diff / resolution;
     testSignal.omega := omega[i];
     model.time := 0;
     for j := 0 to INITLENGTH do
@@ -139,24 +137,22 @@ begin
 end;
 
 procedure DrawBodePlot(aBrick: TControlledBlock; AmpSeries, PhaseSeries: TLineSeries;
-  minFreq, maxFreq: extended; var omega, M, phi: TVector);
+  minFreq, maxFreq: extended; resolution: integer; var omega, M, phi: TVector);
 { Draws exact bode plot from calculated frequency response }
-const
-  RESOLUTION = 13;
 var
   diff: extended;
   i: Integer;
   minI, maxI: integer;
 begin
-  SetLength(omega, RESOLUTION + 1);
-  SetLength(M, RESOLUTION + 1);
-  SetLength(phi, RESOLUTION + 1);
+  SetLength(omega, resolution + 1);
+  SetLength(M, resolution + 1);
+  SetLength(phi, resolution + 1);
   diff := maxFreq - minFreq;
   minI := 1;
-  maxI := RESOLUTION;
+  maxI := resolution;
   for i := 0 to maxI do
   begin
-    omega[i] := MINFREQ + (i) * diff / RESOLUTION;
+    omega[i] := MINFREQ + (i) * diff / resolution;
     if aBrick.ClassType = TPT0 then
     begin
       aBrick.omega := omega[i];
@@ -192,9 +188,15 @@ begin
       aBrick.omega := omega[i];
       M[i] := TIT1(aBrick).fr.M;
       phi[i] := TIT1(aBrick).fr.phi;
+    end
+    else if aBrick.ClassType = TIT2 then
+    begin
+      aBrick.omega := omega[i];
+      M[i] := TIT2(aBrick).fr.M;
+      phi[i] := TIT2(aBrick).fr.phi;
     end;
    AmpSeries.AddXY(omega[i], m[i]);
-    PhaseSeries.AddXY(omega[i], phi[i]);
+   PhaseSeries.AddXY(omega[i], phi[i]);
   end;
 end;
 

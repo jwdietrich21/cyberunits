@@ -6,7 +6,7 @@ unit Bricks;
 
 { Bricks: Basic blocks for information processing structures }
 
-{ Version 1.1.0 (Corvus) }
+{ Version 1.1.0 (Director) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }

@@ -7,7 +7,7 @@ unit IPS;
 { Simulator for MiMe-NoCoDI loop }
 { Information Processing Structure }
 
-{ Version 1.1.0 (Corvus) }
+{ Version 1.1.0 (Director) }
 
 { (c) Johannes W. Dietrich, 1994 - 2015 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }

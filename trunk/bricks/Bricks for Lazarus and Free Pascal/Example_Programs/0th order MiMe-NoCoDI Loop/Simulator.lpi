@@ -19,8 +19,8 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="43"/>
-      <StringTable Comments="Simulator for MiMe-NoCoDI loop" CompanyName="Ruhr University of Bochum" FileDescription="Linear 0th order feedback demo" InternalName="MiMe-NoCoDI 1.1.0 Corvus" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="1.1.0"/>
+      <BuildNr Value="45"/>
+      <StringTable Comments="Simulator for MiMe-NoCoDI loop" CompanyName="Ruhr University of Bochum" FileDescription="Linear 0th order feedback demo" InternalName="MiMe-NoCoDI 1.1.0 Director" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="1.1.0"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
