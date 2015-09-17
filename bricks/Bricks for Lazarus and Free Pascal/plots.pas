@@ -35,7 +35,8 @@ uses
 
 procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
   PhaseSeries: TLineSeries; minFreq, maxFreq: extended; resolution: integer;
-  var omega, M, phi: TVector; var inputSignal, outputSignal: TMatrix);
+  var omega, M, phi: TVector;
+  var inputSignal, outputSignal, time: TMatrix);
 
 procedure DrawBodePlot(aBrick: TControlledBlock; AmpSeries, PhaseSeries: TLineSeries;
   minFreq, maxFreq: extended; resolution: integer; var omega, M, phi: TVector);
@@ -65,15 +66,15 @@ end;
 
 procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
   PhaseSeries: TLineSeries; minFreq, maxFreq: extended; resolution: integer;
-  var omega, M, phi: TVector; var inputSignal, outputSignal: TMatrix);
+  var omega, M, phi: TVector; var inputSignal, outputSignal, time: TMatrix);
 { Draws extimated bode plot via simulation }
 const
-  TESTLENGTH = 1000;
+  TESTLENGTH = 500;
   INITLENGTH = 20000;
 var
   diff: extended;
-  x, y: TVector;
-  i, j, t: Integer;
+  x, y, t: TVector;
+  i, j, tmax: Integer;
   minI, maxI: integer;
   model: TModel;
   testSignal: TTHarmonic;
@@ -82,7 +83,7 @@ begin
   testSignal := TTHarmonic.Create;
   model.firstBlock := testSignal;
   testSignal.model := model;
-  testSignal.delta := 0.1; // should not be higher to avoid aliasing
+  testSignal.delta := 1 / (maxFreq * 2); // Nyquist frequency
   testSignal.phi := pi / 2; // begin with maximum as in cosine function
   testSignal.G := aBrick.amplitude;
   testSignal.updateTime := true;
@@ -90,11 +91,13 @@ begin
   SetLength(M, resolution + 1);
   SetLength(phi, resolution + 1);
   SetLength(y, TESTLENGTH + 1);
+  SetLength(t, TESTLENGTH + 1);
   diff := maxFreq - minFreq;
   minI := 1;
   maxI := resolution;
   SetLength(inputSignal, maxI - minI + 2, TESTLENGTH + 1);
   SetLength(outputSignal, maxI - minI + 2, TESTLENGTH + 1);
+  SetLength(time, maxI - minI + 2, TESTLENGTH + 1);
   for i := 0 to maxI do
   begin
     SetLength(x, INITLENGTH + 1);
@@ -122,15 +125,17 @@ begin
       begin
         TPT1(aBrick).input := x[j];
         y[j] := TPT1(aBrick).simOutput;
+        t[j] := model.time;
       end;
     end;
-    t := FirstMaximum(y);
-    M[i] := y[t];
-    phi[i] := t;
+    tmax := FirstMaximum(y);
+    M[i] := y[tmax];
+    phi[i] := tmax;
     AmpSeries.AddXY(omega[i], m[i]);
     PhaseSeries.AddXY(omega[i], phi[i]);
-    inputSignal[i] := copy(x, 0, length(x));
-    outputSignal[i] := copy(y, 0, length(y));
+    inputSignal[i] := copy(x, 0, length(x)); // simple assignements of open
+    outputSignal[i] := copy(y, 0, length(y)); // arrays wouldn't copy
+    time[i] := copy(t, 0, length(y));
   end;
   testSignal.Destroy;
   model.Destroy;
