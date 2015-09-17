@@ -39,6 +39,7 @@ uses
 {$R *.res}
 
 begin
+  Application.Title:='Demo for Bode Plot';
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TPlotForm, PlotForm);
