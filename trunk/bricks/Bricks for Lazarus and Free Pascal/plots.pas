@@ -116,7 +116,7 @@ begin
       end;
     end;
     SetLength(x, TESTLENGTH + 1);
-    model.Reset;
+    //model.Reset;
     for j := 0 to TESTLENGTH do
     { simulation to deliver time series }
     begin

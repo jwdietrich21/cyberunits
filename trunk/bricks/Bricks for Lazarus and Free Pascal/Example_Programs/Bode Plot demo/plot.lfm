@@ -6,7 +6,7 @@ object PlotForm: TPlotForm
   ActiveControl = BlockTypeComboBox
   BorderStyle = bsDialog
   Caption = 'Bode Plot Demo'
-  ClientHeight = 380
+  ClientHeight = 400
   ClientWidth = 640
   Menu = MainMenu1
   OnCreate = FormCreate
@@ -58,6 +58,7 @@ object PlotForm: TPlotForm
       AxisIndexX = 1
       AxisIndexY = 0
       LinePen.Color = clRed
+      Pointer.OverrideColor = [ocBrush]
     end
   end
   object ToolBar1: TToolBar
@@ -107,7 +108,7 @@ object PlotForm: TPlotForm
   end
   object PhaseChart: TChart
     Left = 8
-    Height = 164
+    Height = 184
     Top = 200
     Width = 416
     AxisList = <    
@@ -154,6 +155,7 @@ object PlotForm: TPlotForm
       AxisIndexX = 1
       AxisIndexY = 0
       LinePen.Color = clBlue
+      Pointer.OverrideColor = [ocBrush]
     end
   end
   object BlockTypeComboBox: TComboBox
@@ -162,7 +164,7 @@ object PlotForm: TPlotForm
     Top = 24
     Width = 168
     Anchors = [akTop, akLeft, akRight]
-    ItemHeight = 13
+    ItemHeight = 0
     Items.Strings = (
       'PT0 (exact)'
       'PT1 (exact)'
@@ -179,7 +181,7 @@ object PlotForm: TPlotForm
   end
   object frGrid: TStringGrid
     Left = 448
-    Height = 246
+    Height = 266
     Top = 72
     Width = 168
     Anchors = [akTop, akRight, akBottom]
@@ -188,25 +190,25 @@ object PlotForm: TPlotForm
     Columns = <    
       item
         Title.Caption = 'm'
-        Width = 41
+        Width = 44
       end    
       item
         Title.Caption = 'phi'
-        Width = 42
+        Width = 45
       end>
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goColSpanning, goDblClickAutoSize, goSmoothScroll]
     RowCount = 13
     TabOrder = 4
     ColWidths = (
       64
-      41
-      42
+      44
+      45
     )
   end
   object TSButton: TButton
     Left = 448
     Height = 25
-    Top = 336
+    Top = 356
     Width = 168
     Anchors = [akLeft, akBottom]
     Caption = 'Show time series...'
