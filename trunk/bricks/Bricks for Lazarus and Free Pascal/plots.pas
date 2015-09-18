@@ -105,6 +105,14 @@ begin
   testSignal.phi := pi / 2; // begin with maximum as in cosine function
   testSignal.G := aBrick.amplitude;
   testSignal.updateTime := true;
+  if aBrick.ClassType = TPT0 then
+  begin
+    TPT0(aBrick).delta := testSignal.delta;
+  end
+  else if aBrick.ClassType = TPT1 then
+  begin
+    TPT1(aBrick).delta := testSignal.delta;
+  end;
   testLength := 1 + trunc(2 * pi / (minFreq * testSignal.delta));
   initLength := testLength * 10;
   SetLength(omega, resolution + 1);
@@ -124,7 +132,6 @@ begin
     model.Reset;
     omega[i] := minFreq + (i) * diff / resolution;
     testSignal.omega := omega[i];
-    model.time := 0;
     for j := 0 to initLength do
     { initial runs for allowing the system to settle to a new equilibrium }
     begin

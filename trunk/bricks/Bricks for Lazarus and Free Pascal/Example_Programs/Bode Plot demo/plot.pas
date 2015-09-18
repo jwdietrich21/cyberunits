@@ -32,8 +32,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TASources, TAGraph, TASeries, TATransformations,
-  Forms, Controls, Graphics, Dialogs, ComCtrls, Menus, StdCtrls, LCLType, Grids,
-  Math, Bricks, plots, ts;
+  TAChartExtentLink, TATools, Forms, Controls, Graphics, Dialogs, ComCtrls,
+  Menus, StdCtrls, LCLType, Grids, Math, Bricks, plots, ts;
 
 const
   MIN_X = 0.1;
@@ -201,7 +201,7 @@ begin
     theBlock := TPT1.Create;
     theBlock.G := 1;
     TPT1(theBlock).t1 := 5;
-    TPT1(theBlock).delta := 1;
+    TPT1(theBlock).delta := 0.1;
     theBlock.amplitude := 1;
     SimBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
       MIN_X, MAX_X, RESOLUTION, omega, M, phi, inputSignal, outputSignal, time);
@@ -283,11 +283,11 @@ begin
     theBlock.Destroy;
   end;
   frGrid.RowCount := Length(omega) + 2;
-  for i := 1 to Length(omega) - 1 do
+  for i := 1 to Length(omega) do
     begin
-      frGrid.Cells[0, i] := FloatToStrF(omega[i], ffFixed, 2, 2);
-      frGrid.Cells[1, i] := FloatToStrF(M[i], ffFixed, 2, 2);
-      frGrid.Cells[2, i] := FloatToStrF(phi[i], ffFixed, 2, 2);
+      frGrid.Cells[0, i] := FloatToStrF(omega[i - 1], ffFixed, 2, 2);
+      frGrid.Cells[1, i] := FloatToStrF(M[i - 1], ffFixed, 2, 2);
+      frGrid.Cells[2, i] := FloatToStrF(phi[i - 1], ffFixed, 2, 2);
     end;
 end;
 
