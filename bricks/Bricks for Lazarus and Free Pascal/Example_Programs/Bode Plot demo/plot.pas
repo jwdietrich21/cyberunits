@@ -158,11 +158,25 @@ begin
   if BlockTypeComboBox.Caption = 'PT0 (exact)' then begin
     theBlock := TPT0.Create;
     theBlock.G := 1;
-    TPT0(theBlock).nt := 1;
+    TPT0(theBlock).nt := 10;
     TPT0(theBlock).delta := 0.1;
     theBlock.amplitude := 1;
     DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
       MIN_X, MAX_X, RESOLUTION, omega, M, phi);
+    AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    theBlock.Destroy;
+  end
+  else if BlockTypeComboBox.Caption = 'PT0 (simulated)' then begin
+    theBlock := TPT0.Create;
+    theBlock.G := 1;
+    TPT0(theBlock).nt := 10;
+    TPT0(theBlock).delta := 0.1;
+    theBlock.amplitude := 1;
+    SimBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
+      MIN_X, MAX_X, RESOLUTION, omega, M, phi, inputSignal, outputSignal, time);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
