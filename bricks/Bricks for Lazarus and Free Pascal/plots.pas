@@ -89,13 +89,11 @@ procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
   PhaseSeries: TLineSeries; minFreq, maxFreq: extended; resolution: integer;
   var omega, M, phi: TVector; var inputSignal, outputSignal, time: TMatrix);
 { Draws extimated bode plot via simulation }
-const
-  INITLENGTH = 20000;
 var
-  diff: extended;
+  diff, startTime: extended;
   x, y, t: TVector;
   i, j, tmin, tmax: Integer;
-  minI, maxI, testLength: integer;
+  minI, maxI, testLength, initLength: integer;
   model: TModel;
   testSignal: TTHarmonic;
 begin
@@ -108,6 +106,7 @@ begin
   testSignal.G := aBrick.amplitude;
   testSignal.updateTime := true;
   testLength := 1 + trunc(2 * pi / (minFreq * testSignal.delta));
+  initLength := testLength * 10;
   SetLength(omega, resolution + 1);
   SetLength(M, resolution + 1);
   SetLength(phi, resolution + 1);
@@ -121,12 +120,12 @@ begin
   SetLength(time, maxI - minI + 2, testLength + 1);
   for i := 0 to maxI do
   begin
-    SetLength(x, INITLENGTH + 1);
+    SetLength(x, initLength + 1);
     model.Reset;
-    omega[i] := MINFREQ + (i) * diff / resolution;
-    testSignal.omega := omega[i];
+    omega[i] := minFreq + (i) * diff / resolution;
+    testSignal.omega := 2 * pi * omega[i];
     model.time := 0;
-    for j := 0 to INITLENGTH do
+    for j := 0 to initLength do
     { initial runs for allowing the system to settle to a new equilibrium }
     begin
       x[j] := testSignal.simOutput;
@@ -137,7 +136,7 @@ begin
       end;
     end;
     SetLength(x, testLength + 1);
-    //model.Reset;
+    startTime := model.time;
     for j := 0 to testLength do
     { simulation to deliver time series }
     begin
@@ -146,7 +145,7 @@ begin
       begin
         TPT1(aBrick).input := x[j];
         y[j] := TPT1(aBrick).simOutput;
-        t[j] := model.time;
+        t[j] := model.time - startTime;
       end;
     end;
     tmin := FirstMinimum(y);
@@ -157,7 +156,7 @@ begin
     PhaseSeries.AddXY(omega[i], phi[i]);
     inputSignal[i] := copy(x, 0, length(x));  // simple assignements of open
     outputSignal[i] := copy(y, 0, length(y)); // arrays wouldn't copy
-    time[i] := copy(t, 0, length(y));
+    time[i] := copy(t, 0, length(t));
   end;
   testSignal.Destroy;
   model.Destroy;

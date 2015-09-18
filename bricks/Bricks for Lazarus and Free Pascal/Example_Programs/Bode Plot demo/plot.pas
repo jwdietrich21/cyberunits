@@ -188,7 +188,6 @@ begin
     theBlock.G := 1;
     TPT1(theBlock).t1 := 5;
     TPT1(theBlock).delta := 1;
-    //TPT1(theBlock).x1 := 0; // pre-fill memory
     theBlock.amplitude := 1;
     SimBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
       MIN_X, MAX_X, RESOLUTION, omega, M, phi, inputSignal, outputSignal, time);
