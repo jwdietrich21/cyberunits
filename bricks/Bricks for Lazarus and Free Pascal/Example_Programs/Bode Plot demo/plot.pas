@@ -187,7 +187,6 @@ begin
     theBlock := TPT1.Create;
     theBlock.G := 1;
     TPT1(theBlock).t1 := 5;
-    TPT1(theBlock).delta := 1;
     theBlock.amplitude := 1;
     DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
       MIN_X, MAX_X, RESOLUTION, omega, M, phi);
@@ -201,7 +200,6 @@ begin
     theBlock := TPT1.Create;
     theBlock.G := 1;
     TPT1(theBlock).t1 := 5;
-    TPT1(theBlock).delta := 0.1;
     theBlock.amplitude := 1;
     SimBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
       MIN_X, MAX_X, RESOLUTION, omega, M, phi, inputSignal, outputSignal, time);
@@ -216,10 +214,23 @@ begin
     theBlock.G := 1;
     TPT2(theBlock).t2 := 1;
     TPT2(theBlock).dmp := 0.5;
-    TPT2(theBlock).delta := 1;
     theBlock.amplitude := 1;
     DrawBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
       MIN_X, MAX_X, RESOLUTION, omega, M, phi);
+    AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
+    PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    theBlock.Destroy;
+  end
+  else if BlockTypeComboBox.Caption = 'PT2 (simulated)' then begin
+    theBlock := TPT2.Create;
+    theBlock.G := 1;
+    TPT2(theBlock).t2 := 1;
+    TPT2(theBlock).dmp := 0.5;
+    theBlock.amplitude := 1;
+    SimBodePlot(theBlock, AmplitudeChartLineSeries, PhaseChartLineSeries,
+      MIN_X, MAX_X, RESOLUTION, omega, M, phi, inputSignal, outputSignal, time);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;

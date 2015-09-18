@@ -76,7 +76,6 @@ var
   i, j, l, k: longint;
   omega, diff, lowFreq: extended;
 begin
-  { TODO 10 -oJWD -cBugs : Correct frequency display }
   InputLineSeries.Clear;
   OutputLineSeries.Clear;
   l := length(inputSignal);
