@@ -43,6 +43,27 @@ procedure DrawBodePlot(aBrick: TControlledBlock; AmpSeries, PhaseSeries: TLineSe
 
 implementation
 
+function FirstMinimum(timeSeries: tVector): Integer;
+var
+  t: Integer;
+  tMin, lasty: extended;
+begin
+  t := 0;
+  tMin := 0;
+  repeat
+  { search for sinking values first }
+   lasty := timeSeries[t];
+   inc(t)
+  until (timeSeries[t] < lasty) or (t = length(timeSeries));
+  if t < length(timeSeries) then
+  repeat
+   { and then for rising values }
+   lasty := timeSeries[t];
+   inc(t)
+  until (timeSeries[t] > lasty) or (t = length(timeSeries));
+  Result := t - 1;
+end;
+
 function FirstMaximum(timeSeries: tVector): Integer;
 var
   t: Integer;
@@ -69,13 +90,12 @@ procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
   var omega, M, phi: TVector; var inputSignal, outputSignal, time: TMatrix);
 { Draws extimated bode plot via simulation }
 const
-  TESTLENGTH = 500;
   INITLENGTH = 20000;
 var
   diff: extended;
   x, y, t: TVector;
-  i, j, tmax: Integer;
-  minI, maxI: integer;
+  i, j, tmin, tmax: Integer;
+  minI, maxI, testLength: integer;
   model: TModel;
   testSignal: TTHarmonic;
 begin
@@ -87,17 +107,18 @@ begin
   testSignal.phi := pi / 2; // begin with maximum as in cosine function
   testSignal.G := aBrick.amplitude;
   testSignal.updateTime := true;
+  testLength := 1 + trunc(2 * pi / (minFreq * testSignal.delta));
   SetLength(omega, resolution + 1);
   SetLength(M, resolution + 1);
   SetLength(phi, resolution + 1);
-  SetLength(y, TESTLENGTH + 1);
-  SetLength(t, TESTLENGTH + 1);
+  SetLength(y, testLength + 1);
+  SetLength(t, testLength + 1);
   diff := maxFreq - minFreq;
   minI := 1;
   maxI := resolution;
-  SetLength(inputSignal, maxI - minI + 2, TESTLENGTH + 1);
-  SetLength(outputSignal, maxI - minI + 2, TESTLENGTH + 1);
-  SetLength(time, maxI - minI + 2, TESTLENGTH + 1);
+  SetLength(inputSignal, maxI - minI + 2, testLength + 1);
+  SetLength(outputSignal, maxI - minI + 2, testLength + 1);
+  SetLength(time, maxI - minI + 2, testLength + 1);
   for i := 0 to maxI do
   begin
     SetLength(x, INITLENGTH + 1);
@@ -115,9 +136,9 @@ begin
         TPT1(aBrick).simulate;
       end;
     end;
-    SetLength(x, TESTLENGTH + 1);
+    SetLength(x, testLength + 1);
     //model.Reset;
-    for j := 0 to TESTLENGTH do
+    for j := 0 to testLength do
     { simulation to deliver time series }
     begin
       x[j] := testSignal.simOutput;
@@ -128,12 +149,13 @@ begin
         t[j] := model.time;
       end;
     end;
+    tmin := FirstMinimum(y);
     tmax := FirstMaximum(y);
-    M[i] := y[tmax];
+    M[i] := y[tmax] - y[tmin];
     phi[i] := tmax;
-    AmpSeries.AddXY(omega[i], m[i]);
+    AmpSeries.AddXY(omega[i], M[i]);
     PhaseSeries.AddXY(omega[i], phi[i]);
-    inputSignal[i] := copy(x, 0, length(x)); // simple assignements of open
+    inputSignal[i] := copy(x, 0, length(x));  // simple assignements of open
     outputSignal[i] := copy(y, 0, length(y)); // arrays wouldn't copy
     time[i] := copy(t, 0, length(y));
   end;
