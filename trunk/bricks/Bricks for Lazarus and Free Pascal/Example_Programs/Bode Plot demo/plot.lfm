@@ -171,10 +171,12 @@ object PlotForm: TPlotForm
       'PT1 (exact)'
       'PT1 (simulated)'
       'PT2 (exact)'
+      'PT2 (simulated)'
       'Integrator (I, exact)'
       'IT1 (exact)'
       'IT2 (exact)'
       'DT1 (exact)'
+      ''
       ''
       ''
     )

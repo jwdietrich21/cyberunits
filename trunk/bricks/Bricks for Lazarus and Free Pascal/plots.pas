@@ -112,6 +112,10 @@ begin
   else if aBrick.ClassType = TPT1 then
   begin
     TPT1(aBrick).delta := testSignal.delta;
+  end
+  else if aBrick.ClassType = TPT2 then
+  begin
+    TPT2(aBrick).delta := testSignal.delta;
   end;
   testLength := 1 + trunc(2 * pi / (minFreq * testSignal.delta));
   initLength := testLength * 10;
@@ -145,6 +149,11 @@ begin
       begin
         TPT1(aBrick).input := x[j];
         TPT1(aBrick).simulate;
+      end
+      else if aBrick.ClassType = TPT2 then
+      begin
+        TPT2(aBrick).input := x[j];
+        TPT2(aBrick).simulate;
       end;
     end;
     SetLength(x, testLength + 1);
@@ -163,6 +172,12 @@ begin
       begin
         TPT1(aBrick).input := x[j];
         y[j] := TPT1(aBrick).simOutput;
+        t[j] := model.time - startTime;
+      end
+      else if aBrick.ClassType = TPT2 then
+      begin
+        TPT2(aBrick).input := x[j];
+        y[j] := TPT2(aBrick).simOutput;
         t[j] := model.time - startTime;
       end;
     end;
