@@ -32,8 +32,8 @@ unit ts;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, TAGraph, TASeries, Forms, Controls, Graphics,
-  Dialogs, ComCtrls, StdCtrls, Grids, Math, Bricks;
+  Classes, SysUtils, FileUtil, TAGraph, TASeries, TATools, Forms, Controls,
+  Graphics, Dialogs, ComCtrls, StdCtrls, Grids, Math, Bricks;
 
 type
 
