@@ -123,13 +123,18 @@ begin
     SetLength(x, initLength + 1);
     model.Reset;
     omega[i] := minFreq + (i) * diff / resolution;
-    testSignal.omega := 2 * pi * omega[i];
+    testSignal.omega := omega[i];
     model.time := 0;
     for j := 0 to initLength do
     { initial runs for allowing the system to settle to a new equilibrium }
     begin
       x[j] := testSignal.simOutput;
-      if aBrick.ClassType = TPT1 then
+      if aBrick.ClassType = TPT0 then
+      begin
+        TPT0(aBrick).input := x[j];
+        TPT0(aBrick).simulate;
+      end
+      else if aBrick.ClassType = TPT1 then
       begin
         TPT1(aBrick).input := x[j];
         TPT1(aBrick).simulate;
@@ -141,7 +146,13 @@ begin
     { simulation to deliver time series }
     begin
       x[j] := testSignal.simOutput;
-      if aBrick.ClassType = TPT1 then
+      if aBrick.ClassType = TPT0 then
+      begin
+        TPT0(aBrick).input := x[j];
+        y[j] := TPT0(aBrick).simOutput;
+        t[j] := model.time - startTime;
+      end
+      else if aBrick.ClassType = TPT1 then
       begin
         TPT1(aBrick).input := x[j];
         y[j] := TPT1(aBrick).simOutput;

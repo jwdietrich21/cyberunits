@@ -100,13 +100,13 @@ begin
     end;
   if OmegaUnitBox.ItemIndex = 0 then
     begin
-      lowFreq := minFreq;
-      omega := lowFreq + (i) * diff / resolution;
+      lowFreq := minFreq / (2 * pi);
+      omega := lowFreq + (i) * diff / resolution / (2 * pi);
     end
   else
     begin
-      lowFreq := minFreq * (2 * pi);
-      omega := (lowFreq + (i) * diff / resolution) * (2 * pi);
+      lowFreq := minFreq;
+      omega := lowFreq + i * diff / resolution;
     end;
   OmegaValue.Text := FloatToStrF(omega, ffGeneral, 3, 2);
 end;
