@@ -4,16 +4,16 @@ object PlotForm: TPlotForm
   Top = 186
   Width = 640
   ActiveControl = BlockTypeComboBox
-  BorderStyle = bsDialog
+  BorderStyle = bsSingle
   Caption = 'Bode Plot Demo'
-  ClientHeight = 400
+  ClientHeight = 380
   ClientWidth = 640
   Menu = MainMenu1
   OnCreate = FormCreate
-  LCLVersion = '1.4.0.4'
+  LCLVersion = '1.4.2.0'
   object AmplitudeChart: TChart
     Left = 8
-    Height = 164
+    Height = 166
     Top = 24
     Width = 416
     AxisList = <    
@@ -53,12 +53,10 @@ object PlotForm: TPlotForm
     )
     Title.Visible = True
     Color = clWhite
-    ParentColor = False
     object AmplitudeChartLineSeries: TLineSeries
       AxisIndexX = 1
       AxisIndexY = 0
       LinePen.Color = clRed
-      Pointer.OverrideColor = [ocBrush]
     end
   end
   object ToolBar1: TToolBar
@@ -108,8 +106,8 @@ object PlotForm: TPlotForm
   end
   object PhaseChart: TChart
     Left = 8
-    Height = 184
-    Top = 200
+    Height = 166
+    Top = 197
     Width = 416
     AxisList = <    
       item
@@ -150,12 +148,10 @@ object PlotForm: TPlotForm
     Title.Visible = True
     Anchors = [akTop, akLeft, akBottom]
     Color = clWhite
-    ParentColor = False
     object PhaseChartLineSeries: TLineSeries
       AxisIndexX = 1
       AxisIndexY = 0
       LinePen.Color = clBlue
-      Pointer.OverrideColor = [ocBrush]
     end
   end
   object BlockTypeComboBox: TComboBox
@@ -164,7 +160,7 @@ object PlotForm: TPlotForm
     Top = 24
     Width = 168
     Anchors = [akTop, akLeft, akRight]
-    ItemHeight = 0
+    ItemHeight = 13
     Items.Strings = (
       'PT0 (exact)'
       'PT0 (simulated)'
@@ -176,9 +172,6 @@ object PlotForm: TPlotForm
       'IT1 (exact)'
       'IT2 (exact)'
       'DT1 (exact)'
-      ''
-      ''
-      ''
     )
     OnChange = BlockTypeComboBoxChange
     TabOrder = 3
@@ -186,7 +179,7 @@ object PlotForm: TPlotForm
   end
   object frGrid: TStringGrid
     Left = 448
-    Height = 266
+    Height = 248
     Top = 72
     Width = 168
     Anchors = [akTop, akRight, akBottom]
@@ -195,25 +188,25 @@ object PlotForm: TPlotForm
     Columns = <    
       item
         Title.Caption = 'm'
-        Width = 44
+        Width = 41
       end    
       item
         Title.Caption = 'phi'
-        Width = 45
+        Width = 42
       end>
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goColSpanning, goDblClickAutoSize, goSmoothScroll]
     RowCount = 13
     TabOrder = 4
     ColWidths = (
       64
-      44
-      45
+      41
+      42
     )
   end
   object TSButton: TButton
     Left = 448
     Height = 25
-    Top = 356
+    Top = 338
     Width = 168
     Anchors = [akLeft, akBottom]
     Caption = 'Show time series...'

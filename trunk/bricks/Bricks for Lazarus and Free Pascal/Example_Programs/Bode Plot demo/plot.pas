@@ -82,7 +82,6 @@ type
     UndoMenuItem: TMenuItem;
     WinAboutItem: TMenuItem;
     procedure MacAboutItemClick(Sender: TObject);
-    procedure MenuItem1Click(Sender: TObject);
     procedure ShowAboutWindow(Sender: TObject);
     procedure BlockTypeComboBoxChange(Sender: TObject);
     procedure CloseMenuItemClick(Sender: TObject);
@@ -145,11 +144,6 @@ begin
   ShowAboutWindow(Sender)
 end;
 
-procedure TPlotForm.MenuItem1Click(Sender: TObject);
-begin
-
-end;
-
 procedure TPlotForm.DrawPlot(Sender: TObject);
 var
   theBlock: TControlledBlock;
@@ -165,6 +159,10 @@ begin
       MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    AmplitudeChart.Extent.UseYMin := true;
+    AmplitudeChart.Extent.UseYMax := true;
+    AmplitudeChart.Extent.YMin := -1;
+    AmplitudeChart.Extent.YMax := 1;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
@@ -179,6 +177,10 @@ begin
       MIN_X, MAX_X, RESOLUTION, omega, M, phi, inputSignal, outputSignal, time);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    AmplitudeChart.Extent.UseYMin := true;
+    AmplitudeChart.Extent.UseYMax := true;
+    AmplitudeChart.Extent.YMin := -1;
+    AmplitudeChart.Extent.YMax := 1;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
@@ -192,6 +194,8 @@ begin
       MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    AmplitudeChart.Extent.UseYMin := false;
+    AmplitudeChart.Extent.UseYMax := false;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
@@ -205,13 +209,15 @@ begin
       MIN_X, MAX_X, RESOLUTION, omega, M, phi, inputSignal, outputSignal, time);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    AmplitudeChart.Extent.UseYMin := false;
+    AmplitudeChart.Extent.UseYMax := false;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
   end
   else if BlockTypeComboBox.Caption = 'PT2 (exact)' then begin
     theBlock := TPT2.Create;
-    theBlock.G := 1;
+    theBlock.G := 10;
     TPT2(theBlock).t2 := 1;
     TPT2(theBlock).dmp := 0.5;
     theBlock.amplitude := 1;
@@ -219,13 +225,15 @@ begin
       MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    AmplitudeChart.Extent.UseYMin := false;
+    AmplitudeChart.Extent.UseYMax := false;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
   end
   else if BlockTypeComboBox.Caption = 'PT2 (simulated)' then begin
     theBlock := TPT2.Create;
-    theBlock.G := 1;
+    theBlock.G := 10;
     TPT2(theBlock).t2 := 1;
     TPT2(theBlock).dmp := 0.5;
     theBlock.amplitude := 1;
@@ -233,6 +241,8 @@ begin
       MIN_X, MAX_X, RESOLUTION, omega, M, phi, inputSignal, outputSignal, time);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    AmplitudeChart.Extent.UseYMin := false;
+    AmplitudeChart.Extent.UseYMax := false;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
@@ -247,6 +257,8 @@ begin
       MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    AmplitudeChart.Extent.UseYMin := false;
+    AmplitudeChart.Extent.UseYMax := false;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
@@ -260,6 +272,8 @@ begin
       MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    AmplitudeChart.Extent.UseYMin := false;
+    AmplitudeChart.Extent.UseYMax := false;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
@@ -274,6 +288,8 @@ begin
       MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    AmplitudeChart.Extent.UseYMin := false;
+    AmplitudeChart.Extent.UseYMax := false;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;
@@ -289,6 +305,8 @@ begin
       MIN_X, MAX_X, RESOLUTION, omega, M, phi);
     AmplitudeChart.AxisList.BottomAxis.Range.Min := MIN_X;
     AmplitudeChart.AxisList.BottomAxis.Range.Max := MAX_X;
+    AmplitudeChart.Extent.UseYMin := false;
+    AmplitudeChart.Extent.UseYMax := false;
     PhaseChart.AxisList.BottomAxis.Range.Min := MIN_X;
     PhaseChart.AxisList.BottomAxis.Range.Max := MAX_X;
     theBlock.Destroy;

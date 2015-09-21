@@ -818,7 +818,6 @@ function TPT2.GetFR: TFR;
 begin
   assert(G >= 0, kError101);
   assert(t2 >= 0, kError101);
-  assert(dmp >= 0, kError101);
   assert(omega >= 0, kError101);
   FFr.M := amplitude * G / sqrt(sqr(1 - sqr(omega * t2)) + sqr(2 * dmp * omega * t2));
   if omega < 1 / t2 then
@@ -852,7 +851,6 @@ var
 begin
   assert(G >= 0, kError101);
   assert(t2 >= 0, kError101);
-  assert(dmp >= 0, kError101);
   if dmp < 1 then
     begin
       omg := 1 / t2;
@@ -878,7 +876,7 @@ begin
       x2 := x2n;
       fOutput := x2;
     end
-  else
+  else // dmp > 1
     begin
       omg := 1 / t2;
       a := sqrt(dmp * dmp - 1);
