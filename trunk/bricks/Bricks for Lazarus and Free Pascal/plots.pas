@@ -91,7 +91,7 @@ procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
 { Draws extimated bode plot via simulation }
 var
   diff, startTime: extended;
-  x, y, t: TVector;
+  x, y, t, x2, y2: TVector;
   i, j, tpeak, tmin, tmax: Integer;
   minI, maxI, testLength, initLength: integer;
   model: TModel;
@@ -187,7 +187,16 @@ begin
     tmin := FirstMinimum(y);
     tmax := FirstMaximum(y);
     M[i] := y[tmax] - y[tmin];
-    phi[i] := tmax;
+    if tmax < tpeak then  // compensate for phase cut situation
+    begin
+      SetLength(x2, length(x) - tmax);
+      SetLength(y2, length(y) - tmax);
+      x2 := copy(x, tmax, length(x) - tmax);
+      y2 := copy(y, tmax, length(y) - tmax);
+      tmin := FirstMinimum(y2);
+      tmax := FirstMaximum(y2);
+    end;
+    phi[i] := tmax - tpeak;
     AmpSeries.AddXY(omega[i], M[i]);
     PhaseSeries.AddXY(omega[i], phi[i]);
     inputSignal[i] := copy(x, 0, length(x));  // simple assignements of open
