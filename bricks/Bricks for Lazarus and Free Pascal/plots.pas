@@ -193,6 +193,7 @@ begin
       SetLength(y2, length(y) - tmax);
       x2 := copy(x, tmax, length(x) - tmax);
       y2 := copy(y, tmax, length(y) - tmax);
+      tPeak := FirstMinimum(x2);
       tmin := FirstMinimum(y2);
       tmax := FirstMaximum(y2);
     end;
