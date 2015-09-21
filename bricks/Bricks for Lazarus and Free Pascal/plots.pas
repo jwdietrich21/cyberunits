@@ -92,7 +92,7 @@ procedure SimBodePlot(aBrick: TControlledBlock; AmpSeries,
 var
   diff, startTime: extended;
   x, y, t: TVector;
-  i, j, tmin, tmax: Integer;
+  i, j, tpeak, tmin, tmax: Integer;
   minI, maxI, testLength, initLength: integer;
   model: TModel;
   testSignal: TTHarmonic;
@@ -181,6 +181,9 @@ begin
         t[j] := model.time - startTime;
       end;
     end;
+    tpeak := FirstMaximum(x);
+    if tPeak >= j - 10 then
+      tPeak := 0;
     tmin := FirstMinimum(y);
     tmax := FirstMaximum(y);
     M[i] := y[tmax] - y[tmin];
