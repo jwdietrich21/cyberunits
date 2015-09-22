@@ -19,7 +19,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="101"/>
+      <BuildNr Value="104"/>
       <StringTable Comments="CyberUnits System Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Unit Tests for Bricks" InternalName="Bricks 1.1.0 Director" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="1.1.0"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -52,7 +52,6 @@
       <Unit1>
         <Filename Value="brickstestcases.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="brickstestcases"/>
       </Unit1>
       <Unit2>
         <Filename Value="..\bricks.pas"/>
@@ -62,7 +61,6 @@
       <Unit3>
         <Filename Value="..\lifeblocks.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="lifeblocks"/>
       </Unit3>
     </Units>
   </ProjectOptions>
