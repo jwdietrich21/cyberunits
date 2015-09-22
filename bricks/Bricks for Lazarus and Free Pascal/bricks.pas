@@ -64,7 +64,7 @@ type
     delta, time: extended;
     firstBlock: TBlock;
     constructor Create;
-    destructor Destroy;
+    destructor Destroy; override;
     procedure Reset;
   end;
 
@@ -106,12 +106,22 @@ type
     input1, input2, G: extended;
   end;
 
+  { TTestSignal }
+
+  TTestSignal = class(TBlock)
+  protected
+    function SimAndGetOutput: extended; virtual; abstract;
+  public
+    destructor Destroy; override;
+    property simOutput: extended read SimAndGetOutput;
+  end;
+
   { TTHarmonic }
   { Harmonic test signal }
 
-  TTHarmonic = class(TBlock)
+  TTHarmonic = class(TTestSignal)
   protected
-    function SimAndGetOutput: extended;
+    function SimAndGetOutput: extended; override;
   public
     G, omega, phi, delta: extended;
     updateTime: boolean;
@@ -127,8 +137,8 @@ type
 
   TP = class(TControlledBlock)
   protected
-    function SimAndGetOutput: extended;
-    function GetFR: TFR;
+    function SimAndGetOutput: extended; override;
+    function GetFR: TFR; override;
   public
     constructor Create;
     destructor Destroy; override;
@@ -145,8 +155,8 @@ type
   protected
     function GetQueueLength: integer;
     procedure SetQueueLength(AValue: integer);
-    function SimAndGetOutput: extended;
-    function GetFR: TFR;
+    function SimAndGetOutput: extended; override;
+    function GetFR: TFR; override;
   public
     delta: extended;
     xt: array of extended;
@@ -164,8 +174,8 @@ type
 
   TPT1 = class(TControlledBlock)
   protected
-    function SimAndGetOutput: extended;
-    function GetFR: TFR;
+    function SimAndGetOutput: extended; override;
+    function GetFR: TFR; override;
   public
     t1, x1, delta: extended;
     constructor Create;
@@ -181,8 +191,8 @@ type
 
   TPT2 = class(TControlledBlock)
   protected
-    function SimAndGetOutput: extended;
-    function GetFR: TFR;
+    function SimAndGetOutput: extended; override;
+    function GetFR: TFR; override;
   public
     t2, dmp, x1, x2, delta: extended;
     constructor Create;
@@ -198,8 +208,8 @@ type
 
   TInt = class(TControlledBlock)
   protected
-    function SimAndGetOutput: extended;
-    function GetFR: TFR;
+    function SimAndGetOutput: extended; override;
+    function GetFR: TFR; override;
   public
     delta: extended;
     constructor Create;
@@ -215,8 +225,8 @@ type
 
   TIT1 = class(TControlledBlock)
   protected
-    function SimAndGetOutput: extended;
-    function GetFR: TFR;
+    function SimAndGetOutput: extended; override;
+    function GetFR: TFR; override;
   public
     t1, x1, delta: extended;
     constructor Create;
@@ -232,8 +242,8 @@ type
 
   TDT1 = class(TControlledBlock)
   protected
-    function SimAndGetOutput: extended;
-    function GetFR: TFR;
+    function SimAndGetOutput: extended; override;
+    function GetFR: TFR; override;
   public
     t1, x1, delta: extended;
     constructor Create;
@@ -249,8 +259,8 @@ type
 
   TIT2 = class(TControlledBlock)
   protected
-    function SimAndGetOutput: extended;
-    function GetFR: TFR;
+    function SimAndGetOutput: extended; override;
+    function GetFR: TFR; override;
   public
     t2, dmp, x1, x2, x3, delta: extended;
     constructor Create;
@@ -267,7 +277,7 @@ type
 
   TPAdd = class(TInvertableBlock)
   protected
-    function SimAndGetOutput: extended;
+    function SimAndGetOutput: extended; override;
   public
     constructor Create;
     destructor Destroy; override;
@@ -281,7 +291,7 @@ type
 
   TPSub = class(TInvertableBlock)
   protected
-    function SimAndGetOutput: extended;
+    function SimAndGetOutput: extended; override;
   public
     constructor Create;
     destructor Destroy; override;
@@ -295,7 +305,7 @@ type
 
   TPMul = class(TInvertableBlock)
   protected
-    function SimAndGetOutput: extended;
+    function SimAndGetOutput: extended; override;
   public
     constructor Create;
     destructor Destroy; override;
@@ -309,7 +319,7 @@ type
 
   TPDiv = class(TInvertableBlock)
   protected
-    function SimAndGetOutput: extended;
+    function SimAndGetOutput: extended; override;
   public
     constructor Create;
     destructor Destroy; override;
@@ -339,6 +349,13 @@ end;
 procedure TModel.Reset;
 begin
   time := 0;
+end;
+
+{ TTestSignal }
+
+destructor TTestSignal.Destroy;
+begin
+  inherited Destroy;
 end;
 
 { TTHarmonic }

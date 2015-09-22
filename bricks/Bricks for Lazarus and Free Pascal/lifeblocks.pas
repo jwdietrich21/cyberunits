@@ -44,7 +44,7 @@ type
   protected
     PT1Analog: TPT1;
     FAlpha, FBeta: extended;
-    function SimAndGetOutput: extended;
+    function SimAndGetOutput: extended; override;
     procedure SetAlpha(AValue: extended);
     procedure SetBeta(AValue: extended);
     procedure SetDelta(AValue: extended);
@@ -64,7 +64,7 @@ type
 
   TMiMe = class(TControlledBlock)
   protected
-    function SimAndGetOutput: extended;
+    function SimAndGetOutput: extended; override;
   public
     D: extended;
     constructor Create;
@@ -79,7 +79,7 @@ type
 
   TNoCoDI = class(TInvertableBlock)
   protected
-    function SimAndGetOutput: extended;
+    function SimAndGetOutput: extended; override;
   public
     constructor Create;
     destructor Destroy; override;
