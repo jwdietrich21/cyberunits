@@ -4,12 +4,12 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="12">
+    <Units Count="15">
       <Unit0>
         <Filename Value="Plot_Demo.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="4"/>
-        <CursorPos X="4" Y="2"/>
+        <CursorPos X="33" Y="5"/>
         <UsageCount Value="66"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -19,6 +19,7 @@
         <ComponentName Value="PlotForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="plot"/>
         <EditorIndex Value="2"/>
         <CursorPos Y="2"/>
         <UsageCount Value="66"/>
@@ -37,6 +38,7 @@
       <Unit3>
         <Filename Value="..\..\plots.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="plots"/>
         <EditorIndex Value="1"/>
         <CursorPos Y="2"/>
         <ExtraEditorCount Value="1"/>
@@ -55,8 +57,9 @@
         <ComponentName Value="TimeSeriesForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ts"/>
         <EditorIndex Value="3"/>
-        <CursorPos X="64" Y="15"/>
+        <CursorPos X="18" Y="2"/>
         <UsageCount Value="52"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -111,6 +114,25 @@
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit11>
+      <Unit12>
+        <Filename Value="..\..\..\..\..\..\..\..\Entwicklungs-Dokumentation\PascalMock1.1\PascalMock.pas"/>
+        <UnitName Value="PascalMock"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="103"/>
+        <UsageCount Value="10"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="..\..\..\..\..\..\..\..\Entwicklungs-Dokumentation\PascalMock1.1\NoRefCountObject.pas"/>
+        <UnitName Value="NoRefCountObject"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="..\..\..\..\..\..\..\..\Entwicklungs-Dokumentation\PascalMock1.1\PascalMockDUnit.pas"/>
+        <UnitName Value="PascalMockDUnit"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit14>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>

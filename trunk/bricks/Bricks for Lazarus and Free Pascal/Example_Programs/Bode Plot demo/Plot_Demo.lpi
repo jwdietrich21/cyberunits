@@ -19,7 +19,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="97"/>
+      <BuildNr Value="98"/>
       <Attributes pvaDebug="True" pvaPreRelease="True" pvaSpecialBuild="True"/>
       <StringTable Comments="CyberUnits System Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Demo for Bode Plot" InternalName="Bricks 1.1.0 Director" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="1.1"/>
     </VersionInfo>
@@ -54,6 +54,7 @@
         <ComponentName Value="PlotForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="plot"/>
       </Unit1>
       <Unit2>
         <Filename Value="..\..\bricks.pas"/>
@@ -63,6 +64,7 @@
       <Unit3>
         <Filename Value="..\..\plots.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="plots"/>
       </Unit3>
       <Unit4>
         <Filename Value="ts.pas"/>
@@ -70,6 +72,7 @@
         <ComponentName Value="TimeSeriesForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="ts"/>
       </Unit4>
     </Units>
   </ProjectOptions>
