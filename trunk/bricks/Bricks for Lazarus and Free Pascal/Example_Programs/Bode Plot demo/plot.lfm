@@ -179,7 +179,7 @@ object PlotForm: TPlotForm
   end
   object frGrid: TStringGrid
     Left = 448
-    Height = 248
+    Height = 256
     Top = 72
     Width = 168
     Anchors = [akTop, akRight, akBottom]
