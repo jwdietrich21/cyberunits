@@ -1,0 +1,29 @@
+object DemoMainForm: TDemoMainForm
+  Left = 168
+  Height = 400
+  Top = 130
+  Width = 573
+  Caption = 'DemoMainForm'
+  ClientHeight = 400
+  ClientWidth = 573
+  LCLVersion = '1.4.2.0'
+  object ResultsMemo: TMemo
+    Left = 8
+    Height = 330
+    Top = 8
+    Width = 552
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ScrollBars = ssAutoBoth
+    TabOrder = 0
+  end
+  object DemoButton: TButton
+    Left = 485
+    Height = 25
+    Top = 352
+    Width = 75
+    Anchors = [akRight, akBottom]
+    Caption = 'Demo'
+    OnClick = DemoButtonClick
+    TabOrder = 1
+  end
+end

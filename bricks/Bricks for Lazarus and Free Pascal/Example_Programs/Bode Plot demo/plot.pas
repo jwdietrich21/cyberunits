@@ -33,7 +33,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, TASources, TAGraph, TASeries, TATransformations,
   TAChartExtentLink, TATools, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  Menus, StdCtrls, LCLType, Grids, Math, Bricks, plots, ts;
+  Menus, StdCtrls, LCLType, Grids, Math, Bricks, plots, ts, SignalAnalysis;
 
 const
   MIN_X = 0.1;
