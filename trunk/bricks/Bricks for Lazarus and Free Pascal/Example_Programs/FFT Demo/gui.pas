@@ -40,6 +40,8 @@ type
 
   TDemoMainForm = class(TForm)
     DemoButton:  TButton;
+    TestFunctionEdit: TEdit;
+    TestFunctionLabel: TLabel;
     ResultsMemo: TMemo;
     procedure DemoButtonClick(Sender: TObject);
   private
