@@ -15,6 +15,9 @@ unit SignalAnalysis;
 
 { Standard signal processing tools }
 
+{ FFT functions adapted from Bob Schor's original algorithm }
+{ http://swag.outpostbbs.net/MATH/0074.PAS.html }
+
 { Source code released under the BSD License }
 
 { See the file "license.txt", included in this distribution, }
@@ -49,8 +52,8 @@ type
 
   dataarraytype = record
     case boolean of
-    false: (rp: array [dataindextype] of real);
-    true: (cp: array [cmpxindextype] of complex)
+      False: (rp: array [dataindextype] of real);
+      True: (cp: array [cmpxindextype] of complex)
   end;
 
   cstermtype = record
@@ -65,8 +68,8 @@ type
 
   mixedtype = record
     case boolean of
-    false: (dataslot: dataarraytype);
-    true: (coefslot: fouriertype);
+      False: (dataslot: dataarraytype);
+      True: (coefslot: fouriertype);
   end;
 
 const
@@ -80,7 +83,7 @@ implementation
 procedure fftofreal(var mixed: mixedtype; realpoints: integer);
 { Adaptation of Bob Schor's algorithm }
 
- var
+var
   index, minusindex: freqindextype;
   temp1, temp2, temp3, w: complex;
   baseangle: real;
@@ -133,10 +136,7 @@ procedure fftofreal(var mixed: mixedtype; realpoints: integer);
     end;
   end;
 
-  procedure forwardfft(var Data: dataarraytype;
-    complexpoints: integer);
-  const
-    twopi = 6.2831853;
+  procedure forwardfft(var Data: dataarraytype; complexpoints: integer);
 
     procedure docomplextransform;
 
@@ -211,11 +211,9 @@ procedure fftofreal(var mixed: mixedtype; realpoints: integer);
             reverse := stib
           else
           if odd(bits) then
-            reverse := reverse(bits div 2, succ(stib * 2),
-              pred(bitsleft))
+            reverse := reverse(bits div 2, succ(stib * 2), pred(bitsleft))
           else
-            reverse := reverse(bits div 2, stib * 2,
-              pred(bitsleft));
+            reverse := reverse(bits div 2, stib * 2, pred(bitsleft));
         end;
 
       begin   { bitreversal }
@@ -307,13 +305,10 @@ end;
 
 function omegat(f: freqindextype; t: dataindextype): real;
 
-  { computes omega*t for particular harmonic, index }
+  { computes omega*t for particular harmonic (f) and index (t) }
 
 begin   { omegat }
   omegat := twopi * f * pred(t) / maxarraysize;
 end;
 
-{ main test routine starts here }
-
 end.
-

@@ -19,7 +19,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="12"/>
+      <BuildNr Value="13"/>
       <Attributes pvaDebug="True"/>
       <StringTable Comments="CyberUnits demo application" LegalTrademarks="CyberUnits" ProductVersion="1.1.0"/>
     </VersionInfo>
