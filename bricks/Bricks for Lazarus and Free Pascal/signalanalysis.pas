@@ -143,11 +143,16 @@ var
     var
       partitionsize, halfsize, offset, lowindex, highindex: dataindextype;
       baseangle, angle: real;
-      bits:    integer;
       w, temp: complex;
 
     begin   { docomplextransform }
       partitionsize := complexpoints;
+      temp.realpart := 0;
+      temp.imagpart := 0;
+      temp2.realpart := 0;
+      temp2.imagpart := 0;
+      temp3.realpart := 0;
+      temp3.imagpart := 0;
       with Data do
         repeat
           halfsize  := partitionsize div 2;
@@ -304,9 +309,7 @@ begin   { fftofreal }
 end;
 
 function omegat(f: freqindextype; t: dataindextype): real;
-
-  { computes omega*t for particular harmonic (f) and index (t) }
-
+{ computes omega*t for particular harmonic (f) and index (t) }
 begin   { omegat }
   omegat := twopi * f * pred(t) / maxarraysize;
 end;
