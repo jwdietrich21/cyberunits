@@ -8,10 +8,10 @@ unit Bricks;
 
 { Version 1.1.0 (Director) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2015 }
+{ (c) Johannes W. Dietrich, 1994 - 2016 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002-2004 }
-{ (c) Ruhr University of Bochum 2005 - 2015 }
+{ (c) Ruhr University of Bochum 2005 - 2016 }
 
 { Standard blocks for systems modelling and simulation }
 
@@ -36,6 +36,14 @@ uses
   Classes, SysUtils, Math, ucomplex;
 
 const
+  Bricks_major = 1;
+  Bricks_minor = 1;
+  Bricks_release = 0;
+  Bricks_patch = 0;
+  Bricks_fullversion = ((Bricks_major *  100 + Bricks_minor) * 100 + Bricks_release) * 100 + Bricks_patch;
+  Bricks_version = '1.1.0.0';
+  Bricks_internalversion = 'Director';
+
   kError101 = 'Runtime error: Negative parameter(s)';
   kError102 = 'Runtime error: Parameter(s) out of range';
   kError103 = 'Runtime error: min > max';
