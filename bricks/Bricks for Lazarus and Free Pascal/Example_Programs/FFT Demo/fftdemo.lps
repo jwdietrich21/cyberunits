@@ -30,6 +30,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="SignalAnalysis"/>
         <IsVisibleTab Value="True"/>
+        <TopLine Value="270"/>
         <CursorPos X="4" Y="2"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
