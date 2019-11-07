@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="9">
+      <Unit0>
+        <Filename Value="brickstests.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="3"/>
+        <WindowIndex Value="1"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="54"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="brickstestcases.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="brickstestcases"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="1"/>
+        <CursorPos Y="2"/>
+        <ExtraEditorCount Value="2"/>
+        <ExtraEditor1>
+          <EditorIndex Value="-1"/>
+          <WindowIndex Value="-1"/>
+          <TopLine Value="-1"/>
+          <CursorPos X="-1" Y="-1"/>
+        </ExtraEditor1>
+        <ExtraEditor2>
+          <EditorIndex Value="-1"/>
+          <TopLine Value="328"/>
+          <CursorPos X="22" Y="328"/>
+        </ExtraEditor2>
+        <UsageCount Value="54"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\bricks.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Bricks"/>
+        <WindowIndex Value="1"/>
+        <CursorPos Y="2"/>
+        <ExtraEditorCount Value="2"/>
+        <ExtraEditor1>
+          <EditorIndex Value="-1"/>
+          <TopLine Value="690"/>
+          <CursorPos X="11" Y="459"/>
+        </ExtraEditor1>
+        <ExtraEditor2>
+          <EditorIndex Value="-1"/>
+          <WindowIndex Value="-1"/>
+          <TopLine Value="133"/>
+          <CursorPos Y="434"/>
+        </ExtraEditor2>
+        <UsageCount Value="54"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\lifeblocks.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="lifeblocks"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="1"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="44"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="C:\lazarus\fpc\2.6.4\source\packages\fcl-fpcunit\src\fpcunit.pp"/>
+        <TopLine Value="75"/>
+        <CursorPos X="3" Y="174"/>
+        <UsageCount Value="10"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="C:\lazarus\components\fpcunit\guitestrunner.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="1"/>
+        <CursorPos X="3"/>
+        <UsageCount Value="10"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\..\..\..\..\..\Developer\lazarus 1.4\components\fpcunit\guitestrunner.pas"/>
+        <TopLine Value="795"/>
+        <CursorPos Y="811"/>
+        <UsageCount Value="10"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\inc\ucomplex.pp"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="1"/>
+        <CursorPos X="14" Y="172"/>
+        <UsageCount Value="10"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="..\..\..\..\..\..\..\..\Developer\lazarus 1.4\components\fpcunit\guitestrunner.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="1"/>
+        <TopLine Value="795"/>
+        <CursorPos Y="811"/>
+        <UsageCount Value="10"/>
+      </Unit8>
+    </Units>
+    <JumpHistory Count="28" HistoryIndex="27">
+      <Position1>
+        <Filename Value="brickstestcases.pas"/>
+        <Caret Line="494" Column="5" TopLine="474"/>
+      </Position1>
+      <Position2>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="292" TopLine="275"/>
+      </Position2>
+      <Position3>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="293" TopLine="275"/>
+      </Position3>
+      <Position4>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="294" TopLine="275"/>
+      </Position4>
+      <Position5>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="295" TopLine="275"/>
+      </Position5>
+      <Position6>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="473" Column="3" TopLine="446"/>
+      </Position6>
+      <Position7>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="471" Column="18" TopLine="453"/>
+      </Position7>
+      <Position8>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="290" Column="35" TopLine="272"/>
+      </Position8>
+      <Position9>
+        <Filename Value="brickstestcases.pas"/>
+        <Caret Line="491" TopLine="474"/>
+      </Position9>
+      <Position10>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="286" TopLine="272"/>
+      </Position10>
+      <Position11>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="287" TopLine="272"/>
+      </Position11>
+      <Position12>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="288" TopLine="272"/>
+      </Position12>
+      <Position13>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="289" TopLine="272"/>
+      </Position13>
+      <Position14>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="290" TopLine="272"/>
+      </Position14>
+      <Position15>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="291" Column="6" TopLine="272"/>
+      </Position15>
+      <Position16>
+        <Filename Value="brickstestcases.pas"/>
+        <Caret Line="491" TopLine="474"/>
+      </Position16>
+      <Position17>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="286" TopLine="272"/>
+      </Position17>
+      <Position18>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="287" TopLine="272"/>
+      </Position18>
+      <Position19>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="288" TopLine="272"/>
+      </Position19>
+      <Position20>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="289" TopLine="272"/>
+      </Position20>
+      <Position21>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="291" TopLine="272"/>
+      </Position21>
+      <Position22>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="292" TopLine="272"/>
+      </Position22>
+      <Position23>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="293" TopLine="272"/>
+      </Position23>
+      <Position24>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="294" TopLine="272"/>
+      </Position24>
+      <Position25>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="296" TopLine="272"/>
+      </Position25>
+      <Position26>
+        <Filename Value="brickstestcases.pas"/>
+        <Caret Line="491" TopLine="474"/>
+      </Position26>
+      <Position27>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="296" Column="4" TopLine="278"/>
+      </Position27>
+      <Position28>
+        <Filename Value="..\bricks.pas"/>
+        <Caret Line="304" Column="34" TopLine="281"/>
+      </Position28>
+    </JumpHistory>
+  </ProjectSession>
+  <Debugging>
+    <Watches Count="8">
+      <Item1>
+        <Expression Value="G"/>
+      </Item1>
+      <Item2>
+        <Expression Value="fOutput"/>
+      </Item2>
+      <Item3>
+        <Expression Value="input"/>
+      </Item3>
+      <Item4>
+        <Expression Value="FFr"/>
+      </Item4>
+      <Item5>
+        <Expression Value="testBrick"/>
+      </Item5>
+      <Item6>
+        <Expression Value="t1"/>
+      </Item6>
+      <Item7>
+        <Expression Value="amplitude"/>
+      </Item7>
+      <Item8>
+        <Expression Value="omega"/>
+      </Item8>
+    </Watches>
+  </Debugging>
+</CONFIG>
