@@ -6,7 +6,7 @@ object PlotForm: TPlotForm
   Caption = 'Plot'
   ClientHeight = 342
   ClientWidth = 554
-  LCLVersion = '1.4.0.4'
+  LCLVersion = '2.0.6.0'
   Visible = True
   object Chart1: TChart
     Left = 24
@@ -15,17 +15,21 @@ object PlotForm: TPlotForm
     Width = 448
     AxisList = <    
       item
+        Marks.LabelBrush.Style = bsClear
         Minors = <>
         Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
       end    
       item
         Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
         Minors = <>
         Range.Max = 10
         Range.UseMax = True
         Range.UseMin = True
         Title.Visible = True
         Title.Caption = 'Iteration'
+        Title.LabelBrush.Style = bsClear
       end>
     BackColor = clWhite
     Foot.Brush.Color = clBtnFace
@@ -36,36 +40,30 @@ object PlotForm: TPlotForm
       'TAChart'
     )
     Color = clWhite
-    ParentColor = False
     object xSeries: TLineSeries
       Title = 'x'
       LinePen.Color = clNavy
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object eSeries: TLineSeries
       Title = 'e'
       LinePen.Color = clRed
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object cSeries: TLineSeries
       Title = 'c'
       LinePen.Color = clLime
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object ySeries: TLineSeries
       Title = 'y'
       LinePen.Color = clGreen
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
     object yrSeries: TLineSeries
       Title = 'yr'
       LinePen.Color = clAqua
       LinePen.Width = 2
-      Pointer.OverrideColor = [ocBrush]
     end
   end
   object ChartLegendPanel1: TChartLegendPanel

@@ -7,12 +7,12 @@ unit GUI;
 { Demo of a simple simulator for a linear 1st order feedback system }
 { GUI }
 
-{ Version 1.0.0 (Corvus) }
+{ Version 1.0.1 (Corvus) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2015 }
+{ (c) Johannes W. Dietrich, 1994 - 2019 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002-2004 }
-{ (c) Ruhr University of Bochum 2005 - 2015 }
+{ (c) Ruhr University of Bochum 2005 - 2019 }
 
 { Standard blocks for systems modelling and simulation }
 
@@ -149,10 +149,16 @@ begin
   ValuesForm.WinAboutItem.Visible := False;
   ValuesForm.AppleMenu.Visible := True;
   {$ELSE}
+  {$IFDEF LCLCocoa}
+  modifierKey := [ssMeta];
+  ValuesForm.WinAboutItem.Visible := False;
+  ValuesForm.AppleMenu.Visible := True;
+  {$ELSE}
   modifierKey := [ssCtrl];
   ValuesForm.WinAboutItem.Visible := True;
   ValuesForm.AppleMenu.Visible := False;
   {$ENDIF}
+  {$ENDIf}
   ValuesForm.NewMenuItem.ShortCut := ShortCut(VK_N, modifierKey);
   ValuesForm.OpenMenuItem.ShortCut := ShortCut(VK_O, modifierKey);
   ValuesForm.CloseMenuItem.ShortCut := ShortCut(VK_W, modifierKey);

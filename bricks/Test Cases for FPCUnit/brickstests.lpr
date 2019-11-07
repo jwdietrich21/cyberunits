@@ -6,12 +6,12 @@ program brickstests;
 
 { bricks test cases }
 
-{ Version 1.0.0 (Corvus) }
+{ Version 1.0.1 (Corvus) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2015 }
+{ (c) Johannes W. Dietrich, 1994 - 2019 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002-2004 }
-{ (c) Ruhr University of Bochum 2005 - 2015 }
+{ (c) Ruhr University of Bochum 2005 - 2019 }
 
 { Standard blocks for systems modelling and simulation }
 
@@ -38,4 +38,4 @@ begin
   Application.CreateForm(TGuiTestRunner, TestRunner);
   Application.Run;
 end.
-
+
