@@ -7,12 +7,12 @@ unit gui;
 { Demo of canvas using SystemsDiagram }
 { GUI }
 
-{ Version 1.0.0 (Corvus) }
+{ Version 1.0.1 (Corvus) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2015 }
+{ (c) Johannes W. Dietrich, 1994 - 2019 }
 { (c) Ludwig Maximilian University of Munich 1996 - 2002 }
 { (c) University of Ulm Hospitals 2002-2004 }
-{ (c) Ruhr University of Bochum 2005 - 2015 }
+{ (c) Ruhr University of Bochum 2005 - 2019 }
 
 { Source code released under the BSD License }
 
@@ -514,9 +514,15 @@ begin
   DemoForm.WinAboutItem.Visible := False;
   DemoForm.AppleMenu.Visible := True;
   {$ELSE}
+  {$IFDEF LCLCocoa}
+  modifierKey := [ssMeta];
+  DemoForm.WinAboutItem.Visible := False;
+  DemoForm.AppleMenu.Visible := True;
+  {$ELSE}
   modifierKey := [ssCtrl];
   DemoForm.WinAboutItem.Visible := True;
   DemoForm.AppleMenu.Visible := False;
+  {$ENDIF}
   {$ENDIF}
   DemoForm.NewMenuItem.ShortCut := ShortCut(VK_N, modifierKey);
   DemoForm.OpenMenuItem.ShortCut := ShortCut(VK_O, modifierKey);

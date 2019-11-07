@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="9"/>
+    <Version Value="11"/>
     <PathDelim Value="\"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
@@ -18,8 +18,9 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="41"/>
-      <StringTable Comments="Simulator for MiMe-NoCoDI loop" CompanyName="Ruhr University of Bochum" FileDescription="Linear 0th order feedback demo" InternalName="MiMe-NoCoDI 1.0.0 Corvus" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="1.0"/>
+      <RevisionNr Value="1"/>
+      <BuildNr Value="42"/>
+      <StringTable Comments="Simulator for MiMe-NoCoDI loop" CompanyName="Ruhr University of Bochum" FileDescription="Linear 0th order feedback demo" InternalName="MiMe-NoCoDI 1.0.1 Corvus" LegalCopyright="1994–2019 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="1.0.1"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -28,9 +29,10 @@
       <Version Value="2"/>
     </PublishOptions>
     <RunParams>
-      <local>
-        <FormatVersion Value="1"/>
-      </local>
+      <FormatVersion Value="2"/>
+      <Modes Count="1">
+        <Mode0 Name="default"/>
+      </Modes>
     </RunParams>
     <RequiredPackages Count="2">
       <Item1>
@@ -69,6 +71,7 @@
       <Unit4>
         <Filename Value="..\..\bricks.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="Bricks"/>
       </Unit4>
       <Unit5>
         <Filename Value="plot.pas"/>
@@ -89,7 +92,6 @@
       <Unit7>
         <Filename Value="..\..\lifeblocks.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="lifeblocks"/>
       </Unit7>
     </Units>
   </ProjectOptions>
@@ -105,6 +107,9 @@
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>
+      <Debugging>
+        <DebugInfoType Value="dsDwarf2Set"/>
+      </Debugging>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>

@@ -10,7 +10,7 @@ object ValuesForm: TValuesForm
   Constraints.MinWidth = 640
   Menu = MainMenu1
   OnCreate = FormCreate
-  LCLVersion = '1.4.0.4'
+  LCLVersion = '2.0.6.0'
   object ValuesGrid: TStringGrid
     Left = 0
     Height = 363
@@ -73,21 +73,21 @@ object ValuesForm: TValuesForm
       ImageIndex = 0
     end
     object ToolButton2: TToolButton
-      Left = 34
+      Left = 32
       Top = 2
       Caption = 'ToolButton2'
       Enabled = False
       ImageIndex = 1
     end
     object ToolButton3: TToolButton
-      Left = 57
+      Left = 55
       Top = 2
       Caption = 'ToolButton3'
       Enabled = False
       ImageIndex = 2
     end
     object ToolButton4: TToolButton
-      Left = 80
+      Left = 78
       Top = 2
       Caption = 'ToolButton4'
       Enabled = False
@@ -97,7 +97,6 @@ object ValuesForm: TValuesForm
       Left = 24
       Height = 22
       Top = 2
-      Width = 10
       Caption = 'ToolButton5'
       Style = tbsSeparator
     end
@@ -120,7 +119,6 @@ object ValuesForm: TValuesForm
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.2
-    MaxValue = 100
     MinValue = 0
     TabOrder = 3
     Value = 5
@@ -132,7 +130,6 @@ object ValuesForm: TValuesForm
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.2
-    MaxValue = 100
     MinValue = 0
     TabOrder = 4
     Value = 2
@@ -193,7 +190,6 @@ object ValuesForm: TValuesForm
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.1
-    MaxValue = 100
     MinValue = 0
     TabOrder = 6
     Value = 1.3
@@ -214,7 +210,6 @@ object ValuesForm: TValuesForm
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.1
-    MaxValue = 100
     MinValue = 0
     TabOrder = 7
     Value = 0.5
