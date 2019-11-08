@@ -329,13 +329,13 @@ begin
   arcDiam.y := STDDiam;
   if (delta.x <> 0) and (delta.y <> 0) then
   begin { draw rounded path, if difference in x or y }
-    if abs(delta.x) < STDDiam then
+    if abs(delta.x) < STDDiam then // draw smaller curvature if delta small
       arcDiam.x := abs(delta.x);
     if abs(delta.y) < STDDiam then
       arcDiam.y := abs(delta.y);
     overlap.x := arcDiam.x div 2 + 1;
     overlap.y := arcDiam.y div 2 + 1;
-    if (overlap.x <> 0) and (overlap.y <> 0) then
+    if (overlap.x <> 0) and (overlap.y <> 0) then // still enough room?
     begin
       if delta.y > 0 then
       begin
