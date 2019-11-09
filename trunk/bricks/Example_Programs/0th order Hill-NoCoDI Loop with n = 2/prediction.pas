@@ -5,7 +5,7 @@ unit Prediction;
 { Object Pascal units for computational cybernetics }
 
 { Simulator for Hill-NoCoDI loop with n = 2 }
-{ Predictor }
+{ This unit displays predicted values as delivered by equilibrium analysis }
 
 { Version 1.0.0 (Corvus) }
 
@@ -46,7 +46,7 @@ type
     { private declarations }
   public
     { public declarations }
-    procedure DisplayPrediction(Parameters1, Parameters2: TPrediction);
+    procedure DisplayPrediction(Parameters1, Parameters2, Parameters3: TPrediction);
   end;
 
 var
@@ -66,7 +66,7 @@ begin
   PredictionList.Cells[0, 6] := 'yr';
 end;
 
-procedure TPredictionForm.DisplayPrediction(Parameters1, Parameters2: TPrediction);
+procedure TPredictionForm.DisplayPrediction(Parameters1, Parameters2, Parameters3: TPrediction);
 begin
   PredictionList.Cells[1, 1] := FloatToStrF(Parameters1.x, ffFixed, 0, 4);
   PredictionList.Cells[1, 2] := FloatToStrF(Parameters1.e, ffFixed, 0, 4);
@@ -77,9 +77,15 @@ begin
   PredictionList.Cells[2, 1] := FloatToStrF(Parameters2.x, ffFixed, 0, 4);
   PredictionList.Cells[2, 2] := FloatToStrF(Parameters2.e, ffFixed, 0, 4);
   PredictionList.Cells[2, 3] := FloatToStrF(Parameters2.c, ffFixed, 0, 4);
-  PredictionList.Cells[2, 4] := FloatToStrF(Parameters1.u, ffFixed, 0, 4);
+  PredictionList.Cells[2, 4] := FloatToStrF(Parameters2.u, ffFixed, 0, 4);
   PredictionList.Cells[2, 5] := FloatToStrF(Parameters2.y, ffFixed, 0, 4);
   PredictionList.Cells[2, 6] := FloatToStrF(Parameters2.yr, ffFixed, 0, 4);
+  PredictionList.Cells[3, 1] := FloatToStrF(Parameters3.x, ffFixed, 0, 4);
+  PredictionList.Cells[3, 2] := FloatToStrF(Parameters3.e, ffFixed, 0, 4);
+  PredictionList.Cells[3, 3] := FloatToStrF(Parameters3.c, ffFixed, 0, 4);
+  PredictionList.Cells[3, 4] := FloatToStrF(Parameters3.u, ffFixed, 0, 4);
+  PredictionList.Cells[3, 5] := FloatToStrF(Parameters3.y, ffFixed, 0, 4);
+  PredictionList.Cells[3, 6] := FloatToStrF(Parameters3.yr, ffFixed, 0, 4);
 end;
 
 end.
