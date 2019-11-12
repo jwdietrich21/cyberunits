@@ -56,6 +56,10 @@ type
     squarer: TPMul;
   end;
 
+  TRoots = record
+    x1, x2, x3: extended;
+  end;
+
   TPrediction = record
     x, e, c, u, y, yr: extended;
   end;
@@ -90,12 +94,45 @@ begin
   result := sign(x) * power(abs(x), 1/3);
 end;
 
+function SolveCubic(a, b, c, d: extended): TRoots;
+var
+  r, s, p, q, u, v, Det, phi, y1, y2, y3: extended;
+begin
+  r  := c / a - 1 / 3 * sqr(b / a);
+  s  := 2 / 27 * power((b / a), 3) - 1 / 3 * c * b / sqr(a) + d / a;
+  p  := r / 3;
+  q  := s / 2;
+
+  Det := p * p * p + q * q;
+
+  if Det >= 0 then
+  begin {Cardano's formula, one real solution}
+    u  := cbrt(-q + sqrt(Det));
+    v  := cbrt(-q - sqrt(Det));
+    y1 := u + v;        {real solution of Cardano's equation}
+    y2 := -(u + v) / 2; {Real part of the first complex solution}
+    y3 := y2;           {Real part of the second complex solution (=y2)}
+  end
+  else
+  begin {Casus irreducibilis, three real solutions}
+    u   := -q / (sqrt(-p * sqr(-p))); {cos phi}
+    phi := arccosinus(u);            {angle as radian}
+    y1  := 2 * sqrt(-p) * cos(phi / 3);
+    y2  := -2 * sqrt(-p) * cos(phi / 3 + arc(60));
+    y3  := -2 * sqrt(-p) * cos(phi / 3 - arc(60));
+  end;
+
+  result.x1 := y1 - b / (3 * a);
+  result.x2 := y2 - b / (3 * a);
+  result.x3 := y3 - b / (3 * a);
+end;
+
 procedure RunSimulation(x, G1, G2, G3, D2: extended; nmax: integer);
 var
   e, c, y, u, yr: extended;
   a, b, cc, d: extended;
-  r, s, p, q, uu, v, Det, phi, y1, y2, y3: extended;
   i: integer;
+  Roots: TRoots;
 begin
   if nmax > 0 then
   begin
@@ -108,43 +145,21 @@ begin
     cc := D2 + sqr(G1) * sqr(x);
     d := -sqr(G1) * G2 * sqr(x);
 
-    r  := cc / a - 1 / 3 * sqr(b / a);
-    s  := 2 / 27 * power((b / a), 3) - 1 / 3 * cc * b / sqr(a) + d / a;
-    p  := r / 3;
-    q  := s / 2;
+    Roots := SolveCubic(a, b, cc, d);
 
-    Det := p * p * p + q * q;
-
-    if Det > 0 then
-    begin {Cardano's formula, one real solution}
-      uu := cbrt(-q + sqrt(Det));
-      v  := cbrt(-q - sqrt(Det));
-      y1 := uu + v;        {real solution of Cardano's equation}
-      y2 := -(uu + v) / 2; {Real part of the first complex solution}
-      y3 := y2;            {Real part of the second complex solution (=y2)}
-    end
-    else
-    begin {Casus irreducibilis, three real solutions}
-      uu  := -q / (sqrt(-p * sqr(-p))); {cos phi}
-      phi := arccosinus(uu);            {angle as radian}
-      y1  := 2 * sqrt(-p) * cos(phi / 3);
-      y2  := -2 * sqrt(-p) * cos(phi / 3 + arc(60));
-      y3  := -2 * sqrt(-p) * cos(phi / 3 - arc(60));
-    end;
-
-    gPrediction1.y := y1;
+    gPrediction1.y := Roots.x1;
     gPrediction1.yr := G3 * gPrediction1.y;
     gPrediction1.e := gPrediction1.x / (1 + gPrediction1.yr);
     gPrediction1.c := G1 * gPrediction1.e;
     gPrediction1.u := sqr(gPrediction1.c);
 
-    gPrediction2.y := y2;
+    gPrediction2.y := Roots.x2;
     gPrediction2.yr := G3 * gPrediction2.y;
     gPrediction2.e := gPrediction2.x / (1 + gPrediction2.yr);
     gPrediction2.c := G1 * gPrediction2.e;
     gPrediction2.u := sqr(gPrediction2.c);
 
-    gPrediction3.y := y3;
+    gPrediction3.y := Roots.x3;
     gPrediction3.yr := G3 * gPrediction3.y;
     gPrediction3.e := gPrediction3.x / (1 + gPrediction3.yr);
     gPrediction3.c := G1 * gPrediction3.e;
