@@ -8,9 +8,10 @@
       <Unit0>
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="12" Y="2"/>
+        <CursorPos X="5" Y="2"/>
         <UsageCount Value="30"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -23,8 +24,7 @@
         <UnitName Value="GUI"/>
         <EditorIndex Value="6"/>
         <WindowIndex Value="1"/>
-        <TopLine Value="144"/>
-        <CursorPos X="27" Y="152"/>
+        <CursorPos X="4" Y="2"/>
         <UsageCount Value="30"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -33,10 +33,9 @@
         <Filename Value="simulationengine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SimulationEngine"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="6" Y="2"/>
+        <CursorPos X="5" Y="2"/>
         <UsageCount Value="30"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -49,7 +48,7 @@
         <UnitName Value="IPS"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="9" Y="2"/>
+        <CursorPos X="6" Y="2"/>
         <UsageCount Value="30"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -73,7 +72,7 @@
         <UnitName Value="Plot"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="21" Y="2"/>
+        <CursorPos X="5" Y="2"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -87,7 +86,7 @@
         <UnitName Value="Prediction"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="13" Y="2"/>
+        <CursorPos X="7" Y="2"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -256,7 +255,7 @@
       </Position29>
       <Position30>
         <Filename Value="gui.pas"/>
-        <Caret Line="152" Column="32" TopLine="140"/>
+        <Caret Line="152" Column="27" TopLine="145"/>
       </Position30>
     </JumpHistory>
     <RunParams>

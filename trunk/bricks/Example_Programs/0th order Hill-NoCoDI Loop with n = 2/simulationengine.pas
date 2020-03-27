@@ -7,11 +7,11 @@ unit SimulationEngine;
 { Simulator for Hill-NoCoDI loop with n = 2 }
 { Simulation Engine }
 
-{ Version 1.0.0 (Corvus) }
+{ Version 1.1.0 (Dendron) }
 
 { (c) Johannes W. Dietrich, 1994 - 2020 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
-{ (c) University of Ulm Hospitals 2002-2004 }
+{ (c) University of Ulm Hospitals 2002 - 2004 }
 { (c) Ruhr University of Bochum 2005 - 2020 }
 
 { Standard blocks for systems modelling and simulation }
