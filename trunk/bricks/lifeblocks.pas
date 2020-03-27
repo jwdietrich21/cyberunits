@@ -8,10 +8,10 @@ unit lifeblocks;
 
 { Version 1.0.1 (Corvus) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2019 }
+{ (c) Johannes W. Dietrich, 1994 - 2020 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002-2004 }
-{ (c) Ruhr University of Bochum 2005 - 2019 }
+{ (c) Ruhr University of Bochum 2005 - 2020 }
 
 { Standard blocks for systems modelling and simulation }
 
@@ -48,6 +48,8 @@ type
     procedure SetAlpha(AValue: extended);
     procedure SetBeta(AValue: extended);
     procedure SetDelta(AValue: extended);
+    procedure SetX1(AValue: extended);
+    function GetX1: extended;
   public
     input: extended;
     constructor Create;
@@ -55,6 +57,7 @@ type
     property alpha: extended read FAlpha write SetAlpha;
     property beta: extended read FBeta write SetBeta;
     property delta: extended write SetDelta;
+    property x1: extended read GetX1 write SetX1;
     property output: extended read Foutput;
     procedure simulate; override;
     property simOutput: extended read SimAndGetOutput;
@@ -162,6 +165,16 @@ begin
   PT1Analog.delta := AValue;
 end;
 
+procedure TASIA.SetX1(AValue: extended);
+begin
+  PT1Analog.x1 := AValue;
+end;
+
+function TASIA.GetX1: extended;
+begin
+  Result := PT1Analog.x1;
+end;
+
 function TASIA.SimAndGetOutput: extended;
 begin
   simulate;
@@ -173,12 +186,12 @@ begin
   inherited create;
   PT1Analog := TPT1.Create;
   FAlpha := 1;
-  FBeta := 1;
+  SetBeta(1);
 end;
 
 destructor TASIA.Destroy;
 begin
-  PT1Analog.Create;
+  PT1Analog.Destroy;
   inherited Destroy;
 end;
 
