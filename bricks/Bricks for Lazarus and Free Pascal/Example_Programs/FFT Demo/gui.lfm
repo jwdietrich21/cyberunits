@@ -1,0 +1,47 @@
+object DemoMainForm: TDemoMainForm
+  Left = 325
+  Height = 400
+  Top = 143
+  Width = 573
+  Caption = 'Test program for FFT algorithm'
+  ClientHeight = 400
+  ClientWidth = 573
+  LCLVersion = '1.4.4.0'
+  object ResultsMemo: TMemo
+    Left = 8
+    Height = 298
+    Top = 40
+    Width = 552
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ScrollBars = ssAutoBoth
+    TabOrder = 0
+  end
+  object DemoButton: TButton
+    Left = 448
+    Height = 25
+    Top = 352
+    Width = 112
+    Anchors = [akRight, akBottom]
+    Caption = 'Test algorithm'
+    OnClick = DemoButtonClick
+    TabOrder = 1
+  end
+  object TestFunctionLabel: TLabel
+    Left = 8
+    Height = 13
+    Top = 14
+    Width = 65
+    Caption = 'Test function:'
+    ParentColor = False
+  end
+  object TestFunctionEdit: TEdit
+    Left = 88
+    Height = 21
+    Top = 8
+    Width = 472
+    Anchors = [akTop, akLeft, akRight]
+    ReadOnly = True
+    TabOrder = 2
+    Text = '(23 + 13 * sin(omegat(7, didx)) + 28 * cos(omegat(22, didx)))'
+  end
+end
