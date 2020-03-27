@@ -8,10 +8,10 @@ unit SystemsDiagram;
 
 { Version 1.0.1 (Corvus) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2019 }
+{ (c) Johannes W. Dietrich, 1994 - 2020 }
 { (c) Ludwig Maximilian University of Munich 1996 - 2002 }
 { (c) University of Ulm Hospitals 2002-2004 }
-{ (c) Ruhr University of Bochum 2005 - 2019 }
+{ (c) Ruhr University of Bochum 2005 - 2020 }
 
 { Source code released under the BSD License }
 
