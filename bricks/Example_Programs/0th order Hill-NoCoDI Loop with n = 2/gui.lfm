@@ -1,9 +1,9 @@
 object ValuesForm: TValuesForm
-  Left = 112
+  Left = 280
   Height = 503
-  Top = 104
+  Top = 125
   Width = 643
-  Caption = 'MiMe-NoCoDI loop'
+  Caption = 'Hill-NoCoDI loop'
   ClientHeight = 503
   ClientWidth = 643
   Constraints.MinHeight = 400

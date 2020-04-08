@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="88" Y="13"/>
+        <CursorPos X="3" Y="2"/>
         <UsageCount Value="47"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -21,9 +21,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="6" Y="2"/>
+        <CursorPos X="9" Y="2"/>
         <UsageCount Value="47"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -34,7 +35,7 @@
         <UnitName Value="SimulationEngine"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="10" Y="2"/>
+        <CursorPos X="21" Y="2"/>
         <UsageCount Value="47"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -47,7 +48,7 @@
         <UnitName Value="IPS"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="8" Y="2"/>
+        <CursorPos X="7" Y="2"/>
         <UsageCount Value="47"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -71,7 +72,7 @@
         <UnitName Value="Plot"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="3" Y="2"/>
+        <CursorPos X="11" Y="2"/>
         <UsageCount Value="46"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -85,7 +86,7 @@
         <UnitName Value="Prediction"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="10" Y="2"/>
+        <CursorPos X="5" Y="2"/>
         <UsageCount Value="45"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -93,10 +94,8 @@
       <Unit7>
         <Filename Value="..\..\lifeblocks.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <WindowIndex Value="1"/>
-        <TopLine Value="39"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="78" Y="16"/>
         <UsageCount Value="42"/>
         <Loaded Value="True"/>
       </Unit7>

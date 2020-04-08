@@ -7,7 +7,7 @@ unit GUI;
 { Simulator for Hill-NoCoDI loop with n = 2 }
 { GUI }
 
-{ Version 1.1.0 (Dendron) }
+{ Version 1.1.1 (Dendron) }
 
 { (c) Johannes W. Dietrich, 1994 - 2020 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
@@ -178,7 +178,7 @@ end;
 
 procedure TValuesForm.ShowAboutWindow(Sender: TObject);
 begin
-  ShowMessage('MiMe-NoCoDI loop, a demonstration program for CyberUnits Bricks');
+  ShowMessage('Hill-NoCoDI loop, a demonstration program for CyberUnits Bricks');
 end;
 
 procedure TValuesForm.MacAboutItemClick(Sender: TObject);

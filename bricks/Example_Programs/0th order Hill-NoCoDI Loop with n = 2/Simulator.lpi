@@ -19,7 +19,8 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="8"/>
+      <RevisionNr Value="1"/>
+      <BuildNr Value="9"/>
       <StringTable Comments="Simulator for Hill-NoCoDI loop with n = 2" CompanyName="Ruhr University of Bochum" FileDescription="Linear 0th order feedback demo" InternalName="Hill-NoCoDI 1.1 Dendron" LegalCopyright="1994–2020 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="1.1"/>
     </VersionInfo>
     <BuildModes Count="1">
@@ -106,6 +107,9 @@
       <OtherUnitFiles Value="..\.."/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
+    <CodeGeneration>
+      <TargetCPU Value="i386"/>
+    </CodeGeneration>
     <Linking>
       <Debugging>
         <DebugInfoType Value="dsDwarf2Set"/>
