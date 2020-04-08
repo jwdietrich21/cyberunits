@@ -8,10 +8,9 @@
       <Unit0>
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="4" Y="2"/>
+        <CursorPos X="13" Y="2"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -24,7 +23,7 @@
         <UnitName Value="GUI"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="7" Y="2"/>
+        <CursorPos X="11" Y="2"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -33,6 +32,7 @@
         <Filename Value="simulationengine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SimulationEngine"/>
+        <IsVisibleTab Value="True"/>
         <WindowIndex Value="1"/>
         <CursorPos X="7" Y="2"/>
         <UsageCount Value="28"/>
@@ -47,7 +47,7 @@
         <UnitName Value="IPS"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="9" Y="2"/>
+        <CursorPos X="10" Y="2"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -69,7 +69,7 @@
         <UnitName Value="Plot"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="4" Y="2"/>
+        <CursorPos X="10" Y="2"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -83,7 +83,7 @@
         <UnitName Value="Prediction"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="7" Y="2"/>
+        <CursorPos X="8" Y="2"/>
         <UsageCount Value="26"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
