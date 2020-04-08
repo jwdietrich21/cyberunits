@@ -7,7 +7,7 @@ unit Plot;
 { Simulator for MiMe-NoCoDI loop }
 { Plot unit }
 
-{ Version 1.1.0 (Dendron) }
+{ Version 1.1.1 (Dendron) }
 
 { (c) Johannes W. Dietrich, 1994 - 2020 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }

@@ -19,8 +19,9 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="96"/>
-      <StringTable Comments="CyberUnits System Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Unit Tests for Bricks" InternalName="Bricks 1.1.0 Dendron" LegalCopyright="1994–2020 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="1.1.0"/>
+      <RevisionNr Value="1"/>
+      <BuildNr Value="97"/>
+      <StringTable Comments="CyberUnits System Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Unit Tests for Bricks" InternalName="Bricks 1.1.1 Dendron" LegalCopyright="1994–2020 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="1.1.1"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
