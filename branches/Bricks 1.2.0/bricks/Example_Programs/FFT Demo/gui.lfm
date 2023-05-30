@@ -1,0 +1,230 @@
+object DemoMainForm: TDemoMainForm
+  Left = 325
+  Height = 493
+  Top = 143
+  Width = 860
+  Caption = 'Test program for FFT algorithm'
+  ClientHeight = 493
+  ClientWidth = 860
+  Menu = MainMenu1
+  LCLVersion = '2.2.6.0'
+  object DemoButton: TButton
+    Left = 735
+    Height = 25
+    Top = 445
+    Width = 112
+    Anchors = [akRight, akBottom]
+    Caption = 'Test algorithm'
+    OnClick = DemoButtonClick
+    TabOrder = 0
+  end
+  object Panel1: TPanel
+    Left = 8
+    Height = 411
+    Top = 8
+    Width = 839
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ClientHeight = 411
+    ClientWidth = 839
+    TabOrder = 1
+    object PairSplitter1: TPairSplitter
+      Left = 1
+      Height = 409
+      Top = 1
+      Width = 837
+      Align = alClient
+      Position = 400
+      object PairSplitterSide1: TPairSplitterSide
+        Cursor = crArrow
+        Left = 0
+        Height = 409
+        Top = 0
+        Width = 400
+        ClientWidth = 400
+        ClientHeight = 409
+        object ResultsMemo: TMemo
+          Left = 8
+          Height = 388
+          Top = 8
+          Width = 412
+          Align = alCustom
+          Anchors = [akTop, akLeft, akRight, akBottom]
+          ScrollBars = ssAutoBoth
+          TabOrder = 0
+        end
+      end
+      object PairSplitterSide2: TPairSplitterSide
+        Cursor = crArrow
+        Left = 405
+        Height = 409
+        Top = 0
+        Width = 432
+        ClientWidth = 432
+        ClientHeight = 409
+        object PairSplitter2: TPairSplitter
+          Cursor = crVSplit
+          Left = 0
+          Height = 409
+          Top = 0
+          Width = 432
+          Align = alClient
+          Position = 200
+          SplitterType = pstVertical
+          object PairSplitterSide3: TPairSplitterSide
+            Cursor = crArrow
+            Left = 0
+            Height = 200
+            Top = 0
+            Width = 432
+            ClientWidth = 432
+            ClientHeight = 200
+            object TimeDomainChart: TChart
+              Left = 0
+              Height = 200
+              Top = 0
+              Width = 432
+              AxisList = <              
+                item
+                  Marks.LabelBrush.Style = bsClear
+                  Minors = <>
+                  Title.LabelFont.Orientation = 900
+                  Title.LabelBrush.Style = bsClear
+                end              
+                item
+                  Alignment = calBottom
+                  Marks.LabelBrush.Style = bsClear
+                  Minors = <>
+                  Title.LabelBrush.Style = bsClear
+                end>
+              Title.Text.Strings = (
+                'TAChart'
+              )
+              Align = alClient
+              object TimeDomainChartLineSeries1: TLineSeries
+                LinePen.Color = clRed
+              end
+            end
+          end
+          object PairSplitterSide4: TPairSplitterSide
+            Cursor = crArrow
+            Left = 0
+            Height = 204
+            Top = 205
+            Width = 432
+            ClientWidth = 432
+            ClientHeight = 204
+            object FrequencyDomainChart: TChart
+              Left = 0
+              Height = 204
+              Top = 0
+              Width = 432
+              AxisList = <              
+                item
+                  Marks.LabelBrush.Style = bsClear
+                  Minors = <>
+                  Title.LabelFont.Orientation = 900
+                  Title.LabelBrush.Style = bsClear
+                end              
+                item
+                  Alignment = calBottom
+                  Marks.LabelBrush.Style = bsClear
+                  Minors = <>
+                  Range.Max = 50
+                  Range.UseMax = True
+                  Title.LabelBrush.Style = bsClear
+                end>
+              Title.Text.Strings = (
+                'TAChart'
+              )
+              Align = alClient
+              object FrequencyDomainChartLineSeries1: TLineSeries
+                LinePen.Color = clGreen
+                LinePen.Width = 2
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 48
+    Top = 440
+    object AppleMenu: TMenuItem
+      Caption = ''
+      object MacAboutItem: TMenuItem
+        Caption = 'About FFT Demo'
+      end
+    end
+    object FileMenu: TMenuItem
+      Caption = 'File'
+      object NewMenuItem: TMenuItem
+        Caption = 'New'
+        Enabled = False
+        ShortCut = 16462
+      end
+      object Divider11: TMenuItem
+        Caption = '-'
+      end
+      object OpenMenuItem: TMenuItem
+        Caption = 'Open'
+        Enabled = False
+        ShortCut = 16463
+      end
+      object SaveMenuItem: TMenuItem
+        Caption = 'Save'
+        Enabled = False
+        ShortCut = 16467
+      end
+      object CloseMenuItem: TMenuItem
+        Caption = 'Close'
+        ShortCut = 16471
+      end
+      object Divider12: TMenuItem
+        Caption = '-'
+      end
+      object QuitMenuItem: TMenuItem
+        Caption = 'Quit'
+        ShortCut = 16465
+        OnClick = QuitMenuItemClick
+      end
+    end
+    object EditMenu: TMenuItem
+      Caption = 'Edit'
+      object UndoMenuItem: TMenuItem
+        Caption = 'Undo'
+        Enabled = False
+        ShortCut = 16474
+      end
+      object RedoMenuItem: TMenuItem
+        Caption = 'Redo'
+        Enabled = False
+        ShortCut = 24666
+      end
+      object Divider21: TMenuItem
+        Caption = '-'
+      end
+      object CutMenuItem: TMenuItem
+        Caption = 'Cut'
+        Enabled = False
+        ShortCut = 16451
+      end
+      object CopyMenuItem: TMenuItem
+        Caption = 'Copy'
+        Enabled = False
+        ShortCut = 16451
+      end
+      object PasteMenuItem: TMenuItem
+        Caption = 'Paste'
+        Enabled = False
+        ShortCut = 16470
+      end
+    end
+    object HelpMenu: TMenuItem
+      Caption = 'Help'
+      object WinAboutItem: TMenuItem
+        Caption = 'About FFT Demo'
+      end
+    end
+  end
+end
