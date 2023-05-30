@@ -2,16 +2,15 @@
 <CONFIG>
   <ProjectSession>
     <PathDelim Value="\"/>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <BuildModes Active="Default"/>
     <Units Count="10">
       <Unit0>
         <Filename Value="brickstests.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="11" Y="2"/>
+        <CursorPos X="27" Y="2"/>
         <UsageCount Value="54"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -20,7 +19,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="8" Y="2"/>
+        <CursorPos X="26" Y="2"/>
         <ExtraEditorCount Value="2"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -40,6 +39,7 @@
         <Filename Value="..\bricks.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Bricks"/>
+        <IsVisibleTab Value="True"/>
         <WindowIndex Value="1"/>
         <CursorPos X="7" Y="2"/>
         <ExtraEditorCount Value="2"/>
@@ -62,7 +62,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="6" Y="2"/>
+        <CursorPos X="10" Y="2"/>
         <UsageCount Value="44"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -229,35 +229,35 @@
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
-      <Modes Count="0" ActiveMode="default"/>
+      <Modes ActiveMode="default"/>
     </RunParams>
   </ProjectSession>
   <Debugging>
-    <Watches Count="8">
-      <Item1>
+    <Watches>
+      <Item>
         <Expression Value="G"/>
-      </Item1>
-      <Item2>
+      </Item>
+      <Item>
         <Expression Value="fOutput"/>
-      </Item2>
-      <Item3>
+      </Item>
+      <Item>
         <Expression Value="input"/>
-      </Item3>
-      <Item4>
+      </Item>
+      <Item>
         <Expression Value="FFr"/>
-      </Item4>
-      <Item5>
+      </Item>
+      <Item>
         <Expression Value="testBrick"/>
-      </Item5>
-      <Item6>
+      </Item>
+      <Item>
         <Expression Value="t1"/>
-      </Item6>
-      <Item7>
+      </Item>
+      <Item>
         <Expression Value="amplitude"/>
-      </Item7>
-      <Item8>
+      </Item>
+      <Item>
         <Expression Value="omega"/>
-      </Item8>
+      </Item>
     </Watches>
   </Debugging>
 </CONFIG>

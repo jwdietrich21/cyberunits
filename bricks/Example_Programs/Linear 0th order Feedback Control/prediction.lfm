@@ -6,7 +6,7 @@ object PredictionForm: TPredictionForm
   Caption = 'Prediction'
   ClientHeight = 171
   ClientWidth = 334
-  LCLVersion = '2.0.6.0'
+  LCLVersion = '2.2.4.0'
   Visible = True
   object PredictionList: TValueListEditor
     Left = 0
@@ -29,7 +29,7 @@ object PredictionForm: TPredictionForm
     )
     ColWidths = (
       64
-      255
+      253
     )
   end
 end

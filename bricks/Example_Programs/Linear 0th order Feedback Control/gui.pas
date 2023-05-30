@@ -7,12 +7,12 @@ unit GUI;
 { Demo of a simple simulator for a linear 0th order feedback system }
 { GUI }
 
-{ Version 1.1.1 (Dendron) }
+{ Version 1.1.2 (Dendron) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2020 }
+{ (c) Johannes W. Dietrich, 1994 - 2022 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002 - 2004 }
-{ (c) Ruhr University of Bochum 2005 - 2020 }
+{ (c) Ruhr University of Bochum 2005 - 2022 }
 
 { Standard blocks for systems modelling and simulation }
 

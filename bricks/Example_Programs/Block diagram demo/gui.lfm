@@ -14,7 +14,7 @@ object DemoForm: TDemoForm
   OnDestroy = FormDestroy
   ParentBiDiMode = False
   Position = poDefault
-  LCLVersion = '2.0.6.0'
+  LCLVersion = '2.2.4.0'
   object DemoImage: TImage
     Left = 24
     Height = 300
@@ -47,7 +47,7 @@ object DemoForm: TDemoForm
     Left = 24
     Height = 16
     Top = 343
-    Width = 125
+    Width = 120
     Anchors = [akLeft, akBottom]
     Caption = 'Background Colour:'
     ParentColor = False
@@ -56,7 +56,7 @@ object DemoForm: TDemoForm
     Left = 273
     Height = 16
     Top = 343
-    Width = 125
+    Width = 117
     Anchors = [akLeft, akBottom]
     Caption = 'Colour for Drawing:'
     ParentColor = False
@@ -71,8 +71,8 @@ object DemoForm: TDemoForm
     TabOrder = 2
   end
   object MainMenu1: TMainMenu
-    left = 552
-    top = 40
+    Left = 552
+    Top = 40
     object AppleMenu: TMenuItem
       Caption = ''
       object MacAboutItem: TMenuItem

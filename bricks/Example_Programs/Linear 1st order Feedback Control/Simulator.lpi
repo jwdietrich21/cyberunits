@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <PathDelim Value="\"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <Title Value="Simulator"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -19,9 +21,9 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
-      <RevisionNr Value="1"/>
-      <BuildNr Value="44"/>
-      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Linear 1st order feedback demo" InternalName="FC1L 1.1.1 Dendron" LegalCopyright="1994–2020 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits FC1L demo 1.1" ProductVersion="1.1"/>
+      <RevisionNr Value="2"/>
+      <BuildNr Value="46"/>
+      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Linear 1st order feedback demo" InternalName="FC1L 1.1.2 Dendron" LegalCopyright="1994–2020 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits FC1L demo 1.1" ProductVersion="1.1"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -43,7 +45,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="7">
+    <Units Count="8">
       <Unit0>
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -72,6 +74,7 @@
       <Unit4>
         <Filename Value="..\..\bricks.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="Bricks"/>
       </Unit4>
       <Unit5>
         <Filename Value="plot.pas"/>
@@ -89,6 +92,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Prediction"/>
       </Unit6>
+      <Unit7>
+        <Filename Value="guiservices.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="GUIServices"/>
+      </Unit7>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

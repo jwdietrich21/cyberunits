@@ -7,12 +7,12 @@ unit Plot;
 { Demo of a simple simulator for a linear 1st order feedback system }
 { Plot unit }
 
-{ Version 1.1.1 (Dendron) }
+{ Version 1.1.2 (Dendron) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2020 }
+{ (c) Johannes W. Dietrich, 1994 - 2022 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002 - 2004 }
-{ (c) Ruhr University of Bochum 2005 - 2020 }
+{ (c) Ruhr University of Bochum 2005 - 2022 }
 
 { Standard blocks for systems modelling and simulation }
 
@@ -33,7 +33,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, TALegendPanel, Forms,
-  Controls, Graphics, Dialogs, SimulationEngine;
+  Controls, Graphics, Dialogs, SimulationEngine, GUIServices;
 
 type
 
@@ -48,6 +48,7 @@ type
     ysSeries: TLineSeries;
     yrSeries: TLineSeries;
     xSeries: TLineSeries;
+    procedure FormPaint(Sender: TObject);
   private
     { private declarations }
   public
@@ -63,6 +64,24 @@ implementation
 {$R *.lfm}
 
 { TPlotForm }
+
+procedure TPlotForm.FormPaint(Sender: TObject);
+begin
+  if DarkTheme then
+    begin
+      Chart1.Color := clDefault;
+      Chart1.BackColor := clDefault;
+      Chart1.AxisList.Axes[0].Marks.LabelBrush.Color := clDefault;
+      Chart1.AxisList.Axes[0].Marks.LabelBrush.Style := bsClear;
+    end
+    else
+    begin
+      Chart1.Color := clNone;
+      Chart1.BackColor := clWhite;
+      Chart1.AxisList.Axes[0].Marks.LabelBrush.Color := clWhite;
+      Chart1.AxisList.Axes[0].Marks.LabelBrush.Style := bsSolid;
+    end;
+end;
 
 procedure TPlotForm.ShowPlot;
 var

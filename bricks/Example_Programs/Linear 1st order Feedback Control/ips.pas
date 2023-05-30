@@ -7,12 +7,12 @@ unit IPS;
 { Demo of a simple simulator for a linear 1st order feedback system }
 { Information Processing Structure }
 
-{ Version 1.1.1 (Dendron) }
+{ Version 1.1.2 (Dendron) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2020 }
+{ (c) Johannes W. Dietrich, 1994 - 2022 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002 - 2004 }
-{ (c) Ruhr University of Bochum 2005 - 2020 }
+{ (c) Ruhr University of Bochum 2005 - 2022 }
 
 { Standard blocks for systems modelling and simulation }
 
@@ -33,7 +33,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  lclintf, SystemsDiagram;
+  lclintf, SystemsDiagram, GUIServices;
 
 type
 
@@ -64,16 +64,28 @@ var
   IPSBitmap: TBitmap;
   Controller, LoadInjection, G1, G2, PT1, xt, zt: TIPSClass;
   cx, ce, cy, cys, cyr, cz, cy0: TConnectionClass;
+  DrawColour: TColor;
 begin
   BlockDiagram := TBlockDiagram.Create;
   IPSBitmap := TBitmap.Create;
+  IPSForm.Color := clDefault;
   try
     IPSBitmap.Height := IPSImage.Height;
     IPSBitmap.Width := IPSImage.Width;
-    IPSBitmap.Canvas.Brush.Color := clWhite;
-    IPSBitmap.Canvas.Pen.Color := clWhite;
+    if DarkTheme then
+      begin
+        IPSBitmap.Canvas.Brush.Color := IPSForm.Color;
+        IPSBitmap.Canvas.Pen.Color := IPSForm.Color;
+        DrawColour := clSilver;
+      end
+    else
+      begin
+        IPSBitmap.Canvas.Brush.Color := clWhite;
+        IPSBitmap.Canvas.Pen.Color := clWhite;
+        DrawColour := clBlack;
+      end;
     IPSBitmap.Canvas.Rectangle(0, 0, IPSBitmap.Width, IPSBitmap.Height);
-    IPSBitmap.Canvas.Pen.Color := clBlack;
+    IPSBitmap.Canvas.Pen.Color := DrawColour;
     BlockDiagram.canvas := IPSBitmap.Canvas;
 
     xt := TTerminalClass.Create;
