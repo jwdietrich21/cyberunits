@@ -877,14 +877,14 @@ begin
   if dmp < 1 then
     begin
       omg := 1 / t2;
-      a := exp(-delta * delta * omg);
+      a := exp(-dmp * delta * omg);
       b := sqrt(1 - dmp * dmp) * omg;
       c := arctan(dmp * omg / b);
       d := omg * omg;
       e := d * omg / b * a * cos(b * delta + c);
       f := d / b * a * sin(b * delta);
       k := f * 2 * dmp / omg;
-      xn1 := x1 * e / d - x2 * f + f * g * input;
+      xn1 := x1 * e / d - x2 * f + f * G * input;
       xn2 := x1 * f / d + x2 * e / d + x2 * k - (e / d - 1 + k) * G * input;
       x1 := xn1;
       x2 := xn2;
