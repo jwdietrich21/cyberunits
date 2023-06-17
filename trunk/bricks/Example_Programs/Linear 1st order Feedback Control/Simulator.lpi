@@ -19,11 +19,9 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MajorVersionNr Value="1"/>
-      <MinorVersionNr Value="1"/>
-      <RevisionNr Value="2"/>
-      <BuildNr Value="46"/>
-      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Linear 1st order feedback demo" InternalName="FC1L 1.1.2 Dendron" LegalCopyright="1994–2020 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits FC1L demo 1.1" ProductVersion="1.1"/>
+      <MajorVersionNr Value="2"/>
+      <BuildNr Value="49"/>
+      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Linear 1st order feedback demo" InternalName="FC1L 2.0.0 Escorpión" LegalCopyright="1994–2023 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits FC1L demo 1.2" ProductVersion="2.0"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>

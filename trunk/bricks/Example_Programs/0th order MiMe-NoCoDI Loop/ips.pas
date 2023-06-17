@@ -7,12 +7,12 @@ unit IPS;
 { Simulator for MiMe-NoCoDI loop }
 { Information Processing Structure }
 
-{ Version 1.1.2 (Dendron) }
+{ Version 2.0.0 (Escorpión) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2022 }
+{ (c) Johannes W. Dietrich, 1994 - 2023 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002 - 2004 }
-{ (c) Ruhr University of Bochum 2005 - 2022 }
+{ (c) Ruhr University of Bochum 2005 - 2023 }
 
 { Standard blocks for systems modelling and simulation }
 
@@ -33,7 +33,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  lclintf, SystemsDiagram;
+  lclintf, SystemsDiagram, GUIServices;
 
 type
 
@@ -65,16 +65,27 @@ var
   Controller, DInjection, VTypeAllostery, MMK: TIPSClass;
   G1, G2, G3, xt, D2, x1, j1: TIPSClass;
   cx, ce, cy, cc, cyr, cD, c1, cV, c2a, c2b, c2c: TConnectionClass;
+  DrawColour: TColor;
 begin
   BlockDiagram := TBlockDiagram.Create;
   IPSBitmap := TBitmap.Create;
   try
     IPSBitmap.Height := IPSImage.Height;
     IPSBitmap.Width := IPSImage.Width;
-    IPSBitmap.Canvas.Brush.Color := clWhite;
-    IPSBitmap.Canvas.Pen.Color := clWhite;
+    if DarkTheme then
+      begin
+        IPSBitmap.Canvas.Brush.Color := self.Color;
+        IPSBitmap.Canvas.Pen.Color := self.Color;
+        DrawColour := clSilver;
+      end
+    else
+      begin
+        IPSBitmap.Canvas.Brush.Color := clWhite;
+        IPSBitmap.Canvas.Pen.Color := clWhite;
+        DrawColour := clBlack;
+      end;
     IPSBitmap.Canvas.Rectangle(0, 0, IPSBitmap.Width, IPSBitmap.Height);
-    IPSBitmap.Canvas.Pen.Color := clBlack;
+    IPSBitmap.Canvas.Pen.Color := DrawColour;
     BlockDiagram.canvas := IPSBitmap.Canvas;
 
     xt := TTerminalClass.Create;

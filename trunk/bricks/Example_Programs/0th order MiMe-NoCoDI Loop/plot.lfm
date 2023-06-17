@@ -1,12 +1,12 @@
 object PlotForm: TPlotForm
   Left = 609
   Height = 342
-  Top = 601
+  Top = 537
   Width = 554
   Caption = 'Plot'
   ClientHeight = 342
   ClientWidth = 554
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '2.2.6.0'
   Visible = True
   object Chart1: TChart
     Left = 24
@@ -31,7 +31,7 @@ object PlotForm: TPlotForm
         Title.Caption = 'Iteration'
         Title.LabelBrush.Style = bsClear
       end>
-    BackColor = clWhite
+    BackColor = clDefault
     Foot.Brush.Color = clBtnFace
     Foot.Font.Color = clBlue
     Title.Brush.Color = clBtnFace
@@ -39,7 +39,7 @@ object PlotForm: TPlotForm
     Title.Text.Strings = (
       'TAChart'
     )
-    Color = clWhite
+    Color = clDefault
     object xSeries: TLineSeries
       Title = 'x'
       LinePen.Color = clNavy

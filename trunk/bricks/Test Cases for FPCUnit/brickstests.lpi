@@ -19,14 +19,15 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <MajorVersionNr Value="1"/>
-      <MinorVersionNr Value="1"/>
-      <RevisionNr Value="2"/>
-      <BuildNr Value="97"/>
-      <StringTable Comments="CyberUnits System Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Unit Tests for Bricks" InternalName="Bricks 1.1.2 Dendron" LegalCopyright="1994–2022 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="1.1.2"/>
+      <MajorVersionNr Value="2"/>
+      <BuildNr Value="99"/>
+      <StringTable Comments="CyberUnits System Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Unit Tests for Bricks" InternalName="Bricks 2.0.0 Escorpión" LegalCopyright="1994–2023 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="2.0"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
+      <SharedMatrixOptions Count="1">
+        <Item1 ID="747667441491" Type="IDEMacro" MacroName="LCLWidgetType" Value="carbon"/>
+      </SharedMatrixOptions>
     </BuildModes>
     <PublishOptions>
       <Version Value="2"/>

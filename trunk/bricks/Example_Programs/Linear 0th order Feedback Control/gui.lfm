@@ -1,7 +1,7 @@
 object ValuesForm: TValuesForm
-  Left = 104
+  Left = 191
   Height = 503
-  Top = 116
+  Top = 96
   Width = 643
   Caption = 'Linear zeroth order feedback control: Demo of a simple simulator'
   ClientHeight = 503
@@ -10,7 +10,7 @@ object ValuesForm: TValuesForm
   Constraints.MinWidth = 640
   Menu = MainMenu1
   OnCreate = FormCreate
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '2.2.6.0'
   object ValuesGrid: TStringGrid
     Left = 0
     Height = 363

@@ -7,12 +7,12 @@ unit Prediction;
 { Simulator for Hill-NoCoDI loop with n = 2 }
 { This unit displays predicted values as delivered by equilibrium analysis }
 
-{ Version 1.1.2 (Dendron) }
+{ Version 2.0.0 (Escorpión) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2022 }
+{ (c) Johannes W. Dietrich, 1994 - 2023 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002 - 2004 }
-{ (c) Ruhr University of Bochum 2005 - 2022 }
+{ (c) Ruhr University of Bochum 2005 - 2023 }
 
 { Standard blocks for systems modelling and simulation }
 

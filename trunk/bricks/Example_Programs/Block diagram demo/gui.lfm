@@ -14,7 +14,7 @@ object DemoForm: TDemoForm
   OnDestroy = FormDestroy
   ParentBiDiMode = False
   Position = poDefault
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '2.2.6.0'
   object DemoImage: TImage
     Left = 24
     Height = 300
