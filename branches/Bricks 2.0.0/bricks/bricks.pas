@@ -348,7 +348,7 @@ end;
 
 destructor TModel.Destroy;
 begin
-  // { TODO 3 -oJ. W. D. : Insert Chain of child objects to be deleted here }
+  // Child object are to be deleted by the main program
   inherited destroy;
 end;
 

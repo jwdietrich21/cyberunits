@@ -74,7 +74,9 @@ type
     UndoMenuItem: TMenuItem;
     WinAboutItem: TMenuItem;
     procedure DemoButtonClick(Sender: TObject);
+    procedure MacAboutItemClick(Sender: TObject);
     procedure QuitMenuItemClick(Sender: TObject);
+    procedure WinAboutItemClick(Sender: TObject);
   private
     { private declarations }
     procedure writeMemo(theString: string);
@@ -104,7 +106,7 @@ const
   PeriodicFreq: array[1..2] of integer = (5, 20); // Frequency of components (Hz)
   PeriodicDelay: array[1..2] of integer = (0, 0); // Delay of components (radians)
 
-  Scope = 256;
+  Scope = 256;           // Window of time series to be inspected (power of 2)
   Scaling = Scope / n;
 
   Omega = 2 * pi;
@@ -113,14 +115,16 @@ var
   f, samplingTime, mag, ts: array of real;
   trajectory, cfreqVec: table;
 begin
-  SetLength(samplingTime, n);
-  SetLength(trajectory, n);
-  SetLength(ts, n);
+  TimeDomainChartLineSeries1.Clear;
+  FrequencyDomainChartLineSeries1.Clear;
+  SetLength(samplingTime, n); // simulated time
+  SetLength(trajectory, n);   // complex time series
+  SetLength(ts, n);           // real part of time series
   for i := 0 to n do
   begin
     samplingTime[i] := i * dt;
-    trajectory[i].re := 1;
-    for j := 1 to 2 do
+    trajectory[i].re := ConstantPower;
+    for j := 1 to length(PeriodicPower) do
       begin
         trajectory[i].re :=
           trajectory[i].re + PeriodicPower[j] *
@@ -134,18 +138,22 @@ begin
   SetLength(samplingTime, Scope);
   SetLength(f, Scope);
 
-  for i := 0 to Scope do
-    f[i] := (i + 1) * Length(samplingTime) / time / scaling / Scope;
+  for i := 0 to Scope do      // generate frequency vector
+    f[i] := i / time / scaling;
 
   cfreqVec := fft(trajectory);
 
-  WriteMemoLine('y := 1 + 10*sin(2*pi*5*t) +4* sin(2*pri*20*t)');
+  WriteMemoLine('y := ' + IntToStr(ConstantPower) + ' + ' +
+                FloatToStr(PeriodicPower[1]) + '*sin(2*pi*' +
+                IntToStr(PeriodicFreq[1]) + '*t) + ' +
+                FloatToStr(PeriodicPower[2]) + '*sin(2*pi*' +
+                IntToStr(PeriodicFreq[2]) + '*t)');
 
   WriteCTable(cfreqVec);
 
   SetLength(mag, Scope);
   for i := 0 to Scope do
-    mag[i] := sqrt(cfreqVec[i].re * cfreqVec[i].re + cfreqVec[i].im * cfreqVec[i].im) * 2 / n;
+    mag[i] := sqrt(cfreqVec[i].re * cfreqVec[i].re + cfreqVec[i].im * cfreqVec[i].im) * 2 / Scope;
 
   TimeDomainChartLineSeries1.BeginUpdate;
   for i := 0 to Scope do
@@ -162,9 +170,19 @@ begin
   SetLength(trajectory, 0);
 end;
 
+procedure TDemoMainForm.MacAboutItemClick(Sender: TObject);
+begin
+  ShowMessage('Simple demo for FFT');
+end;
+
 procedure TDemoMainForm.QuitMenuItemClick(Sender: TObject);
 begin
   application.Terminate;
+end;
+
+procedure TDemoMainForm.WinAboutItemClick(Sender: TObject);
+begin
+  MacAboutItemClick(Sender);
 end;
 
 procedure TDemoMainForm.writeMemo(theString: string);

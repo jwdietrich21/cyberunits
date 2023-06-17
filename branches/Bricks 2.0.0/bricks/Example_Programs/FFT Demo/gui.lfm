@@ -154,6 +154,7 @@ object DemoMainForm: TDemoMainForm
       Caption = ''
       object MacAboutItem: TMenuItem
         Caption = 'About FFT Demo'
+        OnClick = MacAboutItemClick
       end
     end
     object FileMenu: TMenuItem
@@ -224,6 +225,7 @@ object DemoMainForm: TDemoMainForm
       Caption = 'Help'
       object WinAboutItem: TMenuItem
         Caption = 'About FFT Demo'
+        OnClick = WinAboutItemClick
       end
     end
   end

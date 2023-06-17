@@ -20,7 +20,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
-      <BuildNr Value="116"/>
+      <BuildNr Value="118"/>
       <Attributes pvaDebug="True" pvaPreRelease="True" pvaSpecialBuild="True"/>
       <StringTable Comments="CyberUnits System Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Demo for Bode Plot" InternalName="Bricks 2.0.0 Escorpión" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="2.0"/>
     </VersionInfo>

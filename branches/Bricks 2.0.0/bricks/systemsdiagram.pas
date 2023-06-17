@@ -54,7 +54,7 @@ type
   public
     simulationBlock: TBlock; // Representation in Bricks
     blockDiagram: TBlockDiagram;
-    Next: TIPSClass;
+    next: TIPSClass;
     boundsRect, objectRect: TRect;
     anchorPoint: array[leftmiddle..bottommiddle] of tAnchorPoint;
     title: string;
