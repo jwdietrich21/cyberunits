@@ -1,0 +1,23 @@
+object IPSForm: TIPSForm
+  Left = 835
+  Height = 262
+  Top = 275
+  Width = 429
+  BorderStyle = bsSingle
+  Caption = 'Information Processing Structure'
+  ClientHeight = 262
+  ClientWidth = 429
+  Color = clWhite
+  OnCreate = FormCreate
+  LCLVersion = '2.2.6.0'
+  Visible = True
+  object IPSImage: TImage
+    Left = 24
+    Height = 231
+    Top = 16
+    Width = 389
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Center = True
+    Proportional = True
+  end
+end
