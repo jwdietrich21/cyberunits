@@ -7,7 +7,6 @@
       <Unit0>
         <Filename Value="simple_demo.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <CursorPos X="12" Y="2"/>
         <UsageCount Value="58"/>
@@ -36,6 +35,7 @@
         <Filename Value="../../bricks.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Bricks"/>
+        <TopLine Value="48"/>
         <CursorPos Y="2"/>
         <UsageCount Value="55"/>
         <Loaded Value="True"/>
@@ -44,6 +44,7 @@
         <Filename Value="../../systemsdiagram.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SystemsDiagram"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <CursorPos X="21" Y="2"/>
         <ExtraEditorCount Value="1"/>
