@@ -8,10 +8,9 @@
       <Unit0>
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="18" Y="2"/>
+        <CursorPos X="52"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -24,7 +23,7 @@
         <UnitName Value="GUI"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="22" Y="2"/>
+        <CursorPos X="29"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -34,7 +33,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="SimulationEngine"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="19" Y="3"/>
+        <CursorPos X="25"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -47,7 +46,7 @@
         <UnitName Value="IPS"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="20" Y="2"/>
+        <CursorPos X="34"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -71,7 +70,7 @@
         <UnitName Value="Plot"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="18"/>
+        <CursorPos X="26"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -85,7 +84,7 @@
         <UnitName Value="Prediction"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="23" Y="2"/>
+        <CursorPos X="23"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -97,7 +96,7 @@
         <UsageCount Value="10"/>
       </Unit7>
       <Unit8>
-        <Filename Value="..\..\..\..\..\..\..\..\..\Developer\lazarus 1.4\components\tachart\tacustomseries.pas"/>
+        <Filename Value="C:\Developer\lazarus 1.4\components\tachart\tacustomseries.pas"/>
         <TopLine Value="792"/>
         <CursorPos Y="809"/>
         <UsageCount Value="10"/>
@@ -105,9 +104,10 @@
       <Unit9>
         <Filename Value="..\..\systemsdiagram.pas"/>
         <UnitName Value="SystemsDiagram"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="75" Y="18"/>
+        <CursorPos X="40"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -160,123 +160,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="ips.pas"/>
-        <Caret Line="118" Column="24" TopLine="101"/>
+        <Caret Line="112" Column="27" TopLine="92"/>
       </Position1>
       <Position2>
         <Filename Value="ips.pas"/>
-        <Caret Line="112" Column="27" TopLine="92"/>
+        <Caret Line="120" Column="7" TopLine="92"/>
       </Position2>
       <Position3>
-        <Filename Value="ips.pas"/>
-        <Caret Line="120" Column="7" TopLine="92"/>
-      </Position3>
-      <Position4>
         <Filename Value="gui.pas"/>
         <Caret Line="151" Column="59" TopLine="135"/>
-      </Position4>
-      <Position5>
+      </Position3>
+      <Position4>
         <Filename Value="simulationengine.pas"/>
         <Caret Line="2" Column="14"/>
-      </Position5>
-      <Position6>
+      </Position4>
+      <Position5>
         <Filename Value="ips.pas"/>
         <Caret Line="68" Column="32" TopLine="56"/>
+      </Position5>
+      <Position6>
+        <Filename Value="..\..\systemsdiagram.pas"/>
+        <Caret Line="57" Column="32"/>
       </Position6>
       <Position7>
         <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="57" Column="32"/>
+        <Caret Line="3" Column="20"/>
       </Position7>
       <Position8>
         <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="3" Column="20"/>
+        <Caret Line="210" Column="52" TopLine="200"/>
       </Position8>
       <Position9>
-        <Filename Value="..\..\systemsdiagram.pas"/>
-        <Caret Line="210" Column="52" TopLine="200"/>
+        <Filename Value="ips.pas"/>
+        <Caret Line="74" Column="42" TopLine="55"/>
       </Position9>
       <Position10>
         <Filename Value="ips.pas"/>
-        <Caret Line="74" Column="42" TopLine="55"/>
+        <Caret Line="69" Column="37"/>
       </Position10>
       <Position11>
         <Filename Value="ips.pas"/>
-        <Caret Line="69" Column="37"/>
+        <Caret Line="71" Column="33" TopLine="45"/>
       </Position11>
       <Position12>
         <Filename Value="ips.pas"/>
-        <Caret Line="71" Column="33" TopLine="45"/>
+        <Caret Line="72" Column="32" TopLine="46"/>
       </Position12>
       <Position13>
         <Filename Value="ips.pas"/>
-        <Caret Line="72" Column="32" TopLine="46"/>
+        <Caret Line="199" Column="13" TopLine="174"/>
       </Position13>
       <Position14>
         <Filename Value="ips.pas"/>
-        <Caret Line="199" Column="13" TopLine="174"/>
+        <Caret Line="43" Column="13" TopLine="27"/>
       </Position14>
       <Position15>
         <Filename Value="ips.pas"/>
-        <Caret Line="43" Column="13" TopLine="27"/>
+        <Caret Line="71" Column="33" TopLine="51"/>
       </Position15>
       <Position16>
         <Filename Value="ips.pas"/>
-        <Caret Line="71" Column="33" TopLine="51"/>
+        <Caret Line="72" Column="32" TopLine="51"/>
       </Position16>
       <Position17>
         <Filename Value="ips.pas"/>
-        <Caret Line="72" Column="32" TopLine="51"/>
+        <Caret Line="199" Column="13" TopLine="174"/>
       </Position17>
       <Position18>
         <Filename Value="ips.pas"/>
-        <Caret Line="199" Column="13" TopLine="174"/>
+        <Caret Line="43" Column="13" TopLine="27"/>
       </Position18>
       <Position19>
         <Filename Value="ips.pas"/>
-        <Caret Line="43" Column="13" TopLine="27"/>
+        <Caret Line="63" Column="57" TopLine="45"/>
       </Position19>
       <Position20>
         <Filename Value="ips.pas"/>
-        <Caret Line="63" Column="57" TopLine="45"/>
+        <Caret Line="71" Column="33" TopLine="45"/>
       </Position20>
       <Position21>
         <Filename Value="ips.pas"/>
-        <Caret Line="71" Column="33" TopLine="45"/>
+        <Caret Line="72" Column="32" TopLine="46"/>
       </Position21>
       <Position22>
         <Filename Value="ips.pas"/>
-        <Caret Line="72" Column="32" TopLine="46"/>
+        <Caret Line="199" Column="13" TopLine="174"/>
       </Position22>
       <Position23>
         <Filename Value="ips.pas"/>
-        <Caret Line="199" Column="13" TopLine="174"/>
+        <Caret Line="43" Column="13" TopLine="27"/>
       </Position23>
       <Position24>
         <Filename Value="ips.pas"/>
-        <Caret Line="43" Column="13" TopLine="27"/>
+        <Caret Line="73" Column="21" TopLine="63"/>
       </Position24>
       <Position25>
         <Filename Value="ips.pas"/>
-        <Caret Line="73" Column="21" TopLine="63"/>
+        <Caret Line="74" Column="21" TopLine="63"/>
       </Position25>
       <Position26>
         <Filename Value="ips.pas"/>
-        <Caret Line="74" Column="21" TopLine="63"/>
+        <Caret Line="75" Column="21" TopLine="63"/>
       </Position26>
       <Position27>
         <Filename Value="ips.pas"/>
-        <Caret Line="75" Column="21" TopLine="63"/>
+        <Caret Line="76" Column="21" TopLine="63"/>
       </Position27>
       <Position28>
         <Filename Value="ips.pas"/>
-        <Caret Line="76" Column="21" TopLine="63"/>
+        <Caret Line="77" Column="44" TopLine="63"/>
       </Position28>
       <Position29>
         <Filename Value="ips.pas"/>
-        <Caret Line="77" Column="44" TopLine="63"/>
+        <Caret Line="81" Column="25" TopLine="63"/>
       </Position29>
       <Position30>
-        <Filename Value="ips.pas"/>
-        <Caret Line="81" Column="25" TopLine="63"/>
+        <Filename Value="simulationengine.pas"/>
+        <Caret Line="3" Column="19"/>
       </Position30>
     </JumpHistory>
     <RunParams>

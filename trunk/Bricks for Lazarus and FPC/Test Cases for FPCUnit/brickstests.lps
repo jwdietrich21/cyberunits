@@ -10,7 +10,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="23"/>
+        <CursorPos X="27" Y="9"/>
         <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -20,7 +20,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="28"/>
+        <TopLine Value="203"/>
+        <CursorPos X="26" Y="217"/>
         <ExtraEditorCount Value="2"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -62,7 +63,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="19"/>
+        <CursorPos X="19" Y="3"/>
         <UsageCount Value="46"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -117,7 +118,7 @@
         <UsageCount Value="10"/>
       </Unit10>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="..\bricks.pas"/>
         <Caret Line="292" TopLine="275"/>
@@ -234,6 +235,10 @@
         <Filename Value="brickstests.lpr"/>
         <Caret Line="2" Column="6"/>
       </Position29>
+      <Position30>
+        <Filename Value="..\lifeblocks.pas"/>
+        <Caret Column="19"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -20,11 +20,11 @@ object PredictionForm: TPredictionForm
     Columns = <    
       item
         Title.Caption = 'Equilibrium 1'
-        Width = 90
+        Width = 89
       end    
       item
         Title.Caption = 'Equilibrium 2'
-        Width = 90
+        Width = 89
       end    
       item
         Title.Caption = 'Equilibrium 3'
@@ -36,8 +36,8 @@ object PredictionForm: TPredictionForm
     TabOrder = 0
     ColWidths = (
       64
-      90
-      90
+      89
+      89
       90
     )
   end

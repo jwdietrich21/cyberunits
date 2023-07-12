@@ -8,9 +8,10 @@
       <Unit0>
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="16" Y="2"/>
+        <CursorPos X="50"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -23,7 +24,7 @@
         <UnitName Value="GUI"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="19" Y="2"/>
+        <CursorPos X="32"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -33,7 +34,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="SimulationEngine"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="16" Y="2"/>
+        <CursorPos X="25"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -46,7 +47,7 @@
         <UnitName Value="IPS"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="18" Y="2"/>
+        <CursorPos X="37"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -55,7 +56,6 @@
         <Filename Value="..\..\bricks.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Bricks"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="1"/>
         <TopLine Value="19"/>
@@ -72,7 +72,7 @@
         <UnitName Value="Plot"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="21" Y="2"/>
+        <CursorPos X="22"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -86,7 +86,7 @@
         <UnitName Value="Prediction"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="18" Y="2"/>
+        <CursorPos X="29"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -97,7 +97,7 @@
         <UnitName Value="GUIServices"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="15" Y="2"/>
+        <CursorPos X="26"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit7>
@@ -108,7 +108,7 @@
         <UsageCount Value="10"/>
       </Unit8>
       <Unit9>
-        <Filename Value="..\..\..\..\..\..\..\..\..\Developer\lazarus 1.4\components\tachart\tacustomseries.pas"/>
+        <Filename Value="C:\Developer\lazarus 1.4\components\tachart\tacustomseries.pas"/>
         <TopLine Value="792"/>
         <CursorPos Y="809"/>
         <UsageCount Value="10"/>
@@ -134,123 +134,123 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="987" Column="17" TopLine="961"/>
+        <Caret Line="35" Column="23" TopLine="19"/>
       </Position1>
       <Position2>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="35" Column="23" TopLine="19"/>
+        <Caret Line="36" Column="16" TopLine="19"/>
       </Position2>
       <Position3>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="36" Column="16" TopLine="19"/>
+        <Caret Line="43" Column="17" TopLine="19"/>
       </Position3>
       <Position4>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="43" Column="17" TopLine="19"/>
+        <Caret Line="442" Column="17" TopLine="417"/>
       </Position4>
       <Position5>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="442" Column="17" TopLine="417"/>
+        <Caret Line="541" Column="17" TopLine="515"/>
       </Position5>
       <Position6>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="541" Column="17" TopLine="515"/>
+        <Caret Line="587" Column="17" TopLine="561"/>
       </Position6>
       <Position7>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="587" Column="17" TopLine="561"/>
+        <Caret Line="637" Column="17" TopLine="611"/>
       </Position7>
       <Position8>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="637" Column="17" TopLine="611"/>
+        <Caret Line="809" Column="17" TopLine="783"/>
       </Position8>
       <Position9>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="809" Column="17" TopLine="783"/>
+        <Caret Line="845" Column="17" TopLine="819"/>
       </Position9>
       <Position10>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="845" Column="17" TopLine="819"/>
+        <Caret Line="897" Column="17" TopLine="871"/>
       </Position10>
       <Position11>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="897" Column="17" TopLine="871"/>
+        <Caret Line="987" Column="17" TopLine="961"/>
       </Position11>
       <Position12>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="987" Column="17" TopLine="961"/>
+        <Caret Line="48" Column="15" TopLine="19"/>
       </Position12>
       <Position13>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="48" Column="15" TopLine="19"/>
+        <Caret Line="49" Column="27" TopLine="27"/>
       </Position13>
       <Position14>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="49" Column="27" TopLine="27"/>
+        <Caret Line="35" Column="23" TopLine="27"/>
       </Position14>
       <Position15>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="35" Column="23" TopLine="27"/>
+        <Caret Line="36" Column="16" TopLine="27"/>
       </Position15>
       <Position16>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="36" Column="16" TopLine="27"/>
+        <Caret Line="43" Column="22" TopLine="27"/>
       </Position16>
       <Position17>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="43" Column="22" TopLine="27"/>
+        <Caret Line="434" Column="23" TopLine="416"/>
       </Position17>
       <Position18>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="434" Column="23" TopLine="416"/>
+        <Caret Line="443" Column="17" TopLine="426"/>
       </Position18>
       <Position19>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="443" Column="17" TopLine="426"/>
+        <Caret Line="35" Column="23" TopLine="19"/>
       </Position19>
       <Position20>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="35" Column="23" TopLine="19"/>
+        <Caret Line="36" Column="16" TopLine="19"/>
       </Position20>
       <Position21>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="36" Column="16" TopLine="19"/>
+        <Caret Line="43" Column="22" TopLine="19"/>
       </Position21>
       <Position22>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="43" Column="22" TopLine="19"/>
+        <Caret Line="440" Column="26" TopLine="415"/>
       </Position22>
       <Position23>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="440" Column="26" TopLine="415"/>
+        <Caret Line="541" TopLine="513"/>
       </Position23>
       <Position24>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="541" TopLine="513"/>
+        <Caret Line="586" TopLine="558"/>
       </Position24>
       <Position25>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="586" TopLine="558"/>
+        <Caret Line="635" TopLine="610"/>
       </Position25>
       <Position26>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="635" TopLine="610"/>
+        <Caret Line="806" TopLine="778"/>
       </Position26>
       <Position27>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="806" TopLine="778"/>
+        <Caret Line="841" TopLine="813"/>
       </Position27>
       <Position28>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="841" TopLine="813"/>
+        <Caret Line="892" TopLine="864"/>
       </Position28>
       <Position29>
         <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="892" TopLine="864"/>
+        <Caret Line="981" TopLine="953"/>
       </Position29>
       <Position30>
-        <Filename Value="..\..\bricks.pas"/>
-        <Caret Line="981" TopLine="953"/>
+        <Filename Value="simulationengine.pas"/>
+        <Caret Line="2" Column="16"/>
       </Position30>
     </JumpHistory>
     <RunParams>

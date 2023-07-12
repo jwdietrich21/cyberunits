@@ -4,14 +4,14 @@ object DemoMainForm: TDemoMainForm
   Top = 143
   Width = 860
   Caption = 'Test program for FFT algorithm'
-  ClientHeight = 493
+  ClientHeight = 473
   ClientWidth = 860
   Menu = MainMenu1
   LCLVersion = '2.2.6.0'
   object DemoButton: TButton
     Left = 735
     Height = 25
-    Top = 445
+    Top = 425
     Width = 112
     Anchors = [akRight, akBottom]
     Caption = 'Test algorithm'
@@ -20,16 +20,16 @@ object DemoMainForm: TDemoMainForm
   end
   object Panel1: TPanel
     Left = 8
-    Height = 411
+    Height = 391
     Top = 8
     Width = 839
     Anchors = [akTop, akLeft, akRight, akBottom]
-    ClientHeight = 411
+    ClientHeight = 391
     ClientWidth = 839
     TabOrder = 1
     object PairSplitter1: TPairSplitter
       Left = 1
-      Height = 409
+      Height = 389
       Top = 1
       Width = 837
       Align = alClient
@@ -37,14 +37,14 @@ object DemoMainForm: TDemoMainForm
       object PairSplitterSide1: TPairSplitterSide
         Cursor = crArrow
         Left = 0
-        Height = 409
+        Height = 389
         Top = 0
         Width = 400
         ClientWidth = 400
-        ClientHeight = 409
+        ClientHeight = 389
         object ResultsMemo: TMemo
           Left = 8
-          Height = 388
+          Height = 368
           Top = 8
           Width = 412
           Align = alCustom
@@ -56,15 +56,15 @@ object DemoMainForm: TDemoMainForm
       object PairSplitterSide2: TPairSplitterSide
         Cursor = crArrow
         Left = 405
-        Height = 409
+        Height = 389
         Top = 0
         Width = 432
         ClientWidth = 432
-        ClientHeight = 409
+        ClientHeight = 389
         object PairSplitter2: TPairSplitter
           Cursor = crVSplit
           Left = 0
-          Height = 409
+          Height = 389
           Top = 0
           Width = 432
           Align = alClient
@@ -108,14 +108,14 @@ object DemoMainForm: TDemoMainForm
           object PairSplitterSide4: TPairSplitterSide
             Cursor = crArrow
             Left = 0
-            Height = 204
+            Height = 184
             Top = 205
             Width = 432
             ClientWidth = 432
-            ClientHeight = 204
+            ClientHeight = 184
             object FrequencyDomainChart: TChart
               Left = 0
-              Height = 204
+              Height = 184
               Top = 0
               Width = 432
               AxisList = <              

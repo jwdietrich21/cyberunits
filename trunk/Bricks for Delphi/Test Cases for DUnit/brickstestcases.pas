@@ -6,7 +6,7 @@ unit brickstestcases;
 
 { bricks test cases }
 
-{ Version 2.0.1 (Escorpión) }
+{ Version 2.1.0 (Foudre)
 
 { (c) Johannes W. Dietrich, 1994 - 2023 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
@@ -116,6 +116,33 @@ type
     [Test]
     procedure Test2;  { test response in time domain }
   end;
+
+  TDT1TestCases = class
+  public
+    [Test]
+    procedure Test1;  { test response in time domain }
+    [Test]
+    procedure Test2;  { test response in frequency domain }
+  end;
+
+  TPT2TestCases = class
+  public
+    [Test]
+    procedure Test1;  { test response in time domain }
+    [Test]
+    procedure Test2;  { test response in frequency domain }
+  end;
+
+  TIntTestCases = class
+  public
+    [Test]
+    procedure Test1;  { test response in time domain }
+    [Test]
+    procedure Test2;  { test response in time domain }
+    [Test]
+    procedure Test3;  { test response in frequency domain }
+  end;
+
 
 implementation
 
@@ -399,6 +426,126 @@ begin
   testBrick.Destroy;
 end;
 
+procedure TDT1TestCases.Test1;
+var
+  testBrick: TDT1;
+  i: integer;
+begin
+  testBrick := TDT1.Create;
+  testBrick.G := 2;
+  testBrick.t1 := 2;
+  testBrick.delta := 1;
+  testBrick.input := 2;
+  AssertEquals(0, TestBrick.output);
+  TestBrick.simulate;
+  AssertEquals(4, TestBrick.output);
+  for i := 1 to 100000 do
+    TestBrick.simulate;
+  AssertTrue(TestBrick.output < 0.01);
+  testBrick.Destroy;
+end;
+
+procedure TDT1TestCases.Test2;
+var
+  testBrick: TDT1;
+begin
+  testBrick := TDT1.Create;
+  testBrick.G := 2;
+  testBrick.delta := 1;
+  testBrick.t1 := 1;
+  testBrick.amplitude := 1;
+  testBrick.omega := 1;
+  AssertEquals(testBrick.amplitude * testBrick.G * testBrick.omega /
+    sqrt(1 + sqr(testBrick.omega) * sqr(testBrick.t1)), TestBrick.fr.M);
+  AssertEquals(arctan(1 / (testBrick.omega * testBrick.t1)), TestBrick.fr.phi);
+  AssertEquals(abs(TestBrick.fr.M) * cos(testBrick.fr.phi), testBrick.fr.F.re);
+  AssertEquals(abs(-TestBrick.fr.M) * sin(testBrick.fr.phi), testBrick.fr.F.im);
+  testBrick.Destroy;
+end;
+
+procedure TPT2TestCases.Test1;
+var
+  testBrick: TPT2;
+  i: integer;
+begin
+  testBrick := TPT2.Create;
+  testBrick.G := 5;
+  testBrick.delta := 0.1;
+  testBrick.t2 := 0.159;
+  testBrick.dmp := 0.25;
+  testBrick.input := 2;
+  AssertEquals(0, TestBrick.output);
+  for i := 1 to 500 do
+    TestBrick.simulate;
+  AssertEquals(testBrick.G * testBrick.input, testBrick.output);
+  testBrick.Destroy;
+end;
+
+procedure TPT2TestCases.Test2;
+var
+  testBrick: TPT2;
+begin
+  testBrick := TPT2.Create;
+  testBrick.G := 5;
+  testBrick.delta := 1;
+  testBrick.t2 := 1;
+  testBrick.dmp := 0.5;
+  testBrick.amplitude := 2;
+  testBrick.omega := 10;
+  AssertEquals(testBrick.amplitude * testBrick.G /
+    sqrt(sqr(1 - sqr(testBrick.omega * testBrick.t2)) +
+    sqr(2 * testBrick.dmp * testBrick.omega * testBrick.t2)),
+    TestBrick.fr.M);
+  AssertEquals(-pi - arctan(2 * testBrick.dmp * testBrick.omega * testBrick.t2 /
+    (1 - sqr(testBrick.omega * testBrick.t2))),
+    TestBrick.fr.phi);
+  AssertEquals(abs(TestBrick.fr.M) * cos(testBrick.fr.phi), testBrick.fr.F.re);
+  AssertEquals(abs(-TestBrick.fr.M) * sin(testBrick.fr.phi), testBrick.fr.F.im);
+  testBrick.Destroy;
+end;
+
+procedure TIntTestCases.Test1;
+var
+  testBrick: TInt;
+begin
+  testBrick := TInt.Create;
+  testBrick.input := 10;
+  testBrick.delta := 10;
+  testBrick.simulate;
+  AssertEquals(100, testBrick.output);
+  testBrick.Destroy;
+end;
+
+procedure TIntTestCases.Test2;
+var
+  testBrick: TInt;
+begin
+  testBrick := TInt.Create;
+  testBrick.input := 10;
+  testBrick.delta := 50;
+  testBrick.simulate;
+  testBrick.simulate;
+  testBrick.simulate;
+  AssertEquals(1500, testBrick.output);
+  testBrick.Destroy;
+end;
+
+procedure TIntTestCases.Test3;
+var
+  testBrick: TInt;
+begin
+  testBrick := TInt.Create;
+  testBrick.G := 10;
+  testBrick.amplitude := 2;
+  testBrick.omega := 10;
+  AssertEquals(testBrick.G * testBrick.amplitude /
+    testBrick.omega, TestBrick.fr.M);
+  AssertEquals(-90 * pi / 180, TestBrick.fr.phi);
+  AssertEquals(abs(TestBrick.fr.M) * cos(testBrick.fr.phi), testBrick.fr.F.re);
+  AssertEquals(abs(-TestBrick.fr.M) * sin(testBrick.fr.phi), testBrick.fr.F.im);
+  testBrick.Destroy;
+end;
+
 initialization
   TDUnitX.RegisterTestFixture(TControlTestCases);
   TDUnitX.RegisterTestFixture(TPTestCases);
@@ -410,4 +557,7 @@ initialization
   TDUnitX.RegisterTestFixture(TPT1TestCases);
   TDUnitX.RegisterTestFixture(TIT1TestCases);
   TDUnitX.RegisterTestFixture(TIT2TestCases);
+  TDUnitX.RegisterTestFixture(TDT1TestCases);
+  TDUnitX.RegisterTestFixture(TPT2TestCases);
+  TDUnitX.RegisterTestFixture(TIntTestCases);
 end.

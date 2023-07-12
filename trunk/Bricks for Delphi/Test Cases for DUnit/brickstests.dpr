@@ -6,7 +6,7 @@ program brickstests;
 
 { bricks test cases }
 
-{ Version 2.0.0 (Escorpión) }
+{ Version 2.1.0 (Foudre)
 
 { (c) Johannes W. Dietrich, 1994 - 2023 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
