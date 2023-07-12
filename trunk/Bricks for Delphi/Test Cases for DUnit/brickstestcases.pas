@@ -29,7 +29,7 @@ unit brickstestcases;
 interface
 
 uses
-  Bricks, DUnitX.TestFramework;
+  Bricks, lifeblocks, DUnitX.TestFramework;
 
 type
   [TestFixture]
@@ -143,6 +143,23 @@ type
     procedure Test3;  { test response in frequency domain }
   end;
 
+  TASIATestCases = class
+  public
+    [Test]
+    procedure Test1;
+  end;
+
+  TMiMeTestCases = class
+  public
+    [Test]
+    procedure Test1;
+  end;
+
+  TNoCoDITestCases = class
+  public
+    [Test]
+    procedure Test1;
+  end;
 
 implementation
 
@@ -546,6 +563,57 @@ begin
   testBrick.Destroy;
 end;
 
+procedure TASIATestCases.Test1;
+const
+  alpha = 10;
+  beta = 0.5;
+var
+  testBrick: TASIA;
+  i: integer;
+begin
+  testBrick := TASIA.Create;
+  testBrick.alpha := alpha;
+  testBrick.beta := beta;
+  testBrick.delta := 1;
+  testBrick.input := 1;
+  for i := 1 to 100 do
+    TestBrick.simulate;
+  AssertEquals(alpha / beta, testBrick.output);
+  testBrick.Destroy;
+end;
+
+procedure TMiMeTestCases.Test1;
+const
+  G = 5;
+  D = 2;
+  testSignal = 10;
+var
+  testBrick: TMiMe;
+begin
+  testBrick := TMiMe.Create;
+  testBrick.G := G;
+  testBrick.D := D;
+  testBrick.input := testSignal;
+  TestBrick.simulate;
+  AssertEquals(G * testSignal / (D + testSignal), testBrick.output);
+  testBrick.Destroy;
+end;
+
+procedure TNoCoDITestCases.Test1;
+const
+  xe1 = 5;
+  xe2 = 4;
+var
+  testBrick: TNoCoDI;
+begin
+  testBrick := TNoCoDI.Create;
+  testBrick.input1 := xe1;
+  testBrick.input2 := xe2;
+  TestBrick.simulate;
+  AssertEquals(xe1 / (1 + xe2), testBrick.output);
+  testBrick.Destroy;
+end;
+
 initialization
   TDUnitX.RegisterTestFixture(TControlTestCases);
   TDUnitX.RegisterTestFixture(TPTestCases);
@@ -560,4 +628,7 @@ initialization
   TDUnitX.RegisterTestFixture(TDT1TestCases);
   TDUnitX.RegisterTestFixture(TPT2TestCases);
   TDUnitX.RegisterTestFixture(TIntTestCases);
+  TDUnitX.RegisterTestFixture(TASIATestCases);
+  TDUnitX.RegisterTestFixture(TMiMeTestCases);
+  TDUnitX.RegisterTestFixture(TNoCoDITestCases);
 end.

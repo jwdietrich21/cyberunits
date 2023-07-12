@@ -41,7 +41,8 @@ uses
   DUnitX.TestFramework,
   brickstestcases in 'brickstestcases.pas',
   bricks in '..\bricks.pas',
-  ComplexNumbers in '..\ComplexNumbers.pas';
+  ComplexNumbers in '..\ComplexNumbers.pas',
+  lifeblocks in '..\lifeblocks.pas';
 
 {$IFNDEF TESTINSIGHT}
 var

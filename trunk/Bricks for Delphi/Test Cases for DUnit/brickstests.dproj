@@ -151,6 +151,7 @@
         <DCCReference Include="brickstestcases.pas"/>
         <DCCReference Include="..\bricks.pas"/>
         <DCCReference Include="..\ComplexNumbers.pas"/>
+        <DCCReference Include="..\lifeblocks.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
