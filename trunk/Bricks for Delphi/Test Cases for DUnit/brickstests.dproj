@@ -132,9 +132,11 @@
         <VerInfo_Debug>true</VerInfo_Debug>
         <VerInfo_PreRelease>true</VerInfo_PreRelease>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <VerInfo_Keys>CompanyName=Ruhr University of Bochum;FileDescription=$(MSBuildProjectName);FileVersion=2.0.0.13;InternalName=Bricks 2.0.0 Escorpión;LegalCopyright=1994–2023 J. W. Dietrich and Ruhr University of Bochum;LegalTrademarks=CyberUnits;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=2.0;Comments=</VerInfo_Keys>
+        <VerInfo_Keys>CompanyName=Ruhr University of Bochum;FileDescription=$(MSBuildProjectName);FileVersion=2.0.1.13;InternalName=Bricks 2.0.1 Escorpión;LegalCopyright=1994–2023 J. W. Dietrich and Ruhr University of Bochum;LegalTrademarks=CyberUnits;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=2.0.1;Comments=</VerInfo_Keys>
         <Manifest_File>(None)</Manifest_File>
         <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
+        <VerInfo_Release>1</VerInfo_Release>
+        <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
