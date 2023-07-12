@@ -40,10 +40,9 @@ interface
 
 uses
   Classes, SysUtils, Math
-  {$IFDEF DELPHI}
+  {$IF DEFINED(DELPHI)}
   , ComplexNumbers
-  {$ENDIF}
-  {$IFDEF FPC}
+  {$ELSEIF DEFINED(FPC)}
   , ucomplex
   {$ENDIF};
 
@@ -436,10 +435,9 @@ begin
     FFr.phi := -90 * pi / 180 - arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)))
   else
     FFr.phi := -90 * pi / 180 - pi - arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)));
-  {$IFDEF FPC}
+  {$IF DEFINED(FPC)}
   FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ENDIF}
-  {$IFDEF Delphi}
+  {$ELSEIF DEFINED(Delphi)}
   FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
   {$ENDIF}
   result := FFR;
@@ -535,10 +533,9 @@ begin
   assert(omega >= 0, kError101);
   FFr.M := amplitude * G * omega / sqrt(1 + sqr(omega) * sqr(t1));
   FFr.phi := arctan(1 / (omega * t1));
-  {$IFDEF FPC}
+  {$IF DEFINED(FPC)}
   FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ENDIF}
-  {$IFDEF Delphi}
+  {$ELSEIF DEFINED(Delphi)}
   FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
   {$ENDIF}
   result := FFR;
@@ -581,10 +578,9 @@ begin
   assert(omega >= 0, kError101);
   FFr.M := amplitude * G / (omega * sqrt(1 + sqr(omega) * sqr(t1)));
   FFr.phi := -90 * pi / 180 - arctan(omega * t1);
-  {$IFDEF FPC}
+  {$IF DEFINED(FPC)}
   FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ENDIF}
-  {$IFDEF Delphi}
+  {$ELSEIF DEFINED(Delphi)}
   FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
   {$ENDIF}
   result := FFR;
@@ -631,10 +627,9 @@ begin
   else
     FFr.M := amplitude * G / omega;
   FFr.phi := -90 * pi / 180;
-  {$IFDEF FPC}
+  {$IF DEFINED(FPC)}
   FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ENDIF}
-  {$IFDEF Delphi}
+  {$ELSEIF DEFINED(Delphi)}
   FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
   {$ENDIF}
   result := FFR;
@@ -803,10 +798,9 @@ begin
   assert(omega >= 0, kError101);
   FFr.M := amplitude * G;
   FFr.phi := -omega * nt * delta;
-  {$IFDEF FPC}
+  {$IF DEFINED(FPC)}
   FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ENDIF}
-  {$IFDEF Delphi}
+  {$ELSEIF DEFINED(Delphi)}
   FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
   {$ENDIF}
   result := FFR;
@@ -839,10 +833,9 @@ begin
   assert(omega >= 0, kError101);
   FFr.M := amplitude * G / sqrt(1 + sqr(omega) * sqr(t1));
   FFr.phi := -arctan(omega * t1);
-  {$IFDEF FPC}
+  {$IF DEFINED(FPC)}
   FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ENDIF}
-  {$IFDEF Delphi}
+  {$ELSEIF DEFINED(Delphi)}
   FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
   {$ENDIF}
   result := FFR;
@@ -891,10 +884,9 @@ begin
     FFr.phi := -pi - arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)))
   else
     FFr.phi := NaN;
-  {$IFDEF FPC}
+  {$IF DEFINED(FPC)}
   FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ENDIF}
-  {$IFDEF Delphi}
+  {$ELSEIF DEFINED(Delphi)}
   FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
   {$ENDIF}
   result := FFR;
@@ -981,10 +973,9 @@ begin
   assert(G >= 0, kError101);
   FFr.M := amplitude * G;
   FFr.phi := 0;
-  {$IFDEF FPC}
+  {$IF DEFINED(FPC)}
   FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ENDIF}
-  {$IFDEF Delphi}
+  {$ELSEIF DEFINED(Delphi)}
   FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
   {$ENDIF}
   result := FFR;
