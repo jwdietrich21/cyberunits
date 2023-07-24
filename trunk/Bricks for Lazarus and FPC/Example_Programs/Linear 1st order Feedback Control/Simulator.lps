@@ -8,10 +8,9 @@
       <Unit0>
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="50"/>
+        <CursorPos X="19"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -24,7 +23,7 @@
         <UnitName Value="GUI"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="32"/>
+        <CursorPos X="10"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -33,8 +32,9 @@
         <Filename Value="simulationengine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SimulationEngine"/>
+        <IsVisibleTab Value="True"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="25"/>
+        <CursorPos X="36" Y="16"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -47,7 +47,7 @@
         <UnitName Value="IPS"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="37"/>
+        <CursorPos X="10"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -59,7 +59,7 @@
         <EditorIndex Value="7"/>
         <WindowIndex Value="1"/>
         <TopLine Value="19"/>
-        <CursorPos X="57" Y="28"/>
+        <CursorPos Y="28"/>
         <UsageCount Value="29"/>
         <Loaded Value="True"/>
       </Unit4>
@@ -72,7 +72,7 @@
         <UnitName Value="Plot"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="22"/>
+        <CursorPos X="11"/>
         <UsageCount Value="28"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -86,7 +86,7 @@
         <UnitName Value="Prediction"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="29"/>
+        <CursorPos X="17"/>
         <UsageCount Value="27"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -97,7 +97,7 @@
         <UnitName Value="GUIServices"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="26"/>
+        <CursorPos X="18"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit7>
@@ -118,7 +118,7 @@
         <UnitName Value="SystemsDiagram"/>
         <EditorIndex Value="6"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="17" Y="2"/>
+        <CursorPos Y="2"/>
         <UsageCount Value="11"/>
         <Loaded Value="True"/>
       </Unit10>

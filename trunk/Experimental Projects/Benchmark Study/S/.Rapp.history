@@ -1,0 +1,225 @@
+setClass("Person", #
+  slots = c(#
+    name = "character", #
+    age = "numeric"#
+  )#
+)
+john <- new("Person", name = "John Smith", age = NA_real_)
+is(john)
+john@name
+slot(john, "age")
+setGeneric("age", function(x) standardGeneric("age"))#
+setGeneric("age<-", function(x, value) standardGeneric("age<-"))
+setMethod("age", "Person", function(x) x@age)#
+setMethod("age<-", "Person", function(x, value) {#
+  x@age <- value#
+  x#
+})#
+#
+age(john) <- 50#
+age(john)#
+#> [1] 50
+john@age
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+fOutput(testBrick)
+testBrick@fOutput
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick@fOutput
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick@fOutput
+testBrick@fOutput <- 2
+testBrick@fOutput
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick@fOutput
+testBrick@fOutput <- 2
+testBrick@fOutput
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+error("Test")
+fail("Test")
+warning("Test")
+stop("Test")
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+res
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+res
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick
+testBrick$fOutput
+testBrick@fOutput
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+ls()
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick
+testBrick@output
+testBrick@fOutput
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+res <- testBrick@simulate
+res <- simOutptestBrick
+output(testBrick)
+res <- simOutput(testBrick);
+output(testBrick)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+res <- simOutput(testBrick);
+res
+testBrick@x1
+testBrick
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick
+res <- simOutput(testBrick);
+res
+res <- simOutput(testBrick);
+res
+res$x1
+res@x1
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+res
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+res
+output(testBrick)
+testBrick@fOutput
+testBrick@x1
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick@x1
+testBrick@fOutput
+res
+2 < 5
+isBoolean(2)
+is.boolean(2)
+is.bool(2)
+is.logical(2)
+is.logical(2 < 5)
+is.logical(2 < 5) == TRUE
+is.logical(2 < 5) == FALSE
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick
+testBrick$x1
+testBrick@x1
+testBrick@fOutput
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick@x1
+CheckTrue(2)
+CheckTrue(testBrick@x1 < 0.07)
+is.true(testBrick@x1 < 0.07)
+CheckTrue(testBrick@x1 < 0.07)
+is.logical(testBrick@x1 < 0.07)
+(testBrick@x1 < 0.07) == TRUE
+(testBrick@x1 < 0.07) == FALSE
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+CheckTrue(testBrick@x1 < 0.07)
+CheckTrue(testBrick@x1 > 0.07)
+CheckTrue(testBrick@x1 < 0.06)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+testBrick@x1
+testBrick@G
+testBrick@input
+testBrick@x1
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/bricks.s",echo=FALSE)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+arges
+args
+sys.frame()
+sys.frame
+length(sys.frame)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+args
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+sys.frame(1)
+sys.frame(1)$ofile
+length(sys.frame(1))
+is.numeric(1)$ofile
+length(sys.frame(1))
+is.numeric(sys.frame(1))
+sys.nframe()
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+print(sys.nframe());
+sys.nframe();
+sys.nframe()[1];
+sys.nframe()[[1]];
+as.numeric(sys.nframe()[[1]]);
+2
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+Values
+cat(values)
+cat(Values)
+print(Values)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+argus
+argus <- c("-b", "--benchmarks")
+argus
+grep("-b", argus)
+grep("^-b", argus)
+grepl("^-b", argus)
+grep("^-b", argus)
+grep("^-b$", argus)
+grep("^--bench$", argus)
+grep("^--benchmarks$", argus)
+argus <- c("-b", "--benchmark")
+grep("^-b$", argus)
+grep("^--benchmarks$", argus)
+grep("^--benchmark$", argus)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+argus
+length(argus)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+is.ist(argus)
+is.list(argus)
+argus <- c("-b", "--benchmark")
+is.list(argus)
+is.vector(argus)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+is.vector(argus)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+(length(argus)
+length(argus)
+if((grep("^-b$", argus)) | (grep("^--benchmark$", argus)))#
+  ShowTimeSeries <- FALSE;
+(grep("^-b$", argus)
+grep("^-b$", argus)
+grepl("^-b$", argus)
+grep("^-b$", argus)
+is.numeric(grep("^-b$", argus))
+grep("^-b$", argus) > 0
+is.vector(grep("^-b$", argus) > 0)
+is.nan(grep("^-b$", argus) > 0)
+is.na(grep("^-b$", argus) > 0)
+length(grep("^-b$", argus) > 0)
+argu
+argus
+length(grep("^-b$", argus) > 0)
+length(grep("^-R$", argus) > 0)
+grep("^-R$", argus)
+grep("^R$", argus)
+grep("^-R$", argus)
+grep("^-b$", argus)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+grep("^-b$", argus)
+grep("^-R$", argus)
+grep("^R$", argus)
+length(grep("^R$", argus))
+length(grep("^-R$", argus))
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+argus
+aargus[2]
+argus[2]
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+strplit("iterations=300", "=")
+strsplit("iterations=300", "=")
+strsplit("iterations=300", "=")[2]
+strsplit("iterations=300", "=")[1]
+as.vector("iterations=300", "=")
+strsplit("iterations=300", "=")[1]
+strsplit("iterations=300", "=")
+unlist(strsplit("iterations=300", "="))
+unlist(strsplit("iterations=300", "="))[2]
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
+source("/Users/Shared/Projekte/CyberUnits/Studies/S/Simulator_FC1L_R.r",echo=FALSE)
