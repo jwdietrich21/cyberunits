@@ -13,7 +13,7 @@
 # (c) University of Ulm Hospitals 2002 - 2004
 # (c) Ruhr University of Bochum 2005 - 2023
 
-# R version of simulation program for purposes of benchmarking
+# Python version of simulation program for purposes of benchmarking
 
 # Source code released under the BSD License
 

@@ -4,8 +4,8 @@ program Simulator;
 
 { Object Pascal units for computational cybernetics }
 
-{ Demo of a simple simulator for a linear 1st order feedback system }
-{ Simulation Engine }
+{ Simulator for MiMe-NoCoDI loop }
+{ Main program }
 
 { Version 2.1.0 (Foudre) }
 
@@ -50,9 +50,9 @@ type
   protected
     procedure DoRun; override;
   public
-    x, z: extended;
+    x: extended;
     iterations: integer;
-    G1, G2: extended;
+    G1, G2, G3, D2: extended;
     constructor Create(TheOwner: TComponent); override;
     destructor Destroy; override;
     procedure WriteHelp; virtual;
@@ -99,14 +99,15 @@ type
 
     writeln();
     writeln('CyberUnits Bricks demo application');
-    writeln('Linear 1st order feedback demo (CLI version)');
+    writeln('MiMe NoCoDI loop demo (CLI version)');
     writeln();
 
     x := 5;
-    z := 2.0;
 
-    G1 := 1.3;
-    G2 := 0.5;
+    G1 := 2.6;
+    G2 := 5.0;
+    G3 := 0.3;
+    D2 := 0.5;
 
     write('Iterations: ');
     writeln(iterations);
@@ -115,21 +116,19 @@ type
 
     gValues := TValues.Create;
 
-    RunSimulation(x, z, G1, G2, iterations);
+    RunSimulation(x, G1, G2, G3, D2, iterations);
 
     if ShowTimeSeries then
     begin
       write('x: ');
       writeln(FloatToStrF(x, ffFixed, precision, digits));
-      write('z: ');
-      writeln(FloatToStrF(z, ffFixed, precision, digits));
       WriteTableHeader;
       for i := 0 to length(gValues.x) - 1 do
       begin
         resultLine[0] := IntToStr(i);
         resultLine[1] := FormatFloat(gNumberFormat, gValues.e[i]);
-        resultLine[2] := FormatFloat(gNumberFormat, gValues.y[i]);
-        resultLine[3] := FormatFloat(gNumberFormat, gValues.ys[i]);
+        resultLine[2] := FormatFloat(gNumberFormat, gValues.c[i]);
+        resultLine[3] := FormatFloat(gNumberFormat, gValues.y[i]);
         resultLine[4] := FormatFloat(gNumberFormat, gValues.yr[i]);
         WriteTableLine(resultLine);
       end;

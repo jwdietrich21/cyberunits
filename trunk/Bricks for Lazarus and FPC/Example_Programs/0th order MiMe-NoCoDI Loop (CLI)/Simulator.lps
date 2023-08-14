@@ -8,7 +8,8 @@
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="4"/>
-        <CursorPos X="16" Y="71"/>
+        <TopLine Value="119"/>
+        <CursorPos X="26" Y="125"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit>
@@ -17,8 +18,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="SimulationEngine"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="49"/>
-        <CursorPos X="16" Y="53"/>
+        <TopLine Value="27"/>
+        <CursorPos Y="135"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit>
@@ -33,8 +34,9 @@
         <Filename Value="cliservices.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="CLIServices"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="11" Y="15"/>
+        <CursorPos X="29"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit>
@@ -42,38 +44,13 @@
         <Filename Value="highrestime.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="HighResTime"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="18" Y="2"/>
+        <CursorPos X="49"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="Simulator.lpr"/>
-        <Caret Line="110" Column="26" TopLine="84"/>
-      </Position>
-      <Position>
-        <Filename Value="Simulator.lpr"/>
-        <Caret Line="117" Column="29" TopLine="91"/>
-      </Position>
-      <Position>
-        <Filename Value="Simulator.lpr"/>
-        <Caret Line="122" Column="31" TopLine="95"/>
-      </Position>
-      <Position>
-        <Filename Value="Simulator.lpr"/>
-        <Caret Line="123" Column="34" TopLine="95"/>
-      </Position>
-      <Position>
-        <Filename Value="Simulator.lpr"/>
-        <Caret Line="65" Column="46" TopLine="48"/>
-      </Position>
-      <Position>
-        <Filename Value="Simulator.lpr"/>
-        <Caret Line="86" Column="11" TopLine="73"/>
-      </Position>
       <Position>
         <Filename Value="Simulator.lpr"/>
         <Caret Line="96" Column="11" TopLine="73"/>
@@ -169,6 +146,30 @@
       <Position>
         <Filename Value="Simulator.lpr"/>
         <Caret Line="74" Column="27" TopLine="49"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="8" Column="15"/>
+      </Position>
+      <Position>
+        <Filename Value="simulationengine.pas"/>
+        <Caret Line="35" Column="20" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="simulationengine.pas"/>
+        <Caret Line="135" TopLine="119"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="119" Column="39" TopLine="97"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="110" Column="9" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="119" Column="21" TopLine="104"/>
       </Position>
     </JumpHistory>
     <RunParams>
