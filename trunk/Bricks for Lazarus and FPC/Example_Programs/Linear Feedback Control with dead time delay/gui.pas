@@ -181,7 +181,7 @@ end;
 
 procedure TValuesForm.ShowAboutWindow(Sender: TObject);
 begin
-  ShowMessage('Linear 0th order Feedback Control, a demonstration program for CyberUnits Bricks');
+  ShowMessage('Linear Feedback Control with Dead-Time Delay, a demonstration program for CyberUnits Bricks');
 end;
 
 procedure TValuesForm.MacAboutItemClick(Sender: TObject);

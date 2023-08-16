@@ -48,12 +48,12 @@ uses
 
 const
   Bricks_major = 2;
-  Bricks_minor = 0;
+  Bricks_minor = 1;
   Bricks_release = 0;
-  Bricks_patch = 0;
+  Bricks_patch = 100;
   Bricks_fullversion = ((Bricks_major *  100 + Bricks_minor) * 100 + Bricks_release) * 100 + Bricks_patch;
-  Bricks_version = '2.0.0.0';
-  Bricks_internalversion = 'Escorpión';
+  Bricks_version = '2.1.0.100';
+  Bricks_internalversion = 'Foudre';
 
   kError101 = 'Runtime error: Negative parameter(s)';
   kError102 = 'Runtime error: Parameter(s) out of range';
