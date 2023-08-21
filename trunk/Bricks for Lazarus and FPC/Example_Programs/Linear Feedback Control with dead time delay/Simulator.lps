@@ -21,7 +21,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="GUI"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="1"/>
         <CursorPos X="31" Y="3"/>
@@ -108,6 +107,7 @@
       <Unit9>
         <Filename Value="..\..\systemsdiagram.pas"/>
         <UnitName Value="SystemsDiagram"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
         <WindowIndex Value="1"/>
         <CursorPos X="21"/>
