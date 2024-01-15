@@ -172,6 +172,9 @@ if ShowTimeSeries
     for i in 0..<iterations
     {
         print(Int(gValues.i[i] + 1), "\t", gValues.x[i], "\t", gValues.z[i], "\t", round(10000 * gValues.e[i]) / 10000, "\t", round(10000 * gValues.y[i]) / 10000, "\t", round(10000 * gValues.yr[i]) / 10000, "\t", round(10000 * gValues.ys[i]) / 10000)
+        for (int i = 0; i < iterations; i++)
+        {
+        }
     }
 }
 
