@@ -2,10 +2,10 @@ object PredictionForm: TPredictionForm
   Left = 915
   Height = 182
   Top = 64
-  Width = 336
+  Width = 369
   Caption = 'Prediction'
   ClientHeight = 182
-  ClientWidth = 336
+  ClientWidth = 369
   OnPaint = FormPaint
   LCLVersion = '3.0.0.3'
   Visible = True
@@ -13,22 +13,22 @@ object PredictionForm: TPredictionForm
     Left = 0
     Height = 168
     Top = 0
-    Width = 336
+    Width = 369
     Anchors = [akTop, akLeft, akRight]
     AutoFillColumns = True
     ColCount = 4
     Columns = <    
       item
-        Title.Caption = 'Equilibrium 1'
-        Width = 90
+        Title.Caption = 'Steady state 1'
+        Width = 101
       end    
       item
-        Title.Caption = 'Equilibrium 2'
-        Width = 90
+        Title.Caption = 'Steady state 2'
+        Width = 101
       end    
       item
-        Title.Caption = 'Equilibrium 3'
-        Width = 90
+        Title.Caption = 'Steady state 3'
+        Width = 101
       end>
     MouseWheelOption = mwGrid
     RowCount = 7
@@ -36,9 +36,9 @@ object PredictionForm: TPredictionForm
     TabOrder = 0
     ColWidths = (
       64
-      90
-      90
-      90
+      101
+      101
+      101
     )
   end
 end

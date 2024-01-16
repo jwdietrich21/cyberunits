@@ -95,6 +95,7 @@ begin
 end;
 
 function SolveCubic(a, b, c, d: extended): TRoots;
+  {solves a cubic equation with the parameters a, b, c, and d}
 var
   r, s, p, q, u, v, Det, phi, y1, y2, y3: extended;
 begin
@@ -128,6 +129,7 @@ begin
 end;
 
 procedure RunSimulation(x, G1, G2, G3, D2: extended; nmax: integer);
+  {predicts steady-state values and simulates in the time domain }
 var
   e, c, y, u, yr: extended;
   a, b, cc, d: extended;
