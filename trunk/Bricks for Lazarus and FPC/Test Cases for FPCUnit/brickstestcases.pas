@@ -8,10 +8,10 @@ unit brickstestcases;
 
 { Version 2.1.0 (Foudre) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2023 }
+{ (c) Johannes W. Dietrich, 1994 - 2024 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002 - 2004 }
-{ (c) Ruhr University of Bochum 2005 - 2023 }
+{ (c) Ruhr University of Bochum 2005 - 2024 }
 
 { Standard blocks for systems modelling and simulation }
 
@@ -137,6 +137,15 @@ type
     procedure Test3;  { test response in frequency domain }
   end;
 
+{ TPITestCases }
+
+  TPITestCases = class(TTestCase)
+  published
+    procedure Test1;  { test response in time domain }
+    procedure Test2;  { test response in time domain }
+    procedure Test3;  { test response in frequency domain }
+  end;
+
 { TASIATestCases }
 
   TASIATestCases = class(TTestCase)
@@ -210,6 +219,53 @@ begin
   AssertEquals(-90 * pi / 180, TestBrick.fr.phi);
   AssertEquals(abs(TestBrick.fr.M) * cos(testBrick.fr.phi), testBrick.fr.F.re);
   AssertEquals(abs(-TestBrick.fr.M) * sin(testBrick.fr.phi), testBrick.fr.F.im);
+  testBrick.Destroy;
+end;
+
+{ TPITestCases }
+
+procedure TPITestCases.Test1;
+var
+  testBrick: TPI;
+begin
+  testBrick := TPI.Create;
+  testBrick.G := 10;
+  testBrick.delta := 50;
+  testBrick.tPI := 50;
+  testBrick.input := 10;
+  testBrick.simulate;
+  AssertEquals(100, testBrick.output);
+  testBrick.Destroy;
+end;
+
+procedure TPITestCases.Test2;
+var
+  testBrick: TPI;
+begin
+  testBrick := TPI.Create;
+  testBrick.G := 10;
+  testBrick.delta := 150;
+  testBrick.tPI := 50;
+  testBrick.input := 10;
+  testBrick.simulate;
+  testBrick.simulate;
+  testBrick.simulate;
+  AssertEquals(700, testBrick.output);
+  testBrick.Destroy;
+end;
+
+procedure TPITestCases.Test3;
+var
+  testBrick: TPI;
+begin
+  testBrick := TPI.Create;
+  testBrick.G := 10;
+  testBrick.tPI := 50;
+  testBrick.amplitude := 2;
+  testBrick.omega := 10;
+  AssertEquals(testBrick.G * testBrick.amplitude * (1 + 1 /
+    (testBrick.omega * testBrick.tPI)), TestBrick.fr.M);
+  AssertEquals(-arctan(1 / (testBrick.omega * testBrick.tPI)), testBrick.fr.phi);
   testBrick.Destroy;
 end;
 
@@ -636,6 +692,7 @@ initialization
   RegisterTest(TPMulTestCases);
   RegisterTest(TPDivTestCases);
   RegisterTest(TIntTestCases);
+  RegisterTest(TPITestCases);
   RegisterTest(TASIATestCases);
   RegisterTest(TMiMeTestCases);
   RegisterTest(TNoCoDITestCases);

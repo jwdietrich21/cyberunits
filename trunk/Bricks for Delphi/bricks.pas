@@ -8,10 +8,10 @@
 
 { Version 2.1.0 (Foudre) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2023 }
+{ (c) Johannes W. Dietrich, 1994 - 2024 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002 - 2004 }
-{ (c) Ruhr University of Bochum 2005 - 2023 }
+{ (c) Ruhr University of Bochum 2005 - 2024 }
 
 { Standard blocks for systems modelling and simulation }
 
@@ -290,6 +290,22 @@ type
     property simOutput: extended read SimAndGetOutput;
   end;
 
+  { TPI }
+  { Proportional-integral block, changed from Neuber 1989 }
+
+  TPI = class(TControlledBlock)
+  protected
+    function SimAndGetOutput: extended; override;
+    function GetFR: TFR; override;
+  public
+    tPI, x1, x1n, delta: extended;
+    constructor Create;
+    destructor Destroy; override;
+    property fr: TFR read GetFR;
+    procedure simulate; override;
+    property simOutput: extended read SimAndGetOutput;
+  end;
+
   { TPAdd }
   { Summation block }
 
@@ -345,6 +361,8 @@ type
     procedure simulate; override;
     property simOutput: extended read SimAndGetOutput;
   end;
+
+  function ComplexFR(PolarFR: TFR): TFR;
 
 implementation
 
@@ -435,11 +453,7 @@ begin
     FFr.phi := -90 * pi / 180 - arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)))
   else
     FFr.phi := -90 * pi / 180 - pi - arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)));
-  {$IF DEFINED(FPC)}
-  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ELSEIF DEFINED(Delphi)}
-  FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
-  {$ENDIF}
+  FFr.F := ComplexFR(FFR).F;
   result := FFR;
 end;
 
@@ -519,6 +533,55 @@ begin
   end;
 end;
 
+{ TPI }
+
+function TPI.SimAndGetOutput: extended;
+begin
+  simulate;
+  result := fOutput;
+end;
+
+function TPI.GetFR: TFR;
+begin
+  assert(G >= 0, kError101);
+  assert(omega >= 0, kError101);
+  assert(self.tpi >= 0, kError101);
+  if (omega = 0) or (self.tpi = 0) then
+    begin
+      FFr.M := infinity;
+      FFr.phi := infinity;
+    end
+  else
+    begin
+      FFr.M := amplitude * G * (1 + 1 / (omega * self.tpi));
+      FFr.phi := -arctan(1 / (omega * self.tpi));
+    end;
+    FFr.F := ComplexFR(FFR).F;
+    result := FFr;
+end;
+
+constructor TPI.Create;
+begin
+  inherited Create;
+  G := 1;
+  tpi := 0;
+  x1 := 0;
+  x1n := 0;
+  fOutput := 0;
+end;
+
+destructor TPI.Destroy;
+begin
+  inherited Destroy;
+end;
+
+procedure TPI.simulate;
+begin
+  x1n := x1n + (delta / self.tpi) * x1;
+  fOutput := G * (x1n + input);
+  x1 := input;
+end;
+
 { TDT1 }
 
 function TDT1.SimAndGetOutput: extended;
@@ -533,11 +596,7 @@ begin
   assert(omega >= 0, kError101);
   FFr.M := amplitude * G * omega / sqrt(1 + sqr(omega) * sqr(t1));
   FFr.phi := arctan(1 / (omega * t1));
-  {$IF DEFINED(FPC)}
-  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ELSEIF DEFINED(Delphi)}
-  FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
-  {$ENDIF}
+  FFr.F := ComplexFR(FFR).F;
   result := FFR;
 end;
 
@@ -578,11 +637,7 @@ begin
   assert(omega >= 0, kError101);
   FFr.M := amplitude * G / (omega * sqrt(1 + sqr(omega) * sqr(t1)));
   FFr.phi := -90 * pi / 180 - arctan(omega * t1);
-  {$IF DEFINED(FPC)}
-  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ELSEIF DEFINED(Delphi)}
-  FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
-  {$ENDIF}
+  FFr.F := ComplexFR(FFR).F;
   result := FFR;
 end;
 
@@ -627,12 +682,8 @@ begin
   else
     FFr.M := amplitude * G / omega;
   FFr.phi := -90 * pi / 180;
-  {$IF DEFINED(FPC)}
-  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ELSEIF DEFINED(Delphi)}
-  FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
-  {$ENDIF}
-  result := FFR;
+  FFr.F := ComplexFR(FFR).F;
+  result := FFr;
 end;
 
 constructor TInt.Create;
@@ -798,11 +849,7 @@ begin
   assert(omega >= 0, kError101);
   FFr.M := amplitude * G;
   FFr.phi := -omega * nt * delta;
-  {$IF DEFINED(FPC)}
-  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ELSEIF DEFINED(Delphi)}
-  FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
-  {$ENDIF}
+  FFr.F := ComplexFR(FFR).F;
   result := FFR;
 end;
 
@@ -833,11 +880,7 @@ begin
   assert(omega >= 0, kError101);
   FFr.M := amplitude * G / sqrt(1 + sqr(omega) * sqr(t1));
   FFr.phi := -arctan(omega * t1);
-  {$IF DEFINED(FPC)}
-  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ELSEIF DEFINED(Delphi)}
-  FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
-  {$ENDIF}
+  FFr.F := ComplexFR(FFR).F;
   result := FFR;
 end;
 
@@ -884,11 +927,7 @@ begin
     FFr.phi := -pi - arctan(2 * dmp * omega * t2 / (1 - sqr(omega * t2)))
   else
     FFr.phi := NaN;
-  {$IF DEFINED(FPC)}
-  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ELSEIF DEFINED(Delphi)}
-  FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
-  {$ENDIF}
+  FFr.F := ComplexFR(FFR).F;
   result := FFR;
 end;
 
@@ -973,11 +1012,7 @@ begin
   assert(G >= 0, kError101);
   FFr.M := amplitude * G;
   FFr.phi := 0;
-  {$IF DEFINED(FPC)}
-  FFr.F := FFr.M * cexp(i * FFr.phi); { M and phi encoded in polar coordinates }
-  {$ELSEIF DEFINED(Delphi)}
-  FFr.F := ctimes(FFr.M, cexp(ctimes(i, FFr.phi))); { M and phi encoded in polar coordinates }
-  {$ENDIF}
+  FFr.F := ComplexFR(FFR).F;
   result := FFR;
 end;
 
@@ -1005,6 +1040,18 @@ destructor TBlock.Destroy;
 begin
   inherited Destroy;
 end;
+
+{ ComplexFR }
+
+function ComplexFR(PolarFR: TFR): TFR;
+begin
+  {$IF DEFINED(FPC)}
+  result.F := PolarFR.M * cexp(i * PolarFR.phi); { M and phi encoded in polar coordinates }
+  {$ELSEIF DEFINED(Delphi)}
+  result.F := ctimes(PolarFR.M, cexp(ctimes(i, PolarFR.phi))); { M and phi encoded in polar coordinates }
+  {$ENDIF}
+end;
+
 
 end.
 
