@@ -1,11 +1,11 @@
 object DemoForm: TDemoForm
   Left = 241
-  Height = 390
+  Height = 409
   Top = 164
   Width = 700
   BorderStyle = bsSingle
   Caption = 'Simple demo program for SystemsDiagram'
-  ClientHeight = 370
+  ClientHeight = 409
   ClientWidth = 700
   Constraints.MinHeight = 390
   Constraints.MinWidth = 640
@@ -14,10 +14,10 @@ object DemoForm: TDemoForm
   OnDestroy = FormDestroy
   ParentBiDiMode = False
   Position = poDefault
-  LCLVersion = '2.2.6.0'
+  LCLVersion = '3.4.0.0'
   object DemoImage: TImage
     Left = 24
-    Height = 280
+    Height = 319
     Top = 24
     Width = 647
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -25,18 +25,18 @@ object DemoForm: TDemoForm
   object DemoButton: TButton
     Left = 564
     Height = 25
-    Top = 318
+    Top = 357
     Width = 107
     Anchors = [akRight, akBottom]
     Caption = 'Draw Demo'
     Default = True
-    OnClick = DemoButtonClick
     TabOrder = 0
+    OnClick = DemoButtonClick
   end
   object BackgroundColorBox: TColorBox
     Left = 154
-    Height = 22
-    Top = 321
+    Height = 20
+    Top = 362
     Width = 100
     Selected = clWhite
     Anchors = [akLeft, akBottom]
@@ -45,26 +45,26 @@ object DemoForm: TDemoForm
   end
   object BackgroundColorLabel: TLabel
     Left = 24
-    Height = 15
-    Top = 324
-    Width = 106
+    Height = 16
+    Top = 362
+    Width = 120
     Anchors = [akLeft, akBottom]
     Caption = 'Background Colour:'
     ParentColor = False
   end
   object DrawingColorLabel: TLabel
     Left = 273
-    Height = 15
-    Top = 324
-    Width = 104
+    Height = 16
+    Top = 362
+    Width = 117
     Anchors = [akLeft, akBottom]
     Caption = 'Colour for Drawing:'
     ParentColor = False
   end
   object DrawingColorBox: TColorBox
     Left = 403
-    Height = 22
-    Top = 321
+    Height = 20
+    Top = 362
     Width = 100
     Anchors = [akLeft, akBottom]
     ItemHeight = 16

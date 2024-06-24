@@ -9,10 +9,10 @@ unit gui;
 
 { Version 2.1.0 (Foudre) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2023 }
+{ (c) Johannes W. Dietrich, 1994 - 2024 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002 - 2004 }
-{ (c) Ruhr University of Bochum 2005 - 2023 }
+{ (c) Ruhr University of Bochum 2005 - 2024 }
 
 { Source code released under the BSD License }
 
@@ -455,6 +455,14 @@ begin
       newObject.blockDiagram := BlockDiagram;
       newObject.title := '';
       SetRect(newObject.boundsRect, 570, 230, 630, 260);
+      newObject.Draw;
+
+      lastObject := newObject;
+      newObject := TPIeClass.Create;
+      lastObject.Next := newObject;
+      newObject.blockDiagram := BlockDiagram;
+      newObject.title := '';
+      SetRect(newObject.boundsRect, 570, 265, 630, 295);
       newObject.Draw;
 
       lastObject := newObject;

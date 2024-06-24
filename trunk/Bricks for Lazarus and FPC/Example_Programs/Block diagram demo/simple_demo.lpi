@@ -20,8 +20,8 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="93"/>
-      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Simple Demo for block diagrams with SystemsDiagram" InternalName="SystemsDiagram Demo 2.1.0 Foudre" LegalCopyright="1994–2023 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="2.1"/>
+      <BuildNr Value="95"/>
+      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Simple Demo for block diagrams with SystemsDiagram" InternalName="SystemsDiagram Demo 2.1.0 Foudre" LegalCopyright="1994–2024 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="2.1"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>

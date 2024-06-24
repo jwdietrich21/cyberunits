@@ -135,6 +135,15 @@ type
     procedure Draw; override;
   end;
 
+  { TPIeClass }
+  { Proportional-integral element }
+
+  TPIeClass = class(TIPSClass)
+  public
+    constructor Create;
+    procedure Draw; override;
+  end;
+
   { TASIAClass }
   { Proportional block }
 
@@ -555,14 +564,14 @@ begin
   end;
 end;
 
-{ TPiClass }
+{ TPIClass }
 
-constructor TPiClass.Create;
+constructor TPIClass.Create;
 begin
   inherited Create;
 end;
 
-procedure TPiClass.Draw;
+procedure TPIClass.Draw;
 var
   theRect: TRect;
   rw, rh, tw, th: integer;
@@ -1133,6 +1142,57 @@ begin
       bezierPoints[10] := Point(theRect.Left + trunc(0.80 * rw), theRect.Top + trunc(0.3 * rh));
       bezierPoints[11] := Point(theRect.Left + trunc(0.85 * rw), theRect.Top + trunc(0.25 * rh));
       blockDiagram.canvas.Polyline(bezierPoints);
+    end
+    else
+    begin
+      blockDiagram.canvas.GetTextSize(theString, tw, th);
+      blockDiagram.canvas.Brush.Style := bsClear;
+      blockDiagram.canvas.TextRect(theRect, theRect.Left + (rw - tw) div
+        2, theRect.Top + (rh - th) div 2, theString);
+    end;
+    GetAnchorPoints(self, theRect);
+    blockDiagram.canvas.Font := oldFont;
+  end;
+end;
+
+{ TPIeClass }
+
+constructor TPIeClass.Create;
+begin
+  inherited Create;
+  Font := TFont.Create;
+end;
+
+procedure TPIeClass.Draw;
+var
+  theRect: TRect;
+  theString: string;
+  rw, rh, tw, th: integer;
+  oldFont: TFont;
+  bezierPoints: array of TPoint;
+begin
+  if (assigned(blockDiagram) and assigned(blockDiagram.canvas)) then
+  begin
+    theRect := boundsRect;
+    rw := theRect.Right - theRect.Left;
+    rh := theRect.Bottom - theRect.Top;
+    blockDiagram.canvas.Rectangle(theRect);
+    Font.Color := blockDiagram.canvas.Pen.Color;
+    oldFont := blockDiagram.canvas.Font;
+    blockDiagram.canvas.Font := Font;
+    theString := title;
+    if theString = '' then
+    begin
+      blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.15 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.85 * rw),
+        theRect.Top + trunc(0.85 * rh));
+      blockDiagram.canvas.MoveTo(theRect.Left + trunc(0.15 * rw),
+        theRect.Top + trunc(0.55 * rh));
+      blockDiagram.canvas.LineTo(theRect.Left + trunc(0.85 * rw),
+        theRect.Top + trunc(0.15 * rh));
     end
     else
     begin
