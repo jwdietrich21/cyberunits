@@ -31,7 +31,7 @@ unit solvertestcases;
 interface
 
 uses
-  Classes, SysUtils, fpcunit, testutils, testregistry, Solver;
+  Classes, SysUtils, fpcunit, testutils, testregistry, Math, Solver;
 
 type
 
@@ -50,15 +50,22 @@ type
   published
     procedure TestLinear1;    { linear equation }
     procedure TestLinear2;    { linear equation }
+    procedure TestLinear3;    { linear equation }
     procedure TestQuadratic1; { quadratic equation}
     procedure TestQuadratic2; { quadratic equation}
     procedure TestQuadratic3; { quadratic equation}
     procedure TestQuadratic4; { quadratic equation}
+    procedure TestQuadratic5; { quadratic equation}
+    procedure TestQuadratic6; { quadratic equation}
+    procedure TestQuadratic7; { quadratic equation}
     procedure TestCubic1;     { cubic equation }
     procedure TestCubic2;     { cubic equation }
     procedure TestCubic3;     { cubic equation }
     procedure TestCubic4;     { cubic equation }
     procedure TestCubic5;     { cubic equation }
+    procedure TestCubic6;     { cubic equation }
+    procedure TestCubic7;     { cubic equation }
+    procedure TestCubic8;     { cubic equation }
   end;
 
 
@@ -97,6 +104,18 @@ var
 begin
   root := Solve(a, b);
   AssertEquals(5, root);
+end;
+
+procedure TSolverTestCases.TestLinear3;
+{ tests solution of linear equation }
+const
+  a = 0;
+  b = 5;
+var
+  root: TLRoot;
+begin
+  root := Solve(a, b);
+  AssertTrue(IsNan(root));
 end;
 
 procedure TSolverTestCases.TestQuadratic1;
@@ -153,6 +172,48 @@ begin
   roots := Solve(a, b, c);
   AssertEquals(-6, roots[0]);
   AssertEquals(4, roots[1]);
+end;
+
+procedure TSolverTestCases.TestQuadratic5;
+{ tests solutions of quadratic equation }
+const
+  a = 0;
+  b = 1;
+  c = 2;
+var
+  roots: TQRoots;
+begin
+  roots := Solve(a, b, c);
+  AssertTrue(IsNan(roots[0]));
+  AssertTrue(IsNan(roots[1]));
+end;
+
+procedure TSolverTestCases.TestQuadratic6;
+{ tests solutions of quadratic equation }
+const
+  a = 2;
+  b = 1;
+  c = 2;
+var
+  roots: TQRoots;
+begin
+  roots := Solve(a, b, c);
+  AssertTrue(IsNan(roots[0]));
+  AssertTrue(IsNan(roots[1]));
+end;
+
+procedure TSolverTestCases.TestQuadratic7;
+{ tests solutions of quadratic equation }
+const
+  a = 3;
+  b = 0;
+  c = 3;
+var
+  roots: TQRoots;
+begin
+  roots := Solve(a, b, c);
+  AssertTrue(IsNan(roots[0]));
+  AssertTrue(IsNan(roots[1]));
 end;
 
 procedure TSolverTestCases.TestCubic1;
@@ -233,6 +294,54 @@ begin
   AssertEquals(1, roots[0]);
   AssertEquals(2, roots[1]);
   AssertEquals(2, roots[2]);
+end;
+
+procedure TSolverTestCases.TestCubic6;
+{ tests solutions of cubic equation }
+const
+  a = 3;
+  b = 0;
+  c = 0;
+  d = 24;
+var
+  roots: TCRoots;
+begin
+  roots := Solve(a, b, c, d);
+  AssertEquals(-2, roots[0]);
+  AssertTrue(IsNan(roots[1]));
+  AssertTrue(IsNan(roots[2]));
+end;
+
+procedure TSolverTestCases.TestCubic7;
+{ tests solutions of cubic equation }
+const
+  a = 1;
+  b = -2;
+  c = 2;
+  d = -1;
+var
+  roots: TCRoots;
+begin
+  roots := Solve(a, b, c, d);
+  AssertEquals(1, roots[0]);
+  AssertTrue(IsNan(roots[1]));
+  AssertTrue(IsNan(roots[2]));
+end;
+
+procedure TSolverTestCases.TestCubic8;
+{ tests solutions of cubic equation }
+const
+  a = -13.5;
+  b = -67.5;
+  c = -108;
+  d = -54;
+var
+  roots: TCRoots;
+begin
+  roots := Solve(a, b, c, d);
+  AssertEquals(-2, roots[0]);
+  AssertEquals(-2, roots[1]);
+  AssertEquals(-1, roots[2]);
 end;
 
 

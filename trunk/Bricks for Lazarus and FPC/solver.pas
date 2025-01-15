@@ -50,7 +50,7 @@ function arc(chi: extended): extended;
   {converts an angle from degree to radian}
   {rechnet Winkel von Grad nach Bogenmaß um}
 begin
-  arc := 2 * pi * (chi / 360);
+  Result := 2 * pi * (chi / 360);
 end;
 
 function arccos(cosphi: extended): extended;
@@ -59,15 +59,22 @@ function arccos(cosphi: extended): extended;
 var
   arcsin: extended;
 begin
-  arcsin     := arctan(cosphi / sqrt(1 - sqr(cosphi)));
-  result := arc(90) - arcsin;
+  arcsin := arctan(cosphi / sqrt(1 - sqr(cosphi)));
+  Result := arc(90) - arcsin;
 end;
 
 function cbrt(x: extended): extended;
   {calculates cubic root of x}
   {berechnet Kubikwurzel von x}
 begin
-  result := sign(x) * power(abs(x), 1/3);
+  Result := sign(x) * power(abs(x), 1 / 3);
+end;
+
+function cub(x: extended): extended;
+  {calculated cube of x}
+  {berechnet Kubus von x}
+begin
+  Result := x * x * x;
 end;
 
 procedure SortTwo(var x, y: extended);
@@ -90,63 +97,101 @@ begin
 end;
 
 function Solve(a, b: extended): TLRoot;
-{solves linear equation ax + b = 0 with parameters a and b}
-{löst lineare Gleichung ax + b = 0 mit Parametern a und b}
+  {solves linear equation ax + b = 0 with parameters a and b}
+  {löst lineare Gleichung ax + b = 0 mit Parametern a und b}
 begin
-  result := -b/a;
+  if a = 0 then
+    Result := Math.NaN // horizontal line
+  else
+    Result := -b / a;
 end;
 
 function Solve(a, b, c: extended): TQRoots;
   {solves quadratic equation ax^2 + bx + c = 0 with parameters a, b and c}
   {löst quadratische Gleichung ax^2 + bx + c = 0 mit Parametern a, b, und c}
+var
+  Det1, Det2: extended;
 begin
-  result[0] := -(b + sqrt(sqr(b) - 4 * a * c)) / (2 * a);
-  result[1] := -(b - sqrt(sqr(b) - 4 * a * c)) / (2 * a);
-  SortTwo(result[0], result[1]);
+  Result[0] := Math.NaN;
+  Result[1] := Math.NaN;
+  if a <> 0 then                        // solution possible?
+  begin
+    Det1 := -c / a;
+    Det2 := sqr(b) - 4 * a * c;
+    if (Det1 >= 0) and (Det2 >= 0) then  // solution possible?
+    begin
+      Result[0] := -(b + sqrt(sqr(b) - 4 * a * c)) / (2 * a);
+      Result[1] := -(b - sqrt(sqr(b) - 4 * a * c)) / (2 * a);
+    end;
+  end;
+  SortTwo(Result[0], Result[1]);
 end;
 
 function Solve(a, b, c, d: extended): TCRoots;
-  {solves a cubic equation with the parameters a, b, c, and d}
-  {löst kubische Gleichung mit Parametern a, b, c und d}
+  {solves cubic equation ax^3 + bx^2 + cx + d = 0 with parameters a, b, c, and d}
+  {löst kubische Gleichung ax^3 + bx^2 + cx + d = 0 mit Parametern a, b, c und d}
 var
-  r, s, p, q, u, v, Det, phi, y1, y2, y3: extended;
+  p, q, u, v, Det, phi, y1, y2, y3: extended;
 begin
-  r  := c / a - 1 / 3 * sqr(b / a);
-  s  := 2 / 27 * power((b / a), 3) - 1 / 3 * c * b / sqr(a) + d / a;
-  p  := r / 3;
-  q  := s / 2;
+  Result[0] := Math.NaN;
+  Result[1] := Math.NaN;
+  Result[2] := Math.NaN;
 
-  Det := p * p * p + q * q;
+  if a <> 0 then                        // finite solution possible?
+  begin
+    {
+    These are the riginal equations stated in the literature:
 
-  if Det >= 0 then
-  begin {Cardano's formula, one real solution}
-    u  := cbrt(-q + sqrt(Det));
-    v  := cbrt(-q - sqrt(Det));
-    y1 := u + v;        {real solution of Cardano's equation}
-    y2 := -(u + v) / 2; {Real part of the first complex solution}
-    y3 := y2;           {Real part of the second complex solution (=y2)}
-  end
-  else
-  begin {Casus irreducibilis, three real solutions}
-    u   := -q / (sqrt(-p * sqr(-p))); {cos phi}
-    phi := arccos(u);            {angle as radian}
-    y1  := 2 * sqrt(-p) * cos(phi / 3);
-    y2  := -2 * sqrt(-p) * cos(phi / 3 + arc(60));
-    y3  := -2 * sqrt(-p) * cos(phi / 3 - arc(60));
+    r := c / a - 1 / 3 * sqr(b / a);
+    s := 2 / 27 * power((b / a), 3) - 1 / 3 * c * b / sqr(a) + d / a;
+    p := r / 3;
+    q := s / 2;
+
+    However, the following implementation generates a higher precision:
+    }
+
+    p := c / (3 * a) - sqr(b) / (9 * sqr(a));
+    q := cub(b) / (27 * cub(a)) - c * b / (6 * sqr(a)) + d / (2 * a);
+
+    Det := cub(p) + sqr(q);
+
+    if Det >= 0 then
+    begin {Cardano's formula, one real solution}
+      u := cbrt(-q + sqrt(Det));
+      v := cbrt(-q - sqrt(Det));
+      y1 := u + v;        {real solution of Cardano's equation}
+      y2 := -(u + v) / 2; {Real part of the first complex solution}
+      y3 := y2;           {Real part of the second complex solution (=y2)}
+    end
+    else
+    begin {Casus irreducibilis, three real solutions}
+      u := -q / (sqrt(-p * sqr(-p))); {cos phi}
+      phi := arccos(u);            {angle as radian}
+      y1 := 2 * sqrt(-p) * cos(phi / 3);
+      y2 := -2 * sqrt(-p) * cos(phi / 3 + arc(60));
+      y3 := -2 * sqrt(-p) * cos(phi / 3 - arc(60));
+    end;
+
+    Result[0] := y1 - b / (3 * a);
+    if Det <= 0 then
+    begin
+      Result[1] := y2 - b / (3 * a);
+      Result[2] := y3 - b / (3 * a);
+    end;
+
   end;
-
-  result[0] := y1 - b / (3 * a);
-  result[1] := y2 - b / (3 * a);
-  result[2] := y3 - b / (3 * a);
-  SortThree(result[0], result[1], result[2]);
+  SortThree(Result[0], Result[1], Result[2]);
 end;
 
 function Solve(a, b, c, d, e: extended): TRRoots;
   {solves a quartic equation with the parameters a, b, c, d and e}
   {löst quartische Gleichung mit Parametern a, b, c, d und e}
 begin
+  Result[0] := Math.NaN;
+  Result[1] := Math.NaN;
+  Result[2] := Math.NaN;
+  Result[3] := Math.NaN;
   { #todo -oJWD : To be implemented }
 end;
 
 end.
-
