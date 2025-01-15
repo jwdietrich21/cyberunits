@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units Count="5">
+      <Unit0>
+        <Filename Value="solvertests.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="9"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="solvertestcases.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="207"/>
+        <CursorPos X="41" Y="237"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="../solver.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Solver"/>
+        <TopLine Value="97"/>
+        <CursorPos X="36" Y="72"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="../lifeblocks.pas"/>
+        <UsageCount Value="20"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="solrvertestcases.pas"/>
+        <UsageCount Value="20"/>
+      </Unit4>
+    </Units>
+    <JumpHistory Count="24" HistoryIndex="23">
+      <Position1>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="52" Column="20" TopLine="25"/>
+      </Position1>
+      <Position2>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="53" Column="58" TopLine="38"/>
+      </Position2>
+      <Position3>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="54" Column="29" TopLine="41"/>
+      </Position3>
+      <Position4>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="120" Column="23" TopLine="93"/>
+      </Position4>
+      <Position5>
+        <Filename Value="../solver.pas"/>
+        <Caret Line="66" Column="24" TopLine="42"/>
+      </Position5>
+      <Position6>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="55" Column="29" TopLine="44"/>
+      </Position6>
+      <Position7>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="56" Column="29" TopLine="39"/>
+      </Position7>
+      <Position8>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="142" Column="8" TopLine="120"/>
+      </Position8>
+      <Position9>
+        <Filename Value="solvertestcases.pas"/>
+      </Position9>
+      <Position10>
+        <Filename Value="../solver.pas"/>
+        <Caret Line="137" Column="45"/>
+      </Position10>
+      <Position11>
+        <Filename Value="../solver.pas"/>
+        <Caret Line="49" Column="38" TopLine="22"/>
+      </Position11>
+      <Position12>
+        <Filename Value="../solver.pas"/>
+        <Caret Line="56" Column="44" TopLine="29"/>
+      </Position12>
+      <Position13>
+        <Filename Value="../solver.pas"/>
+        <Caret Line="60" Column="19" TopLine="33"/>
+      </Position13>
+      <Position14>
+        <Filename Value="../solver.pas"/>
+        <Caret Line="66" Column="37" TopLine="54"/>
+      </Position14>
+      <Position15>
+        <Filename Value="../solver.pas"/>
+        <Caret Line="80" Column="74" TopLine="90"/>
+      </Position15>
+      <Position16>
+        <Filename Value="../solver.pas"/>
+        <Caret Line="122" Column="46" TopLine="95"/>
+      </Position16>
+      <Position17>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="57" Column="49" TopLine="35"/>
+      </Position17>
+      <Position18>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="159" Column="25" TopLine="144"/>
+      </Position18>
+      <Position19>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="58" Column="25" TopLine="37"/>
+      </Position19>
+      <Position20>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="182" TopLine="155"/>
+      </Position20>
+      <Position21>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="59" Column="25" TopLine="39"/>
+      </Position21>
+      <Position22>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="194" Column="35" TopLine="171"/>
+      </Position22>
+      <Position23>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="60" Column="25" TopLine="30"/>
+      </Position23>
+      <Position24>
+        <Filename Value="solvertestcases.pas"/>
+        <Caret Line="61" Column="25" TopLine="38"/>
+      </Position24>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode="default"/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
