@@ -74,20 +74,21 @@ begin
 end;
 
 function cub(x: extended): extended;
-  {calculated cube of x}
+  {calculates cube of x}
   {berechnet Kubus von x}
 begin
   Result := x * x * x;
 end;
 
 function quart(x: extended): extended;
-  {calculated cube of x}
-  {berechnet Kubus von x}
+  {calculates quartic of x}
+  {berechnet Biquadrat von x}
 begin
   Result := x * x * x * x;
 end;
 
 procedure SortTwo(var x, y: extended);
+  {sorts two numbers}
 var
   t: extended;
 begin
@@ -100,6 +101,7 @@ begin
 end;
 
 procedure SortThree(var x, y, z: extended);
+  {sorts three numbers}
 begin
   SortTwo(x, y);
   SortTwo(x, z);
@@ -107,6 +109,7 @@ begin
 end;
 
 procedure ShellSort(var a: array of extended);
+  {sorts a vector of arbitrary length}
 var
   i, j, h, n: integer;
   v: extended;
@@ -114,22 +117,22 @@ begin
   n := length(a);
   h := 1;
   repeat
-   h := 3 * h + 1
+    h := 3 * h + 1
   until h > n;
   repeat
-   h := h div 3;
-   for i := h to n-1 do
+    h := h div 3;
+    for i := h to n - 1 do
     begin
-     v := a[i];
-     j := i;
-     while (j >= h) AND (a[j-h] > v) do
+      v := a[i];
+      j := i;
+      while (j >= h) and (a[j - h] > v) do
       begin
-        a[j] := a[j-h];
+        a[j] := a[j - h];
         j := j - h;
       end;
-     a[j] := v;
+      a[j] := v;
     end
-   until h = 1;
+  until h = 1;
 end;
 
 function Solve(a, b: extended): TLRoot;
@@ -235,37 +238,43 @@ begin
   t1 := sqr(b) * d - 4 * a * c * d + 8 * a * b * e;
   t2 := sqr(b) * c - 4 * a * sqr(c) + 2 * a * b * d + 16 * sqr(a) * e;
   t3 := cub(b) - 4 * a * b * c + 8 * sqr(a) * d;
-  if (t0 = 0) and (t2 = 0) then
+  if (t3 = 0) and (t2 = 0) then
   begin
-    Result[0] := (-b + sqrt(3*sqr(b) - 8*a*c)) / (4*a);
-    Result[1] := (-b + sqrt(3*sqr(b) - 8*a*c)) / (4*a);
-    Result[2] := (-b - sqrt(3*sqr(b) - 8*a*c)) / (4*a);
-    Result[3] := (-b - sqrt(3*sqr(b) - 8*a*c)) / (4*a);
+    Result[0] := (-b + sqrt(3 * sqr(b) - 8 * a * c)) / (4 * a);
+    Result[1] := (-b + sqrt(3 * sqr(b) - 8 * a * c)) / (4 * a);
+    Result[2] := (-b - sqrt(3 * sqr(b) - 8 * a * c)) / (4 * a);
+    Result[3] := (-b - sqrt(3 * sqr(b) - 8 * a * c)) / (4 * a);
   end
   else if (t3 = 0) and (t2 <> 0) then
   begin
-    Result[0] := -(b + sqrt(2*sqrt(quart(b) - 8*sqr(b)*a*c + 16*sqr(a)*sqr(c)
-                 - 64*cub(a)*e) + 3*sqr(b) - 8*a*c)) / 4*a;
-    Result[1] := -(b + sqrt(-2*sqrt(quart(b) - 8*sqr(b)*a*c + 16*sqr(a)*sqr(c)
-                 - 64*cub(a)*e) + 3*sqr(b) - 8*a*c)) / 4*a;
-    Result[2] := -(b - sqrt(2*sqrt(quart(b) - 8*sqr(b)*a*c + 16*sqr(a)*sqr(c)
-                 - 64*cub(a)*e) + 3*sqr(b) - 8*a*c)) / 4*a;
-    Result[3] := -(b - sqrt(-2*sqrt(quart(b) - 8*sqr(b)*a*c + 16*sqr(a)*sqr(c)
-                 - 64*cub(a)*e) + 3*sqr(b) - 8*a*c)) / 4*a;
+    Result[0] := -(b + sqrt(2 * sqrt(quart(b) - 8 * sqr(b) * a * c +
+      16 * sqr(a) * sqr(c) - 64 * cub(a) * e) + 3 * sqr(b) - 8 * a * c)) / (4 * a);
+    Result[1] := -(b + sqrt(-2 * sqrt(quart(b) - 8 * sqr(b) * a * c +
+      16 * sqr(a) * sqr(c) - 64 * cub(a) * e) + 3 * sqr(b) - 8 * a * c)) / (4 * a);
+    Result[2] := -(b - sqrt(2 * sqrt(quart(b) - 8 * sqr(b) * a * c +
+      16 * sqr(a) * sqr(c) - 64 * cub(a) * e) + 3 * sqr(b) - 8 * a * c)) / (4 * a);
+    Result[3] := -(b - sqrt(-2 * sqrt(quart(b) - 8 * sqr(b) * a * c +
+      16 * sqr(a) * sqr(c) - 64 * cub(a) * e) + 3 * sqr(b) - 8 * a * c)) / (4 * a);
   end
   else
   begin
     ResolventRoots := Solve(t3, t2, t1, t0);
     w := ResolventRoots[0];
-    rA := sqrt((cub(b) + 8*sqr(a)*d - 4*a*b*c) / (b + 4*a*w));
-    rB := (cub(b) - 4*sqr(a)*d - 2*a*b*c + 6*a*sqr(b)*w - 16*sqr(a)*c*w) / (b + 4*a*w);
-    Result[0] := (-b - rA - sqrt(2)*sqrt(rB + rA*(b + 4*a*w))) / (4*a);
-    Result[1] := (-b - rA + sqrt(2)*sqrt(rB + rA*(b + 4*a*w))) / (4*a);
-    Result[2] := (-b + rA - sqrt(2)*sqrt(rB - rA*(b + 4*a*w))) / (4*a);
-    Result[3] := (-b + rA + sqrt(2)*sqrt(rB - rA*(b + 4*a*w))) / (4*a);
+    rA := sqrt((cub(b) + 8 * sqr(a) * d - 4 * a * b * c) / (b + 4 * a * w));
+    rB := (cub(b) - 4 * sqr(a) * d - 2 * a * b * c + 6 * a * sqr(b) * w - 16 * sqr(a) * c * w) / (b + 4 * a * w);
+    Result[0] := (-b - rA - sqrt(2) * sqrt(rB + rA * (b + 4 * a * w))) / (4 * a);
+    Result[1] := (-b - rA + sqrt(2) * sqrt(rB + rA * (b + 4 * a * w))) / (4 * a);
+    Result[2] := (-b + rA - sqrt(2) * sqrt(rB - rA * (b + 4 * a * w))) / (4 * a);
+    Result[3] := (-b + rA + sqrt(2) * sqrt(rB - rA * (b + 4 * a * w))) / (4 * a);
   end;
-  { #todo -oJWD : To be implemented }
+
   ShellSort(Result);
 end;
 
 end.
+
+{ References: }
+{ Yacoub, M.D., & Fraidenraich, G. (2012). 96.33 A solution to the quartic }
+{ equation. The Mathematical Gazette, 96, 271 - 275. }
+
+

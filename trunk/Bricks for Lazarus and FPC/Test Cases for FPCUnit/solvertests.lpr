@@ -34,7 +34,6 @@ uses
 {$R *.res}
 
 begin
-  Application.Title := 'solvertests';
   Application.Initialize;
   Application.CreateForm(TGuiTestRunner, TestRunner);
   Application.Run;
