@@ -43,6 +43,11 @@ function Solve(a, b: extended): TLRoot;
 function Solve(a, b, c: extended): TQRoots;
 function Solve(a, b, c, d: extended): TCRoots;
 function Solve(a, b, c, d, e: extended): TRRoots;
+function arc(chi: extended): extended;
+function arccos(cosphi: extended): extended;
+function cbrt(x: extended): extended;
+function cub(x: extended): extended;
+function quart(x: extended): extended;
 procedure SortTwo(var x, y: extended);
 procedure SortThree(var x, y, z: extended);
 procedure ShellSort(var a: array of extended);
@@ -234,38 +239,41 @@ begin
   Result[2] := Math.NaN;
   Result[3] := Math.NaN;
 
-  t0 := -a * sqr(d) + sqr(b) * e;
-  t1 := sqr(b) * d - 4 * a * c * d + 8 * a * b * e;
-  t2 := sqr(b) * c - 4 * a * sqr(c) + 2 * a * b * d + 16 * sqr(a) * e;
-  t3 := cub(b) - 4 * a * b * c + 8 * sqr(a) * d;
-  if (t3 = 0) and (t2 = 0) then
-  begin
-    Result[0] := (-b + sqrt(3 * sqr(b) - 8 * a * c)) / (4 * a);
-    Result[1] := (-b + sqrt(3 * sqr(b) - 8 * a * c)) / (4 * a);
-    Result[2] := (-b - sqrt(3 * sqr(b) - 8 * a * c)) / (4 * a);
-    Result[3] := (-b - sqrt(3 * sqr(b) - 8 * a * c)) / (4 * a);
-  end
-  else if (t3 = 0) and (t2 <> 0) then
-  begin
-    Result[0] := -(b + sqrt(2 * sqrt(quart(b) - 8 * sqr(b) * a * c +
-      16 * sqr(a) * sqr(c) - 64 * cub(a) * e) + 3 * sqr(b) - 8 * a * c)) / (4 * a);
-    Result[1] := -(b + sqrt(-2 * sqrt(quart(b) - 8 * sqr(b) * a * c +
-      16 * sqr(a) * sqr(c) - 64 * cub(a) * e) + 3 * sqr(b) - 8 * a * c)) / (4 * a);
-    Result[2] := -(b - sqrt(2 * sqrt(quart(b) - 8 * sqr(b) * a * c +
-      16 * sqr(a) * sqr(c) - 64 * cub(a) * e) + 3 * sqr(b) - 8 * a * c)) / (4 * a);
-    Result[3] := -(b - sqrt(-2 * sqrt(quart(b) - 8 * sqr(b) * a * c +
-      16 * sqr(a) * sqr(c) - 64 * cub(a) * e) + 3 * sqr(b) - 8 * a * c)) / (4 * a);
-  end
-  else
-  begin
-    ResolventRoots := Solve(t3, t2, t1, t0);
-    w := ResolventRoots[0];
-    rA := sqrt((cub(b) + 8 * sqr(a) * d - 4 * a * b * c) / (b + 4 * a * w));
-    rB := (cub(b) - 4 * sqr(a) * d - 2 * a * b * c + 6 * a * sqr(b) * w - 16 * sqr(a) * c * w) / (b + 4 * a * w);
-    Result[0] := (-b - rA - sqrt(2) * sqrt(rB + rA * (b + 4 * a * w))) / (4 * a);
-    Result[1] := (-b - rA + sqrt(2) * sqrt(rB + rA * (b + 4 * a * w))) / (4 * a);
-    Result[2] := (-b + rA - sqrt(2) * sqrt(rB - rA * (b + 4 * a * w))) / (4 * a);
-    Result[3] := (-b + rA + sqrt(2) * sqrt(rB - rA * (b + 4 * a * w))) / (4 * a);
+  if a <> 0 then                        // finite solution possible?
+    begin
+    t0 := -a * sqr(d) + sqr(b) * e;
+    t1 := sqr(b) * d - 4 * a * c * d + 8 * a * b * e;
+    t2 := sqr(b) * c - 4 * a * sqr(c) + 2 * a * b * d + 16 * sqr(a) * e;
+    t3 := cub(b) - 4 * a * b * c + 8 * sqr(a) * d;
+    if (t3 = 0) and (t2 = 0) then
+    begin
+      Result[0] := (-b + sqrt(3 * sqr(b) - 8 * a * c)) / (4 * a);
+      Result[1] := (-b + sqrt(3 * sqr(b) - 8 * a * c)) / (4 * a);
+      Result[2] := (-b - sqrt(3 * sqr(b) - 8 * a * c)) / (4 * a);
+      Result[3] := (-b - sqrt(3 * sqr(b) - 8 * a * c)) / (4 * a);
+    end
+    else if (t3 = 0) and (t2 <> 0) then
+    begin
+      Result[0] := -(b + sqrt(2 * sqrt(quart(b) - 8 * sqr(b) * a * c +
+        16 * sqr(a) * sqr(c) - 64 * cub(a) * e) + 3 * sqr(b) - 8 * a * c)) / (4 * a);
+      Result[1] := -(b + sqrt(-2 * sqrt(quart(b) - 8 * sqr(b) * a * c +
+        16 * sqr(a) * sqr(c) - 64 * cub(a) * e) + 3 * sqr(b) - 8 * a * c)) / (4 * a);
+      Result[2] := -(b - sqrt(2 * sqrt(quart(b) - 8 * sqr(b) * a * c +
+        16 * sqr(a) * sqr(c) - 64 * cub(a) * e) + 3 * sqr(b) - 8 * a * c)) / (4 * a);
+      Result[3] := -(b - sqrt(-2 * sqrt(quart(b) - 8 * sqr(b) * a * c +
+        16 * sqr(a) * sqr(c) - 64 * cub(a) * e) + 3 * sqr(b) - 8 * a * c)) / (4 * a);
+    end
+    else
+    begin
+      ResolventRoots := Solve(t3, t2, t1, t0);
+      w := ResolventRoots[0];
+      rA := sqrt((cub(b) + 8 * sqr(a) * d - 4 * a * b * c) / (b + 4 * a * w));
+      rB := (cub(b) - 4 * sqr(a) * d - 2 * a * b * c + 6 * a * sqr(b) * w - 16 * sqr(a) * c * w) / (b + 4 * a * w);
+      Result[0] := (-b - rA - sqrt(2) * sqrt(rB + rA * (b + 4 * a * w))) / (4 * a);
+      Result[1] := (-b - rA + sqrt(2) * sqrt(rB + rA * (b + 4 * a * w))) / (4 * a);
+      Result[2] := (-b + rA - sqrt(2) * sqrt(rB - rA * (b + 4 * a * w))) / (4 * a);
+      Result[3] := (-b + rA + sqrt(2) * sqrt(rB - rA * (b + 4 * a * w))) / (4 * a);
+    end;
   end;
 
   ShellSort(Result);

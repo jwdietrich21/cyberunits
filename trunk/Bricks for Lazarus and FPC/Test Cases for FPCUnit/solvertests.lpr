@@ -34,6 +34,8 @@ uses
 {$R *.res}
 
 begin
+  Application.Scaled := True;
+  Application.Title := 'Solvertests';
   Application.Initialize;
   Application.CreateForm(TGuiTestRunner, TestRunner);
   Application.Run;
