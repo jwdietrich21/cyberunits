@@ -66,6 +66,10 @@ type
     procedure TestCubic6;     { cubic equation }
     procedure TestCubic7;     { cubic equation }
     procedure TestCubic8;     { cubic equation }
+    procedure TestQuartic1;   { quartic equation }
+    procedure TestQuartic2;   { quartic equation }
+    procedure TestQuartic3;   { quartic equation }
+    procedure TestQuartic4;   { quartic equation }
   end;
 
 
@@ -342,6 +346,74 @@ begin
   AssertEquals(-2, roots[0]);
   AssertEquals(-2, roots[1]);
   AssertEquals(-1, roots[2]);
+end;
+
+procedure TSolverTestCases.TestQuartic1;
+const
+  a = 1;
+  b = -11;
+  c = 7;
+  d = 111;
+  e = -108;
+var
+  roots: TRRoots;
+begin
+  roots := Solve(a, b, c, d, e);
+  AssertEquals(-3, roots[0]);
+  AssertEquals(1, roots[1]);
+  AssertEquals(4, roots[2]);
+  AssertEquals(9, roots[3]);
+end;
+
+procedure TSolverTestCases.TestQuartic2;
+const
+  a = 1;
+  b = -4;
+  c = -66;
+  d = 140;
+  e = 1225;
+var
+  roots: TRRoots;
+begin
+  roots := Solve(a, b, c, d, e);
+  AssertEquals(-5, roots[0]);
+  AssertEquals(-5, roots[1]);
+  AssertEquals(7, roots[2]);
+  AssertEquals(7, roots[3]);
+end;
+
+procedure TSolverTestCases.TestQuartic3;
+const
+  a = 1;
+  b = 3;
+  c = 0.25;
+  d = -3;
+  e = -8;
+var
+  roots: TRRoots;
+begin
+  roots := Solve(a, b, c, d, e);
+  AssertEquals(-3/4 - 1/4*sqrt(73), roots[0]);
+  AssertTrue(IsNan(roots[1]));
+  AssertEquals(-3/4 + 1/4*sqrt(73), roots[2]);
+  AssertTrue(IsNan(roots[3]));
+end;
+
+procedure TSolverTestCases.TestQuartic4;
+const
+  a = 1;
+  b = -5;
+  c = 6;
+  d = 4;
+  e = -8;
+var
+  roots: TRRoots;
+begin
+  roots := Solve(a, b, c, d, e);
+  AssertEquals(-1, roots[0]);
+  AssertEquals(2, roots[1]);
+  AssertEquals(2, roots[2]);
+  AssertEquals(2, roots[3]);
 end;
 
 

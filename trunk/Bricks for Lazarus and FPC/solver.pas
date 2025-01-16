@@ -43,6 +43,9 @@ function Solve(a, b: extended): TLRoot;
 function Solve(a, b, c: extended): TQRoots;
 function Solve(a, b, c, d: extended): TCRoots;
 function Solve(a, b, c, d, e: extended): TRRoots;
+procedure SortTwo(var x, y: extended);
+procedure SortThree(var x, y, z: extended);
+procedure ShellSort(var a: array of extended);
 
 implementation
 
@@ -77,6 +80,13 @@ begin
   Result := x * x * x;
 end;
 
+function quart(x: extended): extended;
+  {calculated cube of x}
+  {berechnet Kubus von x}
+begin
+  Result := x * x * x * x;
+end;
+
 procedure SortTwo(var x, y: extended);
 var
   t: extended;
@@ -94,6 +104,32 @@ begin
   SortTwo(x, y);
   SortTwo(x, z);
   SortTwo(y, z);
+end;
+
+procedure ShellSort(var a: array of extended);
+var
+  i, j, h, n: integer;
+  v: extended;
+begin
+  n := length(a);
+  h := 1;
+  repeat
+   h := 3 * h + 1
+  until h > n;
+  repeat
+   h := h div 3;
+   for i := h to n-1 do
+    begin
+     v := a[i];
+     j := i;
+     while (j >= h) AND (a[j-h] > v) do
+      begin
+        a[j] := a[j-h];
+        j := j - h;
+      end;
+     a[j] := v;
+    end
+   until h = 1;
 end;
 
 function Solve(a, b: extended): TLRoot;
@@ -184,14 +220,52 @@ begin
 end;
 
 function Solve(a, b, c, d, e: extended): TRRoots;
-  {solves a quartic equation with the parameters a, b, c, d and e}
-  {löst quartische Gleichung mit Parametern a, b, c, d und e}
+  {solves a quartic equation ax^4 + bx^3 + cx^2 + dx + e = 0}
+  {löst quartische Gleichung ax^4 + bx^3 + cx^2 + dx + e = 0}
+var
+  t0, t1, t2, t3, rA, rB, w: extended;
+  ResolventRoots: TCRoots;
 begin
   Result[0] := Math.NaN;
   Result[1] := Math.NaN;
   Result[2] := Math.NaN;
   Result[3] := Math.NaN;
+
+  t0 := -a * sqr(d) + sqr(b) * e;
+  t1 := sqr(b) * d - 4 * a * c * d + 8 * a * b * e;
+  t2 := sqr(b) * c - 4 * a * sqr(c) + 2 * a * b * d + 16 * sqr(a) * e;
+  t3 := cub(b) - 4 * a * b * c + 8 * sqr(a) * d;
+  if (t0 = 0) and (t2 = 0) then
+  begin
+    Result[0] := (-b + sqrt(3*sqr(b) - 8*a*c)) / (4*a);
+    Result[1] := (-b + sqrt(3*sqr(b) - 8*a*c)) / (4*a);
+    Result[2] := (-b - sqrt(3*sqr(b) - 8*a*c)) / (4*a);
+    Result[3] := (-b - sqrt(3*sqr(b) - 8*a*c)) / (4*a);
+  end
+  else if (t3 = 0) and (t2 <> 0) then
+  begin
+    Result[0] := -(b + sqrt(2*sqrt(quart(b) - 8*sqr(b)*a*c + 16*sqr(a)*sqr(c)
+                 - 64*cub(a)*e) + 3*sqr(b) - 8*a*c)) / 4*a;
+    Result[1] := -(b + sqrt(-2*sqrt(quart(b) - 8*sqr(b)*a*c + 16*sqr(a)*sqr(c)
+                 - 64*cub(a)*e) + 3*sqr(b) - 8*a*c)) / 4*a;
+    Result[2] := -(b - sqrt(2*sqrt(quart(b) - 8*sqr(b)*a*c + 16*sqr(a)*sqr(c)
+                 - 64*cub(a)*e) + 3*sqr(b) - 8*a*c)) / 4*a;
+    Result[3] := -(b - sqrt(-2*sqrt(quart(b) - 8*sqr(b)*a*c + 16*sqr(a)*sqr(c)
+                 - 64*cub(a)*e) + 3*sqr(b) - 8*a*c)) / 4*a;
+  end
+  else
+  begin
+    ResolventRoots := Solve(t3, t2, t1, t0);
+    w := ResolventRoots[0];
+    rA := sqrt((cub(b) + 8*sqr(a)*d - 4*a*b*c) / (b + 4*a*w));
+    rB := (cub(b) - 4*sqr(a)*d - 2*a*b*c + 6*a*sqr(b)*w - 16*sqr(a)*c*w) / (b + 4*a*w);
+    Result[0] := (-b - rA - sqrt(2)*sqrt(rB + rA*(b + 4*a*w))) / (4*a);
+    Result[1] := (-b - rA + sqrt(2)*sqrt(rB + rA*(b + 4*a*w))) / (4*a);
+    Result[2] := (-b + rA - sqrt(2)*sqrt(rB - rA*(b + 4*a*w))) / (4*a);
+    Result[3] := (-b + rA + sqrt(2)*sqrt(rB - rA*(b + 4*a*w))) / (4*a);
+  end;
   { #todo -oJWD : To be implemented }
+  ShellSort(Result);
 end;
 
 end.
