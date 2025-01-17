@@ -8,10 +8,10 @@
 
 { Version 2.1.0 (Foudre) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2024 }
+{ (c) Johannes W. Dietrich, 1994 - 2025 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002 - 2004 }
-{ (c) Ruhr University of Bochum 2005 - 2024 }
+{ (c) Ruhr University of Bochum 2005 - 2025 }
 
 { Standard blocks for systems modelling and simulation }
 
@@ -50,7 +50,7 @@ const
   Bricks_major = 2;
   Bricks_minor = 1;
   Bricks_release = 0;
-  Bricks_patch = 100;
+  Bricks_patch = 108;
   Bricks_fullversion = ((Bricks_major *  100 + Bricks_minor) * 100 + Bricks_release) * 100 + Bricks_patch;
   Bricks_version = '2.1.0.100';
   Bricks_internalversion = 'Foudre';
@@ -1064,4 +1064,10 @@ end.
 
 {3. Lutz H. and Wendt, W., "Taschenbuch der Regelungstechnik" }
 {   Verlag Harri Deutsch, Frankfurt am Main 2005 }
+
+{4. Dietrich, J. W., Siegmar, N., Hojjati, J. R., Gardt, O., & Boehm, B. O. }
+{   (2024). CyberUnits Bricks: An Implementation Study of a Class Library for }
+{   Simulating Nonlinear Biological Feedback Loops. ADCAIJ: Advances in }
+{   Distributed Computing and Artificial Intelligence Journal, 13(1), e31762.}
+{   https://doi.org/10.14201/adcaij.31762 }
 

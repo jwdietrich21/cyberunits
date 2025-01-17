@@ -8,10 +8,10 @@ unit lifeblocks;
 
 { Version 2.1.0 (Foudre) }
 
-{ (c) Johannes W. Dietrich, 1994 - 2024 }
+{ (c) Johannes W. Dietrich, 1994 - 2025 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002 - 2004 }
-{ (c) Ruhr University of Bochum 2005 - 2024 }
+{ (c) Ruhr University of Bochum 2005 - 2025 }
 
 { Standard blocks for systems modelling and simulation }
 
@@ -214,3 +214,9 @@ end.
 {   feedback-coupled physiological saturation kinetics. In: Cybernetics and }
 {   Systems 2006. R. Trappl (Hrsg). Vienna, Austrian Society for Cybernetic }
 {   Studies. 1: 269-74. }
+
+{4. Dietrich, J. W., Siegmar, N., Hojjati, J. R., Gardt, O., & Boehm, B. O. }
+{   (2024). CyberUnits Bricks: An Implementation Study of a Class Library for }
+{   Simulating Nonlinear Biological Feedback Loops. ADCAIJ: Advances in }
+{   Distributed Computing and Artificial Intelligence Journal, 13(1), e31762.}
+{   https://doi.org/10.14201/adcaij.31762 }

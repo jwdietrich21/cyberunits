@@ -14,6 +14,13 @@ About CyberUnits
 CyberUnits is a collection of cross-platform units for medical cybernetics and systems biology. See http://cyberunits.sf.net for details.
 
 
+Citation
+
+In order to cite CyberUnits Bricks in publications use:
+
+* Dietrich, J. W., Siegmar, N., Hojjati, J. R., Gardt, O., & Boehm, B. O. (2024). CyberUnits Bricks: An Implementation Study of a Class Library for Simulating Nonlinear Biological Feedback Loops. ADCAIJ: Advances in Distributed Computing and Artificial Intelligence Journal, 13(1), e31762. https://doi.org/10.14201/adcaij.31762
+
+
 License
 
 Files of the CyberUnits repository are licensed with a BSD license. This facilitates their usage in both free open source software and commercial applications.

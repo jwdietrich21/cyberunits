@@ -282,7 +282,8 @@ end;
 end.
 
 { References: }
-{ Yacoub, M.D., & Fraidenraich, G. (2012). 96.33 A solution to the quartic }
-{ equation. The Mathematical Gazette, 96, 271 - 275. }
+
+{ 1. Yacoub, M.D., & Fraidenraich, G. (2012). 96.33 A solution to the quartic }
+{    equation. The Mathematical Gazette, 96, 271 - 275. }
 
 
