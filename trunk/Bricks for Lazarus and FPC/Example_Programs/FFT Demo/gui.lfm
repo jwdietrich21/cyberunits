@@ -4,32 +4,32 @@ object DemoMainForm: TDemoMainForm
   Top = 143
   Width = 860
   Caption = 'Test program for FFT algorithm'
-  ClientHeight = 473
+  ClientHeight = 493
   ClientWidth = 860
   Menu = MainMenu1
-  LCLVersion = '2.2.6.0'
+  LCLVersion = '4.2.0.0'
   object DemoButton: TButton
     Left = 735
     Height = 25
-    Top = 425
+    Top = 445
     Width = 112
     Anchors = [akRight, akBottom]
     Caption = 'Test algorithm'
-    OnClick = DemoButtonClick
     TabOrder = 0
+    OnClick = DemoButtonClick
   end
   object Panel1: TPanel
     Left = 8
-    Height = 391
+    Height = 411
     Top = 8
     Width = 839
     Anchors = [akTop, akLeft, akRight, akBottom]
-    ClientHeight = 391
+    ClientHeight = 411
     ClientWidth = 839
     TabOrder = 1
     object PairSplitter1: TPairSplitter
       Left = 1
-      Height = 389
+      Height = 409
       Top = 1
       Width = 837
       Align = alClient
@@ -37,34 +37,57 @@ object DemoMainForm: TDemoMainForm
       object PairSplitterSide1: TPairSplitterSide
         Cursor = crArrow
         Left = 0
-        Height = 389
+        Height = 409
         Top = 0
         Width = 400
         ClientWidth = 400
-        ClientHeight = 389
+        ClientHeight = 409
         object ResultsMemo: TMemo
           Left = 8
-          Height = 368
-          Top = 8
+          Height = 356
+          Top = 40
           Width = 412
           Align = alCustom
           Anchors = [akTop, akLeft, akRight, akBottom]
           ScrollBars = ssAutoBoth
           TabOrder = 0
         end
+        object EquationComboBox: TComboBox
+          Left = 104
+          Height = 20
+          Top = 13
+          Width = 296
+          Anchors = [akTop, akLeft, akRight]
+          ItemHeight = 18
+          ItemIndex = 0
+          Items.Strings = (
+            'y := 1 + 10*sin(2*pi*5*t) + 4*sin(2*pi*20*t)'
+            'y := 2*sin(2*pi*t) + sin(2*pi*10*t)'
+          )
+          TabOrder = 1
+          Text = 'y := 1 + 10*sin(2*pi*5*t) + 4*sin(2*pi*20*t)'
+          OnChange = EquationComboBoxChange
+        end
+        object EquationLabeo: TLabel
+          Left = 8
+          Height = 16
+          Top = 16
+          Width = 57
+          Caption = 'Equation:'
+        end
       end
       object PairSplitterSide2: TPairSplitterSide
         Cursor = crArrow
         Left = 405
-        Height = 389
+        Height = 409
         Top = 0
         Width = 432
         ClientWidth = 432
-        ClientHeight = 389
+        ClientHeight = 409
         object PairSplitter2: TPairSplitter
           Cursor = crVSplit
           Left = 0
-          Height = 389
+          Height = 409
           Top = 0
           Width = 432
           Align = alClient
@@ -108,14 +131,14 @@ object DemoMainForm: TDemoMainForm
           object PairSplitterSide4: TPairSplitterSide
             Cursor = crArrow
             Left = 0
-            Height = 184
+            Height = 204
             Top = 205
             Width = 432
             ClientWidth = 432
-            ClientHeight = 184
+            ClientHeight = 204
             object FrequencyDomainChart: TChart
               Left = 0
-              Height = 184
+              Height = 204
               Top = 0
               Width = 432
               AxisList = <              
