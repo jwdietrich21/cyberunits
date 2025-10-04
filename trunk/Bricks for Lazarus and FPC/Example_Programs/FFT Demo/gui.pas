@@ -32,8 +32,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, Forms, Controls, Graphics, Dialogs,
-  StdCtrls, PairSplitter, ExtCtrls, Menus, SignalAnalysis, Math, ucomplex,
-  TASeries;
+  StdCtrls, PairSplitter, ExtCtrls, Menus, ComCtrls, SignalAnalysis, Math,
+  ucomplex, TASeries;
 
 type
 
@@ -41,6 +41,7 @@ type
 
   TDemoMainForm = class(TForm)
     AppleMenu: TMenuItem;
+    ScopeEdit: TEdit;
     EquationComboBox: TComboBox;
     EquationLabeo: TLabel;
     TimeDomainChart: TChart;
@@ -73,18 +74,22 @@ type
     RedoMenuItem: TMenuItem;
     ResultsMemo: TMemo;
     SaveMenuItem: TMenuItem;
+    ScopeTrackBar: TTrackBar;
     UndoMenuItem: TMenuItem;
     WinAboutItem: TMenuItem;
     procedure DemoButtonClick(Sender: TObject);
     procedure EquationComboBoxChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure MacAboutItemClick(Sender: TObject);
     procedure QuitMenuItemClick(Sender: TObject);
+    procedure ScopeTrackBarChange(Sender: TObject);
     procedure WinAboutItemClick(Sender: TObject);
   private
     { private declarations }
     procedure writeMemo(theString: string);
     procedure writeMemoLine(theString: string);
     procedure writectable(l: table);
+    procedure DisplayScope(Sender: TObject);
   public
     { public declarations }
   end;
@@ -106,25 +111,29 @@ const
 
   ConstantPower1 = 1; // Power of constant component (DC like, relative)
   PeriodicPower1: array[1..2] of real = (10, 4); // Power of components
-  PeriodicFreq1: array[1..2] of integer = (5, 20); // Frequency of components (Hz)
-  PeriodicDelay1: array[1..2] of integer = (0, 0); // Delay of components (radians)
+  PeriodicFreq1: array[1..2] of real = (5, 20); // Frequency of components (Hz)
+  PeriodicDelay1: array[1..2] of real = (0, 0); // Delay of components (radians)
 
   ConstantPower2 = 0;
   PeriodicPower2: array[1..2] of real = (2, 1);
-  PeriodicFreq2: array[1..2] of integer = (1, 10);
-  PeriodicDelay2: array[1..2] of integer = (0, 0);
+  PeriodicFreq2: array[1..2] of real = (1, 10);
+  PeriodicDelay2: array[1..2] of real = (0, 0);
 
-  Scope = 256;           // Window of time series to be inspected (power of 2)
-  Scaling = Scope / n;
+  ConstantPower3 = 0;
+  PeriodicPower3: array[1..2] of real = (1, 0.5);
+  PeriodicFreq3: array[1..2] of real = (0.5, 2.5);
+  PeriodicDelay3: array[1..2] of real = (0, 0);
 
   Omega = 2 * pi;
 var
   i, j: integer;
+  Scope: integer;        // Window of time series to be inspected (power of 2)
+  Scaling: real;
   f, samplingTime, mag, ts: array of real;
   trajectory, cfreqVec: table;
   ConstantPower: integer;
   PeriodicPower: array[1..2] of real;
-  PeriodicFreq, PeriodicDelay: array[1..2] of integer;
+  PeriodicFreq, PeriodicDelay: array[1..2] of real;
 begin
   case EquationComboBox.ItemIndex of
     0:
@@ -141,7 +150,16 @@ begin
       PeriodicFreq := PeriodicFreq2;
       PeriodicDelay := PeriodicDelay2;
     end;
+    2:
+    begin
+      ConstantPower := ConstantPower3;
+      PeriodicPower := PeriodicPower3;
+      PeriodicFreq := PeriodicFreq3;
+      PeriodicDelay := PeriodicDelay3;
+    end;
   end;
+  Scope := ScopeTrackBar.Position;
+  Scaling := Scope / n;
   ResultsMemo.Clear;
   TimeDomainChartLineSeries1.Clear;
   FrequencyDomainChartLineSeries1.Clear;
@@ -173,9 +191,9 @@ begin
 
   WriteMemoLine('y := ' + IntToStr(ConstantPower) + ' + ' +
     FloatToStr(PeriodicPower[1]) + '*sin(2*pi*' +
-    IntToStr(PeriodicFreq[1]) + '*t) + ' +
+    FloatToStr(PeriodicFreq[1]) + '*t) + ' +
     FloatToStr(PeriodicPower[2]) + '*sin(2*pi*' +
-    IntToStr(PeriodicFreq[2]) + '*t)');
+    FloatToStr(PeriodicFreq[2]) + '*t)');
 
   WriteCTable(cfreqVec);
 
@@ -206,6 +224,11 @@ begin
   FrequencyDomainChartLineSeries1.Clear;
 end;
 
+procedure TDemoMainForm.FormCreate(Sender: TObject);
+begin
+  DisplayScope(Sender);
+end;
+
 procedure TDemoMainForm.MacAboutItemClick(Sender: TObject);
 begin
   ShowMessage('Simple demo for FFT');
@@ -214,6 +237,11 @@ end;
 procedure TDemoMainForm.QuitMenuItemClick(Sender: TObject);
 begin
   application.Terminate;
+end;
+
+procedure TDemoMainForm.ScopeTrackBarChange(Sender: TObject);
+begin
+  DisplayScope(Sender);
 end;
 
 procedure TDemoMainForm.WinAboutItemClick(Sender: TObject);
@@ -245,6 +273,11 @@ begin
     WriteStr(tmpString3, format('%3.5gi', [l[x].im]));
     writeMemo(tmpString1 + tmpString2 + tmpString3);
   end;
+end;
+
+procedure TDemoMainForm.DisplayScope(Sender: TObject);
+begin
+  ScopeEdit.Text := IntToStr(ScopeTrackBar.Position);
 end;
 
 

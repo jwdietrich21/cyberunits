@@ -21,7 +21,8 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="60"/>
+      <BuildNr Value="61"/>
+      <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum and FORMATIO RETICULARIS" FileDescription="Demo for FFT function" InternalName="Bricks 2.1.0 Foudre" LegalCopyright="J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="2.1"/>
     </VersionInfo>
     <BuildModes Count="1">

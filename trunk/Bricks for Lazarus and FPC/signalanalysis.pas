@@ -70,10 +70,10 @@ var
   y: integer;
 begin
   Result := False;
-  y := 2;
+  y := 1;
   repeat
     y := y * 2;
-    if num = y then Result := True;
+    if (num = 1) or (num = y) then Result := True;
   until (num = y) or (y >= MaxPower2);
 end;
 
@@ -104,6 +104,7 @@ var
   T: complex;
 begin
   n := length(DataVector);
+  assert((n = 0) or IsPowerOfTwo(n), kError300);
 
   if n >= 2 then
   begin
