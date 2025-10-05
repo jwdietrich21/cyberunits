@@ -76,6 +76,7 @@ type
     SaveMenuItem: TMenuItem;
     ScopeTrackBar: TTrackBar;
     UndoMenuItem: TMenuItem;
+    ScopeUpDown: TUpDown;
     WinAboutItem: TMenuItem;
     procedure DemoButtonClick(Sender: TObject);
     procedure EquationComboBoxChange(Sender: TObject);
@@ -83,6 +84,7 @@ type
     procedure MacAboutItemClick(Sender: TObject);
     procedure QuitMenuItemClick(Sender: TObject);
     procedure ScopeTrackBarChange(Sender: TObject);
+    procedure ScopeUpDownChanging(Sender: TObject; var AllowChange: Boolean);
     procedure WinAboutItemClick(Sender: TObject);
   private
     { private declarations }
@@ -244,6 +246,15 @@ begin
   DisplayScope(Sender);
 end;
 
+procedure TDemoMainForm.ScopeUpDownChanging(Sender: TObject;
+  var AllowChange: Boolean);
+begin
+  if ScopeUpDown.Position < ScopeTrackBar.Position then
+    ScopeTrackBar.Position := PrevPowerOfTwo(ScopeUpDown.Position)
+  else
+    ScopeTrackBar.Position := NextPowerOfTwo(ScopeUpDown.Position);
+end;
+
 procedure TDemoMainForm.WinAboutItemClick(Sender: TObject);
 begin
   MacAboutItemClick(Sender);
@@ -278,6 +289,11 @@ end;
 procedure TDemoMainForm.DisplayScope(Sender: TObject);
 begin
   ScopeEdit.Text := IntToStr(ScopeTrackBar.Position);
+  ScopeUpDown.Position := ScopeTrackBar.Position;
+  if IsPowerOfTwo(ScopeTrackBar.Position) then
+    ScopeEdit.Font.Color := clGreen
+  else
+    ScopeEdit.Font.Color := clRed;
 end;
 
 

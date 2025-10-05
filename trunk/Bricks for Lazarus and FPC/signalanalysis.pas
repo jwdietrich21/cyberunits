@@ -46,6 +46,7 @@ type
   table = array of complex;
 
 function IsPowerOfTwo(num: integer): boolean;
+function PrevPowerOfTwo(num: integer): integer;
 function NextPowerOfTwo(num: integer): integer;
 function fft(DataVector: table): table;
 
@@ -75,6 +76,11 @@ begin
     y := y * 2;
     if (num = 1) or (num = y) then Result := True;
   until (num = y) or (y >= MaxPower2);
+end;
+
+function PrevPowerOfTwo(num: integer): integer;
+begin
+  Result := NextPowerOfTwo(num) div 2;
 end;
 
 function NextPowerOfTwo(num: integer): integer;
