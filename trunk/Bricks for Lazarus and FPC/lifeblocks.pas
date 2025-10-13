@@ -175,7 +175,7 @@ end;
 function TASIA.SimAndGetOutput: extended;
 begin
   simulate;
-  result := G * fOutput;
+  result := fOutput;
 end;
 
 constructor TASIA.Create;
@@ -196,7 +196,10 @@ procedure TASIA.simulate;
 begin
   assert(FBeta <> 0, kError102);
   PT1Analog.input := input;
-  fOutput := PT1Analog.simOutput;
+  if G = 0 then   // undefined
+    fOutput := PT1Analog.simOutput
+  else
+    fOutput := G * PT1Analog.simOutput
 end;
 
 end.
