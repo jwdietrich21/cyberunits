@@ -183,6 +183,7 @@ begin
   inherited create;
   PT1Analog := TPT1.Create;
   FAlpha := 1;
+  G := -1;
   SetBeta(1);
 end;
 
@@ -196,7 +197,7 @@ procedure TASIA.simulate;
 begin
   assert(FBeta <> 0, kError102);
   PT1Analog.input := input;
-  if G = 0 then   // undefined
+  if G < 0 then   // undefined
     fOutput := PT1Analog.simOutput
   else
     fOutput := G * PT1Analog.simOutput

@@ -17,6 +17,7 @@
       <Unit1>
         <Filename Value="brickstestcases.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
         <CursorPos Y="2"/>
@@ -39,9 +40,8 @@
         <Filename Value="..\bricks.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Bricks"/>
-        <IsVisibleTab Value="True"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="19" Y="2"/>
+        <CursorPos Y="2"/>
         <ExtraEditorCount Value="2"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -62,6 +62,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
+        <TopLine Value="171"/>
         <CursorPos Y="2"/>
         <UsageCount Value="52"/>
         <Loaded Value="True"/>
@@ -117,7 +118,7 @@
         <UsageCount Value="9"/>
       </Unit10>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="..\bricks.pas"/>
         <Caret Line="122" Column="13" TopLine="96"/>
@@ -227,16 +228,12 @@
       </Position27>
       <Position28>
         <Filename Value="brickstestcases.pas"/>
-        <Caret Line="601" Column="19" TopLine="668"/>
+        <Caret Line="700" TopLine="668"/>
       </Position28>
       <Position29>
-        <Filename Value="brickstestcases.pas"/>
-        <Caret Line="700" TopLine="668"/>
-      </Position29>
-      <Position30>
         <Filename Value="..\bricks.pas"/>
         <Caret Line="40" Column="23" TopLine="31"/>
-      </Position30>
+      </Position29>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
