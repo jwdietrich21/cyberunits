@@ -175,7 +175,7 @@ end;
 function TASIA.SimAndGetOutput: extended;
 begin
   simulate;
-  result := fOutput;
+  result := G * fOutput;
 end;
 
 constructor TASIA.Create;
