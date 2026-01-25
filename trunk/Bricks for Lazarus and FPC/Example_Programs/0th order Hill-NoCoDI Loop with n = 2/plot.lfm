@@ -6,7 +6,7 @@ object PlotForm: TPlotForm
   Caption = 'Plot'
   ClientHeight = 342
   ClientWidth = 554
-  LCLVersion = '3.0.0.3'
+  LCLVersion = '4.4.0.0'
   Visible = True
   object Chart1: TChart
     Left = 24

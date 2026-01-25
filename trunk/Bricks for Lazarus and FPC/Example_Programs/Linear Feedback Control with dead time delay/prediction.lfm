@@ -6,7 +6,7 @@ object PredictionForm: TPredictionForm
   Caption = 'Prediction'
   ClientHeight = 202
   ClientWidth = 334
-  LCLVersion = '3.0.0.1'
+  LCLVersion = '4.4.0.0'
   Visible = True
   object PredictionList: TValueListEditor
     Left = 0
@@ -14,7 +14,6 @@ object PredictionForm: TPredictionForm
     Top = 0
     Width = 334
     Anchors = [akTop, akLeft, akRight, akBottom]
-    FixedCols = 0
     MouseWheelOption = mwGrid
     RowCount = 8
     TabOrder = 0
@@ -30,7 +29,7 @@ object PredictionForm: TPredictionForm
     )
     ColWidths = (
       64
-      253
+      268
     )
   end
 end

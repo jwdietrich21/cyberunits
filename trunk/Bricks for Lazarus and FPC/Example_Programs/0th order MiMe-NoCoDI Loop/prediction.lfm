@@ -6,9 +6,9 @@ object PredictionForm: TPredictionForm
   Caption = 'Prediction'
   ClientHeight = 171
   ClientWidth = 334
-  OnPaint = FormPaint
-  LCLVersion = '2.2.6.0'
+  LCLVersion = '4.4.0.0'
   Visible = True
+  OnPaint = FormPaint
   object PredictionList: TStringGrid
     Left = 0
     Height = 144
@@ -20,11 +20,11 @@ object PredictionForm: TPredictionForm
     Columns = <    
       item
         Title.Caption = 'Equilibrium 1'
-        Width = 133
+        Width = 134
       end    
       item
         Title.Caption = 'Equilibrium 2'
-        Width = 133
+        Width = 134
       end>
     MouseWheelOption = mwGrid
     RowCount = 6
@@ -32,8 +32,8 @@ object PredictionForm: TPredictionForm
     TabOrder = 0
     ColWidths = (
       64
-      133
-      133
+      134
+      134
     )
   end
 end

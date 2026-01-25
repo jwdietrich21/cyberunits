@@ -4,16 +4,16 @@ object ValuesForm: TValuesForm
   Top = 91
   Width = 643
   Caption = 'MiMe-NoCoDI loop'
-  ClientHeight = 483
+  ClientHeight = 503
   ClientWidth = 643
   Constraints.MinHeight = 400
   Constraints.MinWidth = 640
   Menu = MainMenu1
+  LCLVersion = '4.4.0.0'
   OnCreate = FormCreate
-  LCLVersion = '2.2.6.0'
   object ValuesGrid: TStringGrid
     Left = 0
-    Height = 343
+    Height = 363
     Top = 40
     Width = 646
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -22,34 +22,34 @@ object ValuesForm: TValuesForm
     Columns = <    
       item
         Title.Caption = 'x(t)'
-        Width = 112
+        Width = 116
       end    
       item
         Title.Caption = 'e(t)'
-        Width = 112
+        Width = 116
       end    
       item
         Title.Caption = 'c(t)'
-        Width = 112
+        Width = 116
       end    
       item
         Title.Caption = 'y(t)'
-        Width = 112
+        Width = 116
       end    
       item
         Title.Caption = 'yR(t)'
-        Width = 113
+        Width = 116
       end>
     MouseWheelOption = mwGrid
     RowCount = 26
     TabOrder = 0
     ColWidths = (
       64
-      112
-      112
-      112
-      112
-      113
+      116
+      116
+      116
+      116
+      116
     )
   end
   object ToolBar1: TToolBar
@@ -99,18 +99,18 @@ object ValuesForm: TValuesForm
   object StartButton: TButton
     Left = 540
     Height = 25
-    Top = 436
+    Top = 456
     Width = 75
     Anchors = [akRight, akBottom]
     Caption = 'Run'
     Default = True
-    OnClick = StartButtonClick
     TabOrder = 2
+    OnClick = StartButtonClick
   end
   object xSpinEdit: TFloatSpinEdit
     Left = 48
-    Height = 23
-    Top = 438
+    Height = 20
+    Top = 461
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.2
@@ -119,18 +119,18 @@ object ValuesForm: TValuesForm
   end
   object xLabel: TLabel
     Left = 26
-    Height = 15
-    Top = 443
-    Width = 6
+    Height = 16
+    Top = 462
+    Width = 7
     Anchors = [akLeft, akBottom]
     Caption = 'x'
     ParentColor = False
   end
   object IterationsLabel: TLabel
     Left = 314
-    Height = 15
-    Top = 443
-    Width = 49
+    Height = 16
+    Top = 462
+    Width = 57
     Anchors = [akLeft, akBottom]
     Caption = 'Iterations'
     ParentColor = False
@@ -138,9 +138,9 @@ object ValuesForm: TValuesForm
   object IterationsSpinEdit: TSpinEdit
     AnchorSideLeft.Control = IterationsLabel
     AnchorSideLeft.Side = asrBottom
-    Left = 374
-    Height = 23
-    Top = 438
+    Left = 382
+    Height = 20
+    Top = 461
     Width = 98
     Anchors = [akLeft, akBottom]
     BorderSpacing.Left = 11
@@ -150,17 +150,17 @@ object ValuesForm: TValuesForm
   end
   object G1Label: TLabel
     Left = 18
-    Height = 15
-    Top = 403
-    Width = 14
+    Height = 16
+    Top = 422
+    Width = 16
     Anchors = [akLeft, akBottom]
     Caption = 'G1'
     ParentColor = False
   end
   object G1Edit: TFloatSpinEdit
     Left = 48
-    Height = 23
-    Top = 398
+    Height = 20
+    Top = 421
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.1
@@ -169,17 +169,17 @@ object ValuesForm: TValuesForm
   end
   object G2Label: TLabel
     Left = 170
-    Height = 15
-    Top = 403
-    Width = 14
+    Height = 16
+    Top = 422
+    Width = 17
     Anchors = [akLeft, akBottom]
     Caption = 'G2'
     ParentColor = False
   end
   object G2Edit: TFloatSpinEdit
     Left = 200
-    Height = 23
-    Top = 398
+    Height = 20
+    Top = 421
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.1
@@ -188,8 +188,8 @@ object ValuesForm: TValuesForm
   end
   object G3Edit: TFloatSpinEdit
     Left = 374
-    Height = 23
-    Top = 398
+    Height = 20
+    Top = 421
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.1
@@ -198,26 +198,26 @@ object ValuesForm: TValuesForm
   end
   object G3Label: TLabel
     Left = 344
-    Height = 15
-    Top = 403
-    Width = 14
+    Height = 16
+    Top = 422
+    Width = 18
     Anchors = [akLeft, akBottom]
     Caption = 'G3'
     ParentColor = False
   end
   object D2Label: TLabel
     Left = 170
-    Height = 15
-    Top = 443
-    Width = 14
+    Height = 16
+    Top = 462
+    Width = 17
     Anchors = [akLeft, akBottom]
     Caption = 'D2'
     ParentColor = False
   end
   object D2Edit: TFloatSpinEdit
     Left = 200
-    Height = 23
-    Top = 438
+    Height = 20
+    Top = 461
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.1

@@ -21,9 +21,9 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="135"/>
+      <BuildNr Value="136"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
-      <StringTable Comments="CyberUnits Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Unit Tests for Solver" InternalName="Bricks 2.1.0 Foudre" LegalCopyright="1994–2025 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="2.1"/>
+      <StringTable Comments="CyberUnits Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Unit Tests for Solver" InternalName="Bricks 2.1.0 Foudre" LegalCopyright="1994–2026 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="2.1"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>

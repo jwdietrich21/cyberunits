@@ -21,8 +21,8 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="1"/>
-      <BuildNr Value="16"/>
-      <StringTable Comments="Simulator for Hill-NoCoDI loop with n = 2" CompanyName="Ruhr University of Bochum" FileDescription="Nonlinear 0th order Hill feedback demo" InternalName="Hill-NoCoDI 2.1.0 Foudre" LegalCopyright="1994–2024 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="2.1"/>
+      <BuildNr Value="17"/>
+      <StringTable Comments="Simulator for Hill-NoCoDI loop with n = 2" CompanyName="Ruhr University of Bochum" FileDescription="Nonlinear 0th order Hill feedback demo" InternalName="Hill-NoCoDI 2.1.0 Foudre" LegalCopyright="1994–2026 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="2.1"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>

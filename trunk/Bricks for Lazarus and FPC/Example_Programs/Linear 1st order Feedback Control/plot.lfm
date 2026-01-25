@@ -6,9 +6,9 @@ object PlotForm: TPlotForm
   Caption = 'Plot'
   ClientHeight = 342
   ClientWidth = 554
-  OnPaint = FormPaint
-  LCLVersion = '2.2.6.0'
+  LCLVersion = '4.4.0.0'
   Visible = True
+  OnPaint = FormPaint
   object Chart1: TChart
     Left = 24
     Height = 304

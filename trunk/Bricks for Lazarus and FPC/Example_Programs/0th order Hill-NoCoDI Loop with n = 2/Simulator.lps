@@ -8,6 +8,7 @@
       <Unit0>
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="1"/>
         <CursorPos Y="2"/>
@@ -23,7 +24,7 @@
         <UnitName Value="GUI"/>
         <EditorIndex Value="6"/>
         <WindowIndex Value="1"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="46" Y="15"/>
         <UsageCount Value="47"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -32,10 +33,9 @@
         <Filename Value="simulationengine.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SimulationEngine"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="31" Y="3"/>
+        <CursorPos X="46" Y="15"/>
         <UsageCount Value="47"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -48,7 +48,7 @@
         <UnitName Value="IPS"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="1"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="46" Y="15"/>
         <UsageCount Value="47"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -72,7 +72,7 @@
         <UnitName Value="Plot"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="11"/>
+        <CursorPos X="46" Y="15"/>
         <UsageCount Value="46"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -86,7 +86,7 @@
         <UnitName Value="Prediction"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="1"/>
-        <CursorPos X="17"/>
+        <CursorPos X="46" Y="15"/>
         <UsageCount Value="45"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -178,7 +178,7 @@
         <UsageCount Value="10"/>
       </Unit16>
     </Units>
-    <JumpHistory Count="29" HistoryIndex="28">
+    <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="simulationengine.pas"/>
         <Caret Line="102" Column="26" TopLine="93"/>
@@ -295,6 +295,10 @@
         <Filename Value="..\..\lifeblocks.pas"/>
         <Caret Line="2"/>
       </Position29>
+      <Position30>
+        <Filename Value="simulationengine.pas"/>
+        <Caret Line="3" Column="31"/>
+      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

@@ -7,7 +7,7 @@ object DemoMainForm: TDemoMainForm
   ClientHeight = 493
   ClientWidth = 870
   Menu = MainMenu1
-  LCLVersion = '4.2.0.0'
+  LCLVersion = '4.4.0.0'
   OnCreate = FormCreate
   object DemoButton: TButton
     Left = 745

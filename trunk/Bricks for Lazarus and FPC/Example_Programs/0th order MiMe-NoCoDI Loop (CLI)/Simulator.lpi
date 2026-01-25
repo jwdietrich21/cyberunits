@@ -19,7 +19,7 @@
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="1"/>
       <BuildNr Value="41"/>
-      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Linear 1st order feedback demo (CLI version)" InternalName="FC1L 2.1.0 Foudre" LegalCopyright="1994–2023 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits FC1L CLI demo" ProductVersion="2.1"/>
+      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Linear 1st order feedback demo (CLI version)" InternalName="FC1L 2.1.0 Foudre" LegalCopyright="1994–2026 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits FC1L CLI demo" ProductVersion="2.1"/>
     </VersionInfo>
     <BuildModes>
       <Item Name="Default" Default="True"/>

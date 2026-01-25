@@ -9,8 +9,8 @@ object ValuesForm: TValuesForm
   Constraints.MinHeight = 400
   Constraints.MinWidth = 640
   Menu = MainMenu1
+  LCLVersion = '4.4.0.0'
   OnCreate = FormCreate
-  LCLVersion = '3.0.0.3'
   object ValuesGrid: TStringGrid
     Left = 0
     Height = 363
@@ -22,39 +22,39 @@ object ValuesForm: TValuesForm
     Columns = <    
       item
         Title.Caption = 'x(t)'
-        Width = 94
+        Width = 97
       end    
       item
         Title.Caption = 'e(t)'
-        Width = 94
+        Width = 97
       end    
       item
         Title.Caption = 'c(t)'
-        Width = 94
+        Width = 97
       end    
       item
         Title.Caption = 'u(t)'
-        Width = 94
+        Width = 97
       end    
       item
         Title.Caption = 'y(t)'
-        Width = 94
+        Width = 96
       end    
       item
         Title.Caption = 'yR(t)'
-        Width = 94
+        Width = 96
       end>
     MouseWheelOption = mwGrid
     RowCount = 26
     TabOrder = 0
     ColWidths = (
       64
-      94
-      94
-      94
-      94
-      94
-      94
+      97
+      97
+      97
+      97
+      96
+      96
     )
   end
   object ToolBar1: TToolBar
@@ -114,8 +114,8 @@ object ValuesForm: TValuesForm
   end
   object xSpinEdit: TFloatSpinEdit
     Left = 48
-    Height = 21
-    Top = 460
+    Height = 20
+    Top = 461
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.2
@@ -144,8 +144,8 @@ object ValuesForm: TValuesForm
     AnchorSideLeft.Control = IterationsLabel
     AnchorSideLeft.Side = asrBottom
     Left = 371
-    Height = 21
-    Top = 460
+    Height = 20
+    Top = 461
     Width = 98
     Anchors = [akLeft, akBottom]
     BorderSpacing.Left = 11
@@ -164,8 +164,8 @@ object ValuesForm: TValuesForm
   end
   object G1Edit: TFloatSpinEdit
     Left = 48
-    Height = 21
-    Top = 420
+    Height = 20
+    Top = 421
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.1
@@ -183,8 +183,8 @@ object ValuesForm: TValuesForm
   end
   object G2Edit: TFloatSpinEdit
     Left = 200
-    Height = 21
-    Top = 420
+    Height = 20
+    Top = 421
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.1
@@ -193,8 +193,8 @@ object ValuesForm: TValuesForm
   end
   object G3Edit: TFloatSpinEdit
     Left = 374
-    Height = 21
-    Top = 420
+    Height = 20
+    Top = 421
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.1
@@ -221,8 +221,8 @@ object ValuesForm: TValuesForm
   end
   object D2Edit: TFloatSpinEdit
     Left = 200
-    Height = 21
-    Top = 460
+    Height = 20
+    Top = 461
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.1

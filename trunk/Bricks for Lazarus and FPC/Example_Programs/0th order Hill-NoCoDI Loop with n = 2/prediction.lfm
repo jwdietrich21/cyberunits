@@ -6,9 +6,9 @@ object PredictionForm: TPredictionForm
   Caption = 'Prediction'
   ClientHeight = 182
   ClientWidth = 369
-  OnPaint = FormPaint
-  LCLVersion = '3.0.0.3'
+  LCLVersion = '4.4.0.0'
   Visible = True
+  OnPaint = FormPaint
   object PredictionList: TStringGrid
     Left = 0
     Height = 168

@@ -9,8 +9,8 @@ object ValuesForm: TValuesForm
   Constraints.MinHeight = 400
   Constraints.MinWidth = 640
   Menu = MainMenu1
+  LCLVersion = '4.4.0.0'
   OnCreate = FormCreate
-  LCLVersion = '3.0.0.1'
   object ValuesGrid: TStringGrid
     Left = 0
     Height = 373
@@ -22,44 +22,44 @@ object ValuesForm: TValuesForm
     Columns = <    
       item
         Title.Caption = 'x(t)'
-        Width = 81
+        Width = 83
       end    
       item
         Title.Caption = 'z(t)'
-        Width = 81
+        Width = 83
       end    
       item
         Title.Caption = 'e(t)'
-        Width = 80
+        Width = 83
       end    
       item
         Title.Caption = 'v(t)'
-        Width = 80
+        Width = 82
       end    
       item
         Title.Caption = 'y(t)'
-        Width = 80
+        Width = 82
       end    
       item
         Title.Caption = 'yS(t)'
-        Width = 80
+        Width = 82
       end    
       item
         Title.Caption = 'yR(t)'
-        Width = 80
+        Width = 82
       end>
     MouseWheelOption = mwGrid
     RowCount = 26
     TabOrder = 0
     ColWidths = (
       64
-      81
-      81
-      80
-      80
-      80
-      80
-      80
+      83
+      83
+      83
+      82
+      82
+      82
+      82
     )
   end
   object ToolBar1: TToolBar
@@ -114,13 +114,13 @@ object ValuesForm: TValuesForm
     Anchors = [akRight, akBottom]
     Caption = 'Run'
     Default = True
-    OnClick = StartButtonClick
     TabOrder = 2
+    OnClick = StartButtonClick
   end
   object xSpinEdit: TFloatSpinEdit
     Left = 48
-    Height = 21
-    Top = 470
+    Height = 20
+    Top = 471
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.2
@@ -129,8 +129,8 @@ object ValuesForm: TValuesForm
   end
   object zSpinEdit: TFloatSpinEdit
     Left = 200
-    Height = 21
-    Top = 470
+    Height = 20
+    Top = 471
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.2
@@ -168,8 +168,8 @@ object ValuesForm: TValuesForm
     AnchorSideLeft.Control = IterationsLabel
     AnchorSideLeft.Side = asrBottom
     Left = 396
-    Height = 21
-    Top = 470
+    Height = 20
+    Top = 471
     Width = 98
     Anchors = [akLeft, akBottom]
     BorderSpacing.Left = 11
@@ -188,8 +188,8 @@ object ValuesForm: TValuesForm
   end
   object G1Edit: TFloatSpinEdit
     Left = 48
-    Height = 21
-    Top = 430
+    Height = 20
+    Top = 431
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.1
@@ -207,8 +207,8 @@ object ValuesForm: TValuesForm
   end
   object G2Edit: TFloatSpinEdit
     Left = 200
-    Height = 21
-    Top = 430
+    Height = 20
+    Top = 431
     Width = 98
     Anchors = [akLeft, akBottom]
     Increment = 0.1
@@ -228,8 +228,8 @@ object ValuesForm: TValuesForm
     AnchorSideLeft.Control = IterationsLabel
     AnchorSideLeft.Side = asrBottom
     Left = 396
-    Height = 21
-    Top = 432
+    Height = 20
+    Top = 433
     Width = 98
     Anchors = [akLeft, akBottom]
     BorderSpacing.Left = 11
