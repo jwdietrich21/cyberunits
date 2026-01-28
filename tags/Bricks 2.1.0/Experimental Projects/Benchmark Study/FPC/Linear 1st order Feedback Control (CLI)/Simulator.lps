@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="Simulator.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="81"/>
+        <CursorPos Y="81"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="simulationengine.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="SimulationEngine"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="49"/>
+        <CursorPos X="16" Y="53"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../bricks.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Bricks"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="cliservices.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="CLIServices"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="67"/>
+        <CursorPos X="21" Y="91"/>
+        <UsageCount Value="24"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="57" Column="18" TopLine="31"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="99" Column="28" TopLine="73"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="105" Column="27" TopLine="79"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="110" Column="26" TopLine="84"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="117" Column="29" TopLine="91"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="122" Column="31" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="123" Column="34" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="65" Column="46" TopLine="48"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="86" Column="11" TopLine="73"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="96" Column="11" TopLine="73"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="87" Column="59" TopLine="73"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="88" Column="16" TopLine="72"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="110" Column="7" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="cliservices.pas"/>
+        <Caret Line="38" Column="51" TopLine="9"/>
+      </Position>
+      <Position>
+        <Filename Value="cliservices.pas"/>
+        <Caret Line="67" Column="48" TopLine="42"/>
+      </Position>
+      <Position>
+        <Filename Value="cliservices.pas"/>
+        <Caret Line="44" Column="55" TopLine="30"/>
+      </Position>
+      <Position>
+        <Filename Value="cliservices.pas"/>
+        <Caret Line="41" Column="18" TopLine="19"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="117" Column="48" TopLine="97"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="120" Column="63" TopLine="105"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="123" Column="80" TopLine="106"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="109" Column="16" TopLine="97"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="125" Column="65" TopLine="104"/>
+      </Position>
+      <Position>
+        <Filename Value="cliservices.pas"/>
+        <Caret Line="91" Column="22" TopLine="67"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="68" Column="13" TopLine="63"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="69" Column="19" TopLine="62"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="139" Column="74" TopLine="123"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="73" Column="21" TopLine="59"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="150" TopLine="127"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="151" Column="32" TopLine="130"/>
+      </Position>
+      <Position>
+        <Filename Value="Simulator.lpr"/>
+        <Caret Line="99" Column="48" TopLine="84"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+  <Debugging>
+    <Watches>
+      <Item>
+        <Expression Value="gValues"/>
+      </Item>
+    </Watches>
+  </Debugging>
+</CONFIG>
