@@ -6,7 +6,7 @@ unit SignalAnalysis;
 
 { Bricks: Basic blocks for information processing structures }
 
-{ Version 2.1.0 (Foudre) }
+{ Version 2.1.1 (Foudre) }
 
 { (c) Johannes W. Dietrich, 1994 - 2026 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }

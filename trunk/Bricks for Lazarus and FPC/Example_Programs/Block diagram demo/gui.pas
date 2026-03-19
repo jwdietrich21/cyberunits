@@ -7,7 +7,7 @@ unit gui;
 { Demo of canvas using SystemsDiagram }
 { GUI }
 
-{ Version 2.1.0 (Foudre) }
+{ Version 2.1.1 (Foudre) }
 
 { (c) Johannes W. Dietrich, 1994 - 2024 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
