@@ -7,8 +7,9 @@
       <Unit>
         <Filename Value="Simulator.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <CursorPos X="46" Y="15"/>
+        <CursorPos X="25" Y="10"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit>
@@ -17,8 +18,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="SimulationEngine"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="49"/>
-        <CursorPos X="46" Y="15"/>
+        <CursorPos X="25" Y="10"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit>
@@ -33,9 +33,8 @@
         <Filename Value="cliservices.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="CLIServices"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="46" Y="15"/>
+        <CursorPos X="19" Y="2"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit>
@@ -44,7 +43,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="HighResTime"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="46" Y="15"/>
+        <CursorPos X="25" Y="10"/>
         <UsageCount Value="21"/>
         <Loaded Value="True"/>
       </Unit>
@@ -168,7 +167,7 @@
       </Position>
       <Position>
         <Filename Value="cliservices.pas"/>
-        <Caret Line="15" Column="11"/>
+        <Caret Line="15" Column="46"/>
       </Position>
     </JumpHistory>
     <RunParams>

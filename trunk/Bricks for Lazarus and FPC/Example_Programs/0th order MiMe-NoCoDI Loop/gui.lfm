@@ -9,7 +9,7 @@ object ValuesForm: TValuesForm
   Constraints.MinHeight = 400
   Constraints.MinWidth = 640
   Menu = MainMenu1
-  LCLVersion = '4.4.0.0'
+  LCLVersion = '4.6.0.0'
   OnCreate = FormCreate
   object ValuesGrid: TStringGrid
     Left = 0
