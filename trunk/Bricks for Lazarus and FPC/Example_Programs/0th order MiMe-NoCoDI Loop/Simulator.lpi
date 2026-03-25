@@ -22,7 +22,7 @@
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="50"/>
+      <BuildNr Value="51"/>
       <StringTable Comments="Simulator for MiMe-NoCoDI loop" CompanyName="Ruhr University of Bochum" FileDescription="Nonlinear 0th order MiMe-NoCoDI feedback demo" InternalName="MiMe-NoCoDI 2.1.1 Foudre" LegalCopyright="1994–2026 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="2.1.1"/>
     </VersionInfo>
     <BuildModes Count="1">

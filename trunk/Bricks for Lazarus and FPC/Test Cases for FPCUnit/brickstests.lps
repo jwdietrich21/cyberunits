@@ -8,9 +8,9 @@
       <Unit0>
         <Filename Value="brickstests.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
+        <TopLine Value="14"/>
         <CursorPos Y="2"/>
         <UsageCount Value="62"/>
         <Loaded Value="True"/>
@@ -20,6 +20,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
+        <TopLine Value="10"/>
         <CursorPos X="15" Y="3"/>
         <ExtraEditorCount Value="2"/>
         <ExtraEditor1>
@@ -41,6 +42,7 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Bricks"/>
         <WindowIndex Value="1"/>
+        <TopLine Value="4"/>
         <CursorPos Y="2"/>
         <ExtraEditorCount Value="2"/>
         <ExtraEditor1>
@@ -60,9 +62,11 @@
       <Unit3>
         <Filename Value="..\lifeblocks.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
-        <CursorPos Y="2"/>
+        <TopLine Value="5"/>
+        <CursorPos Y="10"/>
         <UsageCount Value="52"/>
         <Loaded Value="True"/>
       </Unit3>

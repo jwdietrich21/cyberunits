@@ -26,7 +26,9 @@ unit lifeblocks;
 { but WITHOUT ANY WARRANTY; without even the implied warranty of }
 { MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. }
 
+{$IFDEF FPC}   {Lazarus and Free Pascal}
 {$mode objfpc}
+{$ENDIF}
 {$H+}
 {$ASSERTIONS ON}
 
