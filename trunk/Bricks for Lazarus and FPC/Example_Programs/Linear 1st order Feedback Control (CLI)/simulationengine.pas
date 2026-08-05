@@ -7,7 +7,7 @@ unit SimulationEngine;
 { Demo of a simple simulator for a linear 1st order feedback system }
 { Simulation Engine }
 
-{ Version 2.1.1 (Foudre) }
+{ Version 2.2.0 (Graffiti Street) }
 
 { (c) Johannes W. Dietrich, 1994 - 2026 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }

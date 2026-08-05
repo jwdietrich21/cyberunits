@@ -1,11 +1,10 @@
-program simple_demo;
+program SimCosinorDemo;
 
 { CyberUnits }
 
 { Object Pascal units for computational cybernetics }
 
-{ Demo of canvas using SystemsDiagram }
-{ Main project file }
+{ LifeBlocks: Metabricks for information processing structures in organisms }
 
 { Version 2.2.0 (Graffiti Street) }
 
@@ -13,6 +12,8 @@ program simple_demo;
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }
 { (c) University of Ulm Hospitals 2002 - 2004 }
 { (c) Ruhr University of Bochum 2005 - 2026 }
+
+{ Standard blocks for systems modelling and simulation }
 
 { Source code released under the BSD License }
 
@@ -28,20 +29,27 @@ program simple_demo;
 {$mode objfpc}{$H+}
 
 uses
-  {$IFDEF UNIX}{$IFDEF UseCThreads}
+  {$IFDEF UNIX}
   cthreads,
-  {$ENDIF}{$ENDIF}
+  {$ENDIF}
+  {$IFDEF HASAMIGA}
+  athreads,
+  {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, gui, bricks, systemsdiagram, lifeblocks
+  Forms, tachartlazaruspkg, MainForm, Bricks, lifeblocks
   { you can add units after this };
 
 {$R *.res}
 
 begin
-  Application.Title := 'Simple Demo for SystemsDiagram';
   RequireDerivedFormResource := True;
+  Application.Title := 'SimCosinor Demo';
+  Application.Scaled := True;
+  {$PUSH}{$WARN 5044 OFF}
+  Application.MainFormOnTaskbar := True;
+  {$POP}
   Application.Initialize;
-  Application.CreateForm(TDemoForm, DemoForm);
+  Application.CreateForm(TMainWindow, MainWindow);
   Application.Run;
 end.
 

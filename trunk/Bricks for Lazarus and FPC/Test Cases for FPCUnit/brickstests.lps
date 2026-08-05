@@ -10,7 +10,6 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="1"/>
-        <TopLine Value="14"/>
         <CursorPos Y="2"/>
         <UsageCount Value="62"/>
         <Loaded Value="True"/>
@@ -18,10 +17,10 @@
       <Unit1>
         <Filename Value="brickstestcases.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="1"/>
-        <TopLine Value="10"/>
-        <CursorPos X="15" Y="3"/>
+        <CursorPos Y="2"/>
         <ExtraEditorCount Value="2"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -62,7 +61,6 @@
       <Unit3>
         <Filename Value="..\lifeblocks.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="1"/>
         <TopLine Value="5"/>
@@ -121,126 +119,122 @@
         <UsageCount Value="9"/>
       </Unit10>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="122" Column="13" TopLine="96"/>
+        <Caret Line="123" Column="13" TopLine="97"/>
       </Position1>
       <Position2>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="123" Column="13" TopLine="97"/>
+        <Caret Line="132" Column="13" TopLine="106"/>
       </Position2>
       <Position3>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="132" Column="13" TopLine="106"/>
+        <Caret Line="143" Column="13" TopLine="117"/>
       </Position3>
       <Position4>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="143" Column="13" TopLine="117"/>
+        <Caret Line="159" Column="13" TopLine="133"/>
       </Position4>
       <Position5>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="159" Column="13" TopLine="133"/>
+        <Caret Line="370" Column="57" TopLine="347"/>
       </Position5>
       <Position6>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="370" Column="57" TopLine="347"/>
+        <Caret Line="374" Column="38" TopLine="350"/>
       </Position6>
       <Position7>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="374" Column="38" TopLine="350"/>
+        <Caret Line="362" Column="37" TopLine="343"/>
       </Position7>
       <Position8>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="362" Column="37" TopLine="343"/>
+        <Caret Line="365" Column="42" TopLine="349"/>
       </Position8>
       <Position9>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="365" Column="42" TopLine="349"/>
+        <Caret Line="368" TopLine="356"/>
       </Position9>
       <Position10>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="368" TopLine="356"/>
+        <Caret Line="1080" Column="12" TopLine="1060"/>
       </Position10>
       <Position11>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="1080" Column="12" TopLine="1060"/>
       </Position11>
       <Position12>
         <Filename Value="..\bricks.pas"/>
+        <Caret Line="457" TopLine="431"/>
       </Position12>
       <Position13>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="457" TopLine="431"/>
+        <Caret Line="560" Column="26" TopLine="541"/>
       </Position13>
       <Position14>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="560" Column="26" TopLine="541"/>
+        <Caret Line="599" Column="30" TopLine="574"/>
       </Position14>
       <Position15>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="599" Column="30" TopLine="574"/>
+        <Caret Line="640" Column="30" TopLine="615"/>
       </Position15>
       <Position16>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="640" Column="30" TopLine="615"/>
+        <Caret Line="685" Column="30" TopLine="660"/>
       </Position16>
       <Position17>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="685" Column="30" TopLine="660"/>
+        <Caret Line="852" Column="30" TopLine="827"/>
       </Position17>
       <Position18>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="852" Column="30" TopLine="827"/>
+        <Caret Line="883" Column="30" TopLine="858"/>
       </Position18>
       <Position19>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="883" Column="30" TopLine="858"/>
+        <Caret Line="930" Column="30" TopLine="905"/>
       </Position19>
       <Position20>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="930" Column="30" TopLine="905"/>
+        <Caret Line="1010" Column="21" TopLine="990"/>
       </Position20>
       <Position21>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="1010" Column="21" TopLine="990"/>
+        <Caret Line="1050" Column="27" TopLine="1036"/>
       </Position21>
       <Position22>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="1050" Column="27" TopLine="1036"/>
+        <Caret Line="5" Column="28"/>
       </Position22>
       <Position23>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="5" Column="28"/>
+        <Caret Line="1039" Column="29" TopLine="1024"/>
       </Position23>
       <Position24>
         <Filename Value="..\bricks.pas"/>
-        <Caret Line="1039" Column="29" TopLine="1024"/>
+        <Caret Line="1068" TopLine="1040"/>
       </Position24>
       <Position25>
-        <Filename Value="..\bricks.pas"/>
-        <Caret Line="1068" TopLine="1040"/>
+        <Filename Value="..\lifeblocks.pas"/>
+        <Caret Line="14" Column="44"/>
       </Position25>
       <Position26>
         <Filename Value="..\lifeblocks.pas"/>
-        <Caret Line="14" Column="44"/>
+        <Caret Line="222" Column="46" TopLine="190"/>
       </Position26>
       <Position27>
-        <Filename Value="..\lifeblocks.pas"/>
-        <Caret Line="222" Column="46" TopLine="190"/>
-      </Position27>
-      <Position28>
         <Filename Value="brickstestcases.pas"/>
         <Caret Line="700" TopLine="668"/>
-      </Position28>
-      <Position29>
+      </Position27>
+      <Position28>
         <Filename Value="..\bricks.pas"/>
         <Caret Line="40" Column="23" TopLine="31"/>
-      </Position29>
-      <Position30>
+      </Position28>
+      <Position29>
         <Filename Value="brickstests.lpr"/>
         <Caret Line="12" Column="45"/>
-      </Position30>
+      </Position29>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

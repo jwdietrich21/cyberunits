@@ -21,10 +21,9 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
-      <MinorVersionNr Value="1"/>
-      <RevisionNr Value="1"/>
-      <BuildNr Value="113"/>
-      <StringTable Comments="CyberUnits System Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Unit Tests for Bricks" InternalName="Bricks 2.1.1 Foudre" LegalCopyright="1994–2026 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="2.1.1"/>
+      <MinorVersionNr Value="2"/>
+      <BuildNr Value="115"/>
+      <StringTable Comments="CyberUnits System Bricks for simulating processing structures" CompanyName="Ruhr University of Bochum" FileDescription="Unit Tests for Bricks" InternalName="Bricks 2.2.0 Graffiti Street" LegalCopyright="1994–2026 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="Bricks" ProductVersion="2.2.0"/>
     </VersionInfo>
     <BuildModes Count="1">
       <Item1 Name="Default" Default="True"/>
@@ -79,6 +78,8 @@
       <IncludeFiles Value="$(ProjOutDir)"/>
       <OtherUnitFiles Value=".."/>
     </SearchPaths>
+    <Conditionals Value="if TargetOS = &apos;darwin&apos; then
+                          CustomOptions := &apos;-WM10.15&apos;"/>
     <Linking>
       <Debugging>
         <DebugInfoType Value="dsDwarf2Set"/>

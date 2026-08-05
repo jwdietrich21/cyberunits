@@ -1,0 +1,186 @@
+object MainWindow: TMainWindow
+  Left = 443
+  Height = 403
+  Top = 224
+  Width = 618
+  Caption = 'SimCosinor Demo'
+  ClientHeight = 403
+  ClientWidth = 618
+  Menu = MainMenu1
+  LCLVersion = '4.8.0.0'
+  OnShow = FormShow
+  object TimeDomainChart: TChart
+    Left = 8
+    Height = 332
+    Top = 56
+    Width = 594
+    AxisList = <    
+      item
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+        Title.LabelBrush.Style = bsClear
+      end    
+      item
+        Alignment = calBottom
+        Marks.LabelBrush.Style = bsClear
+        Minors = <>
+        Title.LabelBrush.Style = bsClear
+      end>
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    object TimeDomainChartLineSeries1: TLineSeries
+      LinePen.Color = clGreen
+    end
+  end
+  object MesorFloatSpinEdit: TFloatSpinEdit
+    Left = 88
+    Height = 20
+    Top = 24
+    Width = 69
+    Increment = 0.1
+    TabOrder = 1
+    OnChange = MesorFloatSpinEditChange
+  end
+  object AmplitudeFloatSpinEdit: TFloatSpinEdit
+    Left = 256
+    Height = 20
+    Top = 24
+    Width = 50
+    Increment = 0.1
+    TabOrder = 2
+    Value = 1
+    OnChange = AmplitudeFloatSpinEditChange
+  end
+  object AcrophaseFloatSpinEdit: TFloatSpinEdit
+    Left = 416
+    Height = 20
+    Top = 24
+    Width = 50
+    Increment = 0.1
+    TabOrder = 3
+    OnChange = AcrophaseFloatSpinEditChange
+  end
+  object MesorLabel: TLabel
+    Left = 40
+    Height = 16
+    Top = 25
+    Width = 42
+    Caption = 'Mesor:'
+  end
+  object AmplitudeLabel: TLabel
+    Left = 184
+    Height = 16
+    Top = 25
+    Width = 65
+    Caption = 'Amplitude:'
+  end
+  object AcrophaseLabel: TLabel
+    Left = 336
+    Height = 16
+    Top = 25
+    Width = 68
+    Caption = 'Acrophase:'
+  end
+  object TauLabel: TLabel
+    Left = 496
+    Height = 16
+    Top = 28
+    Width = 25
+    Caption = 'Tau:'
+  end
+  object TauFloatSpinEdit: TFloatSpinEdit
+    Left = 536
+    Height = 20
+    Top = 24
+    Width = 50
+    Increment = 0.1
+    TabOrder = 4
+    Value = 1
+    OnChange = TauFloatSpinEditChange
+  end
+  object MainMenu1: TMainMenu
+    Left = 488
+    Top = 216
+    object AppleMenu: TMenuItem
+      Caption = ''
+      object MacAboutItem: TMenuItem
+        Caption = 'About SimCosinor Demo'
+        OnClick = MacAboutItemClick
+      end
+    end
+    object FileMenu: TMenuItem
+      Caption = 'File'
+      object NewMenuItem: TMenuItem
+        Caption = 'New'
+        Enabled = False
+        ShortCut = 16462
+      end
+      object Divider11: TMenuItem
+        Caption = '-'
+      end
+      object OpenMenuItem: TMenuItem
+        Caption = 'Open'
+        Enabled = False
+        ShortCut = 16463
+      end
+      object SaveMenuItem: TMenuItem
+        Caption = 'Save'
+        Enabled = False
+        ShortCut = 16467
+      end
+      object CloseMenuItem: TMenuItem
+        Caption = 'Close'
+        ShortCut = 16471
+      end
+      object Divider12: TMenuItem
+        Caption = '-'
+      end
+      object QuitMenuItem: TMenuItem
+        Caption = 'Quit'
+        ShortCut = 16465
+        OnClick = QuitMenuItemClick
+      end
+    end
+    object EditMenu: TMenuItem
+      Caption = 'Edit'
+      object UndoMenuItem: TMenuItem
+        Caption = 'Undo'
+        Enabled = False
+        ShortCut = 16474
+      end
+      object RedoMenuItem: TMenuItem
+        Caption = 'Redo'
+        Enabled = False
+        ShortCut = 24666
+      end
+      object Divider21: TMenuItem
+        Caption = '-'
+      end
+      object CutMenuItem: TMenuItem
+        Caption = 'Cut'
+        Enabled = False
+        ShortCut = 16451
+      end
+      object CopyMenuItem: TMenuItem
+        Caption = 'Copy'
+        Enabled = False
+        ShortCut = 16451
+      end
+      object PasteMenuItem: TMenuItem
+        Caption = 'Paste'
+        Enabled = False
+        ShortCut = 16470
+      end
+    end
+    object HelpMenu: TMenuItem
+      Caption = 'Help'
+      object WinAboutItem: TMenuItem
+        Caption = 'About SimCosinor Demo'
+        OnClick = WinAboutItemClick
+      end
+    end
+  end
+end

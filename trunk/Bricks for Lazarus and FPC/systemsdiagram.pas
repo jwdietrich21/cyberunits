@@ -6,7 +6,7 @@ unit SystemsDiagram;
 
 { SystemsDiagram: Classes for drawing block diagrams }
 
-{ Version 2.1.1 (Foudre) }
+{ Version 2.2.0 (Graffiti Street) }
 
 { (c) Johannes W. Dietrich, 1994 - 2026 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }

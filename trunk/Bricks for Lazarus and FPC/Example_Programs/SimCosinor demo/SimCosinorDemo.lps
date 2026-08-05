@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="SimCosinorDemo.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <CursorPos X="23" Y="3"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="mainform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainWindow"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MainForm"/>
+        <CursorPos X="57" Y="8"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../bricks.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Bricks"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="76" Y="7"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="../../lifeblocks.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="34" Y="9"/>
+        <ExtraEditorCount Value="1"/>
+        <ExtraEditor1>
+          <EditorIndex Value="-1"/>
+          <WindowIndex Value="-1"/>
+          <TopLine Value="82"/>
+          <CursorPos Y="84"/>
+        </ExtraEditor1>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="113" TopLine="94"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="115" TopLine="94"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="99" Column="8" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="117" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="../../lifeblocks.pas"/>
+        <Caret Line="140" TopLine="125"/>
+      </Position>
+      <Position>
+        <Filename Value="../../lifeblocks.pas"/>
+        <Caret Line="156" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="../../lifeblocks.pas"/>
+        <Caret Line="157" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="../../lifeblocks.pas"/>
+        <Caret Line="158" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="../../lifeblocks.pas"/>
+        <Caret Line="159" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="../../lifeblocks.pas"/>
+        <Caret Line="160" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="418" TopLine="403"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="419" TopLine="403"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="420" TopLine="403"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="417" TopLine="403"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="421" TopLine="403"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="422" TopLine="403"/>
+      </Position>
+      <Position>
+        <Filename Value="../../lifeblocks.pas"/>
+        <Caret Line="161" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="../../lifeblocks.pas"/>
+        <Caret Line="162" TopLine="141"/>
+      </Position>
+      <Position>
+        <Filename Value="../../lifeblocks.pas"/>
+        <Caret Line="141" TopLine="126"/>
+      </Position>
+      <Position>
+        <Filename Value="../../lifeblocks.pas"/>
+        <Caret Line="142" TopLine="126"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="416" Column="21" TopLine="408"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="151" Column="23" TopLine="140"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="119" Column="11" TopLine="97"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="145" Column="11" TopLine="123"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="115" Column="3" TopLine="112"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="116" Column="63" TopLine="98"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="108" Column="27" TopLine="98"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="117" Column="12" TopLine="106"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="9" Column="25"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="422" Column="5" TopLine="416"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
