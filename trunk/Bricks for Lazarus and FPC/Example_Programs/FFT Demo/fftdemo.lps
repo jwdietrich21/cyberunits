@@ -8,6 +8,7 @@
       <Unit0>
         <Filename Value="fftdemo.lpr"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <CursorPos X="34" Y="9"/>
         <UsageCount Value="46"/>
@@ -29,7 +30,6 @@
         <Filename Value="..\..\signalanalysis.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="SignalAnalysis"/>
-        <IsVisibleTab Value="True"/>
         <CursorPos Y="2"/>
         <UsageCount Value="46"/>
         <Loaded Value="True"/>

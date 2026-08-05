@@ -7,7 +7,7 @@ unit Prediction;
 { Simulator for Hill-NoCoDI loop with n = 2 }
 { This unit displays predicted values as delivered by equilibrium analysis }
 
-{ Version 2.1.1 (Foudre) }
+{ Version 2.2.0 (Graffiti Street) }
 
 { (c) Johannes W. Dietrich, 1994 - 2026 }
 { (c) Ludwig Maximilian University of Munich 1995 - 2002 }

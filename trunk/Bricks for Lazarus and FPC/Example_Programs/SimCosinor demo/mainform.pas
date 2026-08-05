@@ -13,7 +13,7 @@ unit MainForm;
 { (c) University of Ulm Hospitals 2002 - 2004 }
 { (c) Ruhr University of Bochum 2005 - 2026 }
 
-{ Standard blocks for systems modelling and simulation }
+{ SimCosinor: Demo program for the simulation of cosinor-based timeseries }
 
 { Source code released under the BSD License }
 

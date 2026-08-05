@@ -33,6 +33,7 @@ object MainWindow: TMainWindow
     Anchors = [akTop, akLeft, akRight, akBottom]
     object TimeDomainChartLineSeries1: TLineSeries
       LinePen.Color = clGreen
+      LinePen.Width = 2
     end
   end
   object MesorFloatSpinEdit: TFloatSpinEdit
@@ -87,7 +88,7 @@ object MainWindow: TMainWindow
   object TauLabel: TLabel
     Left = 496
     Height = 16
-    Top = 28
+    Top = 25
     Width = 25
     Caption = 'Tau:'
   end

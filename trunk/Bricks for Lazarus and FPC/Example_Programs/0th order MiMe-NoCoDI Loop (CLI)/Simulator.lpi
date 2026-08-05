@@ -17,10 +17,9 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
-      <MinorVersionNr Value="1"/>
-      <RevisionNr Value="1"/>
-      <BuildNr Value="42"/>
-      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Linear 1st order feedback demo (CLI version)" InternalName="FC1L 2.1.1 Foudre" LegalCopyright="1994–2026 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits FC1L CLI demo" ProductVersion="2.1.1"/>
+      <MinorVersionNr Value="2"/>
+      <BuildNr Value="43"/>
+      <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Linear 1st order feedback demo (CLI version)" InternalName="FC1L 2.2.0 Graffiti Street" LegalCopyright="1994–2026 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits FC1L CLI demo" ProductVersion="2.2.0"/>
     </VersionInfo>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -69,6 +68,8 @@
       <OtherUnitFiles Value="../.."/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
+    <Conditionals Value="if TargetOS = &apos;darwin&apos; then
+                          CustomOptions := &apos;-WM10.15&apos;"/>
     <CodeGeneration>
       <TargetCPU Value="aarch64"/>
       <Optimizations>
