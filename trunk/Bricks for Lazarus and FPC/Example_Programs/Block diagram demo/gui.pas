@@ -67,6 +67,7 @@ type
     procedure DemoButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FormShow(Sender: TObject);
     procedure ShowAboutWindow(Sender: TObject);
     procedure MacAboutItemClick(Sender: TObject);
     procedure QuitMenuItemClick(Sender: TObject);
@@ -563,6 +564,11 @@ end;
 procedure TDemoForm.FormDestroy(Sender: TObject);
 begin
   //if assigned(BlockDiagram) then BlockDiagram.Destroy;
+end;
+
+procedure TDemoForm.FormShow(Sender: TObject);
+begin
+  DemoButtonClick(Sender);
 end;
 
 procedure TDemoForm.ShowAboutWindow(Sender: TObject);

@@ -15,6 +15,7 @@ object DemoForm: TDemoForm
   LCLVersion = '4.8.0.0'
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnShow = FormShow
   object DemoImage: TImage
     Left = 24
     Height = 311
