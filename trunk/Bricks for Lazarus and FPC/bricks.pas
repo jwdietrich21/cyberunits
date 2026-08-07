@@ -416,6 +416,7 @@ end;
 procedure TTHarmonic.simulate;
 begin
   assert(assigned(model), kError210);
+  assert(G >= 0, kError101);
   fOutput := (G + G * sin(omega * model.time + phi)) / 2;
   if updateTime then
     model.time := model.time + delta;

@@ -154,7 +154,7 @@ end;
 procedure TCosinor.simulate;
 begin
   G := amplitude * 2;
-  phi := -(pi / 2 + acrophase);
+  phi := pi / 2 * (1 - 4 * acrophase); // express cos as sin and add acrophase
   assert(tau > 0, kError106);
   omega := 2 * pi / tau;
   inherited simulate;

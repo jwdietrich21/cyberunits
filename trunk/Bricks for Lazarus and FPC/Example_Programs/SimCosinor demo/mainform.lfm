@@ -6,6 +6,8 @@ object MainWindow: TMainWindow
   Caption = 'SimCosinor Demo'
   ClientHeight = 403
   ClientWidth = 618
+  Constraints.MinHeight = 400
+  Constraints.MinWidth = 600
   Menu = MainMenu1
   LCLVersion = '4.8.0.0'
   OnShow = FormShow
@@ -60,7 +62,7 @@ object MainWindow: TMainWindow
     Height = 20
     Top = 24
     Width = 50
-    Increment = 0.1
+    Increment = 0.01
     TabOrder = 3
     OnChange = AcrophaseFloatSpinEditChange
   end

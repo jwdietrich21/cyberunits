@@ -9,7 +9,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
         <CursorPos X="78" Y="7"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -20,8 +20,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MainForm"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="36" Y="9"/>
-        <UsageCount Value="22"/>
+        <CursorPos Y="2"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -30,15 +30,16 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Bricks"/>
         <EditorIndex Value="1"/>
-        <CursorPos X="63" Y="7"/>
-        <UsageCount Value="22"/>
+        <TopLine Value="404"/>
+        <CursorPos X="31" Y="416"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="../../lifeblocks.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="78" Y="7"/>
+        <CursorPos X="54" Y="5"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -46,51 +47,11 @@
           <TopLine Value="82"/>
           <CursorPos Y="84"/>
         </ExtraEditor1>
-        <UsageCount Value="22"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="mainform.pas"/>
-        <Caret Line="115" TopLine="94"/>
-      </Position>
-      <Position>
-        <Filename Value="mainform.pas"/>
-        <Caret Line="99" Column="8" TopLine="95"/>
-      </Position>
-      <Position>
-        <Filename Value="mainform.pas"/>
-        <Caret Line="117" TopLine="95"/>
-      </Position>
-      <Position>
-        <Filename Value="../../lifeblocks.pas"/>
-        <Caret Line="140" TopLine="125"/>
-      </Position>
-      <Position>
-        <Filename Value="../../lifeblocks.pas"/>
-        <Caret Line="156" TopLine="141"/>
-      </Position>
-      <Position>
-        <Filename Value="../../lifeblocks.pas"/>
-        <Caret Line="157" TopLine="141"/>
-      </Position>
-      <Position>
-        <Filename Value="../../lifeblocks.pas"/>
-        <Caret Line="158" TopLine="141"/>
-      </Position>
-      <Position>
-        <Filename Value="../../lifeblocks.pas"/>
-        <Caret Line="159" TopLine="141"/>
-      </Position>
-      <Position>
-        <Filename Value="../../lifeblocks.pas"/>
-        <Caret Line="160" TopLine="141"/>
-      </Position>
-      <Position>
-        <Filename Value="../../bricks.pas"/>
-        <Caret Line="418" TopLine="403"/>
-      </Position>
+    <JumpHistory HistoryIndex="28">
       <Position>
         <Filename Value="../../bricks.pas"/>
         <Caret Line="419" TopLine="403"/>
@@ -170,6 +131,46 @@
       <Position>
         <Filename Value="../../lifeblocks.pas"/>
         <Caret Line="106" Column="23" TopLine="86"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="14" Column="49" TopLine="43"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="63" Column="9" TopLine="44"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="65" Column="9" TopLine="44"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="72" Column="19" TopLine="48"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="140" Column="28" TopLine="131"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="366" Column="21" TopLine="356"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="151" Column="23" TopLine="130"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="418" Column="31" TopLine="404"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="419" Column="21" TopLine="404"/>
+      </Position>
+      <Position>
+        <Filename Value="../../bricks.pas"/>
+        <Caret Line="63" Column="3" TopLine="55"/>
       </Position>
     </JumpHistory>
     <RunParams>
