@@ -20,7 +20,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="2"/>
-      <BuildNr Value="23"/>
+      <BuildNr Value="24"/>
       <Attributes pvaDebug="True" pvaPreRelease="True"/>
       <StringTable Comments="CyberUnits test and demo application" CompanyName="Ruhr University of Bochum" FileDescription="Demonstrator for TCosinor" InternalName="Graffiti Street" LegalCopyright="1994-2026 J. W. Dietrich, N. Siegmar and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits SimCosinor Demo" ProductVersion="2.2.0"/>
     </VersionInfo>

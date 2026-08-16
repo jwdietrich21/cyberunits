@@ -51,7 +51,7 @@
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="28">
+    <JumpHistory HistoryIndex="27">
       <Position>
         <Filename Value="../../bricks.pas"/>
         <Caret Line="419" TopLine="403"/>
@@ -131,10 +131,6 @@
       <Position>
         <Filename Value="../../lifeblocks.pas"/>
         <Caret Line="106" Column="23" TopLine="86"/>
-      </Position>
-      <Position>
-        <Filename Value="mainform.pas"/>
-        <Caret Line="14" Column="49" TopLine="43"/>
       </Position>
       <Position>
         <Filename Value="mainform.pas"/>
