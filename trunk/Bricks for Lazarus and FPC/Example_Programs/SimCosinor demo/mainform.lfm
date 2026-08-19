@@ -9,7 +9,8 @@ object MainWindow: TMainWindow
   Constraints.MinHeight = 400
   Constraints.MinWidth = 600
   Menu = MainMenu1
-  LCLVersion = '4.8.0.0'
+  LCLVersion = '4.0.0.4'
+  OnCreate = FormCreate
   OnShow = FormShow
   object TimeDomainChart: TChart
     Left = 8
@@ -40,7 +41,7 @@ object MainWindow: TMainWindow
   end
   object MesorFloatSpinEdit: TFloatSpinEdit
     Left = 88
-    Height = 20
+    Height = 23
     Top = 24
     Width = 69
     Increment = 0.1
@@ -49,7 +50,7 @@ object MainWindow: TMainWindow
   end
   object AmplitudeFloatSpinEdit: TFloatSpinEdit
     Left = 256
-    Height = 20
+    Height = 23
     Top = 24
     Width = 50
     Increment = 0.1
@@ -59,7 +60,7 @@ object MainWindow: TMainWindow
   end
   object AcrophaseFloatSpinEdit: TFloatSpinEdit
     Left = 416
-    Height = 20
+    Height = 23
     Top = 24
     Width = 50
     Increment = 0.01
@@ -68,35 +69,35 @@ object MainWindow: TMainWindow
   end
   object MesorLabel: TLabel
     Left = 40
-    Height = 16
+    Height = 15
     Top = 25
-    Width = 42
+    Width = 36
     Caption = 'Mesor:'
   end
   object AmplitudeLabel: TLabel
     Left = 184
-    Height = 16
+    Height = 15
     Top = 25
-    Width = 65
+    Width = 59
     Caption = 'Amplitude:'
   end
   object AcrophaseLabel: TLabel
     Left = 336
-    Height = 16
+    Height = 15
     Top = 25
-    Width = 68
+    Width = 59
     Caption = 'Acrophase:'
   end
   object TauLabel: TLabel
     Left = 496
-    Height = 16
+    Height = 15
     Top = 25
-    Width = 25
+    Width = 21
     Caption = 'Tau:'
   end
   object TauFloatSpinEdit: TFloatSpinEdit
     Left = 536
-    Height = 20
+    Height = 23
     Top = 24
     Width = 50
     Increment = 0.1

@@ -32,7 +32,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Spin, StdCtrls, Menus,
-  TAGraph, TASeries, Bricks, lifeblocks;
+  LCLType, TAGraph, TASeries, Bricks, lifeblocks;
 
 type
 
@@ -71,6 +71,7 @@ type
     WinAboutItem: TMenuItem;
     procedure AcrophaseFloatSpinEditChange(Sender: TObject);
     procedure AmplitudeFloatSpinEditChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure MacAboutItemClick(Sender: TObject);
     procedure MesorFloatSpinEditChange(Sender: TObject);
@@ -78,7 +79,7 @@ type
     procedure TauFloatSpinEditChange(Sender: TObject);
     procedure WinAboutItemClick(Sender: TObject);
   private
-
+    procedure AdaptMenus(Sender: TObject);
   public
     procedure Simulate;
   end;
@@ -112,6 +113,11 @@ begin
   Simulate;
 end;
 
+procedure TMainWindow.FormCreate(Sender: TObject);
+begin
+  AdaptMenus(Sender);
+end;
+
 procedure TMainWindow.FormShow(Sender: TObject);
 begin
   Simulate;
@@ -125,6 +131,39 @@ end;
 procedure TMainWindow.WinAboutItemClick(Sender: TObject);
 begin
   MacAboutItemClick(Sender)
+end;
+
+procedure TMainWindow.AdaptMenus(Sender: TObject);
+{ Adapts Menus and Shortcuts to the interface style guidelines
+  of the respective operating system }
+var
+  modifierKey: TShiftState;
+begin
+  {$IFDEF LCLcarbon}
+  modifierKey := [ssMeta];
+  WinAboutItem.Visible := False;
+  AppleMenu.Visible := True;
+  {$ELSE}
+  {$IFDEF LCLCocoa}
+  modifierKey := [ssMeta];
+  WinAboutItem.Visible := False;
+  AppleMenu.Visible := True;
+  {$ELSE}
+  modifierKey := [ssCtrl];
+  WinAboutItem.Visible := True;
+  AppleMenu.Visible := False;
+  {$ENDIF}
+  {$ENDIF}
+  NewMenuItem.ShortCut := ShortCut(VK_N, modifierKey);
+  OpenMenuItem.ShortCut := ShortCut(VK_O, modifierKey);
+  CloseMenuItem.ShortCut := ShortCut(VK_W, modifierKey);
+  SaveMenuItem.ShortCut := ShortCut(VK_S, modifierKey);
+  QuitMenuItem.ShortCut := ShortCut(VK_Q, modifierKey);
+  UndoMenuItem.ShortCut := ShortCut(VK_Z, modifierKey);
+  RedoMenuItem.ShortCut := ShortCut(VK_Z, modifierKey + [ssShift]);
+  CutMenuItem.ShortCut := ShortCut(VK_X, modifierKey);
+  CopyMenuItem.ShortCut := ShortCut(VK_C, modifierKey);
+  PasteMenuItem.ShortCut := ShortCut(VK_V, modifierKey);
 end;
 
 procedure TMainWindow.AcrophaseFloatSpinEditChange(Sender: TObject);

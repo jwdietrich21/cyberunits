@@ -33,7 +33,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, TAGraph, Forms, Controls, Graphics, Dialogs,
   StdCtrls, PairSplitter, ExtCtrls, Menus, ComCtrls, SignalAnalysis, Math,
-  ucomplex, TASeries;
+  LCLType, ucomplex, TASeries;
 
 type
 
@@ -92,6 +92,7 @@ type
     procedure writeMemoLine(theString: string);
     procedure writectable(l: table);
     procedure DisplayScope(Sender: TObject);
+    procedure AdaptMenus(Sender: TObject);
   public
     { public declarations }
   end;
@@ -228,6 +229,7 @@ end;
 
 procedure TDemoMainForm.FormCreate(Sender: TObject);
 begin
+  AdaptMenus(Sender);
   DisplayScope(Sender);
 end;
 
@@ -286,6 +288,8 @@ begin
   end;
 end;
 
+
+
 procedure TDemoMainForm.DisplayScope(Sender: TObject);
 begin
   ScopeEdit.Text := IntToStr(ScopeTrackBar.Position);
@@ -296,5 +300,37 @@ begin
     ScopeEdit.Font.Color := clRed;
 end;
 
+procedure TDemoMainForm.AdaptMenus(Sender: TObject);
+{ Adapts Menus and Shortcuts to the interface style guidelines
+  of the respective operating system }
+var
+  modifierKey: TShiftState;
+begin
+  {$IFDEF LCLcarbon}
+  modifierKey := [ssMeta];
+  WinAboutItem.Visible := False;
+  AppleMenu.Visible := True;
+  {$ELSE}
+  {$IFDEF LCLCocoa}
+  modifierKey := [ssMeta];
+  WinAboutItem.Visible := False;
+  AppleMenu.Visible := True;
+  {$ELSE}
+  modifierKey := [ssCtrl];
+  WinAboutItem.Visible := True;
+  AppleMenu.Visible := False;
+  {$ENDIF}
+  {$ENDIF}
+  NewMenuItem.ShortCut := ShortCut(VK_N, modifierKey);
+  OpenMenuItem.ShortCut := ShortCut(VK_O, modifierKey);
+  CloseMenuItem.ShortCut := ShortCut(VK_W, modifierKey);
+  SaveMenuItem.ShortCut := ShortCut(VK_S, modifierKey);
+  QuitMenuItem.ShortCut := ShortCut(VK_Q, modifierKey);
+  UndoMenuItem.ShortCut := ShortCut(VK_Z, modifierKey);
+  RedoMenuItem.ShortCut := ShortCut(VK_Z, modifierKey + [ssShift]);
+  CutMenuItem.ShortCut := ShortCut(VK_X, modifierKey);
+  CopyMenuItem.ShortCut := ShortCut(VK_C, modifierKey);
+  PasteMenuItem.ShortCut := ShortCut(VK_V, modifierKey);
+end;
 
 end.

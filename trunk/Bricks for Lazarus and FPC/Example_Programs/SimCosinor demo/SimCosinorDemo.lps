@@ -51,19 +51,7 @@
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="27">
-      <Position>
-        <Filename Value="../../bricks.pas"/>
-        <Caret Line="419" TopLine="403"/>
-      </Position>
-      <Position>
-        <Filename Value="../../bricks.pas"/>
-        <Caret Line="420" TopLine="403"/>
-      </Position>
-      <Position>
-        <Filename Value="../../bricks.pas"/>
-        <Caret Line="417" TopLine="403"/>
-      </Position>
+    <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="../../bricks.pas"/>
         <Caret Line="421" TopLine="403"/>
@@ -165,8 +153,24 @@
         <Caret Line="419" Column="21" TopLine="404"/>
       </Position>
       <Position>
-        <Filename Value="../../bricks.pas"/>
-        <Caret Line="63" Column="3" TopLine="55"/>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="81" Column="15" TopLine="59"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="80" Column="19" TopLine="61"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="81" Column="15" TopLine="61"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="168" TopLine="168"/>
+      </Position>
+      <Position>
+        <Filename Value="mainform.pas"/>
+        <Caret Line="118" Column="22" TopLine="116"/>
       </Position>
     </JumpHistory>
     <RunParams>

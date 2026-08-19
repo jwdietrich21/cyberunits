@@ -7,7 +7,7 @@ object DemoMainForm: TDemoMainForm
   ClientHeight = 493
   ClientWidth = 870
   Menu = MainMenu1
-  LCLVersion = '4.8.0.0'
+  LCLVersion = '4.0.0.4'
   OnCreate = FormCreate
   object DemoButton: TButton
     Left = 745
@@ -55,11 +55,11 @@ object DemoMainForm: TDemoMainForm
         end
         object EquationComboBox: TComboBox
           Left = 104
-          Height = 20
+          Height = 23
           Top = 13
           Width = 296
           Anchors = [akTop, akLeft, akRight]
-          ItemHeight = 18
+          ItemHeight = 15
           ItemIndex = 0
           Items.Strings = (
             'y := 1 + 10*sin(2*pi*5*t) + 4*sin(2*pi*20*t)'
@@ -72,9 +72,9 @@ object DemoMainForm: TDemoMainForm
         end
         object EquationLabeo: TLabel
           Left = 8
-          Height = 16
+          Height = 15
           Top = 16
-          Width = 57
+          Width = 50
           Caption = 'Equation:'
         end
         object ScopeTrackBar: TTrackBar
