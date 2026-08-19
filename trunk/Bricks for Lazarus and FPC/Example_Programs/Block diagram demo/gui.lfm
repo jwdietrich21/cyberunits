@@ -1,7 +1,7 @@
 object DemoForm: TDemoForm
-  Left = 241
+  Left = 231
   Height = 401
-  Top = 164
+  Top = 155
   Width = 841
   BorderStyle = bsSingle
   Caption = 'Simple demo program for SystemsDiagram'

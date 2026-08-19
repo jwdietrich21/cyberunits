@@ -7,7 +7,6 @@
       <Unit0>
         <Filename Value="simple_demo.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <CursorPos Y="6"/>
         <UsageCount Value="62"/>
@@ -19,8 +18,9 @@
         <ComponentName Value="DemoForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <CursorPos Y="2"/>
+        <CursorPos X="55" Y="28"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
@@ -48,9 +48,8 @@
         <CursorPos Y="2"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
-          <IsVisibleTab Value="True"/>
           <EditorIndex Value="-1"/>
-          <WindowIndex Value="1"/>
+          <WindowIndex Value="-1"/>
           <TopLine Value="1428"/>
           <CursorPos X="51" Y="1447"/>
         </ExtraEditor1>
@@ -211,7 +210,7 @@
         <UsageCount Value="10"/>
       </Unit24>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="28" HistoryIndex="27">
       <Position1>
         <Filename Value="../../systemsdiagram.pas"/>
         <Caret Line="138" Column="8" TopLine="123"/>
@@ -306,31 +305,23 @@
       </Position23>
       <Position24>
         <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="3" Column="15" TopLine="68"/>
+        <Caret Line="169" Column="19" TopLine="150"/>
       </Position24>
       <Position25>
         <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="169" Column="19" TopLine="150"/>
+        <Caret Line="1476" Column="15" TopLine="1462"/>
       </Position25>
       <Position26>
-        <Filename Value="../../systemsdiagram.pas"/>
-        <Caret Line="1476" Column="15" TopLine="1462"/>
+        <Filename Value="gui.pas"/>
+        <Caret Line="97" Column="29" TopLine="91"/>
       </Position26>
       <Position27>
         <Filename Value="gui.pas"/>
-        <Caret Line="2" TopLine="462"/>
+        <Caret Line="571" Column="27" TopLine="566"/>
       </Position27>
       <Position28>
         <Filename Value="gui.pas"/>
-        <Caret Line="97" Column="29" TopLine="91"/>
       </Position28>
-      <Position29>
-        <Filename Value="gui.pas"/>
-        <Caret Line="571" Column="27" TopLine="566"/>
-      </Position29>
-      <Position30>
-        <Filename Value="gui.pas"/>
-      </Position30>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

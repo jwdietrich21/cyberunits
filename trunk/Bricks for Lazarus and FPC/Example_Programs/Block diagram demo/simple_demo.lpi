@@ -20,7 +20,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="2"/>
       <MinorVersionNr Value="2"/>
-      <BuildNr Value="100"/>
+      <BuildNr Value="102"/>
       <StringTable Comments="CyberUnits demo application" CompanyName="Ruhr University of Bochum" FileDescription="Simple Demo for block diagrams with SystemsDiagram" InternalName="SystemsDiagram Demo 2.2.0 Graffiti Street" LegalCopyright="1994–2026 J. W. Dietrich and Ruhr University of Bochum" LegalTrademarks="CyberUnits" ProductName="CyberUnits" ProductVersion="2.2.0"/>
     </VersionInfo>
     <BuildModes Count="1">
