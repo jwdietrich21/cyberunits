@@ -1,0 +1,156 @@
+object DemoForm: TDemoForm
+  Left = 231
+  Height = 401
+  Top = 155
+  Width = 841
+  BorderStyle = bsSingle
+  Caption = 'Simple demo program for SystemsDiagram'
+  ClientHeight = 401
+  ClientWidth = 841
+  Constraints.MinHeight = 390
+  Constraints.MinWidth = 640
+  Menu = MainMenu1
+  ParentBiDiMode = False
+  Position = poDefault
+  LCLVersion = '4.8.0.0'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  object DemoImage: TImage
+    Left = 24
+    Height = 311
+    Top = 24
+    Width = 788
+    Anchors = [akTop, akLeft, akRight, akBottom]
+  end
+  object DemoButton: TButton
+    Left = 704
+    Height = 25
+    Top = 349
+    Width = 107
+    Anchors = [akRight, akBottom]
+    Caption = 'Draw Demo'
+    Default = True
+    TabOrder = 0
+    OnClick = DemoButtonClick
+  end
+  object BackgroundColorBox: TColorBox
+    Left = 154
+    Height = 19
+    Top = 355
+    Width = 190
+    Selected = clWhite
+    Anchors = [akLeft, akBottom]
+    ItemHeight = 16
+    TabOrder = 1
+  end
+  object BackgroundColorLabel: TLabel
+    Left = 24
+    Height = 16
+    Top = 354
+    Width = 120
+    Anchors = [akLeft, akBottom]
+    Caption = 'Background Colour:'
+    ParentColor = False
+  end
+  object DrawingColorLabel: TLabel
+    Left = 357
+    Height = 16
+    Top = 354
+    Width = 117
+    Anchors = [akLeft, akBottom]
+    Caption = 'Colour for Drawing:'
+    ParentColor = False
+  end
+  object DrawingColorBox: TColorBox
+    Left = 487
+    Height = 19
+    Top = 355
+    Width = 190
+    Anchors = [akLeft, akBottom]
+    ItemHeight = 16
+    TabOrder = 2
+  end
+  object MainMenu1: TMainMenu
+    Left = 552
+    Top = 40
+    object AppleMenu: TMenuItem
+      Caption = ''
+      object MacAboutItem: TMenuItem
+        Caption = 'About Block Diagram Demo'
+        OnClick = MacAboutItemClick
+      end
+    end
+    object FileMenu: TMenuItem
+      Caption = 'File'
+      object NewMenuItem: TMenuItem
+        Caption = 'New'
+        Enabled = False
+        ShortCut = 16462
+      end
+      object Divider11: TMenuItem
+        Caption = '-'
+      end
+      object OpenMenuItem: TMenuItem
+        Caption = 'Open'
+        Enabled = False
+        ShortCut = 16463
+      end
+      object SaveMenuItem: TMenuItem
+        Caption = 'Save'
+        Enabled = False
+        ShortCut = 16467
+      end
+      object CloseMenuItem: TMenuItem
+        Caption = 'Close'
+        ShortCut = 16471
+      end
+      object Divider12: TMenuItem
+        Caption = '-'
+      end
+      object QuitMenuItem: TMenuItem
+        Caption = 'Quit'
+        ShortCut = 16465
+        OnClick = QuitMenuItemClick
+      end
+    end
+    object EditMenu: TMenuItem
+      Caption = 'Edit'
+      object UndoMenuItem: TMenuItem
+        Caption = 'Undo'
+        Enabled = False
+        ShortCut = 16474
+      end
+      object RedoMenuItem: TMenuItem
+        Caption = 'Redo'
+        Enabled = False
+        ShortCut = 24666
+      end
+      object Divider21: TMenuItem
+        Caption = '-'
+      end
+      object CutMenuItem: TMenuItem
+        Caption = 'Cut'
+        Enabled = False
+        ShortCut = 16451
+      end
+      object CopyMenuItem: TMenuItem
+        Caption = 'Copy'
+        Enabled = False
+        ShortCut = 16451
+      end
+      object PasteMenuItem: TMenuItem
+        Caption = 'Paste'
+        Enabled = False
+        ShortCut = 16470
+      end
+    end
+    object HelpMenu: TMenuItem
+      Caption = 'Help'
+      object WinAboutItem: TMenuItem
+        Caption = 'About Demo Simulator'
+        OnClick = WinAboutItemClick
+      end
+    end
+  end
+end
